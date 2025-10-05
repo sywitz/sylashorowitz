@@ -1,4 +1,4 @@
-/*
+﻿/*
   App.js is the root component of the application. It is the parent component that contains all other components.
   It imports the Header, Bio, and EngineeringPortfolio components and renders them inside a div with the class name "App".
 
@@ -15,6 +15,7 @@ import Bio from './components/Bio';
 import EngineeringPortfolio from './components/EngineeringPortfolio';
 import Art from './components/Art';
 import Papers from './components/Papers';
+import ProjectTemplate from './components/projects/ProjectTemplate';
 import './styles/App.css';
 
 function App() {
@@ -27,6 +28,7 @@ function App() {
         <Route path="/engineering" element={<EngineeringPortfolio />} />
         <Route path="/art" element={<Art />} />
         <Route path="/papers" element={<Papers />} />
+        <Route path="/projects/:projectId" element={<ProjectTemplate />} />
         <Route path="*" element={<Navigate to="/" />} /> {/* Redirect unknown routes */}
       </Routes>
     </Router>

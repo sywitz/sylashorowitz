@@ -1,0 +1,284 @@
+﻿/* ProjectTemplate.css - Simple, clean styling */
+
+.project-template {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+  background: rgba(225, 216, 195, 0.95);
+  border-radius: 16px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+  margin-top: 20px;
+  margin-bottom: 40px;
+}
+
+/* Hero Section */
+.project-hero {
+  display: flex;
+  align-items: center;
+  min-height: 60vh;
+  padding: 40px 0;
+  gap: 40px;
+}
+
+.hero-content {
+  flex: 1;
+  padding: 0 20px;
+}
+
+.back-link {
+  color: #2e604a;
+  text-decoration: none;
+  font-weight: 600;
+  margin-bottom: 20px;
+  display: inline-block;
+  transition: color 0.3s ease;
+}
+
+.back-link:hover {
+  color: #d4a373;
+}
+
+.project-hero h1 {
+  color: #2e604a;
+  font-size: 3.5rem;
+  font-weight: 700;
+  margin-bottom: 15px;
+  line-height: 1.2;
+}
+
+.project-subtitle {
+  color: #5a3d5c;
+  font-size: 1.3rem;
+  font-weight: 500;
+  margin-bottom: 20px;
+}
+
+.featured-badge {
+  background: #d4a373;
+  color: #2e604a;
+  padding: 8px 16px;
+  border-radius: 20px;
+  font-size: 0.9rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  display: inline-block;
+}
+
+.hero-image {
+  flex: 1;
+  max-width: 500px;
+}
+
+.hero-image img {
+  width: 100%;
+  height: auto;
+  border-radius: 12px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+}
+
+/* Project Overview */
+.project-overview {
+  background: #2e604a;
+  color: #e1d8c3;
+  padding: 40px;
+  margin: 40px 0;
+  border-radius: 16px;
+}
+
+.project-overview h2 {
+  color: #d4a373;
+  font-size: 2.2rem;
+  margin-bottom: 20px;
+}
+
+.project-overview p {
+  font-size: 1.1rem;
+  line-height: 1.7;
+  margin-bottom: 30px;
+}
+
+.achievements {
+  margin-bottom: 30px;
+}
+
+.achievements h3 {
+  color: #d4a373;
+  font-size: 1.3rem;
+  margin-bottom: 15px;
+}
+
+.achievements ul {
+  list-style: none;
+  padding: 0;
+}
+
+.achievements li {
+  padding: 8px 0;
+  padding-left: 20px;
+  position: relative;
+}
+
+.achievements li::before {
+  content: '';
+  color: #d4a373;
+  font-weight: bold;
+  position: absolute;
+  left: 0;
+}
+
+.skills-used h3 {
+  color: #d4a373;
+  font-size: 1.3rem;
+  margin-bottom: 15px;
+}
+
+.skills-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.skill-tag {
+  background: rgba(212, 163, 115, 0.2);
+  color: #d4a373;
+  padding: 8px 16px;
+  border-radius: 20px;
+  font-size: 0.9rem;
+  font-weight: 500;
+  border: 1px solid rgba(212, 163, 115, 0.3);
+}
+
+/* Story Sections */
+.project-story {
+  padding: 40px 0;
+}
+
+.section {
+  margin-bottom: 60px;
+  padding: 0 20px;
+}
+
+.section h2 {
+  color: #2e604a;
+  font-size: 2rem;
+  margin-bottom: 20px;
+  border-bottom: 3px solid #d4a373;
+  padding-bottom: 10px;
+  display: inline-block;
+}
+
+.section p {
+  color: #5a3d5c;
+  font-size: 1.1rem;
+  line-height: 1.7;
+  margin-bottom: 20px;
+}
+
+.section-image {
+  margin-top: 20px;
+}
+
+.section-image img {
+  width: 100%;
+  height: auto;
+  border-radius: 12px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+}
+
+/* Results Section */
+.project-results {
+  background: #2e604a;
+  color: #e1d8c3;
+  padding: 40px;
+  margin: 40px 0;
+  border-radius: 16px;
+}
+
+.project-results h2 {
+  color: #d4a373;
+  font-size: 2.2rem;
+  margin-bottom: 20px;
+}
+
+.project-results p {
+  font-size: 1.1rem;
+  line-height: 1.7;
+}
+
+/* Navigation */
+.project-navigation {
+  text-align: center;
+  padding: 40px 0;
+  border-top: 2px solid #d4a373;
+  margin-top: 40px;
+}
+
+.nav-link {
+  color: #2e604a;
+  text-decoration: none;
+  font-size: 1.2rem;
+  font-weight: 600;
+  padding: 12px 24px;
+  background: rgba(212, 163, 115, 0.2);
+  border-radius: 25px;
+  transition: all 0.3s ease;
+  display: inline-block;
+}
+
+.nav-link:hover {
+  background: #d4a373;
+  color: #2e604a;
+  transform: translateY(-2px);
+}
+
+/* Project Not Found */
+.project-not-found {
+  text-align: center;
+  padding: 60px 20px;
+  background: rgba(225, 216, 195, 0.95);
+  border-radius: 16px;
+  margin: 40px auto;
+  max-width: 600px;
+}
+
+.project-not-found h1 {
+  color: #2e604a;
+  margin-bottom: 20px;
+}
+
+.project-not-found p {
+  color: #5a3d5c;
+  margin-bottom: 30px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .project-hero {
+    flex-direction: column;
+    text-align: center;
+  }
+  
+  .project-hero h1 {
+    font-size: 2.5rem;
+  }
+  
+  .section {
+    padding: 0 10px;
+  }
+}
+
+@media (max-width: 480px) {
+  .project-template {
+    padding: 0 10px;
+  }
+  
+  .project-hero h1 {
+    font-size: 2rem;
+  }
+  
+  .project-overview,
+  .project-results {
+    padding: 20px;
+  }
+}

@@ -1,0 +1,105 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>Generate Placeholder Images</title>
+</head>
+<body>
+    <canvas id="canvas1" width="400" height="300" style="display:none;"></canvas>
+    <canvas id="canvas2" width="400" height="300" style="display:none;"></canvas>
+    <canvas id="canvas3" width="400" height="300" style="display:none;"></canvas>
+    <canvas id="canvas4" width="400" height="300" style="display:none;"></canvas>
+    <canvas id="canvas5" width="400" height="300" style="display:none;"></canvas>
+    
+    <script>
+        // Pultrusion Machine - Blue industrial theme
+        const canvas1 = document.getElementById('canvas1');
+        const ctx1 = canvas1.getContext('2d');
+        ctx1.fillStyle = '#1e3a8a';
+        ctx1.fillRect(0, 0, 400, 300);
+        ctx1.fillStyle = '#3b82f6';
+        ctx1.fillRect(50, 50, 300, 200);
+        ctx1.fillStyle = '#ffffff';
+        ctx1.font = '24px Arial';
+        ctx1.textAlign = 'center';
+        ctx1.fillText('PULTRUSION MACHINE', 200, 150);
+        
+        // Arctic ROV - Blue/white theme
+        const canvas2 = document.getElementById('canvas2');
+        const ctx2 = canvas2.getContext('2d');
+        ctx2.fillStyle = '#0ea5e9';
+        ctx2.fillRect(0, 0, 400, 300);
+        ctx2.fillStyle = '#ffffff';
+        ctx2.fillRect(100, 100, 200, 100);
+        ctx2.fillStyle = '#1e40af';
+        ctx2.font = '24px Arial';
+        ctx2.textAlign = 'center';
+        ctx2.fillText('ARCTIC ROV', 200, 150);
+        
+        // Guatemala Cookstove - Earth tones
+        const canvas3 = document.getElementById('canvas3');
+        const ctx3 = canvas3.getContext('2d');
+        ctx3.fillStyle = '#92400e';
+        ctx3.fillRect(0, 0, 400, 300);
+        ctx3.fillStyle = '#d97706';
+        ctx3.fillRect(150, 200, 100, 80);
+        ctx3.fillStyle = '#ffffff';
+        ctx3.font = '20px Arial';
+        ctx3.textAlign = 'center';
+        ctx3.fillText('GUATEMALA COOKSTOVE', 200, 120);
+        
+        // RE-VISE - Gray industrial
+        const canvas4 = document.getElementById('canvas4');
+        const ctx4 = canvas4.getContext('2d');
+        ctx4.fillStyle = '#374151';
+        ctx4.fillRect(0, 0, 400, 300);
+        ctx4.fillStyle = '#6b7280';
+        ctx4.fillRect(100, 100, 200, 100);
+        ctx4.fillStyle = '#ffffff';
+        ctx4.font = '28px Arial';
+        ctx4.textAlign = 'center';
+        ctx4.fillText('RE-VISE', 200, 150);
+        
+        // Yo-yo Manufacturing - Colorful
+        const canvas5 = document.getElementById('canvas5');
+        const ctx5 = canvas5.getContext('2d');
+        ctx5.fillStyle = '#10b981';
+        ctx5.fillRect(0, 0, 400, 300);
+        ctx5.fillStyle = '#fbbf24';
+        ctx5.beginPath();
+        ctx5.arc(200, 150, 50, 0, 2 * Math.PI);
+        ctx5.fill();
+        ctx5.fillStyle = '#ffffff';
+        ctx5.font = '18px Arial';
+        ctx5.textAlign = 'center';
+        ctx5.fillText('YO-YO MANUFACTURING', 200, 220);
+        
+        // Convert to data URLs and download
+        setTimeout(() => {
+            const link1 = document.createElement('a');
+            link1.download = 'pultrusion-machine.jpg';
+            link1.href = canvas1.toDataURL('image/jpeg');
+            link1.click();
+            
+            const link2 = document.createElement('a');
+            link2.download = 'arctic-rov.jpg';
+            link2.href = canvas2.toDataURL('image/jpeg');
+            link2.click();
+            
+            const link3 = document.createElement('a');
+            link3.download = 'guatemala-cookstove.jpg';
+            link3.href = canvas3.toDataURL('image/jpeg');
+            link3.click();
+            
+            const link4 = document.createElement('a');
+            link4.download = 're-vise.jpg';
+            link4.href = canvas4.toDataURL('image/jpeg');
+            link4.click();
+            
+            const link5 = document.createElement('a');
+            link5.download = 'yo-yo-manufacturing.jpg';
+            link5.href = canvas5.toDataURL('image/jpeg');
+            link5.click();
+        }, 1000);
+    </script>
+</body>
+</html>
