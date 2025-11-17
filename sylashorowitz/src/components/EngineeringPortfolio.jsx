@@ -50,7 +50,7 @@ const projects = [
     description: 'Integrated vise product that uses granular jamming to tightly grasp irregularly-shaped objects without damaging them. Built with a team of 20 students in MIT’s 2.009 Product Design course.',
     skills: ['P&ID', 'Product design process', 'CAD', 'Prototyping'],
     image: '/assets/images/project-thumbnails/re-vise.svg',
-    link: null,
+    link: '/projects/re-vise',
     featured: false
   },
   {
@@ -72,7 +72,7 @@ const projects = [
     description: 'Optimized support structure design for the underside of floating marina solar panels so they can support loads with minimal bending.',
     skills: ['SolidWorks', 'Load simulations', 'Design for manufacturing'],
     image: null,
-    link: null,
+    link: '/projects/marina-solar-supports',
     featured: false
   },
   {
@@ -105,7 +105,7 @@ const projects = [
     description: 'Led a team of fifteen students in the design, permitting, and construction of a two-story wooden castle.',
     skills: ['Autodesk Fusion 360', 'Structural design', 'Carpentry', 'Team collaboration'],
     image: null,
-    link: null,
+    link: '/projects/renaissance-castle',
     featured: false
   },
   {
@@ -116,7 +116,7 @@ const projects = [
     description: 'Waste bins made from heat-fused plastic water sachets to create value from waste in underserved Liberian communities.',
     skills: ['User-centered design', 'International development', 'SolidWorks', 'Education'],
     image: null,
-    link: null,
+    link: '/projects/liberia-recycled-waste-bins',
     featured: false
   },
   {
@@ -127,7 +127,7 @@ const projects = [
     description: 'Self-started project mimicking the motion of a rabbit\'s hop using kinematic synthesis, blending mechanical design, electronics, and art.',
     skills: ['CAD', 'Kinematic synthesis', 'Prototyping'],
     image: null,
-    link: null,
+    link: '/projects/mechanical-rabbit',
     featured: false
   },
   {
@@ -138,7 +138,7 @@ const projects = [
     description: 'Robot built for MIT’s 2.007 robotics competition that splits into two parts to lift an object and pull itself up a structure.',
     skills: ['SolidWorks', 'Mechatronics', 'Mechanical design', 'Metalworking'],
     image: null,
-    link: null,
+    link: 'https://a2bae79c-b1be-42fc-a60c-1835db62a790.filesusr.com/ugd/e700f3_675d215538fe4f76b64f5eb868588c0e.pdf',
     featured: false
   },
   {
@@ -149,7 +149,7 @@ const projects = [
     description: 'Flexible, lightweight solar panel system designed for mounting on the roofs of e-rickshaws for street vendors in Bihar, India.',
     skills: ['Product design', 'Energy analysis', 'Research'],
     image: null,
-    link: null,
+    link: '/projects/solar-panel-deployment-system',
     featured: false
   }
 ];
