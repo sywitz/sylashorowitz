@@ -4,6 +4,7 @@ frontend:
     preBuild:
       commands:
         - cd sylashorowitz
+        - corepack enable
         - pnpm install --frozen-lockfile
     build:
       commands:

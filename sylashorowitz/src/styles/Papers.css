@@ -218,7 +218,10 @@
   display: grid;
   grid-template-columns: 44px 1fr;
   gap: var(--spacing-xl);
+  align-items: start;
   scroll-margin-top: calc(var(--header-height) + var(--spacing-3xl));
+  /* Ensure content is never clipped */
+  overflow: visible;
 }
 
 .paper-card::before {
@@ -274,12 +277,18 @@
   flex-direction: column;
   gap: var(--spacing-base);
   min-width: 0;
+  /* Ensure content is not clipped by title */
+  width: 100%;
+  overflow: visible;
 }
 
 .paper-card-header {
   display: flex;
   flex-direction: column;
   gap: 4px;
+  /* Ensure header doesn't clip content below */
+  overflow: visible;
+  flex-shrink: 0;
 }
 
 .paper-card-header h3 {
@@ -310,6 +319,9 @@
   flex-direction: column;
   overflow: visible;
   min-height: 80px; /* Ensure consistent minimum height */
+  /* Ensure body content flows naturally without clipping */
+  flex: 1;
+  width: 100%;
 }
 
 .paper-card-text {
