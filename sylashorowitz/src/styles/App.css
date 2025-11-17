@@ -1,6 +1,6 @@
 ﻿/* App.css */
 body {
-  font-family: 'Poppins', sans-serif;
+  font-family: var(--font-family-primary);
   margin: 0;
   padding: 0;
   background: url('./solarpunk.png') no-repeat center center fixed;
@@ -15,13 +15,13 @@ body {
 /* Header styles */
 header {
   width: 100%;
-  background: #5a3d5c; /* Dark Purple */
-  padding: 15px 0;
+  background: var(--color-secondary);
+  padding: var(--spacing-header-padding) 0;
   position: fixed;
   top: 0;
   left: 0;
   text-align: center;
-  z-index: 1000;
+  z-index: var(--z-header);
 }
 
 nav ul {
@@ -30,7 +30,7 @@ nav ul {
   margin: 0;
   display: flex;
   justify-content: center;
-  gap: 20px;
+  gap: var(--spacing-nav-gap);
 }
 
 nav ul li {
@@ -39,51 +39,51 @@ nav ul li {
 
 nav ul li a {
   text-decoration: none;
-  color: #d4a373; /* Tan */
-  font-weight: bold;
-  padding: 10px 15px;
-  background: #2e604a; /* Deep Green */
-  border-radius: 8px;
-  transition: 0.3s;
+  color: var(--color-accent);
+  font-weight: var(--font-weight-bold);
+  padding: var(--spacing-nav-padding-y) var(--spacing-nav-padding-x);
+  background: var(--color-primary);
+  border-radius: var(--radius-sm);
+  transition: var(--transition-base);
 }
 
 nav ul li a:hover {
-  background: #1e4635;
+  background: var(--color-primary-dark);
 }
 
 /* Main app container */
 .App {
-  width: 90%;
-  max-width: 1400px;
-  margin-top: 80px; /* Push content below fixed header */
-  padding: 20px;
+  width: var(--app-width);
+  max-width: var(--max-width-container);
+  margin-top: var(--header-height);
+  padding: var(--spacing-xl);
   text-align: center;
 }
 
 /* Bio section */
 #bio {
-  background: rgba(225, 216, 195, 0.9); /* Semi-transparent tan */
-  padding: 30px;
-  border-radius: 12px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  border-left: 6px solid #2e604a; /* Deep Green */
-  max-width: 600px;
+  background: var(--color-bg-secondary);
+  padding: var(--spacing-bio-padding);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-md);
+  border-left: var(--spacing-bio-border) solid var(--color-primary);
+  max-width: var(--max-width-narrow);
   text-align: center;
   margin: auto; /* Centering */
 }
 
 #bio h1 {
-  color: #5a3d5c; /* Dark Purple */
+  color: var(--color-secondary);
 }
 
 #bio p {
-  color: #2e604a; /* Deep Green */
-  font-size: 18px;
+  color: var(--color-primary);
+  font-size: var(--font-size-bio);
 }
 
 /* Engineering Portfolio specific styles */
 #engineering {
-  background: transparent;
+  background: var(--color-bg-transparent);
   padding: 0;
   margin: 0;
   max-width: none;
@@ -93,14 +93,14 @@ nav ul li a:hover {
 /* Responsive Design */
 @media (max-width: 600px) {
   .App {
-    width: 95%;
-    margin-top: 120px; /* Adjust for smaller header spacing */
-    padding: 15px;
+    width: var(--app-width-mobile);
+    margin-top: var(--header-height-mobile);
+    padding: var(--spacing-lg);
   }
 
   nav ul {
     flex-direction: column;
-    gap: 10px;
+    gap: var(--spacing-md);
   }
 
   nav ul li a {
@@ -111,6 +111,6 @@ nav ul li a:hover {
 
   #bio {
     max-width: 90%;
-    padding: 20px;
+    padding: var(--spacing-xl);
   }
 }

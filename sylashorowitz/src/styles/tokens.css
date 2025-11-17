@@ -1,0 +1,209 @@
+/* Design Tokens - Centralized design system variables */
+
+:root {
+  /* ============================================
+     COLOR SYSTEM
+     ============================================ */
+  
+  /* Primary Colors - Deep Green */
+  --color-primary: #2e604a;
+  --color-primary-dark: #1e4635;
+  --color-primary-light: #3a7a5f;
+  
+  /* Secondary Colors - Dark Purple */
+  --color-secondary: #5a3d5c;
+  --color-secondary-light: #6b4a6d;
+  
+  /* Accent Colors - Tan/Beige */
+  --color-accent: #d4a373;
+  --color-accent-light: #e1d8c3;
+  --color-accent-hover: #f4d03f;
+  
+  /* Background Colors */
+  --color-bg-primary: rgba(225, 216, 195, 0.95);
+  --color-bg-secondary: rgba(225, 216, 195, 0.9);
+  --color-bg-card: #2e604a;
+  --color-bg-transparent: transparent;
+  
+  /* Text Colors */
+  --color-text-primary: #2e604a;
+  --color-text-secondary: #5a3d5c;
+  --color-text-on-dark: #e1d8c3;
+  --color-text-accent: #d4a373;
+  
+  /* Link Colors */
+  --color-link: #d4a373;
+  --color-link-hover: #f4d03f;
+  
+  /* Border Colors */
+  --color-border: #2e604a;
+  --color-border-accent: #d4a373;
+  
+  /* Accent with Opacity (for backgrounds, borders) */
+  --color-accent-alpha-20: rgba(212, 163, 115, 0.2);
+  --color-accent-alpha-30: rgba(212, 163, 115, 0.3);
+  
+  /* Shadow Colors */
+  --color-shadow: rgba(0, 0, 0, 0.1);
+  --color-shadow-medium: rgba(0, 0, 0, 0.15);
+  --color-shadow-dark: rgba(0, 0, 0, 0.2);
+  --color-shadow-accent: rgba(212, 163, 115, 0.3);
+  
+  /* ============================================
+     SPACING SYSTEM
+     ============================================ */
+  
+  --spacing-xs: 4px;
+  --spacing-sm: 8px;
+  --spacing-md: 10px;
+  --spacing-base: 12px;
+  --spacing-lg: 15px;
+  --spacing-xl: 20px;
+  --spacing-2xl: 24px;
+  --spacing-3xl: 30px;
+  --spacing-4xl: 40px;
+  --spacing-5xl: 50px;
+  --spacing-6xl: 60px;
+  
+  /* Component-specific spacing */
+  --spacing-header-padding: 15px;
+  --spacing-card-padding: 25px;
+  --spacing-section-padding: 40px;
+  --spacing-nav-gap: 20px;
+  --spacing-nav-padding-y: 10px;
+  --spacing-nav-padding-x: 15px;
+  --spacing-bio-padding: 30px;
+  --spacing-bio-border: 6px;
+  
+  /* ============================================
+     TYPOGRAPHY
+     ============================================ */
+  
+  /* Font Families */
+  --font-family-primary: 'Poppins', sans-serif;
+  --font-family-system: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+  --font-family-mono: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
+  
+  /* Font Sizes */
+  --font-size-xs: 0.8rem;
+  --font-size-sm: 0.9rem;
+  --font-size-base: 1rem;
+  --font-size-lg: 1.1rem;
+  --font-size-xl: 1.2rem;
+  --font-size-2xl: 1.3rem;
+  --font-size-3xl: 1.4rem;
+  --font-size-4xl: 2rem;
+  --font-size-5xl: 2.2rem;
+  --font-size-6xl: 3rem;
+  --font-size-7xl: 3.5rem;
+  
+  /* Component-specific font sizes */
+  --font-size-bio: 18px;
+  --font-size-portfolio-header: 3rem;
+  --font-size-portfolio-subtitle: 1.2rem;
+  --font-size-project-title: 1.4rem;
+  --font-size-project-hero: 3.5rem;
+  --font-size-project-subtitle: 1.3rem;
+  --font-size-project-overview-heading: 2.2rem;
+  --font-size-section-heading: 2rem;
+  --font-size-nav-link: 1.2rem;
+  
+  /* Font Weights */
+  --font-weight-normal: 400;
+  --font-weight-medium: 500;
+  --font-weight-semibold: 600;
+  --font-weight-bold: 700;
+  
+  /* Line Heights */
+  --line-height-tight: 1.2;
+  --line-height-normal: 1.3;
+  --line-height-relaxed: 1.6;
+  --line-height-loose: 1.7;
+  
+  /* Letter Spacing */
+  --letter-spacing-tight: 1px;
+  
+  /* ============================================
+     BORDER WIDTHS
+     ============================================ */
+  
+  --border-width-thin: 1px;
+  --border-width-medium: 2px;
+  --border-width-thick: 3px;
+  
+  /* ============================================
+     BORDER RADIUS
+     ============================================ */
+  
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 16px;
+  --radius-xl: 20px;
+  --radius-2xl: 25px;
+  --radius-full: 9999px;
+  
+  /* ============================================
+     SHADOWS
+     ============================================ */
+  
+  --shadow-sm: 0 2px 8px var(--color-shadow);
+  --shadow-md: 0 4px 8px var(--color-shadow);
+  --shadow-lg: 0 8px 24px var(--color-shadow-medium);
+  --shadow-xl: 0 8px 32px var(--color-shadow);
+  --shadow-2xl: 0 16px 40px var(--color-shadow-dark);
+  --shadow-accent: 0 8px 24px var(--color-shadow-accent);
+  --shadow-text: 2px 2px 4px var(--color-shadow);
+  
+  /* ============================================
+     TRANSITIONS
+     ============================================ */
+  
+  --transition-fast: 0.15s ease;
+  --transition-base: 0.3s ease;
+  --transition-slow: 0.5s ease;
+  
+  /* ============================================
+     LAYOUT
+     ============================================ */
+  
+  --max-width-container: 1400px;
+  --max-width-content: 1200px;
+  --max-width-narrow: 600px;
+  --max-width-project-grid: 350px;
+  
+  --header-height: 80px;
+  --header-height-mobile: 120px;
+  
+  --app-width: 90%;
+  --app-width-mobile: 95%;
+  
+  /* Image/Container Heights */
+  --height-project-image: 250px;
+  --height-project-image-mobile: 200px;
+  
+  /* Transform Offsets */
+  --transform-offset-sm: -1px;
+  --transform-offset-md: -2px;
+  --transform-offset-lg: -8px;
+  
+  /* Hero Image Max Width */
+  --max-width-hero-image: 500px;
+  
+  /* ============================================
+     Z-INDEX
+     ============================================ */
+  
+  --z-header: 1000;
+  --z-modal: 2000;
+  --z-tooltip: 3000;
+  
+  /* ============================================
+     RESPONSIVE BREAKPOINTS
+     ============================================ */
+  
+  --breakpoint-mobile: 600px;
+  --breakpoint-tablet: 768px;
+  --breakpoint-mobile-small: 480px;
+}
+
