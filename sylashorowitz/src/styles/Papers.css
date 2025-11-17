@@ -1,4 +1,4 @@
-/* Papers Section - High-Quality Academic Portfolio Design */
+/* Papers Section - Redesigned with clean, reliable layout */
 
 #papers {
   margin: calc(var(--header-height) + var(--spacing-5xl)) auto var(--spacing-6xl);
@@ -8,7 +8,7 @@
   box-sizing: border-box;
 }
 
-.papers-layout {
+.papers-container {
   display: grid;
   grid-template-columns: 360px 1fr;
   gap: var(--spacing-6xl);
@@ -26,10 +26,8 @@
   display: flex;
   flex-direction: column;
   gap: var(--spacing-3xl);
-  /* FIX: Consistent offset calculation - matches top position */
   max-height: calc(100vh - var(--header-height) - var(--spacing-3xl) - var(--spacing-3xl));
   overflow-y: auto;
-  /* FIX: Add z-index to ensure TOC stays above scrolling content */
   z-index: 100;
   scrollbar-width: thin;
   scrollbar-color: rgba(46, 96, 74, 0.3) transparent;
@@ -192,17 +190,17 @@
 }
 
 /* ============================================
-   PAPERS LIST
+   PAPERS CONTENT AREA
    ============================================ */
 
-.papers-list {
+.papers-content {
   display: flex;
   flex-direction: column;
-  gap: var(--spacing-2xl);
+  gap: var(--spacing-3xl);
 }
 
 /* ============================================
-   PAPER CARD - Compact, High-Quality Design
+   PAPER CARD - Clean Block Layout
    ============================================ */
 
 .paper-card {
@@ -212,16 +210,10 @@
   border-radius: 10px;
   border: 1px solid rgba(46, 96, 74, 0.15);
   box-shadow: 0 3px 12px rgba(0, 0, 0, 0.05), 0 1px 3px rgba(0, 0, 0, 0.03);
-  padding: var(--spacing-2xl);
+  padding: var(--spacing-3xl);
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   position: relative;
-  display: grid;
-  grid-template-columns: 44px 1fr;
-  gap: var(--spacing-xl);
-  align-items: start;
   scroll-margin-top: calc(var(--header-height) + var(--spacing-3xl));
-  /* Ensure content is never clipped */
-  overflow: visible;
 }
 
 .paper-card::before {
@@ -234,7 +226,7 @@
   background: linear-gradient(90deg, var(--color-primary) 0%, var(--color-accent) 100%);
   opacity: 0;
   transition: opacity 0.3s ease;
-  border-radius: 12px 12px 0 0;
+  border-radius: 10px 10px 0 0;
 }
 
 .paper-card:hover {
@@ -247,11 +239,13 @@
   opacity: 1;
 }
 
-/* Paper Number Badge */
+/* Paper Number Badge - Positioned absolutely at top right */
 .paper-card-number {
+  position: absolute;
+  top: var(--spacing-2xl);
+  right: var(--spacing-2xl);
   width: 44px;
   height: 44px;
-  flex-shrink: 0;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -262,6 +256,7 @@
   border: 2px solid rgba(46, 96, 74, 0.2);
   border-radius: 50%;
   transition: all 0.3s ease;
+  z-index: 1;
 }
 
 .paper-card:hover .paper-card-number {
@@ -271,34 +266,19 @@
   transform: scale(1.05);
 }
 
-/* Paper Content */
-.paper-card-content {
-  display: flex;
-  flex-direction: column;
-  gap: var(--spacing-base);
-  min-width: 0;
-  /* Ensure content is not clipped by title */
-  width: 100%;
-  overflow: visible;
-}
-
+/* Paper Header - Clear block-level spacing */
 .paper-card-header {
-  display: flex;
-  flex-direction: column;
-  gap: 4px;
-  /* Ensure header doesn't clip content below */
-  overflow: visible;
-  flex-shrink: 0;
+  margin-bottom: var(--spacing-xl);
+  padding-right: 60px; /* Space for number badge */
 }
 
-.paper-card-header h3 {
-  margin: 0;
+.paper-card-title {
+  margin: 0 0 var(--spacing-sm);
   color: var(--color-primary);
-  font-size: 1.15rem;
+  font-size: 1.25rem;
   font-weight: 700;
-  line-height: 1.35;
+  line-height: 1.4;
   letter-spacing: -0.2px;
-  /* Ensure long titles wrap properly and never clip */
   overflow-wrap: break-word;
   word-wrap: break-word;
   hyphens: auto;
@@ -306,29 +286,24 @@
 
 .paper-card-subtitle {
   margin: 0;
-  font-size: 0.85rem;
+  font-size: 0.9rem;
   color: var(--color-secondary);
   font-style: italic;
   font-weight: 500;
   opacity: 0.9;
+  line-height: 1.5;
 }
 
-/* Paper Body */
+/* Paper Body - Clear separation from header */
 .paper-card-body {
-  display: flex;
-  flex-direction: column;
-  overflow: visible;
-  min-height: 80px; /* Ensure consistent minimum height */
-  /* Ensure body content flows naturally without clipping */
-  flex: 1;
-  width: 100%;
+  margin-bottom: var(--spacing-xl);
 }
 
 .paper-card-text {
   margin: 0;
   color: var(--color-text-secondary);
-  font-size: 0.9rem;
-  line-height: 1.7;
+  font-size: 0.95rem;
+  line-height: 1.75;
   overflow-wrap: break-word;
   word-wrap: break-word;
   transition: all 0.3s ease;
@@ -339,14 +314,13 @@
   display: flex;
   align-items: center;
   gap: var(--spacing-sm);
-  margin-top: var(--spacing-base);
   flex-wrap: wrap;
 }
 
 /* Expand/Collapse Button */
 .btn-expand {
-  padding: 6px var(--spacing-lg);
-  font-size: 0.8rem;
+  padding: 8px var(--spacing-lg);
+  font-size: 0.85rem;
   font-weight: 600;
   border-radius: 100px;
   border: 1px solid var(--color-primary);
@@ -368,8 +342,8 @@
 }
 
 .btn-paper-link {
-  padding: 6px var(--spacing-lg);
-  font-size: 0.8rem;
+  padding: 8px var(--spacing-lg);
+  font-size: 0.85rem;
   font-weight: 600;
   border-radius: 100px;
   border: 1px solid var(--color-primary);
@@ -412,14 +386,14 @@
     padding: 0 var(--spacing-4xl);
   }
   
-  .papers-layout {
+  .papers-container {
     grid-template-columns: 320px 1fr;
     gap: var(--spacing-5xl);
   }
 }
 
 @media (max-width: 1200px) {
-  .papers-layout {
+  .papers-container {
     grid-template-columns: 280px 1fr;
     gap: var(--spacing-4xl);
   }
@@ -440,12 +414,11 @@
     margin-top: calc(var(--header-height) + var(--spacing-4xl));
   }
   
-  .papers-layout {
+  .papers-container {
     grid-template-columns: 1fr;
     gap: var(--spacing-4xl);
   }
   
-  /* FIX: Keep TOC sticky on tablets, just adjust positioning */
   .papers-sidebar {
     position: sticky;
     top: calc(var(--header-height) + var(--spacing-2xl));
@@ -459,13 +432,12 @@
     margin-top: calc(var(--header-height) + var(--spacing-3xl));
   }
   
-  .papers-layout {
+  .papers-container {
     gap: var(--spacing-3xl);
   }
   
   .papers-sidebar {
     gap: var(--spacing-2xl);
-    /* FIX: Adjust sticky positioning for smaller screens */
     top: calc(var(--header-height) + var(--spacing-xl));
     max-height: calc(100vh - var(--header-height) - var(--spacing-xl) - var(--spacing-xl));
   }
@@ -483,23 +455,27 @@
     padding: var(--spacing-2xl);
   }
   
-  .papers-list {
+  .papers-content {
     gap: var(--spacing-2xl);
   }
   
   .paper-card {
     padding: var(--spacing-2xl);
-    grid-template-columns: 40px 1fr;
-    gap: var(--spacing-lg);
   }
   
   .paper-card-number {
     width: 40px;
     height: 40px;
-    font-size: 1rem;
+    font-size: 0.9rem;
+    top: var(--spacing-lg);
+    right: var(--spacing-lg);
   }
   
-  .paper-card-header h3 {
+  .paper-card-header {
+    padding-right: 50px;
+  }
+  
+  .paper-card-title {
     font-size: 1.15rem;
   }
   
@@ -508,12 +484,8 @@
   }
   
   .paper-card-text {
-    font-size: 0.88rem;
-    line-height: 1.65;
-  }
-  
-  .paper-card-body {
-    min-height: 70px;
+    font-size: 0.9rem;
+    line-height: 1.7;
   }
 }
 
@@ -522,7 +494,6 @@
     padding: 0 var(--spacing-lg);
   }
   
-  /* FIX: On very small screens, make sidebar static for better UX */
   .papers-sidebar {
     position: static;
     max-height: none;
@@ -548,30 +519,30 @@
   }
   
   .paper-card {
-    grid-template-columns: 1fr;
-    gap: var(--spacing-lg);
+    padding: var(--spacing-xl);
   }
   
   .paper-card-number {
-    position: absolute;
-    top: var(--spacing-lg);
-    right: var(--spacing-lg);
     width: 36px;
     height: 36px;
-    font-size: 0.9rem;
-  }
-  
-  .paper-card-header h3 {
-    font-size: 1rem;
-    padding-right: 50px;
-  }
-  
-  .paper-card-text {
     font-size: 0.85rem;
   }
   
+  .paper-card-header {
+    padding-right: 45px;
+    margin-bottom: var(--spacing-lg);
+  }
+  
+  .paper-card-title {
+    font-size: 1.05rem;
+  }
+  
   .paper-card-body {
-    min-height: 60px;
+    margin-bottom: var(--spacing-lg);
+  }
+  
+  .paper-card-text {
+    font-size: 0.88rem;
   }
   
   .paper-card-actions {
