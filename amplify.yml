@@ -4,14 +4,15 @@ frontend:
     preBuild:
       commands:
         - cd sylashorowitz
-        - npm ci
+        - pnpm install --frozen-lockfile
     build:
       commands:
-        - npm run build
+        - pnpm run build
   artifacts:
-    baseDirectory: sylashorowitz/build
+    baseDirectory: sylashorowitz/dist
     files:
       - '**/*'
   cache:
     paths:
-      - sylashorowitz/node_modules/**/* 
+      - sylashorowitz/node_modules/**/*
+      - ~/.pnpm-store/**/* 
