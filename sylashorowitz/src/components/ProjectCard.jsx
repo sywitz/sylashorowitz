@@ -6,29 +6,46 @@ It displays project information including image, title with link, institution, y
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-function ProjectCard({ 
-  id, 
-  title, 
-  institution, 
-  year, 
-  description, 
-  skills, 
-  image, 
-  link, 
-  featured 
+function ProjectCard({
+  id,
+  title,
+  institution,
+  year,
+  description,
+  skills = [],
+  image,
+  link,
+  featured
 }) {
+  const isExternalLink = link && /^https?:\/\//i.test(link);
+  const TitleComponent = link ? (isExternalLink ? 'a' : Link) : 'span';
+  const linkProps = isExternalLink
+    ? { href: link, target: '_blank', rel: 'noopener noreferrer' }
+    : link
+      ? { to: link }
+      : {};
+
   return (
     <div className="project-card">
-      <div className="project-image-container">
-        <img src={image} alt={title} className="project-image" />
+      <div className={`project-image-container ${image ? '' : 'no-image'}`}>
+        {image ? (
+          <img src={image} alt={title} className="project-image" loading="lazy" />
+        ) : (
+          <div className="project-image-placeholder" aria-hidden="true">
+            <span>{title}</span>
+          </div>
+        )}
         {featured && <div className="featured-badge">FEATURED</div>}
       </div>
       
       <div className="project-content">
         <div className="project-header">
-          <Link to={link} className="project-title">
+          <TitleComponent
+            {...linkProps}
+            className={`project-title${link ? '' : ' project-title-static'}`}
+          >
             {title}
-          </Link>
+          </TitleComponent>
           <div className="project-meta">
             <span className="institution">{institution}</span>
             <span className="year">{year}</span>

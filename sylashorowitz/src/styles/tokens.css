@@ -10,14 +10,15 @@
   --color-primary-dark: #1e4635;
   --color-primary-light: #3a7a5f;
   
-  /* Secondary Colors - Dark Purple */
-  --color-secondary: #5a3d5c;
-  --color-secondary-light: #6b4a6d;
+  /* Secondary Colors - Muted Teal/Green (more harmonious with primary) */
+  --color-secondary: #3d5a4f;
+  --color-secondary-light: #4a6d5f;
+  --color-secondary-dark: #2d4539;
   
-  /* Accent Colors - Tan/Beige */
-  --color-accent: #d4a373;
+  /* Accent Colors - Tan/Beige (muted for better readability) */
+  --color-accent: #b8926a;
   --color-accent-light: #e1d8c3;
-  --color-accent-hover: #f4d03f;
+  --color-accent-hover: #2e604a;
   
   /* Background Colors */
   --color-bg-primary: rgba(225, 216, 195, 0.95);
@@ -25,29 +26,36 @@
   --color-bg-card: #2e604a;
   --color-bg-transparent: transparent;
   
+  /* Glassmorphism Colors */
+  --color-glass-bg: rgba(225, 216, 195, 0.75);
+  --color-glass-bg-strong: rgba(225, 216, 195, 0.85);
+  --color-glass-border: rgba(46, 96, 74, 0.2);
+  
   /* Text Colors */
   --color-text-primary: #2e604a;
-  --color-text-secondary: #5a3d5c;
+  --color-text-secondary: #3d5a4f;
   --color-text-on-dark: #e1d8c3;
-  --color-text-accent: #d4a373;
+  --color-text-accent: #b8926a;
   
   /* Link Colors */
-  --color-link: #d4a373;
-  --color-link-hover: #f4d03f;
+  --color-link: #b8926a;
+  --color-link-hover: #2e604a;
   
   /* Border Colors */
   --color-border: #2e604a;
-  --color-border-accent: #d4a373;
+  --color-border-accent: #b8926a;
   
   /* Accent with Opacity (for backgrounds, borders) */
-  --color-accent-alpha-20: rgba(212, 163, 115, 0.2);
-  --color-accent-alpha-30: rgba(212, 163, 115, 0.3);
+  --color-accent-alpha-20: rgba(184, 146, 106, 0.2);
+  --color-accent-alpha-30: rgba(184, 146, 106, 0.3);
   
   /* Shadow Colors */
   --color-shadow: rgba(0, 0, 0, 0.1);
   --color-shadow-medium: rgba(0, 0, 0, 0.15);
   --color-shadow-dark: rgba(0, 0, 0, 0.2);
-  --color-shadow-accent: rgba(212, 163, 115, 0.3);
+  --color-shadow-accent: rgba(184, 146, 106, 0.3);
+  --color-shadow-glass: rgba(0, 0, 0, 0.1);
+  --color-shadow-glass-strong: rgba(0, 0, 0, 0.15);
   
   /* ============================================
      SPACING SYSTEM
@@ -154,6 +162,8 @@
   --shadow-2xl: 0 16px 40px var(--color-shadow-dark);
   --shadow-accent: 0 8px 24px var(--color-shadow-accent);
   --shadow-text: 2px 2px 4px var(--color-shadow);
+  --shadow-glass: 0 8px 32px var(--color-shadow-glass), 0 2px 8px var(--color-shadow-glass-strong);
+  --shadow-glass-strong: 0 12px 40px var(--color-shadow-glass-strong), 0 4px 12px var(--color-shadow-glass);
   
   /* ============================================
      TRANSITIONS
@@ -170,7 +180,7 @@
   --max-width-container: 1400px;
   --max-width-content: 1200px;
   --max-width-narrow: 600px;
-  --max-width-project-grid: 350px;
+  --max-width-project-grid: 300px;
   
   --header-height: 80px;
   --header-height-mobile: 120px;

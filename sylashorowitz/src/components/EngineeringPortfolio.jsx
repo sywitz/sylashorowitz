@@ -14,8 +14,8 @@ const projects = [
     title: 'PULTRUSION MACHINE',
     institution: 'Technical University of Denmark',
     year: '2023',
-    description: 'Designed and built a thermoplastic pultrusion machine for testing sustainable and recyclable materials for wind turbine blade spar caps. The machine features novel die design, advanced puller mechanisms, and innovative fiber commingling systems.',
-    skills: ['Mechatronics', 'Machine Design', 'CAD/CAM', 'SolidWorks', 'DFM'],
+    description: 'Thermoplastic pultrusion machine for testing the manufacturing of more sustainable and recyclable materials for wind turbine blade spar caps. Designed novel die, puller, and thermoplastic fiber commingling mechanisms.',
+    skills: ['Mechatronics', 'Machine design', 'CAD/CAM', 'SolidWorks', 'DFM', 'COMSOL Thermal FEA', 'Prototyping'],
     image: '/assets/images/project-thumbnails/pultrusion-machine.svg',
     link: '/projects/pultrusion-machine',
     featured: false
@@ -25,8 +25,8 @@ const projects = [
     title: 'ARCTIC ROV',
     institution: 'MIT Research',
     year: '2020-2022',
-    description: 'Developed a motorized tether management system for an underwater Remotely Operated Vehicle (ROV) designed for Arctic deployment to map greenhouse gas emissions from permafrost. The system enables precise positioning and data collection in extreme conditions.',
-    skills: ['SolidWorks', 'Arduino', 'Mechatronics', 'Systems Integration', 'Research'],
+    description: 'Motorized tether management system for an underwater ROV that will be deployed in the Arctic to map greenhouse gas emissions from permafrost.',
+    skills: ['SolidWorks', 'Arduino', 'Mechatronics', 'Systems integration', 'Research'],
     image: '/assets/images/project-thumbnails/arctic-rov.svg',
     link: '/projects/arctic-rov',
     featured: true
@@ -36,10 +36,10 @@ const projects = [
     title: 'Guatemala Cookstove',
     institution: 'Thesis',
     year: '2021-2022',
-    description: 'Co-designed, prototyped, and tested a concrete "plancha" style cookstove with the community in Santa Catarina, Guatemala. The project focused on sustainable cooking solutions and community engagement through user-centered design.',
-    skills: ['User-Centered Design', 'Co-Creation', 'International Development', 'Prototyping', 'Concrete', 'Burn Testing'],
+    description: 'Co-designed, prototyped, and tested a concrete "plancha" style cookstove with the community in Santa Catarina, Guatemala.',
+    skills: ['User-centered design', 'Co-creation', 'International development', 'Prototyping', 'Concrete', 'Burn testing'],
     image: '/assets/images/project-thumbnails/guatemala-cookstove.svg',
-    link: '/projects/guatemala-cookstove',
+    link: 'https://a2bae79c-b1be-42fc-a60c-1835db62a790.filesusr.com/ugd/1e4865_3621cba3ab754f02a4f699e63ee61ea4.pdf',
     featured: false
   },
   {
@@ -47,10 +47,10 @@ const projects = [
     title: 'RE-VISE',
     institution: 'Capstone',
     year: '2021',
-    description: 'Created an integrated vise product using granular jamming technology to tightly grasp irregularly-shaped objects (like foundry models) without damage. Developed as part of a Product Design capstone with a team of 20 students.',
-    skills: ['P&ID', 'Product Design Process', 'CAD', 'Prototyping'],
+    description: 'Integrated vise product that uses granular jamming to tightly grasp irregularly-shaped objects without damaging them. Built with a team of 20 students in MIT’s 2.009 Product Design course.',
+    skills: ['P&ID', 'Product design process', 'CAD', 'Prototyping'],
     image: '/assets/images/project-thumbnails/re-vise.svg',
-    link: '/projects/re-vise',
+    link: null,
     featured: false
   },
   {
@@ -58,10 +58,98 @@ const projects = [
     title: 'YO-YO MANUFACTURING',
     institution: 'Class Project',
     year: '2021',
-    description: 'Designed and manufactured 50 Teenage Mutant Ninja Turtle-themed yo-yos for a Design & Manufacturing II class. Worked with a team of 7 students to create a complete manufacturing process from design to production.',
-    skills: ['CAD/CAM', 'DFM', 'Autodesk Fusion 360', 'CNC Milling', 'Injection Molding', 'Thermoforming'],
+    description: 'Produced 50 Teenage Mutant Ninja Turtle themed yo-yos for MIT Design & Manufacturing II (2.008) with a team of seven students, covering the full process from design to production.',
+    skills: ['CAD/CAM', 'DFM', 'Autodesk Fusion 360', 'CNC milling', 'Injection molding', 'Thermoforming'],
     image: '/assets/images/project-thumbnails/yo-yo-manufacturing.svg',
-    link: '/projects/yo-yo-manufacturing',
+    link: null,
+    featured: false
+  },
+  {
+    id: 'marina-solar-supports',
+    title: 'MARINA SOLAR PANEL SUPPORTS',
+    institution: 'E2SOL Internship',
+    year: '2021',
+    description: 'Optimized support structure design for the underside of floating marina solar panels so they can support loads with minimal bending.',
+    skills: ['SolidWorks', 'Load simulations', 'Design for manufacturing'],
+    image: null,
+    link: null,
+    featured: false
+  },
+  {
+    id: 'vehicle-to-grid-cargo-box',
+    title: 'VEHICLE TO GRID CARGO BOX',
+    institution: 'E2SOL Internship',
+    year: '2021',
+    description: 'Solar cargo box with battery storage and inverter that can be placed on top of cars for vehicle-to-grid or on-the-go charging.',
+    skills: ['Prototyping', 'Energy systems', 'Product design'],
+    image: null,
+    link: null,
+    featured: false
+  },
+  {
+    id: 'highway-solar-canopy',
+    title: 'HIGHWAY SOLAR CANOPY',
+    institution: 'E2SOL Internship',
+    year: '2021',
+    description: 'Solar canopies designed for rapid mounting on standard highway median barriers, supported with case studies for Rhode Island and Massachusetts DOT.',
+    skills: ['SolidWorks', 'Urban planning', 'Public policy'],
+    image: null,
+    link: null,
+    featured: false
+  },
+  {
+    id: 'renaissance-castle',
+    title: 'RENAISSANCE CASTLE',
+    institution: 'Student Group',
+    year: '2020-2021',
+    description: 'Led a team of fifteen students in the design, permitting, and construction of a two-story wooden castle.',
+    skills: ['Autodesk Fusion 360', 'Structural design', 'Carpentry', 'Team collaboration'],
+    image: null,
+    link: null,
+    featured: false
+  },
+  {
+    id: 'liberia-recycled-waste-bins',
+    title: 'LIBERIA: RECYCLED WASTE BINS',
+    institution: 'Class Project',
+    year: '2021',
+    description: 'Waste bins made from heat-fused plastic water sachets to create value from waste in underserved Liberian communities.',
+    skills: ['User-centered design', 'International development', 'SolidWorks', 'Education'],
+    image: null,
+    link: null,
+    featured: false
+  },
+  {
+    id: 'mechanical-rabbit',
+    title: 'MECHANICAL RABBIT',
+    institution: 'Independent Project',
+    year: '2020',
+    description: 'Self-started project mimicking the motion of a rabbit\'s hop using kinematic synthesis, blending mechanical design, electronics, and art.',
+    skills: ['CAD', 'Kinematic synthesis', 'Prototyping'],
+    image: null,
+    link: null,
+    featured: false
+  },
+  {
+    id: 'two007-robot',
+    title: '2.007 ROBOT',
+    institution: 'Class Project',
+    year: '2020',
+    description: 'Robot built for MIT’s 2.007 robotics competition that splits into two parts to lift an object and pull itself up a structure.',
+    skills: ['SolidWorks', 'Mechatronics', 'Mechanical design', 'Metalworking'],
+    image: null,
+    link: null,
+    featured: false
+  },
+  {
+    id: 'solar-panel-deployment-system',
+    title: 'SOLAR PANEL DEPLOYMENT SYSTEM',
+    institution: 'MIT Research',
+    year: '2019',
+    description: 'Flexible, lightweight solar panel system designed for mounting on the roofs of e-rickshaws for street vendors in Bihar, India.',
+    skills: ['Product design', 'Energy analysis', 'Research'],
+    image: null,
+    link: null,
     featured: false
   }
 ];

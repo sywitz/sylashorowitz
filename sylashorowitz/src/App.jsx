@@ -12,25 +12,37 @@ import React from 'react';
 import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
 import Header from './components/Header';
 import Bio from './components/Bio';
+import Welcome from './components/Welcome';
 import EngineeringPortfolio from './components/EngineeringPortfolio';
 import Art from './components/Art';
 import Papers from './components/Papers';
 import ProjectTemplate from './components/projects/ProjectTemplate';
 import './styles/App.css';
 
+function BioPage() {
+  return (
+    <>
+      <Welcome />
+      <Bio />
+    </>
+  );
+}
+
 function App() {
   return (
     <Router>
       <Header />
-      <Routes>
-        <Route path="/" element={<Bio />} /> {/* Default route */}
-        <Route path="/bio" element={<Bio />} />
-        <Route path="/engineering" element={<EngineeringPortfolio />} />
-        <Route path="/art" element={<Art />} />
-        <Route path="/papers" element={<Papers />} />
-        <Route path="/projects/:projectId" element={<ProjectTemplate />} />
-        <Route path="*" element={<Navigate to="/" />} /> {/* Redirect unknown routes */}
-      </Routes>
+      <main className="page-content">
+        <Routes>
+          <Route path="/" element={<BioPage />} /> {/* Default route */}
+          <Route path="/bio" element={<BioPage />} />
+          <Route path="/engineering" element={<EngineeringPortfolio />} />
+          <Route path="/art" element={<Art />} />
+          <Route path="/papers" element={<Papers />} />
+          <Route path="/projects/:projectId" element={<ProjectTemplate />} />
+          <Route path="*" element={<Navigate to="/" />} /> {/* Redirect unknown routes */}
+        </Routes>
+      </main>
     </Router>
   );
 }

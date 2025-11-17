@@ -1,0 +1,577 @@
+/* Papers Section - High-Quality Academic Portfolio Design */
+
+#papers {
+  margin: calc(var(--header-height) + var(--spacing-5xl)) auto var(--spacing-6xl);
+  width: 100%;
+  max-width: 1400px;
+  padding: 0 var(--spacing-5xl);
+  box-sizing: border-box;
+}
+
+.papers-layout {
+  display: grid;
+  grid-template-columns: 360px 1fr;
+  gap: var(--spacing-6xl);
+  align-items: start;
+}
+
+/* ============================================
+   SIDEBAR - Intro + Table of Contents
+   ============================================ */
+
+.papers-sidebar {
+  position: sticky;
+  top: calc(var(--header-height) + var(--spacing-3xl));
+  align-self: start;
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-3xl);
+  /* FIX: Consistent offset calculation - matches top position */
+  max-height: calc(100vh - var(--header-height) - var(--spacing-3xl) - var(--spacing-3xl));
+  overflow-y: auto;
+  /* FIX: Add z-index to ensure TOC stays above scrolling content */
+  z-index: 100;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(46, 96, 74, 0.3) transparent;
+}
+
+.papers-sidebar::-webkit-scrollbar {
+  width: 4px;
+}
+
+.papers-sidebar::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.papers-sidebar::-webkit-scrollbar-thumb {
+  background: rgba(46, 96, 74, 0.3);
+  border-radius: 2px;
+}
+
+.papers-sidebar::-webkit-scrollbar-thumb:hover {
+  background: rgba(46, 96, 74, 0.5);
+}
+
+.papers-intro {
+  background: linear-gradient(135deg, rgba(225, 216, 195, 0.98) 0%, rgba(225, 216, 195, 0.92) 100%);
+  backdrop-filter: blur(20px) saturate(170%);
+  -webkit-backdrop-filter: blur(20px) saturate(170%);
+  border-radius: 14px;
+  border: 1px solid rgba(46, 96, 74, 0.2);
+  box-shadow: 0 6px 24px rgba(46, 96, 74, 0.1), 0 2px 6px rgba(0, 0, 0, 0.05);
+  padding: var(--spacing-3xl);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.papers-intro:hover {
+  box-shadow: 0 8px 32px rgba(46, 96, 74, 0.15), 0 3px 10px rgba(0, 0, 0, 0.08);
+  border-color: rgba(46, 96, 74, 0.3);
+}
+
+.papers-intro h1 {
+  margin: 0 0 var(--spacing-lg);
+  color: var(--color-primary);
+  font-size: 2.2rem;
+  font-weight: 700;
+  letter-spacing: -0.6px;
+  line-height: 1.1;
+}
+
+.papers-intro p {
+  margin: 0;
+  color: var(--color-text-secondary);
+  font-size: 0.9rem;
+  line-height: 1.6;
+  font-weight: 400;
+}
+
+/* Table of Contents */
+.papers-toc {
+  background: linear-gradient(135deg, rgba(225, 216, 195, 0.95) 0%, rgba(225, 216, 195, 0.88) 100%);
+  backdrop-filter: blur(20px) saturate(170%);
+  -webkit-backdrop-filter: blur(20px) saturate(170%);
+  border-radius: 14px;
+  border: 1px solid rgba(46, 96, 74, 0.15);
+  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.05);
+  padding: var(--spacing-2xl);
+}
+
+.papers-toc h2 {
+  margin: 0 0 var(--spacing-lg);
+  color: var(--color-primary);
+  font-size: 0.95rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1.2px;
+}
+
+.toc-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.toc-list li {
+  margin: 0;
+  padding: 0;
+}
+
+.toc-link {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--spacing-sm);
+  width: 100%;
+  padding: var(--spacing-xs) var(--spacing-sm);
+  background: transparent;
+  border: none;
+  border-left: 2px solid transparent;
+  text-align: left;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  color: var(--color-text-secondary);
+  border-radius: 4px;
+  font-family: inherit;
+}
+
+.toc-link:hover {
+  background: rgba(46, 96, 74, 0.1);
+  border-left-color: var(--color-primary);
+  padding-left: var(--spacing-base);
+}
+
+.toc-link.active {
+  background: rgba(46, 96, 74, 0.15);
+  border-left: 3px solid var(--color-primary);
+  padding-left: var(--spacing-base);
+  color: var(--color-primary);
+}
+
+.toc-link.active .toc-number {
+  opacity: 1;
+  color: var(--color-primary);
+  font-weight: 700;
+}
+
+.toc-link.active .toc-title {
+  color: var(--color-primary);
+  font-weight: 600;
+}
+
+.toc-number {
+  flex-shrink: 0;
+  font-size: 0.7rem;
+  font-weight: 700;
+  color: var(--color-accent);
+  line-height: 1.6;
+  opacity: 0.7;
+  margin-top: 1px;
+}
+
+.toc-link:hover .toc-number {
+  opacity: 1;
+  color: var(--color-primary);
+}
+
+.toc-title {
+  font-size: 0.8rem;
+  line-height: 1.35;
+  font-weight: 500;
+  color: inherit;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.toc-link:hover .toc-title {
+  color: var(--color-primary);
+}
+
+/* ============================================
+   PAPERS LIST
+   ============================================ */
+
+.papers-list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-2xl);
+}
+
+/* ============================================
+   PAPER CARD - Compact, High-Quality Design
+   ============================================ */
+
+.paper-card {
+  background: linear-gradient(135deg, rgba(225, 216, 195, 0.96) 0%, rgba(225, 216, 195, 0.9) 100%);
+  backdrop-filter: blur(24px) saturate(160%);
+  -webkit-backdrop-filter: blur(24px) saturate(160%);
+  border-radius: 10px;
+  border: 1px solid rgba(46, 96, 74, 0.15);
+  box-shadow: 0 3px 12px rgba(0, 0, 0, 0.05), 0 1px 3px rgba(0, 0, 0, 0.03);
+  padding: var(--spacing-2xl);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  display: grid;
+  grid-template-columns: 44px 1fr;
+  gap: var(--spacing-xl);
+  scroll-margin-top: calc(var(--header-height) + var(--spacing-3xl));
+}
+
+.paper-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--color-primary) 0%, var(--color-accent) 100%);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  border-radius: 12px 12px 0 0;
+}
+
+.paper-card:hover {
+  box-shadow: 0 12px 40px rgba(46, 96, 74, 0.12), 0 4px 12px rgba(0, 0, 0, 0.08);
+  transform: translateX(8px);
+  border-color: rgba(46, 96, 74, 0.25);
+}
+
+.paper-card:hover::before {
+  opacity: 1;
+}
+
+/* Paper Number Badge */
+.paper-card-number {
+  width: 44px;
+  height: 44px;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--color-primary);
+  background: rgba(46, 96, 74, 0.1);
+  border: 2px solid rgba(46, 96, 74, 0.2);
+  border-radius: 50%;
+  transition: all 0.3s ease;
+}
+
+.paper-card:hover .paper-card-number {
+  background: var(--color-primary);
+  color: var(--color-text-on-dark);
+  border-color: var(--color-primary);
+  transform: scale(1.05);
+}
+
+/* Paper Content */
+.paper-card-content {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-base);
+  min-width: 0;
+}
+
+.paper-card-header {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.paper-card-header h3 {
+  margin: 0;
+  color: var(--color-primary);
+  font-size: 1.15rem;
+  font-weight: 700;
+  line-height: 1.35;
+  letter-spacing: -0.2px;
+  /* Ensure long titles wrap properly and never clip */
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+  hyphens: auto;
+}
+
+.paper-card-subtitle {
+  margin: 0;
+  font-size: 0.85rem;
+  color: var(--color-secondary);
+  font-style: italic;
+  font-weight: 500;
+  opacity: 0.9;
+}
+
+/* Paper Body */
+.paper-card-body {
+  display: flex;
+  flex-direction: column;
+  overflow: visible;
+  min-height: 80px; /* Ensure consistent minimum height */
+}
+
+.paper-card-text {
+  margin: 0;
+  color: var(--color-text-secondary);
+  font-size: 0.9rem;
+  line-height: 1.7;
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+  transition: all 0.3s ease;
+}
+
+/* Actions */
+.paper-card-actions {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+  margin-top: var(--spacing-base);
+  flex-wrap: wrap;
+}
+
+/* Expand/Collapse Button */
+.btn-expand {
+  padding: 6px var(--spacing-lg);
+  font-size: 0.8rem;
+  font-weight: 600;
+  border-radius: 100px;
+  border: 1px solid var(--color-primary);
+  background: transparent;
+  color: var(--color-primary);
+  cursor: pointer;
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  font-family: inherit;
+  display: inline-flex;
+  align-items: center;
+  letter-spacing: 0.2px;
+}
+
+.btn-expand:hover {
+  background: var(--color-primary);
+  color: var(--color-text-on-dark);
+  box-shadow: 0 3px 10px rgba(46, 96, 74, 0.25);
+  transform: translateY(-1px);
+}
+
+.btn-paper-link {
+  padding: 6px var(--spacing-lg);
+  font-size: 0.8rem;
+  font-weight: 600;
+  border-radius: 100px;
+  border: 1px solid var(--color-primary);
+  cursor: pointer;
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  font-family: inherit;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  letter-spacing: 0.2px;
+  background: var(--color-primary);
+  color: var(--color-text-on-dark);
+}
+
+.btn-paper-link:hover {
+  background: var(--color-primary-dark);
+  border-color: var(--color-primary-dark);
+  box-shadow: 0 3px 10px rgba(46, 96, 74, 0.25);
+  transform: translateY(-1px);
+}
+
+.btn-paper-link svg {
+  width: 13px;
+  height: 13px;
+  transition: transform 0.2s ease;
+}
+
+.btn-paper-link:hover svg {
+  transform: translate(2px, -2px);
+}
+
+/* ============================================
+   RESPONSIVE DESIGN
+   ============================================ */
+
+@media (max-width: 1400px) {
+  #papers {
+    max-width: 1200px;
+    padding: 0 var(--spacing-4xl);
+  }
+  
+  .papers-layout {
+    grid-template-columns: 320px 1fr;
+    gap: var(--spacing-5xl);
+  }
+}
+
+@media (max-width: 1200px) {
+  .papers-layout {
+    grid-template-columns: 280px 1fr;
+    gap: var(--spacing-4xl);
+  }
+  
+  .papers-intro,
+  .papers-toc {
+    padding: var(--spacing-3xl);
+  }
+  
+  .papers-intro h1 {
+    font-size: 2rem;
+  }
+}
+
+@media (max-width: 1024px) {
+  #papers {
+    padding: 0 var(--spacing-3xl);
+    margin-top: calc(var(--header-height) + var(--spacing-4xl));
+  }
+  
+  .papers-layout {
+    grid-template-columns: 1fr;
+    gap: var(--spacing-4xl);
+  }
+  
+  /* FIX: Keep TOC sticky on tablets, just adjust positioning */
+  .papers-sidebar {
+    position: sticky;
+    top: calc(var(--header-height) + var(--spacing-2xl));
+    max-height: calc(100vh - var(--header-height) - var(--spacing-2xl) - var(--spacing-2xl));
+  }
+}
+
+@media (max-width: 768px) {
+  #papers {
+    padding: 0 var(--spacing-2xl);
+    margin-top: calc(var(--header-height) + var(--spacing-3xl));
+  }
+  
+  .papers-layout {
+    gap: var(--spacing-3xl);
+  }
+  
+  .papers-sidebar {
+    gap: var(--spacing-2xl);
+    /* FIX: Adjust sticky positioning for smaller screens */
+    top: calc(var(--header-height) + var(--spacing-xl));
+    max-height: calc(100vh - var(--header-height) - var(--spacing-xl) - var(--spacing-xl));
+  }
+  
+  .papers-intro h1 {
+    font-size: 1.75rem;
+  }
+  
+  .papers-intro p {
+    font-size: 0.9rem;
+  }
+  
+  .papers-intro,
+  .papers-toc {
+    padding: var(--spacing-2xl);
+  }
+  
+  .papers-list {
+    gap: var(--spacing-2xl);
+  }
+  
+  .paper-card {
+    padding: var(--spacing-2xl);
+    grid-template-columns: 40px 1fr;
+    gap: var(--spacing-lg);
+  }
+  
+  .paper-card-number {
+    width: 40px;
+    height: 40px;
+    font-size: 1rem;
+  }
+  
+  .paper-card-header h3 {
+    font-size: 1.15rem;
+  }
+  
+  .paper-card-subtitle {
+    font-size: 0.85rem;
+  }
+  
+  .paper-card-text {
+    font-size: 0.88rem;
+    line-height: 1.65;
+  }
+  
+  .paper-card-body {
+    min-height: 70px;
+  }
+}
+
+@media (max-width: 600px) {
+  #papers {
+    padding: 0 var(--spacing-lg);
+  }
+  
+  /* FIX: On very small screens, make sidebar static for better UX */
+  .papers-sidebar {
+    position: static;
+    max-height: none;
+  }
+  
+  .papers-intro,
+  .papers-toc {
+    padding: var(--spacing-2xl);
+    border-radius: 12px;
+  }
+  
+  .papers-intro h1 {
+    font-size: 1.5rem;
+    margin-bottom: var(--spacing-lg);
+  }
+  
+  .papers-toc h2 {
+    font-size: 0.95rem;
+  }
+  
+  .toc-title {
+    font-size: 0.8rem;
+  }
+  
+  .paper-card {
+    grid-template-columns: 1fr;
+    gap: var(--spacing-lg);
+  }
+  
+  .paper-card-number {
+    position: absolute;
+    top: var(--spacing-lg);
+    right: var(--spacing-lg);
+    width: 36px;
+    height: 36px;
+    font-size: 0.9rem;
+  }
+  
+  .paper-card-header h3 {
+    font-size: 1rem;
+    padding-right: 50px;
+  }
+  
+  .paper-card-text {
+    font-size: 0.85rem;
+  }
+  
+  .paper-card-body {
+    min-height: 60px;
+  }
+  
+  .paper-card-actions {
+    flex-direction: column;
+    align-items: stretch;
+    gap: var(--spacing-sm);
+  }
+  
+  .btn-expand,
+  .btn-paper-link {
+    width: 100%;
+    justify-content: center;
+    padding: var(--spacing-sm) var(--spacing-lg);
+  }
+}

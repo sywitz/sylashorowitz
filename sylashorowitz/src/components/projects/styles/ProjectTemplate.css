@@ -3,46 +3,58 @@
 .project-template {
   max-width: var(--max-width-content);
   margin: 0 auto;
-  padding: 0 var(--spacing-xl);
-  background: var(--color-bg-primary);
-  border-radius: var(--radius-lg);
-  box-shadow: var(--shadow-xl);
-  margin-top: var(--spacing-xl);
+  padding: var(--spacing-3xl) var(--spacing-4xl);
+  background: var(--color-glass-bg-strong);
+  backdrop-filter: blur(18px) saturate(160%);
+  -webkit-backdrop-filter: blur(18px) saturate(160%);
+  border-radius: var(--radius-xl);
+  box-shadow: var(--shadow-glass-strong);
+  border: 1px solid var(--color-glass-border);
+  border-left: var(--spacing-bio-border) solid var(--color-primary);
+  margin-top: var(--spacing-4xl);
   margin-bottom: var(--spacing-section-padding);
 }
 
 /* Hero Section */
 .project-hero {
   display: flex;
-  align-items: center;
-  min-height: 60vh;
-  padding: var(--spacing-section-padding) 0;
-  gap: var(--spacing-section-padding);
+  align-items: flex-start;
+  justify-content: space-between;
+  min-height: auto;
+  padding: 0;
+  gap: var(--spacing-4xl);
 }
 
 .hero-content {
   flex: 1;
-  padding: 0 var(--spacing-xl);
+  padding: 0;
 }
 
 .back-link {
   color: var(--color-primary);
   text-decoration: none;
   font-weight: var(--font-weight-semibold);
-  margin-bottom: var(--spacing-xl);
+  margin-bottom: var(--spacing-2xl);
   display: inline-block;
-  transition: color var(--transition-base);
+  padding: var(--spacing-sm) var(--spacing-xl);
+  border-radius: var(--radius-2xl);
+  background: rgba(46, 96, 74, 0.12);
+  border: 1px solid var(--color-glass-border);
+  box-shadow: 0 4px 12px rgba(46, 96, 74, 0.08);
+  transition: all var(--transition-base);
 }
 
 .back-link:hover {
-  color: var(--color-accent);
+  color: var(--color-text-on-dark);
+  background: var(--color-primary);
+  transform: translateY(var(--transform-offset-sm));
 }
 
 .project-hero h1 {
   color: var(--color-primary);
   font-size: var(--font-size-project-hero);
   font-weight: var(--font-weight-bold);
-  margin-bottom: var(--spacing-lg);
+  margin-bottom: var(--spacing-base);
   line-height: var(--line-height-tight);
 }
 
@@ -254,9 +266,14 @@
 
 /* Responsive Design */
 @media (max-width: 768px) {
+  .project-template {
+    padding: var(--spacing-2xl) var(--spacing-2xl);
+  }
+
   .project-hero {
     flex-direction: column;
     text-align: center;
+    gap: var(--spacing-3xl);
   }
   
   .project-hero h1 {
@@ -270,7 +287,7 @@
 
 @media (max-width: 480px) {
   .project-template {
-    padding: 0 var(--spacing-md);
+    padding: var(--spacing-xl) var(--spacing-lg);
   }
   
   .project-hero h1 {
