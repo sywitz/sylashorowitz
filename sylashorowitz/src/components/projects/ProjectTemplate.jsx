@@ -1,13 +1,17 @@
-﻿/*
-ProjectTemplate.js - Simple, clean project template
-*/
+﻿/**
+ * ProjectTemplate - Individual project detail page
+ * 
+ * Displays detailed information about a specific project including:
+ * hero image, overview, achievements, skills, story sections, and results.
+ * Handles project not found case with error message.
+ */
 
 import React from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { projectData } from '../../data/projectData';
 import './styles/ProjectTemplate.css';
 
-const ProjectTemplate = () => {
+function ProjectTemplate() {
   const { projectId } = useParams();
   const project = projectData[projectId];
 
@@ -93,6 +97,6 @@ const ProjectTemplate = () => {
       </div>
     </div>
   );
-};
+}
 
 export default ProjectTemplate;

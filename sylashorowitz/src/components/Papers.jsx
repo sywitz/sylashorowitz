@@ -1,36 +1,32 @@
 /**
  * Papers - Main component for displaying academic papers
- * Compositional design with separated concerns
+ * 
+ * Layout: Sidebar (intro + TOC) | Main content (paper cards)
+ * Tracks active paper as user scrolls and handles navigation clicks
  */
 
-import React, { useCallback, useRef } from 'react';
+import React, { useRef } from 'react';
 import { papers } from '../data/papersData';
 import { useScrollTracking } from '../hooks/useScrollTracking';
+import { scrollToPaper } from '../utils/scrollUtils';
 import PapersIntro from './papers/PapersIntro';
 import PapersTOC from './papers/PapersTOC';
 import PapersContent from './papers/PapersContent';
+import { PAPER_SELECTOR } from './papers/constants';
 import '../styles/Papers.css';
 
-// Constants
-const PAPER_SELECTOR = '[data-paper-index]';
-const SCROLL_BEHAVIOR = {
-  behavior: 'smooth',
-  block: 'start'
-};
-
 function Papers() {
+  // Track which paper is currently active based on scroll position
   const [activePaperIndex, setActivePaperIndex] = useScrollTracking(PAPER_SELECTOR);
+  
+  // Ref to intro section for sidebar auto-scroll
   const introRef = useRef(null);
 
-  // Scroll to paper and update active index
-  const handlePaperClick = useCallback((index) => {
+  // Handle TOC click: update active index and scroll to paper
+  const handlePaperClick = (index) => {
     setActivePaperIndex(index);
-    
-    const element = document.querySelector(`${PAPER_SELECTOR}[data-paper-index="${index}"]`);
-    if (element) {
-      element.scrollIntoView(SCROLL_BEHAVIOR);
-    }
-  }, [setActivePaperIndex]);
+    scrollToPaper(index);
+  };
 
   return (
     <section id="papers">

@@ -1,6 +1,8 @@
 /**
  * TOCLink - Table of Contents link component
- * Individual link item in the table of contents
+ * 
+ * Individual clickable link in the TOC. Uses forwardRef to expose DOM element
+ * for scroll calculations in useSidebarScroll hook.
  */
 
 import React, { forwardRef } from 'react';

@@ -4,6 +4,7 @@
   max-width: var(--max-width-content);
   margin: 0 auto;
   padding: var(--spacing-3xl) var(--spacing-4xl);
+  /* Uses glass-card-strong utility pattern */
   background: var(--color-glass-bg-strong);
   backdrop-filter: blur(18px) saturate(160%);
   -webkit-backdrop-filter: blur(18px) saturate(160%);
@@ -31,6 +32,7 @@
 }
 
 .back-link {
+  /* Uses button utility pattern */
   color: var(--color-primary);
   text-decoration: none;
   font-weight: var(--font-weight-semibold);
@@ -151,14 +153,12 @@
   gap: var(--spacing-md);
 }
 
-.skill-tag {
-  background: var(--color-accent-alpha-20);
-  color: var(--color-accent);
+/* Skill tags now use utility class from utilities.css */
+/* Override padding for project template if needed */
+.project-overview .skill-tag {
   padding: var(--spacing-sm) var(--spacing-xl);
   border-radius: var(--radius-xl);
   font-size: var(--font-size-sm);
-  font-weight: var(--font-weight-medium);
-  border: var(--border-width-thin) solid var(--color-accent-alpha-30);
 }
 
 /* Story Sections */
@@ -227,6 +227,7 @@
 }
 
 .nav-link {
+  /* Uses button utility pattern */
   color: var(--color-primary);
   text-decoration: none;
   font-size: var(--font-size-nav-link);

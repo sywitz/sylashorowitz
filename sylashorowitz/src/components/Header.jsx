@@ -1,12 +1,9 @@
-/* 
-
-Header.js is a functional component that renders the header of the website. 
-It contains a nav element with an unordered list of links to the different sections of the website. 
-The links are anchor tags that point to the different sections of the website. 
-
-The links are: Bio, Engineering Portfolio, Art Portfolio, and Papers.
-
-*/
+/**
+ * Header - Navigation header component
+ * 
+ * Displays navigation links for Bio, Engineering, Art, and Papers sections.
+ * Highlights the active link based on current route.
+ */
 
 import React from 'react';
 import { Link, useLocation } from 'react-router-dom';
@@ -14,11 +11,14 @@ import { Link, useLocation } from 'react-router-dom';
 function Header() {
   const location = useLocation();
   
+  // Check if a path is active (handles /bio and / as equivalent)
   const isActive = (path) => {
-    if (path === '/bio' || path === '/') {
-      return location.pathname === '/bio' || location.pathname === '/';
+    const currentPath = location.pathname;
+    // Both /bio and / should match the bio link
+    if (path === '/bio') {
+      return currentPath === '/bio' || currentPath === '/';
     }
-    return location.pathname === path;
+    return currentPath === path;
   };
 
   return (

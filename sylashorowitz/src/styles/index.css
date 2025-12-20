@@ -1,5 +1,7 @@
 /* Import design tokens first */
 @import './tokens.css';
+/* Import utility classes */
+@import './utilities.css';
 
 body {
   margin: 0;

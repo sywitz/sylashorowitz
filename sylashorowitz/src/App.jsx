@@ -1,12 +1,9 @@
-﻿/*
-  App.js is the root component of the application. It is the parent component that contains all other components.
-  It imports the Header, Bio, and EngineeringPortfolio components and renders them inside a div with the class name "App".
-
-  The App component also imports the global styles from the App.css file and the logo image from the logo.svg file.
-
-  The App component returns a div with the class name "App" that contains the Header, Bio, and EngineeringPortfolio components.
-
-*/
+﻿/**
+ * App - Root component of the application
+ * 
+ * Sets up React Router and defines all routes for the portfolio website.
+ * Routes include: Bio (home), Engineering Portfolio, Art, Papers, and individual Project pages.
+ */
 
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
@@ -19,14 +16,13 @@ import Papers from './components/Papers';
 import ProjectTemplate from './components/projects/ProjectTemplate';
 import './styles/App.css';
 
-function BioPage() {
-  return (
-    <>
-      <Welcome />
-      <Bio />
-    </>
-  );
-}
+// Bio page content (used for both / and /bio routes)
+const BioPageContent = () => (
+  <>
+    <Welcome />
+    <Bio />
+  </>
+);
 
 function App() {
   return (
@@ -34,13 +30,18 @@ function App() {
       <Header />
       <main className="page-content">
         <Routes>
-          <Route path="/" element={<BioPage />} /> {/* Default route */}
-          <Route path="/bio" element={<BioPage />} />
+          {/* Bio page (home) - shows Welcome and Bio components */}
+          <Route path="/" element={<BioPageContent />} />
+          <Route path="/bio" element={<BioPageContent />} />
+          
+          {/* Other pages */}
           <Route path="/engineering" element={<EngineeringPortfolio />} />
           <Route path="/art" element={<Art />} />
           <Route path="/papers" element={<Papers />} />
           <Route path="/projects/:projectId" element={<ProjectTemplate />} />
-          <Route path="*" element={<Navigate to="/" />} /> {/* Redirect unknown routes */}
+          
+          {/* Redirect unknown routes to home */}
+          <Route path="*" element={<Navigate to="/" />} />
         </Routes>
       </main>
     </Router>

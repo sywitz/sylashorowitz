@@ -1,7 +1,9 @@
-﻿/*
-ProjectCard.js is a functional component that renders a beautiful, modular card for each project.
-It displays project information including image, title with link, institution, year, description, and skills.
-*/
+﻿/**
+ * ProjectCard - Displays a project card in the engineering portfolio grid
+ * 
+ * Shows project image, title (with optional link), institution, year, description, and skills.
+ * Supports both internal React Router links and external links.
+ */
 
 import React from 'react';
 import { Link } from 'react-router-dom';
@@ -17,13 +19,34 @@ function ProjectCard({
   link,
   featured
 }) {
+  // Determine if link is external (starts with http:// or https://)
   const isExternalLink = link && /^https?:\/\//i.test(link);
-  const TitleComponent = link ? (isExternalLink ? 'a' : Link) : 'span';
-  const linkProps = isExternalLink
-    ? { href: link, target: '_blank', rel: 'noopener noreferrer' }
-    : link
-      ? { to: link }
-      : {};
+
+  // Render title with appropriate link or as plain text
+  const renderTitle = () => {
+    if (!link) {
+      return <span className="project-title project-title-static">{title}</span>;
+    }
+    
+    if (isExternalLink) {
+      return (
+        <a
+          href={link}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="project-title"
+        >
+          {title}
+        </a>
+      );
+    }
+    
+    return (
+      <Link to={link} className="project-title">
+        {title}
+      </Link>
+    );
+  };
 
   return (
     <div className="project-card">
@@ -40,12 +63,7 @@ function ProjectCard({
       
       <div className="project-content">
         <div className="project-header">
-          <TitleComponent
-            {...linkProps}
-            className={`project-title${link ? '' : ' project-title-static'}`}
-          >
-            {title}
-          </TitleComponent>
+          {renderTitle()}
           <div className="project-meta">
             <span className="institution">{institution}</span>
             <span className="year">{year}</span>

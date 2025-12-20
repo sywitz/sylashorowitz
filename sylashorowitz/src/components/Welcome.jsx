@@ -1,9 +1,9 @@
-/*
-*
-*Welcome.js is a separate component that displays the welcome section on the bio page.
-*It should be positioned further down the page, separate from the main bio content.
-*
-*/
+/**
+ * Welcome - Welcome section component
+ * 
+ * Displays welcome message and key achievements on the bio page.
+ * Positioned at the top of the bio/home page.
+ */
 
 import React from 'react';
 

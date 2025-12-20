@@ -1,10 +1,9 @@
-/*
-
-Bio.js is a functional component that returns a div with an id of "bio" and some text. 
-
-This component will be used to display a short bio of the author on the website.
-
-*/
+/**
+ * Bio - Biography section component
+ * 
+ * Displays personal biography and background information.
+ * Includes links to external resources and internal portfolio pages.
+ */
 
 import React from 'react';
 import { Link } from 'react-router-dom';

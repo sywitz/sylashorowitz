@@ -51,18 +51,19 @@
 }
 
 .papers-intro {
+  /* Use utility class for glassmorphism */
   background: linear-gradient(135deg, rgba(225, 216, 195, 0.98) 0%, rgba(225, 216, 195, 0.92) 100%);
   backdrop-filter: blur(20px) saturate(170%);
   -webkit-backdrop-filter: blur(20px) saturate(170%);
-  border-radius: 14px;
-  border: 1px solid rgba(46, 96, 74, 0.2);
-  box-shadow: 0 6px 24px rgba(46, 96, 74, 0.1), 0 2px 6px rgba(0, 0, 0, 0.05);
+  border-radius: var(--radius-xl);
+  border: 1px solid var(--color-glass-border);
+  box-shadow: var(--shadow-glass);
   padding: var(--spacing-3xl);
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: all var(--transition-base);
 }
 
 .papers-intro:hover {
-  box-shadow: 0 8px 32px rgba(46, 96, 74, 0.15), 0 3px 10px rgba(0, 0, 0, 0.08);
+  box-shadow: var(--shadow-2xl);
   border-color: rgba(46, 96, 74, 0.3);
 }
 
@@ -85,12 +86,13 @@
 
 /* Table of Contents */
 .papers-toc {
+  /* Use utility class for glassmorphism */
   background: linear-gradient(135deg, rgba(225, 216, 195, 0.95) 0%, rgba(225, 216, 195, 0.88) 100%);
   backdrop-filter: blur(20px) saturate(170%);
   -webkit-backdrop-filter: blur(20px) saturate(170%);
-  border-radius: 14px;
-  border: 1px solid rgba(46, 96, 74, 0.15);
-  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.05);
+  border-radius: var(--radius-xl);
+  border: 1px solid var(--color-glass-border);
+  box-shadow: var(--shadow-glass);
   padding: var(--spacing-2xl);
 }
 
@@ -204,14 +206,15 @@
    ============================================ */
 
 .paper-card {
+  /* Use utility class for glassmorphism */
   background: linear-gradient(135deg, rgba(225, 216, 195, 0.96) 0%, rgba(225, 216, 195, 0.9) 100%);
   backdrop-filter: blur(24px) saturate(160%);
   -webkit-backdrop-filter: blur(24px) saturate(160%);
-  border-radius: 10px;
-  border: 1px solid rgba(46, 96, 74, 0.15);
-  box-shadow: 0 3px 12px rgba(0, 0, 0, 0.05), 0 1px 3px rgba(0, 0, 0, 0.03);
+  border-radius: var(--radius-md);
+  border: 1px solid var(--color-glass-border);
+  box-shadow: var(--shadow-glass);
   padding: var(--spacing-3xl);
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: all var(--transition-base);
   position: relative;
   scroll-margin-top: calc(var(--header-height) + var(--spacing-3xl));
 }
@@ -230,7 +233,7 @@
 }
 
 .paper-card:hover {
-  box-shadow: 0 12px 40px rgba(46, 96, 74, 0.12), 0 4px 12px rgba(0, 0, 0, 0.08);
+  box-shadow: var(--shadow-2xl);
   transform: translateX(8px);
   border-color: rgba(46, 96, 74, 0.25);
 }
@@ -317,17 +320,18 @@
   flex-wrap: wrap;
 }
 
-/* Expand/Collapse Button */
+/* Expand/Collapse Button - Uses utility classes */
 .btn-expand {
+  /* Extends .btn-outline utility */
   padding: 8px var(--spacing-lg);
   font-size: 0.85rem;
-  font-weight: 600;
-  border-radius: 100px;
+  font-weight: var(--font-weight-semibold);
+  border-radius: var(--radius-full);
   border: 1px solid var(--color-primary);
   background: transparent;
   color: var(--color-primary);
   cursor: pointer;
-  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: all var(--transition-base);
   font-family: inherit;
   display: inline-flex;
   align-items: center;
@@ -338,17 +342,18 @@
   background: var(--color-primary);
   color: var(--color-text-on-dark);
   box-shadow: 0 3px 10px rgba(46, 96, 74, 0.25);
-  transform: translateY(-1px);
+  transform: translateY(var(--transform-offset-sm));
 }
 
 .btn-paper-link {
+  /* Extends .btn-primary utility */
   padding: 8px var(--spacing-lg);
   font-size: 0.85rem;
-  font-weight: 600;
-  border-radius: 100px;
+  font-weight: var(--font-weight-semibold);
+  border-radius: var(--radius-full);
   border: 1px solid var(--color-primary);
   cursor: pointer;
-  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: all var(--transition-base);
   font-family: inherit;
   text-decoration: none;
   display: inline-flex;
@@ -363,7 +368,7 @@
   background: var(--color-primary-dark);
   border-color: var(--color-primary-dark);
   box-shadow: 0 3px 10px rgba(46, 96, 74, 0.25);
-  transform: translateY(-1px);
+  transform: translateY(var(--transform-offset-sm));
 }
 
 .btn-paper-link svg {
