@@ -6,33 +6,33 @@ export const projectData = {
     subtitle: 'Technical University of Denmark, 2023',
     featured: false,
     heroImage: null,
-    description: `Waste from decommissioned wind turbine blades is a major issue, especially in Denmark, where wind energy composes almost 50% of the energy mix. I spent five months at the Technical University of Denmark (DTU) Wind and Energy Systems lab with Professor Ali Sarhadi's additive manufacturing group investigating how robotic-arm 3D printing of fiber reinforced polymer (FRP) composites can repair existing blades and unlock new geometries that traditional resin cast molds cannot. I conducted a literature review on biomimetic blade designs that additive manufacturing could enable. This page focuses on how I approached the structural heart of the blade—the spar cap—and explored how we might design a more circular turbine blade.`,
+    description: `Waste from decommissioned wind turbine blades is a major issue, especially in Denmark, where wind energy composes almost 50% of the energy mix. I spent 5 months at the Technical University of Denmark (DTU) Wind and Energy Systems lab, with Professor Ali Sarhadi's additive manufacturing lab. This lab investigates the new ways of manufacturing blades--through robotic arm 3D printing fiber reinforced polymer (FRP) composites. A robot arm can be used to repair blades or manufacture unique shapes that traditional resin cast molds can not. I conducted a literature review on the potential for Biomimetic blade designs that 3D printing can open the doors to! This page, however, focuses on my work with assessing the manufacture of a spar cap--the structural beam on the interior of the blade. How can we design a more circular turbine blade?`,
     achievements: [],
     skills: ['SolidWorks', 'COMSOL', '3D Printing', 'Mechanical Design', 'Manufacturing', 'Research', 'Prototyping', 'CAD'],
     sections: [
       {
         title: 'The Problem',
-        content: `Wind turbine blades, typically composed of resin, are very difficult to recycle. At the DTU FiberLab, they shred resin-based blades and consider using the material for future reinforcement in blades or building materials. However, the quality is often jeopardized and the blade is effectively downcycled. WindEurope estimates that 14,000 blades may be decommissioned annually in the next few years.`,
+        content: `Wind turbine blades, typically composed of resin, are very difficult to recycle. At the DTU FiberLab, they shred resin-based blades and consider using the material for future reinforcement in blades or building materials (Pictured). However, the quality has been jeopardized and the blade is downcycled. 14,000 wind turbine blades may be decommissioned annually in the next few years (WindEurope). Photo: Decommissioned blades donated to DTU in front of Blade Testing Lab. The first offshore wind farm founded in '91 recently donated their blades to DTU (Pictured). It was found that these blades had a lifetime of 100+ years. The reinforcement was wood, rather than the typical FRP. Blade composites are manufactured by forcing wet resin into layers of fiberglass sheets under a vacuum. Parameters such as heat, time, and pressure can be optimized to make strong composites. Photo: DTU FiberLab`,
         image: null
       },
       {
         title: 'Machine Design: Modular Pultrusion Test Bed',
-        content: `Pultrusion repeatedly pulls fibers through a heated die to form constant cross‑section FRP components. I focused on thermoplastic pultrusion, a newer variant that replaces thermoset resin with recyclable thermoplastics. First, the fiber and polymer are commingled together using a novel air-jet method I prototyped. The modular machine includes an optional resin bath shelf before the die, a pre-heater that tapers into a heated die and cooling die, water cooling beneath the die, an adjustable distance to the puller for air cooling, a geared DC motor-driven puller with a spring-loaded lead screw for precise clamping, and a secondary stepper-driven spool for the finished pultrusion. Each subsystem was designed for rapid iteration and instrumentation so we could measure forces, temperatures, and material properties.`,
+        content: `Labelled Solidworks drawing. Pultrusion is a repeatable manufacturing process for constant cross-section FRP components. It involves the pulling of the fibers through a hot die, which forms the FRP into shape. Thermoplastic pultrusion, which uses thermoplastics as the matrix polymer through which the fibers are pulled, is a relatively newer form of pultrusion, compared to thermoset pultrusion, which uses resin. First, the fiber and matrix (polymer) are spooled together. This is through commingling, or combining together with an airjet, using a novel method I prototyped. This machine will be modular. Therefore, an optional shelf for a resin bath is positioned before the die. The die consists of a pre-heater with a larger cross section, which tapers into the heated die, and finally a cooling die. The die is mounted on a linear sliding beam with a load cell to measure pulling force. The cooling machine sits underneath the die, water cooling the cooling die. The distance between the end of the die and puller is adjustable, for compactness, to ensure enough air cooling before the puller. A geared DC motor drives the puller, which contains a spring-loaded lead screw for proper clamping force. A smaller stepper motor sits on a supplementary table to spool the final thin pultruded component.`,
         image: null
       },
       {
         title: 'Subsystem: Commingler',
-        content: 'The commingler consists of three 3D-printed components—a dual guide, a single eyelet, and a chamber fed by three compressed air inlets. The modular parts let me quickly adjust length, diameter, and flow parameters to optimize mixing of fiber and polymer.',
+        content: 'The commingler consists of 3 3D printed components that can be glued together, a dual guide, a single eyelet, and a chamber where compressed air will be pumped through 3 inlets. This allows for rapid prototyping and iterative design, adjusting length, diameter, and other parameters to optimize mixing of the fiber and polymer.',
         image: null
       },
       {
         title: 'Subsystem: Die',
-        content: 'The die assembly included a pre-heater, a 300°C heated die with six bore holes for heat cartridges, and a cooling die with 100°C cooling pads. Using COMSOL I optimized taper angles, length, and the placement of heating and cooling elements to achieve uniform consolidation.',
+        content: 'The die consists of a pre-heater (not pictured), heated die (left), and cooling die (right). The die will be heated using 300C heat canisters in the 6 bore holes shown. Then, cooling pads will cool the die to 100C from the cooling machine. The taper angle, length, and placement of heating and cooling elements were optimized using COMSOL.',
         image: null
       },
       {
         title: 'Subsystem: Puller',
-        content: 'Custom polyurethane-coated spools ride on bearings inside aluminum housings. A spring-loaded lead screw tunes the compression force so the pultrusion is held firmly without damage. A geared DC motor drives the puller through a belt, while a smaller stepper motor spools the final product.',
+        content: 'The puller consists of two custom polyurethane coated spools on bearings in aluminum housing. A spring-loaded lead screw allows precise adjustment of compression force to hold the component between the spools. The puller is actuated by a belt drive from a geared DC motor.',
         image: null
       }
     ],
