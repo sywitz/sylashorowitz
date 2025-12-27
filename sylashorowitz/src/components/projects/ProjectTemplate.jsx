@@ -15,6 +15,91 @@ function ProjectTemplate() {
   const { projectId } = useParams();
   const project = projectData[projectId];
 
+  // Helper function to render content with numbered lists
+  const renderContent = (content) => {
+    // Check if content contains numbered list items (pattern: "1. ", "2. ", etc.)
+    const numberedListPattern = /^\d+\.\s/m;
+    const lines = content.split('\n');
+    const hasNumberedList = lines.some(line => numberedListPattern.test(line.trim()));
+    
+    if (!hasNumberedList) {
+      // If no numbered list, render as regular paragraph
+      return <p>{content}</p>;
+    }
+
+    // Parse content into paragraphs and lists
+    const elements = [];
+    let currentParagraph = [];
+    let currentList = [];
+
+    lines.forEach((line, index) => {
+      const trimmedLine = line.trim();
+      
+      if (numberedListPattern.test(trimmedLine)) {
+        // If we have accumulated paragraph content, add it first
+        if (currentParagraph.length > 0) {
+          elements.push(<p key={`para-${index}`}>{currentParagraph.join('\n')}</p>);
+          currentParagraph = [];
+        }
+        
+        // Extract the list item (remove the number and period)
+        const listItem = trimmedLine.replace(/^\d+\.\s*/, '');
+        currentList.push(listItem);
+      } else if (trimmedLine === '') {
+        // Empty line - check if next non-empty line is a numbered list item
+        // If so, continue the list; otherwise finalize it
+        const nextNonEmptyLine = lines.slice(index + 1).find(l => l.trim() !== '');
+        const nextIsNumbered = nextNonEmptyLine && numberedListPattern.test(nextNonEmptyLine.trim());
+        
+        if (!nextIsNumbered && currentList.length > 0) {
+          // Finalize the list if next line is not a numbered item
+          elements.push(
+            <ol key={`list-${index}`} className="numbered-list">
+              {currentList.map((item, itemIndex) => (
+                <li key={itemIndex}>{item}</li>
+              ))}
+            </ol>
+          );
+          currentList = [];
+        }
+        // Add empty line to paragraph if there's content
+        if (currentParagraph.length > 0) {
+          currentParagraph.push('');
+        }
+      } else {
+        // Regular text line
+        // If we have a list, finalize it first
+        if (currentList.length > 0) {
+          elements.push(
+            <ol key={`list-${index}`} className="numbered-list">
+              {currentList.map((item, itemIndex) => (
+                <li key={itemIndex}>{item}</li>
+              ))}
+            </ol>
+          );
+          currentList = [];
+        }
+        currentParagraph.push(line);
+      }
+    });
+
+    // Handle any remaining content
+    if (currentList.length > 0) {
+      elements.push(
+        <ol key="list-final" className="numbered-list">
+          {currentList.map((item, itemIndex) => (
+            <li key={itemIndex}>{item}</li>
+          ))}
+        </ol>
+      );
+    }
+    if (currentParagraph.length > 0) {
+      elements.push(<p key="para-final">{currentParagraph.join('\n')}</p>);
+    }
+
+    return <div>{elements}</div>;
+  };
+
   if (!project) {
     return (
       <div className="project-not-found">
@@ -73,7 +158,7 @@ function ProjectTemplate() {
         {project.sections.map((section, index) => (
           <div key={index} className="section">
             <h2>{section.title}</h2>
-            <p>{section.content}</p>
+            {renderContent(section.content)}
             {section.image && (
               <div className="section-image">
                 <img src={section.image} alt={section.title} />

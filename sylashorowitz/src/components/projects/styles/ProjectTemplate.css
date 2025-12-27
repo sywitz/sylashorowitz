@@ -187,6 +187,19 @@
   margin-bottom: var(--spacing-xl);
 }
 
+.section .numbered-list {
+  color: var(--color-secondary);
+  font-size: var(--font-size-lg);
+  line-height: var(--line-height-loose);
+  margin: var(--spacing-xl) 0;
+  padding-left: var(--spacing-2xl);
+}
+
+.section .numbered-list li {
+  margin-bottom: var(--spacing-md);
+  padding-left: var(--spacing-sm);
+}
+
 .section-image {
   margin-top: var(--spacing-xl);
 }
