@@ -1,12 +1,16 @@
+import overviewImage from '../../assets/engineering-data/pultrusion-machine/Screenshot 2023-11-27 220417_edited.jpg';
+import problemImage from '../../assets/engineering-data/pultrusion-machine/IMG_2614.JPG';
+
 export const pultrusionMachine = {
   id: 'pultrusion-machine',
   title: 'PULTRUSION MACHINE',
   subtitle: 'Technical University of Denmark, 2023',
   featured: false,
   heroImage: null,
+  overviewImage: overviewImage,
   description: `Waste from decommissioned wind turbine blades is a major issue, especially in Denmark, where wind energy composes almost 50% of the energy mix. I spent 5 months at the Technical University of Denmark (DTU) Wind and Energy Systems lab, with Professor Ali Sarhadi's additive manufacturing lab. This lab investigates the new ways of manufacturing blades--through robotic arm 3D printing fiber reinforced polymer (FRP) composites. A robot arm can be used to repair blades or manufacture unique shapes that traditional resin cast molds can not. I conducted a literature review on the potential for Biomimetic blade designs that 3D printing can open the doors to!
 
-This page, however, focuses on my work with assessing the manufacture of a spar cap--the structural beam on the interior of the blade. How can we design a more circular turbine blade?`,
+This page, however, focuses on my work with assessing the manufacture of a spar cap--the structural beam on the interior of the blade. <strong class="highlight-text">How can we design a more circular turbine blade?</strong>`,
   achievements: [],
   skills: ['SolidWorks', 'COMSOL', '3D Printing', 'Mechanical Design', 'Manufacturing', 'Research', 'Prototyping', 'CAD'],
   sections: [
@@ -19,7 +23,8 @@ This page, however, focuses on my work with assessing the manufacture of a spar 
 The first offshore wind farm founded in '91 recently donated their blades to DTU (Pictured). It was found that these blades had a lifetime of 100+ years. The reinforcement was wood, rather than the typical FRP.
 
 Blade composites are manufactured by forcing wet resin into layers of fiberglass sheets under a vacuum. Parameters such as heat, time, and pressure can be optimized to make strong composites. Photo: DTU FiberLab`,
-      image: null
+      image: problemImage,
+      layout: 'diagonal-overlay'
     },
     {
       title: 'Machine Design:\nModular Pultrusion Test Bed',

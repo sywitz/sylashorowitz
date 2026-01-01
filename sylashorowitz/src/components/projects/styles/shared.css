@@ -1,0 +1,42 @@
+/**
+ * Shared Project Styles
+ * Common layout patterns that can be reused across projects
+ */
+
+/* Overview with Image Layout */
+/* Use this class when you want an image next to the overview text */
+.project-overview .overview-content {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--spacing-3xl);
+  margin-bottom: var(--spacing-xl);
+}
+
+.project-overview .overview-text {
+  flex: 1;
+}
+
+.project-overview .overview-image {
+  flex: 0 0 auto;
+  max-width: 400px;
+}
+
+.project-overview .overview-image img {
+  width: 100%;
+  height: auto;
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-lg);
+}
+
+/* Responsive: stack on mobile */
+@media (max-width: 768px) {
+  .project-overview .overview-content {
+    flex-direction: column;
+    gap: var(--spacing-xl);
+  }
+
+  .project-overview .overview-image {
+    max-width: 100%;
+  }
+}
+

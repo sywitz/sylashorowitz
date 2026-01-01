@@ -1,0 +1,30 @@
+/**
+ * Project Components Index
+ * 
+ * Central export for all project components.
+ * Each project has its own component file for maximum flexibility.
+ */
+
+import PultrusionMachine from './PultrusionMachine';
+import ArcticRov from './ArcticRov';
+import ReVise from './ReVise';
+import MarinaSolarSupports from './MarinaSolarSupports';
+import RenaissanceCastle from './RenaissanceCastle';
+import LiberiaRecycledWasteBins from './LiberiaRecycledWasteBins';
+import MechanicalRabbit from './MechanicalRabbit';
+import SolarPanelDeploymentSystem from './SolarPanelDeploymentSystem';
+
+// Map of project IDs to their components
+export const projectComponents = {
+  'pultrusion-machine': PultrusionMachine,
+  'arctic-rov': ArcticRov,
+  're-vise': ReVise,
+  'marina-solar-supports': MarinaSolarSupports,
+  'renaissance-castle': RenaissanceCastle,
+  'liberia-recycled-waste-bins': LiberiaRecycledWasteBins,
+  'mechanical-rabbit': MechanicalRabbit,
+  'solar-panel-deployment-system': SolarPanelDeploymentSystem,
+};
+
+export default projectComponents;
+
