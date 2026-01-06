@@ -15,9 +15,9 @@
   backdrop-filter: blur(18px) saturate(160%);
   -webkit-backdrop-filter: blur(18px) saturate(160%);
   border-radius: var(--radius-xl);
-  box-shadow: var(--shadow-glass-strong);
+  box-shadow: none;
   border: 1px solid var(--color-glass-border);
-  border-left: var(--spacing-bio-border) solid var(--color-primary);
+  border-left: none;
   transition: all var(--transition-base);
 }
 
@@ -55,7 +55,7 @@
   background: var(--color-primary);
   border-radius: var(--radius-lg);
   overflow: hidden;
-  box-shadow: var(--shadow-lg);
+  box-shadow: none;
   transition: transform var(--transition-base), box-shadow var(--transition-base);
   position: relative;
 }
@@ -89,12 +89,12 @@
 
 .project-card:hover {
   transform: translateY(var(--transform-offset-lg));
-  box-shadow: var(--shadow-2xl);
+  box-shadow: none;
 }
 
 .project-card.featured {
   border: var(--border-width-thick) solid var(--color-accent);
-  box-shadow: var(--shadow-accent);
+  box-shadow: none;
 }
 
 .project-image-container {
@@ -126,7 +126,7 @@
   font-weight: var(--font-weight-bold);
   text-transform: uppercase;
   letter-spacing: var(--letter-spacing-tight);
-  box-shadow: var(--shadow-sm);
+  box-shadow: none;
 }
 
 .project-content {

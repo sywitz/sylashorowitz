@@ -69,6 +69,65 @@ function ProjectSections({ sections }) {
                 {renderContent(section.content)}
               </div>
             </div>
+          ) : section.layout === 'text-with-side-images' && section.sideImages ? (
+            <>
+              <div className="text-with-side-images-container">
+                {section.contentBoxes && section.contentBoxes.length > 0 ? (
+                  section.contentBoxes.map((box, boxIndex) => (
+                    <div key={boxIndex} className="text-with-side-images-pair">
+                      <div className="text-with-side-images-content-box">
+                        {renderContent(box.content)}
+                      </div>
+                      {section.sideImages[boxIndex] && (
+                        <div className="side-image-wrapper">
+                          <img src={section.sideImages[boxIndex]} alt={`${section.title} - Image ${boxIndex + 1}`} />
+                        </div>
+                      )}
+                    </div>
+                  ))
+                ) : section.content ? (
+                  <div className="text-with-side-images-pair">
+                    <div className="text-with-side-images-content-box">
+                      {renderContent(section.content)}
+                    </div>
+                    {section.sideImages[0] && (
+                      <div className="side-image-wrapper">
+                        <img src={section.sideImages[0]} alt={`${section.title} - Image 1`} />
+                      </div>
+                    )}
+                  </div>
+                ) : null}
+              </div>
+              
+              {/* Component sections */}
+              {section.componentSections && section.componentSections.length > 0 && (
+                <div className="component-sections-container">
+                  {section.componentSections.map((component, compIndex) => (
+                    <div key={compIndex} className="component-section">
+                      <div className="component-header">
+                        <span className="component-number">{component.number}</span>
+                        <h3 className="component-title">{component.title}</h3>
+                      </div>
+                      <div className={`component-content-wrapper ${component.imagePosition === 'left' ? 'image-left' : 'image-right'}`}>
+                        {component.image && component.imagePosition === 'left' && (
+                          <div className="component-image-wrapper">
+                            <img src={component.image} alt={`${component.number} ${component.title}`} />
+                          </div>
+                        )}
+                        <div className="component-text">
+                          {renderContent(component.content)}
+                        </div>
+                        {component.image && component.imagePosition !== 'left' && (
+                          <div className="component-image-wrapper">
+                            <img src={component.image} alt={`${component.number} ${component.title}`} />
+                          </div>
+                        )}
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              )}
+            </>
           ) : (
             <>
               {renderContent(section.content)}
@@ -77,6 +136,25 @@ function ProjectSections({ sections }) {
               {section.video && renderMedia(section.video)}
               {section.gif && renderMedia(section.gif)}
             </>
+          )}
+          
+          {/* Image gallery: three images in a row with captions */}
+          {section.imageGallery && section.imageGallery.length > 0 && (
+            <div className="image-gallery">
+              {section.imageGallery.map((item, galleryIndex) => (
+                <div key={galleryIndex} className="gallery-item">
+                  <div className="gallery-image">
+                    <img src={item.image} alt={item.caption || ''} />
+                  </div>
+                  {item.caption && (
+                    <div 
+                      className="gallery-caption" 
+                      dangerouslySetInnerHTML={{ __html: item.caption }}
+                    />
+                  )}
+                </div>
+              ))}
+            </div>
           )}
           
           {/* Support subsections */}
