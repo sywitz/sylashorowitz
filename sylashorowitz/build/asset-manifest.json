@@ -1,0 +1,16 @@
+{
+  "files": {
+    "main.css": "/static/css/main.504d0678.css",
+    "main.js": "/static/js/main.b3cc2261.js",
+    "static/js/453.4b22f7bb.chunk.js": "/static/js/453.4b22f7bb.chunk.js",
+    "static/media/solarpunk.png": "/static/media/solarpunk.1289e7fbe450eaab4c14.png",
+    "index.html": "/index.html",
+    "main.504d0678.css.map": "/static/css/main.504d0678.css.map",
+    "main.b3cc2261.js.map": "/static/js/main.b3cc2261.js.map",
+    "453.4b22f7bb.chunk.js.map": "/static/js/453.4b22f7bb.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.504d0678.css",
+    "static/js/main.b3cc2261.js"
+  ]
+}
