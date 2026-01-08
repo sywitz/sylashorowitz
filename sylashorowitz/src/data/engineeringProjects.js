@@ -5,12 +5,12 @@
 
 import pultrusionThumbnail from '../assets/engineering-data/pultrusion-machine/Screenshot 2023-11-27 220417_edited.jpg';
 import arcticRovThumbnail from '../assets/engineering-data/arctic-rov/IMG_20210803_184515_edited_edited_edited.jpg';
-import guatemalaCookstoveThumbnail from '../assets/engineering-data/guatemala-cookstove/Cookstove 8_edited.jpg';
+import guatemalaCookstoveThumbnail from '../assets/engineering-data/guatemala-cookstove/IMG_1117 (1)_edited.jpg';
 import reViseThumbnail from '../assets/engineering-data/re-vise/final_photo_white_edited_edited cropped.jpg';
 import yoYoThumbnail from '../assets/engineering-data/yo-yo-manufacturing/received_586638632542024_edited_edited_edited_edited_edited_edited_edited_edited.jpg';
-import marinaSolarThumbnail from '../assets/engineering-data/marina-solar-panel/Solar Module-Static 500 cut 1-Image-3.jpg';
+import marinaSolarThumbnail from '../assets/engineering-data/marina-solar-panel/docks.PNG';
 import renaissanceCastleThumbnail from '../assets/engineering-data/renaissance-castle/20210903_152228_edited_edited_edited_edited.jpg';
-import mechanicalRabbitThumbnail from '../assets/engineering-data/mechanical-rabbit/20200801_165003_edited.jpg';
+import mechanicalRabbitThumbnail from '../assets/engineering-data/mechanical-rabbit/motion_study1.png';
 import two007RobotThumbnail from '../assets/engineering-data/2007-robot/Picture1.png';
 import solarPanelDeploymentThumbnail from '../assets/engineering-data/solar-panel-deployment/Picture1_cropped.jpg';
 import liberiaWasteBinsThumbnail from '../assets/engineering-data/liberia-recycled-waste-bins/steel_frame_bin_render_edited.jpg';

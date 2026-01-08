@@ -37,7 +37,7 @@ function Header() {
                   to="/bio" 
                   className={isActive('/bio') ? 'active' : ''}
                 >
-                  Bio
+                  Biography
                 </Link>
               </li>
               <li>
@@ -45,7 +45,7 @@ function Header() {
                   to="/engineering" 
                   className={isActive('/engineering') ? 'active' : ''}
                 >
-                  Engineering
+                  Engineering Portfolio
                 </Link>
               </li>
               <li>
@@ -53,7 +53,7 @@ function Header() {
                   to="/art" 
                   className={isActive('/art') ? 'active' : ''}
                 >
-                  Art
+                  Art Portfolio
                 </Link>
               </li>
               <li>
@@ -61,7 +61,7 @@ function Header() {
                   to="/papers" 
                   className={isActive('/papers') ? 'active' : ''}
                 >
-                  Papers
+                  Writing
                 </Link>
               </li>
             </ul>
@@ -79,7 +79,7 @@ function Header() {
             aria-label="LinkedIn Profile"
             title="LinkedIn Profile"
           >
-            <FaLinkedin size={24} color="#237a5a" />
+            <FaLinkedin size={24} color="#000000" />
           </a>
         </div>
       </div>

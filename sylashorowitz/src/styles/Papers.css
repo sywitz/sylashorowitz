@@ -2,9 +2,9 @@
 
 #papers {
   margin: calc(var(--header-height) + var(--spacing-5xl)) auto var(--spacing-6xl);
-  width: 100%;
-  max-width: 1400px;
-  padding: 0 var(--spacing-5xl);
+  width: calc(100% - var(--spacing-4xl) * 2);
+  max-width: 1800px;
+  padding: 0 var(--spacing-2xl);
   box-sizing: border-box;
 }
 
@@ -380,10 +380,10 @@
    RESPONSIVE DESIGN
    ============================================ */
 
-@media (max-width: 1400px) {
+@media (max-width: 1800px) {
   #papers {
-    max-width: 1200px;
-    padding: 0 var(--spacing-4xl);
+    max-width: 1600px;
+    padding: 0 var(--spacing-2xl);
   }
   
   .papers-container {

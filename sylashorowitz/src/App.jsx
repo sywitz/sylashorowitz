@@ -33,10 +33,7 @@ function ProjectRouter() {
 
 // Bio page content (used for both / and /bio routes)
 const BioPageContent = () => (
-  <>
-    <Welcome />
-    <Bio />
-  </>
+  <Bio />
 );
 
 function App() {

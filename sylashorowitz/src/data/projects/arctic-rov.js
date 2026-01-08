@@ -30,6 +30,7 @@ import test3Img from '../../assets/engineering-data/arctic-rov/20211011_171602.j
 import test4Img1 from '../../assets/engineering-data/arctic-rov/PXL_20220305_223541615.jpg';
 import test4Img2 from '../../assets/engineering-data/arctic-rov/Screenshot 2026-01-07 144547.png';
 import test4Img3 from '../../assets/engineering-data/arctic-rov/Screenshot 2026-01-07 162440.png';
+import test4Img4 from '../../assets/engineering-data/arctic-rov/IMG_1361 (1).jpg';
 import posterImg from '../../assets/engineering-data/arctic-rov/PXL_20221019_140245481.jpg';
 import posterPdf from '../../assets/engineering-data/arctic-rov/poster.pdf';
 
@@ -40,7 +41,7 @@ export const arcticRov = {
   featured: true,
   heroImage: null,
   overviewImage: overviewImage,
-  description: `I designed a motorized tether management system for an underwater ROV that was deployed in the Arctic by WHOI scientists to map greenhouse gas (GHG) emissions from permafrost. This project was completed under the MIT Department of Mechanical Engineering and Woods Hole Oceanographic Institution (WHOI). The system was tested at over 5 field sites. I was selected to present at the OCEANS 2022 MTS/IEEE-OES Student Poster Competition as the ONLY undergraduate student. The paper is published <a href="https://ieeexplore.ieee.org/document/9977310" target="_blank" rel="noopener noreferrer">here</a>.`,
+  description: `I designed a motorized tether management system for an underwater ROV that was deployed in the Arctic by WHOI scientists to map greenhouse gas (GHG) emissions from permafrost. This project was completed under the MIT Department of Mechanical Engineering and Woods Hole Oceanographic Institution (WHOI). The system was tested at over 5 field sites. I was the sole undergraduate student selected to present at the OCEANS 2022 MTS/IEEE-OES Student Poster Competition. The paper is published <a href="https://ieeexplore.ieee.org/document/9977310" target="_blank" rel="noopener noreferrer">here</a>.`,
   achievements: [
     'Presented at the OCEANS 2022 MTS/IEEE-OES Student Poster Competition',
     'Published peer-reviewed paper on the tether management system',
@@ -227,13 +228,16 @@ fprintf('Center distance constraint: %.0f inches\n', centerDistance);`
     {
       title: 'Fourth Test: Lake Whitehall, Hopkinton, MA',
       layout: 'text-with-side-images-left',
+      customClass: 'lake-whitehall-section',
       content: `We deployed under a frozen lake for the first time and captured CO2 and CH4 data. Methane was from dissolved gas from decaying organic matter in the lake which can be seen from the BlueROV SWAP-UV video showing entrapped bubbles in the ice sheet.`,
-      sideImages: [test4Img1, test4Img2, test4Img3]
+      sideImages: [test4Img1, test4Img2, test4Img3, test4Img4]
     },
     {
       title: 'Results',
-      content: `I published a paper and presented at the OCEANS 2022 conference. I was accepted into the Student Poster Competition as the ONLY undergraduate student.`,
-      images: [posterImg],
+      layout: 'text-with-side-images-left',
+      customClass: 'results-section',
+      content: `I published a paper and presented at the OCEANS 2022 conference. I was accepted into the Student Poster Competition as the sole undergraduate student.`,
+      sideImages: [posterImg],
       pdf: posterPdf
     }
   ],

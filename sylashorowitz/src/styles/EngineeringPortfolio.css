@@ -2,8 +2,10 @@
 
 .engineering-portfolio {
   max-width: var(--max-width-container);
+  width: calc(100% - var(--spacing-4xl) * 2);
   margin: var(--spacing-4xl) auto 0;
-  padding: 0 var(--spacing-4xl) var(--spacing-section-padding);
+  padding: 0 var(--spacing-2xl) var(--spacing-section-padding);
+  box-sizing: border-box;
 }
 
 .portfolio-header {
@@ -44,7 +46,7 @@
   grid-template-columns: repeat(auto-fit, minmax(var(--max-width-project-grid), 1fr));
   gap: var(--spacing-3xl);
   margin-top: var(--spacing-section-padding);
-  padding: 0 var(--spacing-xl);
+  padding: 0;
 }
 
 .engineering-portfolio .project-card {

@@ -64,7 +64,7 @@ function ProjectSections({ sections }) {
   return (
     <div className="project-sections">
       {sections.map((section, index) => (
-        <div key={index} className={`section ${section.layout ? `section-${section.layout}` : ''} ${section.layout === 'background-video' ? 'section-background-video' : ''}`}>
+        <div key={index} className={`section ${section.layout ? `section-${section.layout}` : ''} ${section.layout === 'background-video' ? 'section-background-video' : ''} ${section.customClass || ''}`}>
           {section.title && <h2>{section.title}</h2>}
           
           {/* Diagonal overlay layout: image with text overlay */}
@@ -84,24 +84,72 @@ function ProjectSections({ sections }) {
                   <div className="text-with-side-images-pair text-with-side-images-left">
                     {section.sideImages && section.sideImages.length > 0 && (
                       <div className="side-images-stacked">
-                        {section.sideImages.map((img, imgIndex) => {
-                          const imgSrc = typeof img === 'string' ? img : (img.default || img);
-                          const isVideo = typeof imgSrc === 'string' 
-                            ? (imgSrc.endsWith('.mp4') || imgSrc.endsWith('.webm') || imgSrc.endsWith('.mov') || imgSrc.endsWith('.avi'))
-                            : false;
-                          
-                          return (
-                            <div key={imgIndex} className="side-image-wrapper">
-                              {isVideo ? (
-                                <video controls className="side-video">
-                                  <source src={imgSrc} type="video/mp4" />
-                                </video>
-                              ) : (
-                                <img src={imgSrc} alt={`${section.title} - Image ${imgIndex + 1}`} />
-                              )}
+                        {section.customClass === 'lake-whitehall-section' && section.sideImages.length === 4 ? (
+                          <>
+                            {/* First and last images side by side (shrunk) */}
+                            <div className="lake-whitehall-top-images">
+                              {[section.sideImages[0], section.sideImages[3]].map((img, imgIndex) => {
+                                const imgSrc = typeof img === 'string' ? img : (img.default || img);
+                                const isVideo = typeof imgSrc === 'string' 
+                                  ? (imgSrc.endsWith('.mp4') || imgSrc.endsWith('.webm') || imgSrc.endsWith('.mov') || imgSrc.endsWith('.avi'))
+                                  : false;
+                                
+                                return (
+                                  <div key={imgIndex === 0 ? 0 : 3} className="side-image-wrapper">
+                                    {isVideo ? (
+                                      <video controls className="side-video">
+                                        <source src={imgSrc} type="video/mp4" />
+                                      </video>
+                                    ) : (
+                                      <img src={imgSrc} alt={`${section.title} - Image ${imgIndex === 0 ? 1 : 4}`} />
+                                    )}
+                                  </div>
+                                );
+                              })}
                             </div>
-                          );
-                        })}
+                            {/* Second and third images in a row below */}
+                            <div className="lake-whitehall-bottom-images">
+                              {section.sideImages.slice(1, 3).map((img, imgIndex) => {
+                                const imgSrc = typeof img === 'string' ? img : (img.default || img);
+                                const isVideo = typeof imgSrc === 'string' 
+                                  ? (imgSrc.endsWith('.mp4') || imgSrc.endsWith('.webm') || imgSrc.endsWith('.mov') || imgSrc.endsWith('.avi'))
+                                  : false;
+                                
+                                return (
+                                  <div key={imgIndex + 1} className="side-image-wrapper">
+                                    {isVideo ? (
+                                      <video controls className="side-video">
+                                        <source src={imgSrc} type="video/mp4" />
+                                      </video>
+                                    ) : (
+                                      <img src={imgSrc} alt={`${section.title} - Image ${imgIndex + 2}`} />
+                                    )}
+                                  </div>
+                                );
+                              })}
+                            </div>
+                          </>
+                        ) : (
+                          /* Default rendering for other sections */
+                          section.sideImages.map((img, imgIndex) => {
+                            const imgSrc = typeof img === 'string' ? img : (img.default || img);
+                            const isVideo = typeof imgSrc === 'string' 
+                              ? (imgSrc.endsWith('.mp4') || imgSrc.endsWith('.webm') || imgSrc.endsWith('.mov') || imgSrc.endsWith('.avi'))
+                              : false;
+                            
+                            return (
+                              <div key={imgIndex} className="side-image-wrapper">
+                                {isVideo ? (
+                                  <video controls className="side-video">
+                                    <source src={imgSrc} type="video/mp4" />
+                                  </video>
+                                ) : (
+                                  <img src={imgSrc} alt={`${section.title} - Image ${imgIndex + 1}`} />
+                                )}
+                              </div>
+                            );
+                          })
+                        )}
                       </div>
                     )}
                     <div className="text-with-side-images-content-box">
@@ -110,6 +158,17 @@ function ProjectSections({ sections }) {
                   </div>
                 ) : null}
               </div>
+              {/* Support PDF embedding for text-with-side-images-left layout */}
+              {section.pdf && (
+                <div className="section-pdf">
+                  <iframe 
+                    src={section.pdf} 
+                    type="application/pdf"
+                    title="PDF Document"
+                    className="pdf-embed"
+                  />
+                </div>
+              )}
             </>
           ) : section.layout === 'side-by-side-images' && section.sideBySideImages ? (
             <div className="side-by-side-images-container">
