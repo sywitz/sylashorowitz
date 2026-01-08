@@ -3,12 +3,10 @@
  */
 
 import React from 'react';
-import { projectData } from '../../data/projectData';
-import ProjectBase from './ProjectBase';
+import ProjectWrapper from './ProjectWrapper';
 
 function RenaissanceCastle() {
-  const project = projectData['renaissance-castle'];
-  return <ProjectBase project={project} />;
+  return <ProjectWrapper projectId="renaissance-castle" />;
 }
 
 export default RenaissanceCastle;

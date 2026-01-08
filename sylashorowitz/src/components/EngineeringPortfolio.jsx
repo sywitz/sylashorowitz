@@ -15,7 +15,6 @@ function EngineeringPortfolio() {
     <div id="engineering" className="engineering-portfolio">
       <div className="portfolio-header">
         <h1>Engineering Portfolio</h1>
-        <p>Innovative engineering solutions across mechatronics, sustainable design, and manufacturing</p>
       </div>
       
       <div className="projects-grid">

@@ -3,12 +3,10 @@
  */
 
 import React from 'react';
-import { projectData } from '../../data/projectData';
-import ProjectBase from './ProjectBase';
+import ProjectWrapper from './ProjectWrapper';
 
 function MechanicalRabbit() {
-  const project = projectData['mechanical-rabbit'];
-  return <ProjectBase project={project} />;
+  return <ProjectWrapper projectId="mechanical-rabbit" />;
 }
 
 export default MechanicalRabbit;

@@ -9,26 +9,22 @@
  */
 
 /* ============================================
-   GLASSMORPHISM CARDS
+   TAN CARDS - Solid tan/beige backgrounds
    ============================================ */
 
 .glass-card {
-  background: var(--color-glass-bg);
-  backdrop-filter: blur(20px) saturate(170%);
-  -webkit-backdrop-filter: blur(20px) saturate(170%);
+  background: var(--color-bg-tan);
   border-radius: var(--radius-xl);
-  border: 1px solid var(--color-glass-border);
-  box-shadow: var(--shadow-glass);
+  border: 1px solid var(--color-border-light);
+  box-shadow: var(--shadow-lg);
   transition: all var(--transition-base);
 }
 
 .glass-card-strong {
-  background: var(--color-glass-bg-strong);
-  backdrop-filter: blur(18px) saturate(160%);
-  -webkit-backdrop-filter: blur(18px) saturate(160%);
+  background: var(--color-bg-tan);
   border-radius: var(--radius-xl);
-  border: 1px solid var(--color-glass-border);
-  box-shadow: var(--shadow-glass-strong);
+  border: 1px solid var(--color-border-light);
+  box-shadow: var(--shadow-lg);
   transition: all var(--transition-base);
 }
 
@@ -38,7 +34,7 @@
   transform: translateY(var(--transform-offset-md));
 }
 
-/* Glass card with left border accent */
+/* Card with left border accent */
 .glass-card-accent {
   border-left: var(--spacing-bio-border) solid var(--color-primary);
 }
@@ -71,7 +67,7 @@
 .btn-primary:hover {
   background: var(--color-primary-dark);
   border-color: var(--color-primary-dark);
-  box-shadow: 0 3px 10px rgba(46, 96, 74, 0.25);
+  box-shadow: 0 3px 10px var(--color-shadow-primary);
   transform: translateY(var(--transform-offset-sm));
 }
 
@@ -83,7 +79,7 @@
 .btn-outline:hover {
   background: var(--color-primary);
   color: var(--color-text-on-dark);
-  box-shadow: 0 3px 10px rgba(46, 96, 74, 0.25);
+  box-shadow: 0 3px 10px var(--color-shadow-primary);
   transform: translateY(var(--transform-offset-sm));
 }
 
@@ -97,19 +93,20 @@
    ============================================ */
 
 .skill-tag {
-  background: var(--color-accent-alpha-20);
+  background: var(--color-shadow-accent);
   color: var(--color-accent);
   padding: var(--spacing-xs) var(--spacing-sm);
   border-radius: var(--radius-md);
   font-size: 0.68rem;
   font-weight: var(--font-weight-medium);
-  border: var(--border-width-thin) solid var(--color-accent-alpha-30);
+  border: var(--border-width-thin) solid var(--color-shadow-accent);
   transition: all var(--transition-base);
   display: inline-block;
 }
 
 .skill-tag:hover {
-  background: var(--color-accent-alpha-30);
+  background: var(--color-shadow-accent);
+  opacity: 0.8;
   transform: translateY(var(--transform-offset-sm));
 }
 
@@ -132,6 +129,6 @@
 
 .card-hover-slide:hover {
   transform: translateX(8px);
-  box-shadow: 0 12px 40px rgba(46, 96, 74, 0.12), 0 4px 12px rgba(0, 0, 0, 0.08);
+  box-shadow: 0 12px 40px var(--color-shadow-primary), 0 4px 12px var(--color-shadow);
 }
 

@@ -5,6 +5,7 @@
 
 import React from 'react';
 import { renderContent } from '../utils/renderContent';
+import ImageCarousel from './ImageCarousel';
 
 function ProjectSections({ sections }) {
   const renderMedia = (media) => {
@@ -13,9 +14,16 @@ function ProjectSections({ sections }) {
     // Handle media as object with type property
     if (typeof media === 'object' && media.type) {
       if (media.type === 'video') {
+        const isBackground = media.background || false;
         return (
-          <div className="section-media">
-            <video controls>
+          <div className={isBackground ? "section-background-video" : "section-media"}>
+            <video 
+              autoPlay 
+              loop 
+              muted 
+              playsInline
+              {...(isBackground ? {} : { controls: true })}
+            >
               <source src={media.src || media.url} type={media.mimeType || 'video/mp4'} />
               Your browser does not support the video tag.
             </video>
@@ -56,8 +64,8 @@ function ProjectSections({ sections }) {
   return (
     <div className="project-sections">
       {sections.map((section, index) => (
-        <div key={index} className={`section ${section.layout ? `section-${section.layout}` : ''}`}>
-          <h2>{section.title}</h2>
+        <div key={index} className={`section ${section.layout ? `section-${section.layout}` : ''} ${section.layout === 'background-video' ? 'section-background-video' : ''}`}>
+          {section.title && <h2>{section.title}</h2>}
           
           {/* Diagonal overlay layout: image with text overlay */}
           {section.layout === 'diagonal-overlay' && section.image ? (
@@ -67,6 +75,54 @@ function ProjectSections({ sections }) {
               </div>
               <div className="diagonal-overlay-text">
                 {renderContent(section.content)}
+              </div>
+            </div>
+          ) : section.layout === 'text-with-side-images-left' && section.sideImages ? (
+            <>
+              <div className="text-with-side-images-container">
+                {section.content ? (
+                  <div className="text-with-side-images-pair text-with-side-images-left">
+                    {section.sideImages && section.sideImages.length > 0 && (
+                      <div className="side-images-stacked">
+                        {section.sideImages.map((img, imgIndex) => {
+                          const imgSrc = typeof img === 'string' ? img : (img.default || img);
+                          const isVideo = typeof imgSrc === 'string' 
+                            ? (imgSrc.endsWith('.mp4') || imgSrc.endsWith('.webm') || imgSrc.endsWith('.mov') || imgSrc.endsWith('.avi'))
+                            : false;
+                          
+                          return (
+                            <div key={imgIndex} className="side-image-wrapper">
+                              {isVideo ? (
+                                <video controls className="side-video">
+                                  <source src={imgSrc} type="video/mp4" />
+                                </video>
+                              ) : (
+                                <img src={imgSrc} alt={`${section.title} - Image ${imgIndex + 1}`} />
+                              )}
+                            </div>
+                          );
+                        })}
+                      </div>
+                    )}
+                    <div className="text-with-side-images-content-box">
+                      {renderContent(section.content)}
+                    </div>
+                  </div>
+                ) : null}
+              </div>
+            </>
+          ) : section.layout === 'side-by-side-images' && section.sideBySideImages ? (
+            <div className="side-by-side-images-container">
+              {renderContent(section.content)}
+              <div className="side-by-side-images-grid">
+                {section.sideBySideImages.map((item, index) => (
+                  <div key={index} className="side-by-side-image-item">
+                    <img src={item.image} alt={item.caption || ''} />
+                    {item.caption && (
+                      <div className="side-by-side-caption" dangerouslySetInnerHTML={{ __html: item.caption }} />
+                    )}
+                  </div>
+                ))}
               </div>
             </div>
           ) : section.layout === 'text-with-side-images' && section.sideImages ? (
@@ -90,9 +146,27 @@ function ProjectSections({ sections }) {
                     <div className="text-with-side-images-content-box">
                       {renderContent(section.content)}
                     </div>
-                    {section.sideImages[0] && (
-                      <div className="side-image-wrapper">
-                        <img src={section.sideImages[0]} alt={`${section.title} - Image 1`} />
+                    {section.sideImages && section.sideImages.length > 0 && (
+                      <div className="side-images-stacked">
+                        {section.sideImages.map((img, imgIndex) => {
+                          // Handle video files - check if it's an imported video module or string path
+                          const imgSrc = typeof img === 'string' ? img : (img.default || img);
+                          const isVideo = typeof imgSrc === 'string' 
+                            ? (imgSrc.endsWith('.mp4') || imgSrc.endsWith('.webm') || imgSrc.endsWith('.mov') || imgSrc.endsWith('.avi'))
+                            : false;
+                          
+                          return (
+                            <div key={imgIndex} className="side-image-wrapper">
+                              {isVideo ? (
+                                <video controls className="side-video">
+                                  <source src={imgSrc} type="video/mp4" />
+                                </video>
+                              ) : (
+                                <img src={imgSrc} alt={`${section.title} - Image ${imgIndex + 1}`} />
+                              )}
+                            </div>
+                          );
+                        })}
                       </div>
                     )}
                   </div>
@@ -128,6 +202,49 @@ function ProjectSections({ sections }) {
                 </div>
               )}
             </>
+          ) : section.layout === 'background-video' && section.backgroundVideo ? (
+            <div className="background-video-section">
+              <video 
+                autoPlay 
+                loop 
+                muted 
+                playsInline
+                className="background-video"
+              >
+                <source src={section.backgroundVideo} type="video/mp4" />
+              </video>
+              <div className="background-video-content">
+                {renderContent(section.content)}
+              </div>
+            </div>
+          ) : section.layout === 'large-image' && section.image ? (
+            <div className="large-image-section">
+              {renderContent(section.content)}
+              <div className="large-image-container">
+                <img src={section.image} alt="" />
+              </div>
+            </div>
+          ) : section.layout === 'large-image-with-text' && section.image ? (
+            <div className="large-image-with-text-container">
+              <div className="large-image-wrapper">
+                <img src={section.image} alt="" />
+              </div>
+              <div className="large-image-text-overlay">
+                {renderContent(section.content)}
+              </div>
+            </div>
+          ) : section.layout === 'image-carousel' && section.carouselImages ? (
+            <>
+              {renderContent(section.content)}
+              <ImageCarousel images={section.carouselImages} />
+            </>
+          ) : section.layout === 'code-block' && section.code ? (
+            <div className="code-block-section">
+              {renderContent(section.content)}
+              <pre className="code-block">
+                <code>{section.code}</code>
+              </pre>
+            </div>
           ) : (
             <>
               {renderContent(section.content)}
@@ -135,6 +252,36 @@ function ProjectSections({ sections }) {
               {section.image && renderMedia(section.image)}
               {section.video && renderMedia(section.video)}
               {section.gif && renderMedia(section.gif)}
+              {/* Support multiple images */}
+              {section.images && section.images.length > 0 && (
+                <div className="section-images">
+                  {section.images.map((img, imgIndex) => (
+                    <div key={imgIndex} className="section-image-item">
+                      {typeof img === 'string' ? (
+                        <img src={img} alt="" />
+                      ) : (
+                        <>
+                          <img src={img.src} alt={img.alt || ''} />
+                          {img.caption && (
+                            <div className="image-caption" dangerouslySetInnerHTML={{ __html: img.caption }} />
+                          )}
+                        </>
+                      )}
+                    </div>
+                  ))}
+                </div>
+              )}
+              {/* Support PDF embedding */}
+              {section.pdf && (
+                <div className="section-pdf">
+                  <iframe 
+                    src={section.pdf} 
+                    type="application/pdf"
+                    title="PDF Document"
+                    className="pdf-embed"
+                  />
+                </div>
+              )}
             </>
           )}
           

@@ -8,7 +8,7 @@ import { Link } from 'react-router-dom';
 function ProjectNavigation() {
   return (
     <div className="project-navigation">
-      <Link to="/engineering" className="nav-link"> Back to Engineering Portfolio</Link>
+      <Link to="/engineering" className="back-link"> Back to Engineering Portfolio</Link>
     </div>
   );
 }

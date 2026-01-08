@@ -13,6 +13,7 @@ import {
   ProjectNavigation
 } from './components';
 import './styles/ProjectTemplate.css';
+import './styles/shared.css';
 
 function ProjectBase({ project, customStyles = null, showOverviewImage = false }) {
   if (!project) {

@@ -1,3 +1,135 @@
-/* ArcticRov-specific styles */
-/* Add custom styles for this project as needed */
+/* Arctic ROV Custom Styles - Scoped to .arctic-rov-project */
 
+/* Project Overview - Image about half width of text, cropped equally on sides */
+.arctic-rov-project.project-template .project-overview .overview-content {
+  align-items: center;
+  gap: var(--spacing-2xl);
+}
+
+.arctic-rov-project.project-template .project-overview .overview-content .overview-text {
+  flex: 0 0 50%;
+  max-width: 50%;
+}
+
+.arctic-rov-project.project-template .project-overview .overview-content .overview-image {
+  flex: 0 0 auto;
+  max-width: 500px;
+  width: 400px;
+  height: 600px;
+  overflow: hidden;
+  border-radius: var(--radius-md);
+  position: relative;
+}
+
+.arctic-rov-project.project-template .project-overview .overview-content .overview-image img {
+  width: 200%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  box-shadow: none;
+  position: absolute;
+  left: 60%;
+  top: 0;
+  transform: translateX(-50%);
+  margin: 0;
+}
+
+/* Side images - Make them a reasonable size */
+.arctic-rov-project.project-template .text-with-side-images-pair .side-image-wrapper {
+  flex: 0 0 35%;
+  max-width: 100%;
+  transform: none;
+  transition: none;
+  cursor: default;
+}
+
+/* Text box - Balance with side images */
+.arctic-rov-project.project-template .text-with-side-images-pair .text-with-side-images-content-box {
+  flex: 0 0 60%;
+}
+
+/* Remove hover effects on side images */
+.arctic-rov-project.project-template .text-with-side-images-pair .side-image-wrapper:hover {
+  transform: none;
+  z-index: auto;
+}
+
+.arctic-rov-project.project-template .text-with-side-images-pair .side-image-wrapper img {
+  transition: none;
+  transform: none;
+}
+
+/* Stacked side images for "one challenge" section */
+.arctic-rov-project.project-template .side-images-stacked {
+  flex: 0 0 35%;
+  max-width: 35%;
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-xl);
+  align-items: center;
+  justify-content: center;
+}
+
+.arctic-rov-project.project-template .side-images-stacked .side-image-wrapper {
+  width: 100%;
+  max-width: 100%;
+  flex: 0 0 auto;
+}
+
+/* Side by side images - make them same size */
+.arctic-rov-project.project-template .side-by-side-images-grid {
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--spacing-xl);
+}
+
+.arctic-rov-project.project-template .side-by-side-image-item {
+  display: flex;
+  flex-direction: column;
+}
+
+.arctic-rov-project.project-template .side-by-side-image-item img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  aspect-ratio: 4/3;
+}
+
+/* Results section - smaller poster image */
+.arctic-rov-project.project-template .section-images .section-image-item {
+  max-width: 400px;
+  margin: 0 auto;
+}
+
+/* PDF embedding */
+.arctic-rov-project.project-template .pdf-embed {
+  max-width: 1000px;
+  height: 700px;
+}
+
+/* Remove tan background from sections that are ONLY titles (no content) */
+/* Target sections with h2 followed by empty paragraph or div */
+.arctic-rov-project.project-template .section:has(h2 + p:empty),
+.arctic-rov-project.project-template .section:has(h2 + div:empty),
+.arctic-rov-project.project-template .section:has(h2:only-child) {
+  background: transparent !important;
+  padding: var(--spacing-xl) var(--spacing-xl);
+}
+
+/* Also target sections where the only non-empty content is the h2 */
+/* This handles cases where p might have whitespace but no actual content */
+.arctic-rov-project.project-template .section:has(h2 + p:not(:has(*))):not(:has(.section-media)):not(:has(.image-carousel)):not(:has(.large-image-container)):not(:has(.side-image-wrapper)):not(:has(video)):not(:has(img)):not(:has(.code-block)) {
+  background: transparent !important;
+  padding: var(--spacing-xl) var(--spacing-xl);
+}
+
+/* Field Testing background video section - special styling */
+/* Target the background video section that contains "Field Testing" */
+/* This is the 20th section overall in the sections array */
+.arctic-rov-project.project-template .project-sections > .section.section-background-video:nth-of-type(20) .background-video-content p {
+  font-size: var(--font-size-7xl);
+  font-weight: var(--font-weight-bold);
+  text-transform: uppercase;
+  color: rgba(231, 187, 83, 0.8); /* Semi-transparent yellow (--color-accent) */
+  text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.5);
+  letter-spacing: 2px;
+}

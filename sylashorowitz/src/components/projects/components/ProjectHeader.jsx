@@ -9,10 +9,12 @@ function ProjectHeader({ project }) {
   return (
     <div className="project-header">
       <div className="header-content">
-        <Link to="/engineering" className="back-link"> Back to Engineering Portfolio</Link>
+        <div className="header-top-row">
+          <Link to="/engineering" className="back-link"> Back to Engineering Portfolio</Link>
+          {project.featured && <span className="featured-badge">FEATURED PROJECT</span>}
+        </div>
         <h1>{project.title}</h1>
         <p className="project-subtitle">{project.subtitle}</p>
-        {project.featured && <span className="featured-badge">FEATURED PROJECT</span>}
       </div>
     </div>
   );

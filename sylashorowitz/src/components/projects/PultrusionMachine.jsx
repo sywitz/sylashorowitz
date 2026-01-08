@@ -7,8 +7,6 @@
 import React from 'react';
 import { projectData } from '../../data/projectData';
 import ProjectBase from './ProjectBase';
-import './styles/ProjectTemplate.css';
-import './styles/shared.css';
 import './styles/PultrusionMachine.css';
 
 function PultrusionMachine() {

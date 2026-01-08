@@ -27,7 +27,13 @@ export const renderContent = (content) => {
     if (numberedListPattern.test(trimmedLine)) {
       // If we have accumulated paragraph content, add it first
       if (currentParagraph.length > 0) {
-        elements.push(<p key={`para-${index}`}>{currentParagraph.join('\n')}</p>);
+        const paragraphText = currentParagraph.join('\n');
+        // Check if paragraph contains HTML
+        if (/<[a-z][\s\S]*>/i.test(paragraphText)) {
+          elements.push(<p key={`para-${index}`} dangerouslySetInnerHTML={{ __html: paragraphText.replace(/\n/g, '<br>') }} />);
+        } else {
+          elements.push(<p key={`para-${index}`}>{paragraphText}</p>);
+        }
         currentParagraph = [];
       }
       
@@ -83,9 +89,17 @@ export const renderContent = (content) => {
     );
   }
   if (currentParagraph.length > 0) {
-    elements.push(<p key="para-final">{currentParagraph.join('\n')}</p>);
+    const paragraphText = currentParagraph.join('\n');
+    // Check if paragraph contains HTML
+    if (/<[a-z][\s\S]*>/i.test(paragraphText)) {
+      elements.push(<p key="para-final" dangerouslySetInnerHTML={{ __html: paragraphText.replace(/\n/g, '<br>') }} />);
+    } else {
+      elements.push(<p key="para-final">{paragraphText}</p>);
+    }
   }
 
   return <div>{elements}</div>;
 };
+
+
 

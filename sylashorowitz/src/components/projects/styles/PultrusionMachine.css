@@ -43,14 +43,12 @@
   top: 251px;
   left: 561px;
   z-index: 2;
-  background: rgba(255, 248, 240, 0.95); /* Light peach/beige opaque background */
+  background: var(--color-bg-tan-medium);
   padding: var(--spacing-2xl) var(--spacing-3xl) var(--spacing-3xl) var(--spacing-3xl);
   border-radius: var(--radius-lg);
   box-shadow: none;
   width: 400px;
   height: 170px;
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
 }
 
 .diagonal-overlay-text p {
@@ -130,7 +128,7 @@
 
 .text-with-side-images-content-box {
   flex: 0 0 45%;
-  background: rgba(255, 248, 240, 0.95);
+  background: var(--color-bg-tan-medium);
   padding: var(--spacing-2xl);
   border-radius: var(--radius-xl);
   box-shadow: none;

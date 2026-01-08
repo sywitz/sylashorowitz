@@ -3,12 +3,10 @@
  */
 
 import React from 'react';
-import { projectData } from '../../data/projectData';
-import ProjectBase from './ProjectBase';
+import ProjectWrapper from './ProjectWrapper';
 
 function MarinaSolarSupports() {
-  const project = projectData['marina-solar-supports'];
-  return <ProjectBase project={project} />;
+  return <ProjectWrapper projectId="marina-solar-supports" />;
 }
 
 export default MarinaSolarSupports;

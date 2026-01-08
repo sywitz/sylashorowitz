@@ -26,17 +26,6 @@ function ProjectOverview({ project, showImage = false }) {
       ) : (
         renderDescription()
       )}
-      
-      {project.achievements && project.achievements.length > 0 && (
-        <div className="achievements">
-          <h3>Key Achievements:</h3>
-          <ul>
-            {project.achievements.map((achievement, index) => (
-              <li key={index}>{achievement}</li>
-            ))}
-          </ul>
-        </div>
-      )}
 
       <div className="skills-used">
         <h3>Skills & Technologies:</h3>

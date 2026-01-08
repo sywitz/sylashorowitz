@@ -3,12 +3,10 @@
  */
 
 import React from 'react';
-import { projectData } from '../../data/projectData';
-import ProjectBase from './ProjectBase';
+import ProjectWrapper from './ProjectWrapper';
 
 function LiberiaRecycledWasteBins() {
-  const project = projectData['liberia-recycled-waste-bins'];
-  return <ProjectBase project={project} />;
+  return <ProjectWrapper projectId="liberia-recycled-waste-bins" />;
 }
 
 export default LiberiaRecycledWasteBins;

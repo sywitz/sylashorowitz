@@ -2,60 +2,37 @@
 
 :root {
   /* ============================================
-     COLOR SYSTEM
+     COLOR SYSTEM - Simplified & Consolidated
+     Edit only the core colors below to change the entire theme
      ============================================ */
   
-  /* Primary Colors - Deep Green */
-  --color-primary: #2e604a;
-  --color-primary-dark: #1e4635;
-  --color-primary-light: #3a7a5f;
+  /* CORE COLORS - Only 6 colors! Change these to customize the entire theme */
+  --color-primary: #237a5a;           /* Forest Green - main color */
+  --color-primary-dark: #0f2e22;     /* Darker green */
+  --color-primary-light: #2d6b52;    /* Lighter green */
+  --color-accent: #e7bb53;            /* Bold Yellow - accent */
+  --color-accent-light: #f8d96b;      /* Light yellow */
+  --color-bg-tan: #e1d8c3;            /* Tan/beige background */
   
-  /* Secondary Colors - Muted Teal/Green (more harmonious with primary) */
-  --color-secondary: #3d5a4f;
-  --color-secondary-light: #4a6d5f;
-  --color-secondary-dark: #2d4539;
+  /* DERIVED COLORS - All use core colors above */
+  --color-text: var(--color-primary);
+  --color-text-muted: var(--color-primary-light);
+  --color-text-on-dark: #ffffff;
+  --color-link: var(--color-accent);
+  --color-link-hover: var(--color-primary);
+  --color-border: var(--color-primary);
+  --color-bg-bio: var(--color-primary);
+  --color-bg-tan-light: #f0ebe0;       /* Lighter tan for some sections */
+  --color-bg-tan-medium: #d9cdb5;      /* Medium tan for other sections */
+  --color-bg-green-light: #a8d5ba;      /* Light green for sections, lighter than primary-light */
   
-  /* Accent Colors - Tan/Beige (muted for better readability) */
-  --color-accent: #b8926a;
-  --color-accent-light: #e1d8c3;
-  --color-accent-hover: #2e604a;
-  
-  /* Background Colors */
-  --color-bg-primary: rgba(225, 216, 195, 0.95);
-  --color-bg-secondary: rgba(225, 216, 195, 0.9);
-  --color-bg-card: #2e604a;
-  --color-bg-transparent: transparent;
-  
-  /* Glassmorphism Colors */
-  --color-glass-bg: rgba(225, 216, 195, 0.75);
-  --color-glass-bg-strong: rgba(225, 216, 195, 0.85);
-  --color-glass-border: rgba(46, 96, 74, 0.2);
-  
-  /* Text Colors */
-  --color-text-primary: #2e604a;
-  --color-text-secondary: #3d5a4f;
-  --color-text-on-dark: #e1d8c3;
-  --color-text-accent: #b8926a;
-  
-  /* Link Colors */
-  --color-link: #b8926a;
-  --color-link-hover: #2e604a;
-  
-  /* Border Colors */
-  --color-border: #2e604a;
-  --color-border-accent: #b8926a;
-  
-  /* Accent with Opacity (for backgrounds, borders) */
-  --color-accent-alpha-20: rgba(184, 146, 106, 0.2);
-  --color-accent-alpha-30: rgba(184, 146, 106, 0.3);
-  
-  /* Shadow Colors */
+  /* BORDERS & SHADOWS - Use primary color */
+  --color-border-light: rgba(35, 122, 90, 0.2);
   --color-shadow: rgba(0, 0, 0, 0.1);
   --color-shadow-medium: rgba(0, 0, 0, 0.15);
   --color-shadow-dark: rgba(0, 0, 0, 0.2);
-  --color-shadow-accent: rgba(184, 146, 106, 0.3);
-  --color-shadow-glass: rgba(0, 0, 0, 0.1);
-  --color-shadow-glass-strong: rgba(0, 0, 0, 0.15);
+  --color-shadow-primary: rgba(35, 122, 90, 0.3);
+  --color-shadow-accent: rgba(231, 187, 83, 0.3);
   
   /* ============================================
      SPACING SYSTEM
@@ -156,10 +133,10 @@
      ============================================ */
   
   --shadow-sm: 0 2px 8px var(--color-shadow);
-  --shadow-md: 0 4px 8px var(--color-shadow);
+  --shadow-md: 0 4px 12px var(--color-shadow-medium);
   --shadow-lg: 0 8px 24px var(--color-shadow-medium);
-  --shadow-xl: 0 8px 32px var(--color-shadow);
-  --shadow-2xl: 0 16px 40px var(--color-shadow-dark);
+  --shadow-xl: 0 12px 32px var(--color-shadow-dark);
+  --shadow-2xl: 0 16px 48px var(--color-shadow-dark);
   --shadow-accent: 0 8px 24px var(--color-shadow-accent);
   --shadow-text: 2px 2px 4px var(--color-shadow);
   --shadow-glass: 0 8px 32px var(--color-shadow-glass), 0 2px 8px var(--color-shadow-glass-strong);
@@ -182,8 +159,8 @@
   --max-width-narrow: 600px;
   --max-width-project-grid: 300px;
   
-  --header-height: 80px;
-  --header-height-mobile: 120px;
+  --header-height: 60px;
+  --header-height-mobile: 80px;
   
   --app-width: 90%;
   --app-width-mobile: 95%;

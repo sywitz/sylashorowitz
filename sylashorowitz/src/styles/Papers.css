@@ -30,7 +30,7 @@
   overflow-y: auto;
   z-index: 100;
   scrollbar-width: thin;
-  scrollbar-color: rgba(46, 96, 74, 0.3) transparent;
+  scrollbar-color: var(--color-shadow-primary) transparent;
 }
 
 .papers-sidebar::-webkit-scrollbar {
@@ -42,29 +42,26 @@
 }
 
 .papers-sidebar::-webkit-scrollbar-thumb {
-  background: rgba(46, 96, 74, 0.3);
+  background: var(--color-shadow-primary);
   border-radius: 2px;
 }
 
 .papers-sidebar::-webkit-scrollbar-thumb:hover {
-  background: rgba(46, 96, 74, 0.5);
+  background: var(--color-primary);
 }
 
 .papers-intro {
-  /* Use utility class for glassmorphism */
-  background: linear-gradient(135deg, rgba(225, 216, 195, 0.98) 0%, rgba(225, 216, 195, 0.92) 100%);
-  backdrop-filter: blur(20px) saturate(170%);
-  -webkit-backdrop-filter: blur(20px) saturate(170%);
+  background: var(--color-bg-tan-light);
   border-radius: var(--radius-xl);
-  border: 1px solid var(--color-glass-border);
-  box-shadow: var(--shadow-glass);
+  border: 1px solid var(--color-border-light);
+  box-shadow: var(--shadow-xl);
   padding: var(--spacing-3xl);
   transition: all var(--transition-base);
 }
 
 .papers-intro:hover {
   box-shadow: var(--shadow-2xl);
-  border-color: rgba(46, 96, 74, 0.3);
+  border-color: var(--color-border);
 }
 
 .papers-intro h1 {
@@ -206,13 +203,10 @@
    ============================================ */
 
 .paper-card {
-  /* Use utility class for glassmorphism */
-  background: linear-gradient(135deg, rgba(225, 216, 195, 0.96) 0%, rgba(225, 216, 195, 0.9) 100%);
-  backdrop-filter: blur(24px) saturate(160%);
-  -webkit-backdrop-filter: blur(24px) saturate(160%);
+  background: var(--color-bg-tan-medium);
   border-radius: var(--radius-md);
-  border: 1px solid var(--color-glass-border);
-  box-shadow: var(--shadow-glass);
+  border: 1px solid var(--color-border-light);
+  box-shadow: var(--shadow-xl);
   padding: var(--spacing-3xl);
   transition: all var(--transition-base);
   position: relative;
@@ -235,7 +229,7 @@
 .paper-card:hover {
   box-shadow: var(--shadow-2xl);
   transform: translateX(8px);
-  border-color: rgba(46, 96, 74, 0.25);
+  border-color: var(--color-border);
 }
 
 .paper-card:hover::before {
@@ -255,8 +249,9 @@
   font-size: 1rem;
   font-weight: 700;
   color: var(--color-primary);
-  background: rgba(46, 96, 74, 0.1);
-  border: 2px solid rgba(46, 96, 74, 0.2);
+  background: var(--color-shadow-primary);
+  opacity: 0.3;
+  border: 2px solid var(--color-shadow-primary);
   border-radius: 50%;
   transition: all 0.3s ease;
   z-index: 1;

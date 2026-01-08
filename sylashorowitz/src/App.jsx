@@ -8,6 +8,7 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route, Navigate, useParams } from 'react-router-dom';
 import Header from './components/Header';
+import Footer from './components/Footer';
 import Bio from './components/Bio';
 import Welcome from './components/Welcome';
 import EngineeringPortfolio from './components/EngineeringPortfolio';
@@ -41,23 +42,26 @@ const BioPageContent = () => (
 function App() {
   return (
     <Router>
-      <Header />
-      <main className="page-content">
-        <Routes>
-          {/* Bio page (home) - shows Welcome and Bio components */}
-          <Route path="/" element={<BioPageContent />} />
-          <Route path="/bio" element={<BioPageContent />} />
-          
-          {/* Other pages */}
-          <Route path="/engineering" element={<EngineeringPortfolio />} />
-          <Route path="/art" element={<Art />} />
-          <Route path="/papers" element={<Papers />} />
-          <Route path="/projects/:projectId" element={<ProjectRouter />} />
-          
-          {/* Redirect unknown routes to home */}
-          <Route path="*" element={<Navigate to="/" />} />
-        </Routes>
-      </main>
+      <div className="app-container">
+        <Header />
+        <main className="page-content">
+          <Routes>
+            {/* Bio page (home) - shows Welcome and Bio components */}
+            <Route path="/" element={<BioPageContent />} />
+            <Route path="/bio" element={<BioPageContent />} />
+            
+            {/* Other pages */}
+            <Route path="/engineering" element={<EngineeringPortfolio />} />
+            <Route path="/art" element={<Art />} />
+            <Route path="/papers" element={<Papers />} />
+            <Route path="/projects/:projectId" element={<ProjectRouter />} />
+            
+            {/* Redirect unknown routes to home */}
+            <Route path="*" element={<Navigate to="/" />} />
+          </Routes>
+        </main>
+        <Footer />
+      </div>
     </Router>
   );
 }

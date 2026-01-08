@@ -3,12 +3,10 @@
  */
 
 import React from 'react';
-import { projectData } from '../../data/projectData';
-import ProjectBase from './ProjectBase';
+import ProjectWrapper from './ProjectWrapper';
 
 function ReVise() {
-  const project = projectData['re-vise'];
-  return <ProjectBase project={project} />;
+  return <ProjectWrapper projectId="re-vise" />;
 }
 
 export default ReVise;

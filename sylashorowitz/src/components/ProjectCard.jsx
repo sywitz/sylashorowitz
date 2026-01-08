@@ -65,8 +65,7 @@ function ProjectCard({
         <div className="project-header">
           {renderTitle()}
           <div className="project-meta">
-            <span className="institution">{institution}</span>
-            <span className="year">{year}</span>
+            <span className="institution">{institution}, {year}</span>
           </div>
         </div>
         

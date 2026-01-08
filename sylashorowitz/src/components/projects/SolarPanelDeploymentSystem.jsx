@@ -3,12 +3,10 @@
  */
 
 import React from 'react';
-import { projectData } from '../../data/projectData';
-import ProjectBase from './ProjectBase';
+import ProjectWrapper from './ProjectWrapper';
 
 function SolarPanelDeploymentSystem() {
-  const project = projectData['solar-panel-deployment-system'];
-  return <ProjectBase project={project} />;
+  return <ProjectWrapper projectId="solar-panel-deployment-system" />;
 }
 
 export default SolarPanelDeploymentSystem;

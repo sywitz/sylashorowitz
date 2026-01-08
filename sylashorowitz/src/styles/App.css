@@ -3,40 +3,167 @@ body {
   font-family: var(--font-family-primary);
   margin: 0;
   padding: 0;
-  background: url('./solarpunk.png') no-repeat center center fixed;
-  background-size: cover;
+  background: url('../assets/images/backgrounds/821348.png') no-repeat 45% 42% fixed;
+  background-size: 120% auto;
   display: flex;
   justify-content: center;
   align-items: center;
   min-height: 100vh;
   flex-direction: column;
+  color: var(--color-primary-dark);
+  overflow-x: hidden;
 }
 
-/* Header styles - Modern glassmorphism design */
+.app-container {
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+}
+
+/* Header styles - Smaller, left-aligned design */
 header {
   width: 100%;
-  background: var(--color-glass-bg);
-  backdrop-filter: blur(20px) saturate(180%);
-  -webkit-backdrop-filter: blur(20px) saturate(180%);
-  padding: var(--spacing-header-padding) 0;
+  background: var(--color-bg-tan);
+  padding: var(--spacing-sm) var(--spacing-2xl);
   position: fixed;
   top: 0;
   left: 0;
-  text-align: center;
+  right: 0;
+  text-align: left;
   z-index: var(--z-header);
-  border-bottom: 1px solid var(--color-glass-border);
-  box-shadow: var(--shadow-glass);
+  border-bottom: 1px solid var(--color-border-light);
+  box-shadow: var(--shadow-md);
+  box-sizing: border-box;
+}
+
+.header-content {
+  display: flex !important;
+  justify-content: space-between !important;
+  align-items: center !important;
+  width: 100% !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  box-sizing: border-box !important;
+  flex-wrap: nowrap !important;
+  flex-direction: row !important;
+}
+
+.header-left {
+  display: flex !important;
+  align-items: center !important;
+  gap: var(--spacing-lg) !important;
+  flex: 0 0 auto !important;
+  flex-wrap: nowrap !important;
+  flex-shrink: 0 !important;
+  justify-content: flex-start !important;
+  text-align: left !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+.header-name {
+  font-size: var(--font-size-xl);
+  font-weight: var(--font-weight-bold);
+  color: var(--color-primary);
+  text-decoration: none;
+  letter-spacing: 1px;
+  font-family: var(--font-family-primary);
+  text-transform: uppercase;
+  font-style: italic;
+  transition: all var(--transition-base);
+  white-space: nowrap !important;
+  flex-shrink: 0 !important;
+  text-align: left !important;
+  display: inline-block !important;
+}
+
+.header-name:hover {
+  color: var(--color-primary-light);
+  letter-spacing: 1.5px;
+}
+
+.header-right {
+  display: flex !important;
+  align-items: center !important;
+  gap: var(--spacing-md) !important;
+  flex: 0 0 auto !important;
+  white-space: nowrap !important;
+  flex-wrap: nowrap !important;
+  flex-shrink: 0 !important;
+  margin-left: auto !important;
+  justify-content: flex-end !important;
+  text-align: right !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+.header-email {
+  color: var(--color-primary);
+  text-decoration: none;
+  font-size: var(--font-size-base);
+  font-weight: var(--font-weight-medium);
+  transition: all var(--transition-base);
+  white-space: nowrap !important;
+  flex-shrink: 0 !important;
+  display: inline-block !important;
+}
+
+.header-email:hover {
+  color: var(--color-primary-light);
+  text-decoration: underline;
+}
+
+.header-linkedin {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-primary);
+  text-decoration: none;
+  transition: all var(--transition-base);
+  width: 24px;
+  height: 24px;
+  line-height: 0;
+  position: relative;
+  z-index: 10;
+  cursor: pointer;
+}
+
+.header-linkedin:hover {
+  transform: scale(1.1);
+  color: var(--color-primary-light);
+}
+
+.header-linkedin svg,
+.header-linkedin path {
+  width: 24px;
+  height: 24px;
+  fill: currentColor !important;
+  color: currentColor !important;
+  transition: all var(--transition-base);
+  display: block;
+  pointer-events: none;
+}
+
+header nav {
+  display: inline-block !important;
+  flex-shrink: 0 !important;
+  margin: 0 !important;
+  padding: 0 !important;
 }
 
 nav ul {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: var(--spacing-lg);
-  flex-wrap: wrap;
+  list-style: none !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  display: flex !important;
+  align-items: center !important;
+  gap: var(--spacing-sm) !important;
+  flex-wrap: nowrap !important;
+  flex-shrink: 0 !important;
+  justify-content: flex-start !important;
 }
 
 nav ul li {
@@ -47,22 +174,22 @@ nav ul li a {
   text-decoration: none;
   color: var(--color-primary);
   font-weight: var(--font-weight-semibold);
-  padding: var(--spacing-nav-padding-y) var(--spacing-2xl);
+  padding: var(--spacing-xs) var(--spacing-lg);
   background: rgba(255, 255, 255, 0.3);
-  border: 1px solid var(--color-glass-border);
-  border-radius: var(--radius-xl);
+  border: 1px solid var(--color-border-light);
+  border-radius: var(--radius-md);
   transition: all var(--transition-base);
   display: inline-block;
   position: relative;
-  font-size: var(--font-size-nav-link);
+  font-size: var(--font-size-sm);
   letter-spacing: 0.3px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+  box-shadow: 0 2px 4px var(--color-shadow);
 }
 
 nav ul li a:hover {
   background: rgba(255, 255, 255, 0.5);
   transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 12px var(--color-shadow-medium);
   border-color: var(--color-primary-light);
 }
 
@@ -70,7 +197,7 @@ nav ul li a.active {
   background: var(--color-primary);
   color: var(--color-text-on-dark);
   border-color: var(--color-primary-dark);
-  box-shadow: 0 4px 12px rgba(46, 96, 74, 0.3);
+  box-shadow: 0 4px 12px var(--color-shadow-primary);
   font-weight: var(--font-weight-bold);
 }
 
@@ -87,7 +214,9 @@ nav ul li a.active:hover {
   flex-direction: column;
   align-items: center;
   padding-top: calc(var(--header-height) + var(--spacing-2xl));
+  padding-bottom: var(--spacing-2xl);
   box-sizing: border-box;
+  flex: 1;
 }
 
 /* Main app container (legacy support) */
@@ -98,17 +227,13 @@ nav ul li a.active:hover {
   text-align: center;
 }
 
-/* Bio section - Enhanced with glassmorphism */
+/* Bio section - Deep green opaque background with white text */
 #bio {
-  /* Uses glass-card-strong utility pattern */
-  background: var(--color-glass-bg-strong);
-  backdrop-filter: blur(10px) saturate(150%);
-  -webkit-backdrop-filter: blur(10px) saturate(150%);
+  background: var(--color-bg-bio);
   padding: var(--spacing-4xl) var(--spacing-bio-padding);
   border-radius: var(--radius-xl);
-  box-shadow: none;
-  border: 1px solid var(--color-glass-border);
-  border-left: none;
+  box-shadow: var(--shadow-2xl);
+  border: 1px solid var(--color-primary-dark);
   max-width: 900px;
   text-align: left;
   margin: var(--spacing-4xl) auto 0;
@@ -122,15 +247,11 @@ nav ul li a.active:hover {
 
 /* Welcome Section - Separate component, positioned further down */
 .welcome-section {
-  /* Uses glass-card-strong utility pattern */
-  background: var(--color-glass-bg-strong);
-  backdrop-filter: blur(10px) saturate(150%);
-  -webkit-backdrop-filter: blur(10px) saturate(150%);
+  background: var(--color-bg-tan-light);
   padding: var(--spacing-4xl) var(--spacing-bio-padding);
   border-radius: var(--radius-xl);
-  box-shadow: none;
-  border: 1px solid var(--color-glass-border);
-  border-left: none;
+  box-shadow: var(--shadow-xl);
+  border: 1px solid var(--color-border-light);
   max-width: 900px;
   text-align: center;
   margin: 0 auto var(--spacing-4xl);
@@ -154,7 +275,7 @@ nav ul li a.active:hover {
 }
 
 .welcome-achievements p {
-  color: var(--color-text-secondary);
+  color: var(--color-text-muted);
   font-size: var(--font-size-bio);
   line-height: var(--line-height-relaxed);
   margin-bottom: var(--spacing-lg);
@@ -162,7 +283,7 @@ nav ul li a.active:hover {
 }
 
 .welcome-cta {
-  color: var(--color-text-secondary);
+  color: var(--color-text-muted);
   font-size: var(--font-size-lg);
   font-style: italic;
   margin-top: var(--spacing-xl);
@@ -174,35 +295,35 @@ nav ul li a.active:hover {
 }
 
 .bio-main h2 {
-  color: var(--color-primary);
+  color: var(--color-text-on-dark);
   font-size: var(--font-size-3xl);
   margin-bottom: var(--spacing-2xl);
   font-weight: var(--font-weight-semibold);
 }
 
 .bio-content {
-  color: var(--color-text-secondary);
+  color: var(--color-text-on-dark);
 }
 
 .bio-content p {
   font-size: var(--font-size-bio);
   line-height: var(--line-height-loose);
   margin-bottom: var(--spacing-2xl);
-  color: var(--color-text-secondary);
+  color: var(--color-text-on-dark);
 }
 
 /* Bio Links */
 .bio-link {
   color: var(--color-accent);
   text-decoration: none;
-  font-weight: var(--font-weight-medium);
+  font-weight: var(--font-weight-bold);
   border-bottom: 1px solid transparent;
   transition: all var(--transition-base);
 }
 
 .bio-link:hover {
-  color: var(--color-primary);
-  border-bottom-color: var(--color-primary);
+  color: var(--color-accent-light);
+  border-bottom-color: var(--color-accent);
 }
 
 .bio-link:visited {
@@ -220,15 +341,11 @@ nav ul li a.active:hover {
 
 /* Art section */
 #art {
-  /* Uses glass-card-strong utility pattern */
-  background: var(--color-glass-bg-strong);
-  backdrop-filter: blur(10px) saturate(150%);
-  -webkit-backdrop-filter: blur(10px) saturate(150%);
+  background: var(--color-bg-tan-medium);
   padding: var(--spacing-4xl) var(--spacing-bio-padding);
   border-radius: var(--radius-xl);
-  box-shadow: none;
-  border: 1px solid var(--color-glass-border);
-  border-left: none;
+  box-shadow: var(--shadow-xl);
+  border: 1px solid var(--color-border-light);
   max-width: 900px;
   text-align: left;
   margin: var(--spacing-4xl) auto 0;
@@ -248,12 +365,34 @@ nav ul li a.active:hover {
 }
 
 #art p {
-  color: var(--color-text-secondary);
+  color: var(--color-text-muted);
   font-size: var(--font-size-bio);
   line-height: var(--line-height-relaxed);
 }
 
 /* Papers section - styled in Papers.css */
+
+/* Footer styles */
+.app-footer {
+  width: 100%;
+  align-self: stretch;
+  background: transparent;
+  padding: var(--spacing-lg) var(--spacing-2xl);
+  text-align: center;
+  box-sizing: border-box;
+  margin-top: auto;
+}
+
+.app-footer p {
+  margin: 0;
+  color: var(--color-text-on-dark);
+  font-size: var(--font-size-base);
+  font-weight: var(--font-weight-semibold);
+  text-shadow: 
+    2px 2px 4px rgba(0, 0, 0, 0.8),
+    0 0 8px rgba(0, 0, 0, 0.5),
+    -1px -1px 2px rgba(0, 0, 0, 0.8);
+}
 
 /* Responsive Design */
 @media (max-width: 600px) {
@@ -267,13 +406,43 @@ nav ul li a.active:hover {
   }
 
   header {
-    padding: var(--spacing-md) 0;
+    padding: var(--spacing-xs) var(--spacing-base);
+  }
+
+  .header-content {
+    flex-direction: row !important;
+    align-items: center !important;
+    gap: 0 !important;
+    justify-content: space-between !important;
+  }
+
+  .header-left {
+    flex-direction: row !important;
+    align-items: center !important;
+    gap: var(--spacing-lg) !important;
+    flex: 0 0 auto !important;
+  }
+
+  .header-right {
+    flex-direction: row !important;
+    align-items: center !important;
+    gap: var(--spacing-md) !important;
+    flex: 0 0 auto !important;
+    margin-left: auto !important;
+  }
+
+  .header-name {
+    font-size: var(--font-size-lg);
+  }
+
+  .header-email {
+    font-size: var(--font-size-sm);
   }
 
   nav ul {
     flex-direction: row;
     gap: var(--spacing-sm);
-    padding: 0 var(--spacing-sm);
+    padding: 0;
   }
 
   nav ul li a {
@@ -320,5 +489,13 @@ nav ul li a.active:hover {
   nav ul li a {
     width: 100%;
     max-width: 200px;
+  }
+
+  .app-footer {
+    padding: var(--spacing-base) var(--spacing-lg);
+  }
+
+  .app-footer p {
+    font-size: var(--font-size-sm);
   }
 }

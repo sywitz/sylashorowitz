@@ -9,15 +9,11 @@
 .portfolio-header {
   text-align: center;
   margin: 0 auto var(--spacing-5xl);
-  padding: var(--spacing-4xl);
-  /* Uses glass-card-strong utility pattern */
-  background: var(--color-glass-bg-strong);
-  backdrop-filter: blur(18px) saturate(160%);
-  -webkit-backdrop-filter: blur(18px) saturate(160%);
+  padding: var(--spacing-lg) var(--spacing-xl);
+  background: var(--color-bg-tan-light);
   border-radius: var(--radius-xl);
-  box-shadow: none;
-  border: 1px solid var(--color-glass-border);
-  border-left: none;
+  box-shadow: var(--shadow-xl);
+  border: 1px solid var(--color-border-light);
   transition: all var(--transition-base);
 }
 
@@ -30,12 +26,12 @@
   color: var(--color-primary);
   font-size: var(--font-size-portfolio-header);
   font-weight: var(--font-weight-bold);
-  margin-bottom: var(--spacing-lg);
+  margin: 0;
   text-shadow: var(--shadow-text);
 }
 
 .portfolio-header p {
-  color: var(--color-secondary);
+  color: var(--color-text-muted);
   font-size: var(--font-size-portfolio-subtitle);
   font-weight: var(--font-weight-normal);
   max-width: var(--max-width-narrow);
@@ -51,21 +47,22 @@
   padding: 0 var(--spacing-xl);
 }
 
-.project-card {
+.engineering-portfolio .project-card {
   background: var(--color-primary);
   border-radius: var(--radius-lg);
   overflow: hidden;
-  box-shadow: none;
+  box-shadow: var(--shadow-xl);
   transition: transform var(--transition-base), box-shadow var(--transition-base);
   position: relative;
+  text-align: left;
 }
 
-.project-card .project-title-static {
+.engineering-portfolio .project-card .project-title-static {
   cursor: default;
   pointer-events: none;
 }
 
-.project-image-container.no-image {
+.engineering-portfolio .project-image-container.no-image {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -73,7 +70,7 @@
   color: var(--color-text-on-dark);
 }
 
-.project-image-placeholder {
+.engineering-portfolio .project-image-placeholder {
   width: 100%;
   height: 100%;
   display: flex;
@@ -87,34 +84,34 @@
   letter-spacing: 1px;
 }
 
-.project-card:hover {
+.engineering-portfolio .project-card:hover {
   transform: translateY(var(--transform-offset-lg));
-  box-shadow: none;
+  box-shadow: var(--shadow-2xl);
 }
 
-.project-card.featured {
+.engineering-portfolio .project-card.featured {
   border: var(--border-width-thick) solid var(--color-accent);
-  box-shadow: none;
+  box-shadow: var(--shadow-xl);
 }
 
-.project-image-container {
+.engineering-portfolio .project-image-container {
   position: relative;
   height: var(--height-project-image);
   overflow: hidden;
 }
 
-.project-image {
+.engineering-portfolio .project-image {
   width: 100%;
   height: 100%;
   object-fit: cover;
   transition: transform var(--transition-base);
 }
 
-.project-card:hover .project-image {
+.engineering-portfolio .project-card:hover .project-image {
   transform: scale(1.05);
 }
 
-.featured-badge {
+.engineering-portfolio .featured-badge {
   position: absolute;
   top: var(--spacing-lg);
   right: var(--spacing-lg);
@@ -129,16 +126,18 @@
   box-shadow: none;
 }
 
-.project-content {
+.engineering-portfolio .project-content {
   padding: var(--spacing-card-padding);
   color: var(--color-text-on-dark);
+  text-align: left;
 }
 
-.project-header {
+.engineering-portfolio .project-header {
   margin-bottom: var(--spacing-xl);
+  text-align: left;
 }
 
-.project-title {
+.engineering-portfolio .project-title {
   color: var(--color-accent);
   text-decoration: none;
   font-size: var(--font-size-project-title);
@@ -149,48 +148,44 @@
   transition: color var(--transition-base);
   text-decoration: underline;
   text-underline-offset: var(--spacing-xs);
+  text-align: left;
 }
 
-.project-title:hover {
+.engineering-portfolio .project-title:hover {
   color: var(--color-accent-hover);
   text-decoration-color: var(--color-accent-hover);
 }
 
-.project-meta {
+.engineering-portfolio .project-meta {
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-start;
   align-items: center;
   margin-bottom: var(--spacing-lg);
+  text-align: left;
 }
 
-.institution {
+.engineering-portfolio .institution {
   color: var(--color-text-on-dark);
   font-size: var(--font-size-base);
-  font-weight: var(--font-weight-medium);
+  font-weight: var(--font-weight-normal);
   font-style: italic;
+  text-align: left;
 }
 
-.year {
-  color: var(--color-accent);
-  font-size: var(--font-size-base);
-  font-weight: var(--font-weight-semibold);
-  background: var(--color-accent-alpha-20);
-  padding: var(--spacing-xs) var(--spacing-base);
-  border-radius: var(--radius-md);
-}
-
-.project-description {
+.engineering-portfolio .project-description {
   margin-bottom: var(--spacing-lg);
+  text-align: left;
 }
 
-.project-description p {
+.engineering-portfolio .project-description p {
   color: var(--color-text-on-dark);
   line-height: var(--line-height-normal);
   font-size: var(--font-size-sm);
   margin: 0;
+  text-align: left;
 }
 
-.project-skills h4 {
+.engineering-portfolio .project-skills h4 {
   color: var(--color-accent);
   font-size: var(--font-size-sm);
   font-weight: var(--font-weight-semibold);
@@ -199,7 +194,7 @@
   letter-spacing: var(--letter-spacing-tight);
 }
 
-.skills-list {
+.engineering-portfolio .skills-list {
   display: flex;
   flex-wrap: wrap;
   gap: var(--spacing-xs);
@@ -224,27 +219,21 @@
     font-size: var(--font-size-5xl);
   }
   
-  .portfolio-header p {
-    font-size: var(--font-size-base);
-  }
-  
   .projects-grid {
     grid-template-columns: 1fr;
     gap: var(--spacing-xl);
   }
   
-  .project-card {
+  .engineering-portfolio .project-card {
     margin-bottom: 0;
   }
   
-  .project-content {
+  .engineering-portfolio .project-content {
     padding: var(--spacing-xl);
   }
   
-  .project-meta {
-    flex-direction: column;
+  .engineering-portfolio .project-meta {
     align-items: flex-start;
-    gap: var(--spacing-sm);
   }
 }
 
@@ -262,15 +251,15 @@
     font-size: var(--font-size-4xl);
   }
   
-  .project-image-container {
+  .engineering-portfolio .project-image-container {
     height: var(--height-project-image-mobile);
   }
   
-  .project-content {
+  .engineering-portfolio .project-content {
     padding: var(--spacing-lg);
   }
   
-  .project-title {
+  .engineering-portfolio .project-title {
     font-size: var(--font-size-xl);
   }
 }
