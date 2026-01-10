@@ -9,6 +9,7 @@
 import React from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { FaLinkedin } from 'react-icons/fa';
+import faviconImage from '../assets/images/favicon/Profile_pic.png';
 
 function Header() {
   const location = useLocation();
@@ -28,6 +29,11 @@ function Header() {
       <div className="header-content">
         <div className="header-left">
           <Link to="/" className="header-name">
+            <img 
+              src={faviconImage} 
+              alt="Home" 
+              className="header-favicon"
+            />
             Sylas Horowitz
           </Link>
           <nav>

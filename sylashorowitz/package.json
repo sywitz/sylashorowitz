@@ -14,6 +14,7 @@
     "@testing-library/user-event": "^13.5.0",
     "@vitejs/plugin-react": "^4.2.1",
     "jsdom": "^24.0.0",
+    "sharp": "^0.34.5",
     "vite": "^5.1.3",
     "vitest": "^1.5.0"
   },
@@ -21,7 +22,8 @@
     "dev": "vite",
     "build": "vite build",
     "preview": "vite preview",
-    "test": "vitest"
+    "test": "vitest",
+    "make-round-favicon": "node create-round-favicon.mjs"
   },
   "browserslist": {
     "production": [

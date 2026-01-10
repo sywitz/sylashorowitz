@@ -65,7 +65,7 @@ header {
 }
 
 .header-name {
-  font-size: var(--font-size-2xl);
+  font-size: var(--font-size-3xl);
   font-weight: 600;
   color: #000000;
   text-decoration: none;
@@ -77,12 +77,27 @@ header {
   white-space: nowrap !important;
   flex-shrink: 0 !important;
   text-align: left !important;
-  display: inline-block !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: var(--spacing-sm) !important;
+}
+
+.header-favicon {
+  width: 42px;
+  height: 42px;
+  display: inline-block;
+  vertical-align: middle;
+  flex-shrink: 0;
+  transition: all var(--transition-base);
 }
 
 .header-name:hover {
   color: #333333;
   transform: scale(1.02);
+}
+
+.header-name:hover .header-favicon {
+  transform: scale(1.05);
 }
 
 .header-right {
