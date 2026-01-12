@@ -1,36 +1,45 @@
 /* Arctic ROV Custom Styles - Scoped to .arctic-rov-project */
 
-/* Project Overview - Image about half width of text, cropped equally on sides */
+/* Project Overview - Image positioned to the right */
+.arctic-rov-project.project-template .project-overview {
+  /* Use default padding, no negative margins */
+  padding: var(--spacing-xl) var(--spacing-section-padding) var(--spacing-section-padding) var(--spacing-section-padding);
+  margin-right: 0;
+  border-radius: var(--radius-lg);
+}
+
 .arctic-rov-project.project-template .project-overview .overview-content {
   align-items: center;
-  gap: var(--spacing-2xl);
+  gap: var(--spacing-3xl);
+  flex-wrap: nowrap;
 }
 
 .arctic-rov-project.project-template .project-overview .overview-content .overview-text {
-  flex: 0 0 50%;
-  max-width: 50%;
+  flex: 1 1 auto;
+  min-width: 0;
+  padding-right: var(--spacing-2xl);
 }
 
 .arctic-rov-project.project-template .project-overview .overview-content .overview-image {
   flex: 0 0 auto;
-  max-width: 500px;
   width: 400px;
   height: 600px;
   overflow: hidden;
-  border-radius: var(--radius-md);
+  border-radius: 4px;
   position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
 }
 
 .arctic-rov-project.project-template .project-overview .overview-content .overview-image img {
-  width: 200%;
+  width: 100%;
   height: 100%;
   object-fit: cover;
   object-position: center;
   box-shadow: none;
-  position: absolute;
-  left: 60%;
-  top: 0;
-  transform: translateX(-50%);
+  display: block;
   margin: 0;
 }
 

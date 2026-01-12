@@ -2,91 +2,8 @@
  * Utility Classes - Reusable CSS patterns
  * 
  * Common patterns used across multiple components:
- * - Glassmorphism cards
- * - Buttons
  * - Skill tags
- * - Hover effects
  */
-
-/* ============================================
-   TAN CARDS - Solid tan/beige backgrounds
-   ============================================ */
-
-.glass-card {
-  background: var(--color-bg-tan);
-  border-radius: var(--radius-xl);
-  border: 1px solid var(--color-border-light);
-  box-shadow: var(--shadow-lg);
-  transition: all var(--transition-base);
-}
-
-.glass-card-strong {
-  background: var(--color-bg-tan);
-  border-radius: var(--radius-xl);
-  border: 1px solid var(--color-border-light);
-  box-shadow: var(--shadow-lg);
-  transition: all var(--transition-base);
-}
-
-.glass-card:hover,
-.glass-card-strong:hover {
-  box-shadow: var(--shadow-2xl);
-  transform: translateY(var(--transform-offset-md));
-}
-
-/* Card with left border accent */
-.glass-card-accent {
-  border-left: var(--spacing-bio-border) solid var(--color-primary);
-}
-
-/* ============================================
-   BUTTONS
-   ============================================ */
-
-.btn {
-  padding: 8px var(--spacing-lg);
-  font-size: 0.85rem;
-  font-weight: var(--font-weight-semibold);
-  border-radius: var(--radius-full);
-  border: 1px solid var(--color-primary);
-  cursor: pointer;
-  transition: all var(--transition-base);
-  font-family: inherit;
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  letter-spacing: 0.2px;
-  text-decoration: none;
-}
-
-.btn-primary {
-  background: var(--color-primary);
-  color: var(--color-text-on-dark);
-}
-
-.btn-primary:hover {
-  background: var(--color-primary-dark);
-  border-color: var(--color-primary-dark);
-  box-shadow: 0 3px 10px var(--color-shadow-primary);
-  transform: translateY(var(--transform-offset-sm));
-}
-
-.btn-outline {
-  background: transparent;
-  color: var(--color-primary);
-}
-
-.btn-outline:hover {
-  background: var(--color-primary);
-  color: var(--color-text-on-dark);
-  box-shadow: 0 3px 10px var(--color-shadow-primary);
-  transform: translateY(var(--transform-offset-sm));
-}
-
-.btn-full-width {
-  width: 100%;
-  justify-content: center;
-}
 
 /* ============================================
    SKILL TAGS
@@ -108,27 +25,5 @@
   background: var(--color-shadow-accent);
   opacity: 0.8;
   transform: translateY(var(--transform-offset-sm));
-}
-
-/* ============================================
-   CARD HOVER EFFECTS
-   ============================================ */
-
-.card-hover-lift {
-  transition: transform var(--transition-base), box-shadow var(--transition-base);
-}
-
-.card-hover-lift:hover {
-  transform: translateY(var(--transform-offset-lg));
-  box-shadow: var(--shadow-2xl);
-}
-
-.card-hover-slide {
-  transition: all var(--transition-base);
-}
-
-.card-hover-slide:hover {
-  transform: translateX(8px);
-  box-shadow: 0 12px 40px var(--color-shadow-primary), 0 4px 12px var(--color-shadow);
 }
 

@@ -4,7 +4,7 @@
  */
 
 import pultrusionThumbnail from '../assets/engineering-data/pultrusion-machine/Screenshot 2023-11-27 220417_edited.jpg';
-import arcticRovThumbnail from '../assets/engineering-data/arctic-rov/IMG_20210803_184515_edited_edited_edited.jpg';
+import arcticRovThumbnail from '../assets/engineering-data/arctic-rov/Untitled Project 3.jpg';
 import guatemalaCookstoveThumbnail from '../assets/engineering-data/guatemala-cookstove/IMG_1117 (1)_edited.jpg';
 import reViseThumbnail from '../assets/engineering-data/re-vise/final_photo_white_edited_edited cropped.jpg';
 import yoYoThumbnail from '../assets/engineering-data/yo-yo-manufacturing/received_586638632542024_edited_edited_edited_edited_edited_edited_edited_edited.jpg';

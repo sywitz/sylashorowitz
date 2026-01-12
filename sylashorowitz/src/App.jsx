@@ -10,7 +10,6 @@ import { BrowserRouter as Router, Routes, Route, Navigate, useParams } from 'rea
 import Header from './components/Header';
 import Footer from './components/Footer';
 import Bio from './components/Bio';
-import Welcome from './components/Welcome';
 import EngineeringPortfolio from './components/EngineeringPortfolio';
 import Art from './components/Art';
 import Papers from './components/Papers';

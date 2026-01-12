@@ -1,17 +1,19 @@
 ﻿/* ProjectTemplate.css - Simple, clean styling */
 
 .project-template {
-  max-width: var(--max-width-content);
+  max-width: var(--max-width-container);
+  width: calc(100% - var(--spacing-4xl) * 2);
   margin: 0 auto;
-  padding: var(--spacing-3xl) var(--spacing-4xl);
+  padding: var(--spacing-6xl) 200px;
   /* Uses lightest tan background */
-  background: var(--color-bg-tan-light);
-  border-radius: var(--radius-xl);
+  background: transparent;
+  border-radius: 0;
   box-shadow: none;
-  border: 1px solid var(--color-border-light);
+  border: none;
   border-left: none;
   margin-top: var(--spacing-4xl);
   margin-bottom: var(--spacing-section-padding);
+  box-sizing: border-box;
 }
 
 /* Header Section */
@@ -172,7 +174,7 @@
   width: 1000px;
   height: 500px;
   overflow: hidden;
-  border-radius: var(--radius-md);
+  border-radius: 4px;
   position: relative;
 }
 
@@ -191,6 +193,24 @@
   font-size: var(--font-size-lg);
   line-height: var(--line-height-loose);
   margin-bottom: var(--spacing-3xl);
+}
+
+/* Link styling - use accent color throughout project pages */
+.project-template a,
+.project-overview a,
+.project-overview p a,
+.section a,
+.section p a {
+  color: var(--color-accent);
+  text-decoration: underline;
+}
+
+.project-template a:hover,
+.project-overview a:hover,
+.project-overview p a:hover,
+.section a:hover,
+.section p a:hover {
+  color: var(--color-accent-light);
 }
 
 /* Reduce margin for paragraphs inside overview-text (when image is present) */
@@ -260,11 +280,11 @@
 
 /* Alternating background colors for sections */
 .section:nth-child(odd):not(.section-transition):not(.section-background-video) {
-  background: var(--color-bg-tan-light);
+  background: transparent;
 }
 
 .section:nth-child(even):not(.section-transition):not(.section-background-video) {
-  background: var(--color-bg-tan-medium);
+  background: transparent;
 }
 
 /* Sections with only a title (no content) - no background */
@@ -317,7 +337,7 @@
   max-width: 70%;
   width: auto;
   height: auto;
-  border-radius: var(--radius-md);
+  border-radius: 4px;
   box-shadow: none;
   margin: 0 auto;
   display: block;
@@ -332,7 +352,7 @@
   position: relative;
   min-height: 500px;
   overflow: hidden;
-  border-radius: var(--radius-lg);
+  border-radius: 4px;
   margin: var(--spacing-xl) 0;
   display: flex;
   align-items: center;
@@ -400,8 +420,8 @@
   max-width: 60%;
   width: auto;
   height: auto;
-  border-radius: var(--radius-md);
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  border-radius: 4px;
+  box-shadow: none;
 }
 
 /* Large Image Layout (enlarged image) */
@@ -427,8 +447,8 @@
   max-width: 90%;
   width: auto;
   height: auto;
-  border-radius: var(--radius-md);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  border-radius: 4px;
+  box-shadow: none;
 }
 
 /* Code Block Section */
@@ -440,7 +460,7 @@
   background: #1e1e1e;
   color: #d4d4d4;
   padding: var(--spacing-2xl);
-  border-radius: var(--radius-md);
+  border-radius: 4px;
   overflow-x: auto;
   margin-top: var(--spacing-xl);
   font-family: 'Consolas', 'Monaco', 'Courier New', monospace;
@@ -483,8 +503,8 @@
   max-width: 100%;
   width: auto;
   height: auto;
-  border-radius: var(--radius-md);
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  border-radius: 4px;
+  box-shadow: none;
 }
 
 .image-caption {
@@ -511,10 +531,10 @@
 
 .text-with-side-images-content-box {
   flex: 0 0 75%;
-  background: var(--color-bg-tan-medium);
+  background: transparent;
   padding: var(--spacing-2xl);
-  border-radius: var(--radius-xl);
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+  border-radius: 0;
+  box-shadow: none;
 }
 
 .text-with-side-images-content-box p {
@@ -547,7 +567,7 @@
   width: auto;
   height: auto;
   display: block;
-  border-radius: var(--radius-md);
+  border-radius: 4px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   object-fit: contain;
   transition: none;
@@ -671,7 +691,7 @@
 .side-by-side-image-item img {
   width: 100%;
   height: auto;
-  border-radius: var(--radius-md);
+  border-radius: 4px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
@@ -687,7 +707,7 @@
 .side-video {
   width: 100%;
   height: auto;
-  border-radius: var(--radius-md);
+  border-radius: 4px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
@@ -711,7 +731,7 @@
 /* Responsive Design */
 @media (max-width: 768px) {
   .project-template {
-    padding: var(--spacing-2xl) var(--spacing-2xl);
+    padding: var(--spacing-2xl) var(--spacing-3xl);
   }
 
   .project-header {
@@ -729,7 +749,7 @@
 
 @media (max-width: 480px) {
   .project-template {
-    padding: var(--spacing-xl) var(--spacing-lg);
+    padding: var(--spacing-xl) var(--spacing-2xl);
   }
   
   .project-hero h1 {

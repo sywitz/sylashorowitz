@@ -59,11 +59,6 @@ export const arcticRov = {
   ],
   sections: [
     {
-      layout: 'transition',
-      content: `Scroll down to see my design process!`,
-      image: null
-    },
-    {
       layout: 'text-with-side-images',
       content: `In January 2020, I built the BlueROV2 underwater drone. This drone will be used in conjunction with a flying drone to measure carbon dioxide and methane concentrations in the air and water in a specific area in the Arctic. The drones will be deployed from a boat in the Spring as the permafrost melts to help us understand the role the Arctic plays as a GHG source or sink throughout the year using predictive algorithms that are currently being developed to analyze the data. My underwater drone will be able to go under the sheet of ice to collect water samples at specific positions and depths, preventing the need for icebreaking.`,
       sideImages: [img20200130]

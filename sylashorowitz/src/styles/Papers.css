@@ -203,12 +203,12 @@
    ============================================ */
 
 .paper-card {
-  background: var(--color-bg-tan-medium);
-  border-radius: var(--radius-md);
-  border: 1px solid var(--color-border-light);
-  box-shadow: var(--shadow-xl);
+  background: transparent;
+  border-radius: 0;
+  border: none;
+  box-shadow: none;
   padding: var(--spacing-3xl);
-  transition: all var(--transition-base);
+  transition: none;
   position: relative;
   scroll-margin-top: calc(var(--header-height) + var(--spacing-3xl));
 }
@@ -227,9 +227,9 @@
 }
 
 .paper-card:hover {
-  box-shadow: var(--shadow-2xl);
-  transform: translateX(8px);
-  border-color: var(--color-border);
+  box-shadow: none;
+  transform: none;
+  border-color: transparent;
 }
 
 .paper-card:hover::before {

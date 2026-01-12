@@ -1,5 +1,14 @@
 /* Bio.css - Modern landing page styling for biography section */
 
+/* Sketch Book Font */
+@font-face {
+  font-family: 'Sketch Book';
+  src: url('../assets/fonts/Sketch Book.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
 .bio-landing {
   width: 100%;
   max-width: var(--max-width-container);
@@ -10,156 +19,232 @@
 .bio-hero {
   width: 100%;
   padding: var(--spacing-6xl) var(--spacing-4xl);
-  background: var(--color-bg-tan-light);
-  border-radius: var(--radius-xl);
-  box-shadow: var(--shadow-xl);
-  margin-bottom: var(--spacing-6xl);
+  background: transparent;
+  border-radius: 0;
+  box-shadow: none;
+  margin-bottom: var(--spacing-3xl);
+  min-height: 80vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .bio-hero-content {
-  display: grid;
-  grid-template-columns: 1fr 400px;
-  gap: var(--spacing-5xl);
+  position: relative;
+  width: 100%;
   max-width: 1400px;
   margin: 0 auto;
+  min-height: 700px;
 }
 
+/* ============================================
+   COLLAGE IMAGES - Behind Text
+   ============================================ */
+
+/* Base styles for all collage images */
+.bio-collage-image {
+  position: absolute;
+  overflow: hidden;
+  border-radius: 0;
+  box-shadow: none;
+  z-index: 1;
+  opacity: 0;
+  animation: fadeInImage 0.8s ease-out forwards;
+}
+
+.bio-collage-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  object-position: center center; /* Default - can be overridden per image */
+}
+
+/* Fade-in animation - images appear one by one */
+@keyframes fadeInImage {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* 
+  IMAGE POSITIONING GUIDE:
+  - Use 'left' or 'right' with % or px to position horizontally
+  - Use 'top' or 'bottom' with % or px to position vertically
+  - Adjust 'width' and 'height' to change image size
+  - To crop/pan the image, use 'object-position' on the img element:
+    * 'center' = center of image
+    * 'center top' = top portion
+    * 'center bottom' = bottom portion
+    * 'center 60%' = 60% down from top
+    * 'left center' = left side
+    * 'right center' = right side
+*/
+
+/* Image 1: Left side, narrower rectangle */
+.bio-collage-image-1 {
+  left: -36%;        /* Move left: negative = further left, positive = right */
+  top: 0%;           /* Move down: higher % = further down */
+  width: 270px;      /* Image width */
+  height: 360px;     /* Image height */
+  animation-delay: 0.2s;  /* Fade in after 0.2s */
+}
+
+/* Image 2: Right side, slightly underlapping text, wider rectangle */
+.bio-collage-image-2 {
+  right: -37%;       /* Move right: negative = further right, positive = left */
+  top: 20%;          /* Move down: higher % = further down */
+  width: 330px;      /* Image width */
+  height: 500px;     /* Image height */
+  animation-delay: 0.4s;  /* Fade in after 0.4s */
+}
+
+/* Image 3: Below text, left justified */
+.bio-collage-image-3 {
+  left: -29%;          /* Move right: positive = right, negative = left */
+  bottom: -0%;        /* Move up: higher % = further up */
+  width: 250px;      /* Image width */
+  height: 250px;     /* Image height */
+  animation-delay: 0.6s;  /* Fade in after 0.6s */
+}
+
+/* Image 4: Below text on lower corner, wider aspect ratio */
+.bio-collage-image-4 {
+  display: none;  /* Hidden - set to 'block' to show again */
+  right: 10%;         /* Move left: positive = left, negative = right */
+  bottom: 0%;       /* Move up: higher % = further up */
+  width: 300px;      /* Image width */
+  height: 250px;     /* Image height */
+  animation-delay: 0.8s;  /* Fade in after 0.8s */
+}
+
+/* Crop/Position Images - Adjust object-position to pan/crop each image */
+.bio-collage-image-1 img {
+  object-position: 25% top;  /* Horizontal: 25% from left. Vertical: 'top' shows top portion (crops bottom) */
+  transform: scaleY(1.1);  /* Scale vertically to 110% - crops bottom. Adjust: 1.05 = small crop, 1.15 = more crop */
+  transform-origin: top center;  /* Scale from top so bottom gets cropped */
+}
+
+.bio-collage-image-2 img {
+  object-position: bottom;  /* Adjust: 'center', 'center top', 'center bottom', 'center 60%', 'left center', 'right center' */
+  transform: scale(1.3);  /* Zoom in to crop both sides - adjust scale value (1.2 = 20% zoom, 1.5 = 50% zoom) */
+}
+
+.bio-collage-image-3 img {
+  object-position: center;  /* Adjust: 'center', 'center top', 'center bottom', 'center 60%', 'left center', 'right center' */
+}
+
+.bio-collage-image-4 img {
+  object-position: center 30%;  /* Adjust: 'center', 'center top', 'center bottom', 'center 60%', 'left center', 'right center' */
+}
+
+/* Text Content - Centered and Overlapping Images */
 .bio-hero-text {
-  display: flex;
-  flex-direction: column;
-}
-
-.bio-hero-text h1 {
-  color: var(--color-primary);
-  font-size: var(--font-size-7xl);
-  font-weight: var(--font-weight-bold);
-  margin: 0 0 var(--spacing-lg) 0;
-  line-height: 1.1;
-}
-
-.bio-hero-subtitle {
-  color: var(--color-text-muted);
-  font-size: var(--font-size-xl);
-  font-weight: var(--font-weight-semibold);
-  margin: 0 0 var(--spacing-xl) 0;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-}
-
-.bio-hero-intro {
-  color: var(--color-primary-dark);
-  font-size: var(--font-size-lg);
-  line-height: var(--line-height-relaxed);
-  margin: 0 0 var(--spacing-2xl) 0;
-}
-
-.bio-hero-content-section {
-  margin-top: 0;
-}
-
-.bio-hero-content-section h2 {
-  color: var(--color-primary-dark);
-  font-size: var(--font-size-3xl);
-  font-weight: var(--font-weight-semibold);
-  margin: 0 0 var(--spacing-3xl) 0;
-  line-height: 1.3;
-}
-
-.bio-hero-content-section .bio-paragraph {
-  margin-bottom: var(--spacing-3xl);
-}
-
-.bio-hero-content-section .bio-paragraph p {
-  color: var(--color-primary-dark);
-  font-size: var(--font-size-bio);
-  line-height: var(--line-height-loose);
-  margin: 0;
-}
-
-.bio-hero-images {
+  position: relative;
+  z-index: 10;
   display: flex;
   flex-direction: column;
   gap: var(--spacing-3xl);
-  position: sticky;
-  top: calc(var(--header-height) + var(--spacing-2xl));
-  align-self: start;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  max-width: 800px;
+  margin: 0 auto;
+  padding: var(--spacing-4xl) 0;
+  margin-top: 60px;  /* Move text down - adjust this value to move more/less */
 }
 
-.bio-hero-image-main {
+.bio-greeting {
+  color: #000000;
+  font-size: 8rem;
+  font-weight: normal;
+  margin: 0;
+  line-height: 1.1;
+  text-align: center;
+  letter-spacing: 0.02em;
+  font-family: 'Sketch Book', sans-serif;
+  text-shadow: none;
   width: 100%;
-  aspect-ratio: 1;
-  border-radius: var(--radius-lg);
-  overflow: hidden;
-  box-shadow: var(--shadow-xl);
-  transition: transform var(--transition-base), box-shadow var(--transition-base);
+  max-width: 100%;
 }
 
-.bio-hero-image-main:hover {
-  transform: scale(1.02);
-  box-shadow: var(--shadow-2xl);
-}
-
-.bio-hero-image-main img {
+.bio-description {
+  color: #000000;
+  font-family: 'Sometype Mono', monospace;
+  font-size: var(--font-size-xl);
+  line-height: var(--line-height-loose);
+  margin: 0 auto;
+  text-align: left;
+  max-width: 100%;
+  font-weight: 400;
   width: 100%;
-  height: 100%;
-  object-fit: cover;
-  display: block;
-  transition: transform var(--transition-slow);
+  position: relative;
 }
 
-.bio-hero-image-main:hover img {
-  transform: scale(1.05);
-}
-
-.bio-hero-image-gallery {
+.bio-description-placeholder {
+  visibility: hidden;
   display: flex;
   flex-direction: column;
-  gap: var(--spacing-2xl);
+  gap: var(--spacing-lg);
+  position: relative;
 }
 
-.bio-hero-image-gallery .bio-gallery-item {
-  width: 100%;
-  aspect-ratio: 1;
-  border-radius: var(--radius-lg);
-  overflow: hidden;
-  box-shadow: var(--shadow-lg);
-  transition: transform var(--transition-base), box-shadow var(--transition-base);
+.bio-description-animated {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-lg);
 }
 
-.bio-hero-image-gallery .bio-gallery-item:hover {
-  transform: scale(1.02);
-  box-shadow: var(--shadow-2xl);
+.bio-description-line {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--spacing-md);
 }
 
-.bio-hero-image-gallery .bio-gallery-item img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  display: block;
-  transition: transform var(--transition-slow);
+.bio-bullet {
+  color: var(--color-accent);
+  font-weight: 600;
+  flex-shrink: 0;
 }
 
-.bio-hero-image-gallery .bio-gallery-item:hover img {
-  transform: scale(1.05);
+.bio-text-content {
+  flex: 1;
 }
 
-/* Pan effects for specific images */
-.bio-image-pan-down {
-  object-position: center 70%;
+.bio-keyword {
+  color: var(--color-accent);
+  font-weight: 600;
 }
 
-.bio-image-pan-down-more {
-  object-position: center 85%;
+.bio-cursor {
+  color: var(--color-accent);
+  animation: blink 1s infinite;
+  font-weight: 400;
 }
 
-.bio-image-pan-up {
-  object-position: center 30%;
+@keyframes blink {
+  0%, 50% {
+    opacity: 1;
+  }
+  51%, 100% {
+    opacity: 0;
+  }
 }
+
 
 
 /* Bio Links */
 .bio-link {
-  color: var(--color-primary);
+  color: var(--color-accent);
   text-decoration: none;
   font-weight: var(--font-weight-bold);
   border-bottom: 1px solid transparent;
@@ -167,104 +252,159 @@
 }
 
 .bio-link:hover {
-  color: var(--color-primary-light);
-  border-bottom-color: var(--color-primary);
+  color: var(--color-accent-light);
+  border-bottom-color: var(--color-accent);
 }
 
 .bio-link:visited {
-  color: var(--color-primary);
+  color: var(--color-accent);
 }
 
-/* Responsive Design */
+/* ============================================
+   RESPONSIVE DESIGN
+   ============================================ */
+
 @media (max-width: 1200px) {
   .bio-hero-content {
-    grid-template-columns: 1fr;
-    gap: var(--spacing-4xl);
+    max-width: 1100px;
+    min-height: 650px;
   }
 
-  .bio-hero-images {
-    position: relative;
-    top: 0;
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: var(--spacing-2xl);
+  /* Adjust image positions and sizes for medium screens */
+  .bio-collage-image-1 {
+    left: -3%;
+    width: 190px;
+    height: 250px;
   }
 
-  .bio-hero-image-main {
-    grid-column: 1 / -1;
-    aspect-ratio: 1;
+  .bio-collage-image-2 {
+    right: -3%;
+    width: 320px;
+    height: 420px;
   }
 
-  .bio-hero-image-gallery {
-    grid-column: 1 / -1;
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: var(--spacing-2xl);
+  .bio-collage-image-3 {
+    left: -2%;
+    width: 240px;
+    height: 150px;
+  }
+
+  .bio-collage-image-4 {
+    right: 3%;
+    width: 200px;
+    height: 150px;
   }
 }
 
 @media (max-width: 768px) {
   .bio-hero {
-    padding: var(--spacing-4xl) var(--spacing-3xl);
-    margin-bottom: 0;
+    padding: var(--spacing-xl) var(--spacing-3xl) var(--spacing-4xl);
+    margin-bottom: var(--spacing-2xl);
+    min-height: auto;
   }
 
   .bio-hero-content {
-    gap: var(--spacing-3xl);
+    min-height: auto;
+    position: relative;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--spacing-lg);
   }
 
-  .bio-hero-text h1 {
-    font-size: var(--font-size-5xl);
+  .bio-hero-text {
+    grid-column: 1 / -1;
+    margin-bottom: var(--spacing-2xl);
+    margin-top: 0;
+    padding-top: 0;
   }
 
-  .bio-hero-subtitle {
-    font-size: var(--font-size-lg);
+  /* Convert absolute images to grid layout on mobile */
+  .bio-collage-image {
+    position: relative !important;
+    left: auto !important;
+    right: auto !important;
+    top: auto !important;
+    bottom: auto !important;
+    margin: 0;
+    width: 100%;
   }
 
-  .bio-hero-intro {
+  .bio-collage-image-1 {
+    height: 200px;
+    grid-column: 1;
+    grid-row: 2;
+  }
+
+  .bio-collage-image-2 {
+    height: 240px;
+    grid-column: 2;
+    grid-row: 2 / 4;
+  }
+
+  .bio-collage-image-3 {
+    height: 180px;
+    grid-column: 1;
+    grid-row: 3;
+  }
+
+  .bio-collage-image-4 {
+    height: 200px;
+    grid-column: 1 / 3;
+    grid-row: 4;
+  }
+
+  .bio-greeting {
+    font-size: 4rem;
+  }
+
+  .bio-description {
     font-size: var(--font-size-base);
-  }
-
-  .bio-hero-content-section h2 {
-    font-size: var(--font-size-2xl);
-  }
-
-  .bio-hero-image-main {
-    aspect-ratio: 1;
-  }
-
-  .bio-hero-image-gallery {
-    grid-template-columns: 1fr;
-  }
-
-  .bio-hero-image-gallery .bio-gallery-item {
-    aspect-ratio: 1;
   }
 }
 
 @media (max-width: 480px) {
   .bio-hero {
-    padding: var(--spacing-3xl) var(--spacing-2xl);
+    padding: var(--spacing-lg) var(--spacing-2xl) var(--spacing-3xl);
+    margin-bottom: var(--spacing-xl);
+    min-height: auto;
   }
 
-  .bio-hero-text h1 {
-    font-size: var(--font-size-4xl);
+  .bio-hero-content {
+    min-height: auto;
+    gap: var(--spacing-3xl);
   }
 
-  .bio-hero-content-section h2 {
-    font-size: var(--font-size-xl);
+  .bio-hero-text {
+    margin-top: 0;
+    padding-top: 0;
   }
 
-  .bio-hero-content-section .bio-paragraph p {
-    font-size: var(--font-size-base);
+  .bio-hero-content::after {
+    gap: var(--spacing-md);
   }
 
-  .bio-hero-image-main {
-    aspect-ratio: 1;
+  .bio-collage-image-1 {
+    height: 160px;
   }
 
-  .bio-hero-image-gallery .bio-gallery-item {
-    aspect-ratio: 1;
+  .bio-collage-image-2 {
+    height: 200px;
+  }
+
+  .bio-collage-image-3 {
+    height: 150px;
+  }
+
+  .bio-collage-image-4 {
+    height: 170px;
+  }
+
+  .bio-greeting {
+    font-size: 3rem;
+  }
+
+  .bio-description {
+    font-size: var(--font-size-sm);
   }
 }
 

@@ -7,13 +7,11 @@
      ============================================ */
   
   /* CORE COLORS - Only 6 colors! Change these to customize the entire theme */
-  --color-primary: #237a5a;           /* Forest Green - main color */
-  --color-primary-dark: #0f2e22;     /* Darker green */
+  --color-primary: #362a2a;           /* Forest Green - main color */
+  --color-primary-dark: #000000;     /* Black */
   --color-primary-light: #2d6b52;    /* Lighter green */
-  --color-accent: #e7bb53;            /* Bold Yellow - accent */
-  --color-accent-light: #f8d96b;      /* Light yellow */
-  --color-bg-tan: #e1d8c3;            /* Tan/beige background */
-  
+  --color-accent: #ff6b35;            /* Deep bright orange-red accent */
+  --color-accent-light: #ff8c5a;     /* Lighter orange-red */
   /* DERIVED COLORS - All use core colors above */
   --color-text: var(--color-primary);
   --color-text-muted: var(--color-primary-light);
@@ -22,9 +20,7 @@
   --color-link-hover: var(--color-primary);
   --color-border: var(--color-primary);
   --color-bg-bio: var(--color-primary);
-  --color-bg-tan-light: #f0ebe0;       /* Lighter tan for some sections */
-  --color-bg-tan-medium: #d9cdb5;      /* Medium tan for other sections */
-  --color-bg-green-light: #a8d5ba;      /* Light green for sections, lighter than primary-light */
+  --color-bg-card: #dedee9;             /* Light neutral background for portfolio cards */
   
   /* BORDERS & SHADOWS - Use primary color */
   --color-border-light: rgba(35, 122, 90, 0.2);
@@ -139,8 +135,6 @@
   --shadow-2xl: 0 16px 48px var(--color-shadow-dark);
   --shadow-accent: 0 8px 24px var(--color-shadow-accent);
   --shadow-text: 2px 2px 4px var(--color-shadow);
-  --shadow-glass: 0 8px 32px var(--color-shadow-glass), 0 2px 8px var(--color-shadow-glass-strong);
-  --shadow-glass-strong: 0 12px 40px var(--color-shadow-glass-strong), 0 4px 12px var(--color-shadow-glass);
   
   /* ============================================
      TRANSITIONS
@@ -155,15 +149,11 @@
      ============================================ */
   
   --max-width-container: 1800px;
-  --max-width-content: 1600px;
   --max-width-narrow: 600px;
   --max-width-project-grid: 300px;
   
   --header-height: 60px;
   --header-height-mobile: 80px;
-  
-  --app-width: 90%;
-  --app-width-mobile: 95%;
   
   /* Image/Container Heights */
   --height-project-image: 250px;
