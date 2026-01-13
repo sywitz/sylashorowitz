@@ -31,14 +31,41 @@ body::before {
   left: 0;
   right: 0;
   bottom: 0;
+  /* Solid color fallback that matches paper texture - prevents white flash */
+  background-color: #f5f5f0;
   background-image: url('../assets/images/backgrounds/paper1.jpg');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
+  /* Remove background-attachment: fixed on mobile - very expensive */
   background-attachment: fixed;
   opacity: 0.40;
   z-index: -1;
   pointer-events: none;
+  /* Optimize for performance */
+  will-change: background-position;
+  /* Smooth transition when image loads - start slightly transparent */
+  transition: opacity 0.15s ease-in;
+}
+
+/* Ensure background is visible once loaded */
+body.background-loaded::before {
+  opacity: 0.40;
+}
+
+/* Remove fixed attachment on mobile for better performance */
+@media (max-width: 900px) {
+  body::before {
+    background-attachment: scroll;
+  }
+  
+  header::before {
+    background-attachment: scroll;
+  }
+  
+  .header-mobile-menu::before {
+    background-attachment: scroll;
+  }
 }
 
 .app-container {
@@ -75,6 +102,7 @@ header::before {
   left: 0;
   right: 0;
   bottom: 0;
+  /* Reuse body background instead of loading again - browser will cache it */
   background-image: url('../assets/images/backgrounds/paper1.jpg');
   background-size: cover;
   background-position: center;
@@ -83,6 +111,7 @@ header::before {
   opacity: 0.40;
   z-index: -1;
   pointer-events: none;
+  will-change: background-position;
 }
 
 .header-skyline {
@@ -356,9 +385,13 @@ header .header-email:hover {
   border-top: none;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
   z-index: var(--z-header);
+  /* Use transform and opacity instead of max-height for smoother animation */
   max-height: 0;
   overflow: hidden;
-  transition: max-height 0.3s ease-out;
+  opacity: 0;
+  transform: translateY(-10px);
+  transition: opacity 0.2s ease-out, transform 0.2s ease-out, max-height 0.3s ease-out;
+  will-change: opacity, transform, max-height;
 }
 
 .header-mobile-menu::before {
@@ -368,11 +401,12 @@ header .header-email:hover {
   left: 0;
   right: 0;
   bottom: 0;
-  background-image: url('../assets/images/backgrounds/paper1.jpg');
+  /* Remove duplicate background - inherit from body instead */
+  /* background-image: url('../assets/images/backgrounds/paper1.jpg'); */
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  background-attachment: fixed;
+  background-attachment: scroll; /* Changed from fixed for mobile performance */
   opacity: 0.40;
   z-index: -1;
   pointer-events: none;
@@ -380,6 +414,8 @@ header .header-email:hover {
 
 .header-mobile-menu.open {
   max-height: 400px;
+  opacity: 1;
+  transform: translateY(0);
 }
 
 .header-mobile-menu ul {

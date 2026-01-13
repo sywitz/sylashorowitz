@@ -34,7 +34,7 @@ function ProjectSections({ sections }) {
       const src = media.src || media.url || media;
       return (
         <div className="section-media">
-          <img src={src} alt={media.alt || ''} />
+          <img src={src} alt={media.alt || ''} loading="lazy" />
         </div>
       );
     }
@@ -56,7 +56,7 @@ function ProjectSections({ sections }) {
     // Default to image (handles .jpg, .png, .gif, .svg, etc.)
     return (
       <div className="section-media">
-        <img src={mediaStr} alt="" />
+        <img src={mediaStr} alt="" loading="lazy" />
       </div>
     );
   };
@@ -176,7 +176,7 @@ function ProjectSections({ sections }) {
               <div className="side-by-side-images-grid">
                 {section.sideBySideImages.map((item, index) => (
                   <div key={index} className="side-by-side-image-item">
-                    <img src={item.image} alt={item.caption || ''} />
+                    <img src={item.image} alt={item.caption || ''} loading="lazy" />
                     {item.caption && (
                       <div className="side-by-side-caption" dangerouslySetInnerHTML={{ __html: item.caption }} />
                     )}
@@ -221,7 +221,7 @@ function ProjectSections({ sections }) {
                                   <source src={imgSrc} type="video/mp4" />
                                 </video>
                               ) : (
-                                <img src={imgSrc} alt={`${section.title} - Image ${imgIndex + 1}`} />
+                                <img src={imgSrc} alt={`${section.title} - Image ${imgIndex + 1}`} loading="lazy" />
                               )}
                             </div>
                           );
@@ -280,13 +280,13 @@ function ProjectSections({ sections }) {
             <div className="large-image-section">
               {renderContent(section.content)}
               <div className="large-image-container">
-                <img src={section.image} alt="" />
+                <img src={section.image} alt="" loading="lazy" />
               </div>
             </div>
           ) : section.layout === 'large-image-with-text' && section.image ? (
             <div className="large-image-with-text-container">
               <div className="large-image-wrapper">
-                <img src={section.image} alt="" />
+                <img src={section.image} alt="" loading="lazy" />
               </div>
               <div className="large-image-text-overlay">
                 {renderContent(section.content)}
@@ -317,10 +317,10 @@ function ProjectSections({ sections }) {
                   {section.images.map((img, imgIndex) => (
                     <div key={imgIndex} className="section-image-item">
                       {typeof img === 'string' ? (
-                        <img src={img} alt="" />
+                        <img src={img} alt="" loading="lazy" />
                       ) : (
                         <>
-                          <img src={img.src} alt={img.alt || ''} />
+                          <img src={img.src} alt={img.alt || ''} loading="lazy" />
                           {img.caption && (
                             <div className="image-caption" dangerouslySetInnerHTML={{ __html: img.caption }} />
                           )}
@@ -350,7 +350,7 @@ function ProjectSections({ sections }) {
               {section.imageGallery.map((item, galleryIndex) => (
                 <div key={galleryIndex} className="gallery-item">
                   <div className="gallery-image">
-                    <img src={item.image} alt={item.caption || ''} />
+                    <img src={item.image} alt={item.caption || ''} loading="lazy" />
                   </div>
                   {item.caption && (
                     <div 

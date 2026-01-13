@@ -6,7 +6,7 @@
   src: url('../assets/fonts/Sketch Book.ttf') format('truetype');
   font-weight: normal;
   font-style: normal;
-  font-display: swap;
+  font-display: block; /* Block rendering until font loads to prevent FOIT */
 }
 
 .bio-landing {
@@ -50,6 +50,7 @@
   z-index: 1;
   opacity: 0;
   animation: fadeInImage 0.8s ease-out forwards;
+  will-change: opacity, transform; /* Optimize for animation */
 }
 
 .bio-collage-image img {
@@ -167,7 +168,8 @@
   line-height: 1.1;
   text-align: center;
   letter-spacing: 0.02em;
-  font-family: 'Sketch Book', sans-serif;
+  /* Use system font as fallback that matches size better */
+  font-family: 'Sketch Book', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
   text-shadow: none;
   width: 100%;
   max-width: 100%;

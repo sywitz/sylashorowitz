@@ -5,7 +5,7 @@
  * Includes images and links to external resources and internal portfolio pages.
  */
 
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useMemo, useCallback } from 'react';
 import bioImage1 from '../assets/images/bio/IMG_20240822_140611.jpg';
 import bioImage2 from '../assets/images/bio/PXL_20220305_223541615.jpg';
 import bioImage3 from '../assets/images/bio/PXL_20231102_173228564.jpg';
@@ -30,12 +30,32 @@ function Bio() {
   const [currentSentenceIndex, setCurrentSentenceIndex] = useState(0);
   const [currentCharIndex, setCurrentCharIndex] = useState(0);
 
+  // Memoize keyword regex patterns to avoid recreating them on every render
+  const keywordPatterns = useMemo(() => {
+    return keywords.map(keyword => ({
+      keyword,
+      regex: new RegExp(`(${keyword.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')})`, 'gi')
+    }));
+  }, []);
+
+  // Memoize highlightKeywords function
+  const highlightKeywords = useCallback((text) => {
+    if (!text) return '';
+    let highlightedText = text;
+    keywordPatterns.forEach(({ regex }) => {
+      highlightedText = highlightedText.replace(regex, '<span class="bio-keyword">$1</span>');
+    });
+    return highlightedText;
+  }, [keywordPatterns]);
+
+  // Optimized typing animation - uses functional state updates to minimize re-renders
   useEffect(() => {
     if (currentSentenceIndex >= sentences.length) return;
 
     const currentSentence = sentences[currentSentenceIndex];
     const timer = setTimeout(() => {
       if (currentCharIndex < currentSentence.length) {
+        // Use functional updates to avoid dependency on displayedTexts
         setDisplayedTexts(prev => {
           const newTexts = [...prev];
           newTexts[currentSentenceIndex] = currentSentence.substring(0, currentCharIndex + 1);
@@ -49,36 +69,32 @@ function Bio() {
           setCurrentCharIndex(0);
         }, 300);
       }
-    }, 15); // Typing speed (faster)
+    }, 15);
 
     return () => clearTimeout(timer);
   }, [currentSentenceIndex, currentCharIndex, sentences]);
 
-  const highlightKeywords = (text) => {
-    let highlightedText = text;
-    keywords.forEach(keyword => {
-      const regex = new RegExp(`(${keyword.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')})`, 'gi');
-      highlightedText = highlightedText.replace(regex, '<span class="bio-keyword">$1</span>');
-    });
-    return highlightedText;
-  };
+  // Memoize highlighted texts to avoid recomputing on every render
+  const highlightedTexts = useMemo(() => {
+    return displayedTexts.map(text => highlightKeywords(text));
+  }, [displayedTexts, highlightKeywords]);
 
   return (
     <div id="bio" className="bio-landing">
       <section className="bio-hero">
         <div className="bio-hero-content">
-          {/* Collage Images - Behind Text */}
+          {/* Collage Images - Behind Text - Load immediately (above fold) */}
           <div className="bio-collage-image bio-collage-image-1">
-            <img src={bioImage1} alt="Sylas Horowitz" />
+            <img src={bioImage1} alt="Sylas Horowitz" loading="eager" fetchpriority="high" />
           </div>
           <div className="bio-collage-image bio-collage-image-2">
-            <img src={bioImage2} alt="Engineering work" />
+            <img src={bioImage2} alt="Engineering work" loading="eager" />
           </div>
           <div className="bio-collage-image bio-collage-image-3">
-            <img src={bioImage3} alt="Sylas Horowitz" />
+            <img src={bioImage3} alt="Sylas Horowitz" loading="eager" />
           </div>
           <div className="bio-collage-image bio-collage-image-4">
-            <img src={bioImage4} alt="Sylas Horowitz" />
+            <img src={bioImage4} alt="Sylas Horowitz" loading="eager" />
           </div>
 
           {/* Text Content - Centered */}
@@ -96,17 +112,20 @@ function Bio() {
               </div>
               {/* Visible animated text */}
               <div className="bio-description-animated">
-                {sentences.map((sentence, index) => (
-                  <div key={index} className="bio-description-line">
-                    <span className="bio-bullet">&gt;</span>
-                    <span 
-                      className="bio-text-content"
-                      dangerouslySetInnerHTML={{ 
-                        __html: highlightKeywords(displayedTexts[index]) + (index === currentSentenceIndex && currentCharIndex < sentence.length ? '<span class="bio-cursor">|</span>' : '')
-                      }}
-                    />
-                  </div>
-                ))}
+                {sentences.map((sentence, index) => {
+                  const showCursor = index === currentSentenceIndex && currentCharIndex < sentence.length;
+                  return (
+                    <div key={index} className="bio-description-line">
+                      <span className="bio-bullet">&gt;</span>
+                      <span 
+                        className="bio-text-content"
+                        dangerouslySetInnerHTML={{ 
+                          __html: highlightedTexts[index] + (showCursor ? '<span class="bio-cursor">|</span>' : '')
+                        }}
+                      />
+                    </div>
+                  );
+                })}
               </div>
             </div>
           </div>

@@ -168,12 +168,14 @@ function Art() {
                       src={piece.src}
                       alt={`Art piece ${piece.id}`}
                       className="art-media"
+                      loading="lazy"
                     />
                   ) : (
                     <img
                       src={piece.src}
                       alt={`Art piece ${piece.id}`}
                       className="art-media"
+                      loading="lazy"
                     />
                   )}
                   <div className="art-piece-overlay">

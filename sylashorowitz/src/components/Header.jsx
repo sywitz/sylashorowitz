@@ -28,7 +28,8 @@ function Header() {
   };
 
   const toggleMenu = () => {
-    setIsMenuOpen(!isMenuOpen);
+    // Use functional update to avoid stale closure issues
+    setIsMenuOpen(prev => !prev);
   };
 
   const closeMenu = () => {

@@ -16,4 +16,21 @@ frontend:
   cache:
     paths:
       - sylashorowitz/node_modules/**/*
-      - ~/.pnpm-store/**/* 
+      - ~/.pnpm-store/**/*
+  customHeaders:
+    - pattern: '**/*'
+      headers:
+        - key: 'X-Content-Type-Options'
+          value: 'nosniff'
+        - key: 'X-Frame-Options'
+          value: 'DENY'
+        - key: 'X-XSS-Protection'
+          value: '1; mode=block'
+    - pattern: '/**'
+      headers:
+        - key: 'Cache-Control'
+          value: 'public, max-age=0, must-revalidate'
+    - pattern: '/static/**'
+      headers:
+        - key: 'Cache-Control'
+          value: 'public, max-age=31536000, immutable' 
