@@ -11,12 +11,17 @@ export const liberiaRecycledWasteBins = {
     'Applied user-centered research to align aesthetics, durability, and educational impact with community needs'
   ],
   skills: [
-    'User-centered design',
-    'International development',
+    'User-Centered Design',
+    'International Development',
     'SolidWorks',
     'Education',
-    'Community partnerships',
-    'Design documentation'
+    'Community Partnerships',
+    'Design Documentation',
+    'Welding',
+    'Steel Frame Design',
+    'Wire Frame Design',
+    'Sustainability',
+    'Social Impact'
   ],
   sections: [
     {

@@ -25,12 +25,13 @@
 }
 
 .portfolio-header h1 {
-  color: #000000;
+  color: var(--color-primary);
+  font-family: var(--font-family-serif);
   font-size: var(--font-size-portfolio-header);
   font-weight: var(--font-weight-bold);
   margin: 0;
   text-transform: uppercase;
-  letter-spacing: 3px;
+  letter-spacing: 0.15em;
   text-shadow: none;
 }
 
@@ -52,11 +53,11 @@
 }
 
 .engineering-portfolio .project-card {
-  background: var(--color-bg-card);
+  background: var(--color-primary);
   border: 1px solid rgba(0, 0, 0, 0.1);
   border-radius: 2px;
   overflow: hidden;
-  box-shadow: none;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.03);
   transition: all var(--transition-base);
   position: relative;
   text-align: left;
@@ -71,8 +72,8 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  background: var(--color-bg-card);
-  color: #000000;
+  background: var(--color-primary);
+  color: #ffffff;
 }
 
 .engineering-portfolio .project-image-placeholder {
@@ -97,7 +98,7 @@
 
 .engineering-portfolio .project-card.featured {
   border: 2px solid #000000;
-  box-shadow: none;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.03);
 }
 
 .engineering-portfolio .project-image-container {
@@ -106,11 +107,20 @@
   overflow: hidden;
 }
 
+.engineering-portfolio .project-image-link {
+  display: block;
+  width: 100%;
+  height: 100%;
+  cursor: pointer;
+  text-decoration: none;
+}
+
 .engineering-portfolio .project-image {
   width: 100%;
   height: 100%;
   object-fit: cover;
   transition: transform var(--transition-base);
+  display: block;
 }
 
 .engineering-portfolio .project-card:hover .project-image {
@@ -131,8 +141,8 @@
   position: absolute;
   top: var(--spacing-lg);
   right: var(--spacing-lg);
-  background: #000000;
-  color: #ffffff;
+  background: #f5f5dc;
+  color: var(--color-primary);
   padding: var(--spacing-sm) var(--spacing-base);
   border-radius: 0;
   font-size: var(--font-size-xs);
@@ -145,9 +155,9 @@
 #engineering .project-card .project-content,
 .engineering-portfolio .project-card .project-content {
   padding: 25px;
-  color: #000000;
+  color: #ffffff;
   text-align: left;
-  background: var(--color-bg-card);
+  background: var(--color-primary);
 }
 
 .engineering-portfolio .project-header {
@@ -156,7 +166,7 @@
 }
 
 .engineering-portfolio .project-title {
-  color: #000000;
+  color: #ffffff;
   text-decoration: none;
   font-size: var(--font-size-project-title);
   font-weight: var(--font-weight-bold);
@@ -170,8 +180,8 @@
 }
 
 .engineering-portfolio .project-title:hover {
-  color: #333333;
-  text-decoration-color: #333333;
+  color: #f5f5dc;
+  text-decoration-color: #f5f5dc;
 }
 
 .engineering-portfolio .project-meta {
@@ -183,7 +193,7 @@
 }
 
 .engineering-portfolio .institution {
-  color: #666666;
+  color: #f5f5dc;
   font-size: var(--font-size-base);
   font-weight: var(--font-weight-normal);
   font-style: italic;
@@ -196,30 +206,53 @@
 }
 
 .engineering-portfolio .project-description p {
-  color: #333333;
+  color: #ffffff;
   line-height: var(--line-height-normal);
   font-size: var(--font-size-sm);
   margin: 0;
   text-align: left;
 }
 
+.engineering-portfolio .project-skills {
+  margin-top: var(--spacing-md);
+}
+
 .engineering-portfolio .project-skills h4 {
-  color: #000000;
-  font-size: var(--font-size-sm);
+  color: #ffffff;
+  font-size: 0.75rem;
   font-weight: var(--font-weight-semibold);
-  margin-bottom: var(--spacing-sm);
+  margin-bottom: var(--spacing-xs);
   text-transform: uppercase;
   letter-spacing: var(--letter-spacing-tight);
+  opacity: 0.85;
 }
 
 .engineering-portfolio .skills-list {
   display: flex;
   flex-wrap: wrap;
-  gap: var(--spacing-xs);
-  row-gap: var(--spacing-xs);
+  gap: 3px;
+  row-gap: 3px;
 }
 
-/* Skill tags now use utility class from utilities.css */
+/* Skill tags styling for engineering portfolio */
+.engineering-portfolio .skill-tag {
+  background: rgba(245, 245, 220, 0.4);
+  color: #ffffff;
+  padding: 2px 6px;
+  border-radius: 3px;
+  font-size: 0.6rem;
+  font-weight: var(--font-weight-normal);
+  border: none;
+  transition: all var(--transition-base);
+  display: inline-block;
+  line-height: 1.3;
+}
+
+.engineering-portfolio .skill-tag:hover {
+  background: rgba(245, 245, 220, 0.6);
+  color: #ffffff;
+  transform: none;
+}
 
 /* Responsive Design */
 @media (max-width: 768px) {

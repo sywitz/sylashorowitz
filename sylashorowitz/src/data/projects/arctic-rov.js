@@ -32,6 +32,7 @@ import test4Img2 from '../../assets/engineering-data/arctic-rov/Screenshot 2026-
 import test4Img3 from '../../assets/engineering-data/arctic-rov/Screenshot 2026-01-07 162440.png';
 import test4Img4 from '../../assets/engineering-data/arctic-rov/IMG_1361 (1).jpg';
 import posterImg from '../../assets/engineering-data/arctic-rov/PXL_20221019_140245481.jpg';
+import arcticDeploymentImg from '../../assets/engineering-data/arctic-rov/image(2).png';
 import posterPdf from '../../assets/engineering-data/arctic-rov/poster.pdf';
 
 export const arcticRov = {
@@ -51,11 +52,19 @@ export const arcticRov = {
     'SolidWorks',
     'Arduino',
     'Mechatronics',
-    'Systems integration',
+    'Systems Integration',
     'Research',
     'CAD',
     'Prototyping',
-    'Field testing'
+    'Field Testing',
+    'Electronics',
+    'Motor Control',
+    'MATLAB',
+    'Belt Drive Design',
+    'Waterproofing',
+    'Marine Engineering',
+    'Scientific Instrumentation',
+    'Published Research'
   ],
   sections: [
     {
@@ -229,10 +238,12 @@ fprintf('Center distance constraint: %.0f inches\n', centerDistance);`
     },
     {
       title: 'Results',
-      layout: 'text-with-side-images-left',
       customClass: 'results-section',
-      content: `I published a paper and presented at the OCEANS 2022 conference. I was accepted into the Student Poster Competition as the sole undergraduate student.`,
-      sideImages: [posterImg],
+      content: `I published a paper and presented at the OCEANS 2022 conference. I was accepted into the Student Poster Competition as the sole undergraduate student. Since then, Woods Hole Oceanographic Institution scientists have been deploying my tether management system in the Arctic for ongoing research.`,
+      images: [
+        { src: posterImg, caption: 'Presenting at OCEANS 2022 conference' },
+        { src: arcticDeploymentImg, caption: 'System deployed in the Arctic by WHOI scientists' }
+      ],
       pdf: posterPdf
     }
   ],

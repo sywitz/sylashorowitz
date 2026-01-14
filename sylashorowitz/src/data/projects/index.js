@@ -7,6 +7,8 @@ import renaissanceCastle from './renaissance-castle';
 import liberiaRecycledWasteBins from './liberia-recycled-waste-bins';
 import mechanicalRabbit from './mechanical-rabbit';
 import solarPanelDeploymentSystem from './solar-panel-deployment-system';
+import guatemalaCookstove from './guatemala-cookstove';
+import climbingRobot from './climbing-robot';
 
 // Export as a single object with project IDs as keys
 export const projectData = {
@@ -17,7 +19,9 @@ export const projectData = {
   'renaissance-castle': renaissanceCastle,
   'liberia-recycled-waste-bins': liberiaRecycledWasteBins,
   'mechanical-rabbit': mechanicalRabbit,
-  'solar-panel-deployment-system': solarPanelDeploymentSystem
+  'solar-panel-deployment-system': solarPanelDeploymentSystem,
+  'guatemala-cookstove': guatemalaCookstove,
+  'climbing-robot': climbingRobot
 };
 
 export default projectData;

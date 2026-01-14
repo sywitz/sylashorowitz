@@ -89,12 +89,18 @@
 /* Narrower text box and more space for images */
 .arctic-rov-project.project-template .lake-whitehall-section .text-with-side-images-pair {
   align-items: flex-start;
+  margin-left: 0;
+  padding-left: 0;
 }
 
 .arctic-rov-project.project-template .lake-whitehall-section .text-with-side-images-content-box {
   flex: 0 0 40%;
   max-width: 40%;
-  padding-left: var(--spacing-2xl);
+  padding: var(--spacing-2xl);
+  min-width: 0;
+  box-sizing: border-box;
+  overflow-wrap: break-word;
+  word-wrap: break-word;
 }
 
 .arctic-rov-project.project-template .lake-whitehall-section .side-images-stacked {
@@ -173,19 +179,26 @@
   height: 700px;
 }
 
-/* Results section - image to the right of text, PDF larger below */
-.arctic-rov-project.project-template .results-section .text-with-side-images-pair {
-  align-items: flex-start;
+/* Results section - text on top, images side by side below, PDF at bottom */
+.arctic-rov-project.project-template .results-section .section-images {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--spacing-2xl);
+  margin-top: var(--spacing-2xl);
+  margin-bottom: var(--spacing-2xl);
 }
 
-.arctic-rov-project.project-template .results-section .text-with-side-images-content-box {
-  flex: 0 0 60%;
-  padding-left: var(--spacing-2xl);
+.arctic-rov-project.project-template .results-section .section-image-item {
+  max-width: 100%;
+  display: flex;
+  flex-direction: column;
 }
 
-.arctic-rov-project.project-template .results-section .side-images-stacked {
-  flex: 0 0 35%;
-  max-width: 35%;
+.arctic-rov-project.project-template .results-section .section-image-item img {
+  width: 100%;
+  height: auto;
+  border-radius: 4px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
 .arctic-rov-project.project-template .results-section .section-pdf {
@@ -201,27 +214,14 @@
   height: 900px;
 }
 
-/* Remove tan background from sections that are ONLY titles (no content) */
-/* Target sections with h2 followed by empty paragraph or div */
-.arctic-rov-project.project-template .section:has(h2 + p:empty),
-.arctic-rov-project.project-template .section:has(h2 + div:empty),
-.arctic-rov-project.project-template .section:has(h2:only-child) {
-  background: transparent !important;
-  padding: var(--spacing-xl) var(--spacing-xl);
-}
-
-/* Also target sections where the only non-empty content is the h2 */
-/* This handles cases where p might have whitespace but no actual content */
-.arctic-rov-project.project-template .section:has(h2 + p:not(:has(*))):not(:has(.section-media)):not(:has(.image-carousel)):not(:has(.large-image-container)):not(:has(.side-image-wrapper)):not(:has(video)):not(:has(img)):not(:has(.code-block)) {
-  background: transparent !important;
-  padding: var(--spacing-xl) var(--spacing-xl);
-}
+/* Title-only sections use base styles - no custom overrides needed */
 
 /* Field Testing background video section - special styling */
 /* Target the background video section that contains "Field Testing" */
-/* This is the 20th section overall in the sections array */
-.arctic-rov-project.project-template .project-sections > .section.section-background-video:nth-of-type(20) .background-video-content p {
-  font-size: var(--font-size-7xl);
+/* This is the 19th section overall (4th background-video section) */
+/* Properly scoped to arctic-rov-project with high specificity to override base styles */
+.arctic-rov-project.project-template .project-sections .section:nth-child(19).section-background-video .background-video-content p {
+  font-size: 5rem;
   font-weight: var(--font-weight-bold);
   text-transform: uppercase;
   color: rgba(231, 187, 83, 0.8); /* Semi-transparent yellow (--color-accent) */

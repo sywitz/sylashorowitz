@@ -2,10 +2,10 @@
  * ImageCarousel - Interactive image carousel component
  */
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import './ImageCarousel.css';
 
-function ImageCarousel({ images }) {
+function ImageCarousel({ images, autoFlip = false, autoFlipInterval = 5000 }) {
   const [currentIndex, setCurrentIndex] = useState(0);
 
   const goToPrevious = () => {
@@ -23,6 +23,19 @@ function ImageCarousel({ images }) {
   const goToSlide = (index) => {
     setCurrentIndex(index);
   };
+
+  // Auto-flip functionality
+  useEffect(() => {
+    if (!autoFlip || images.length <= 1) return;
+
+    const interval = setInterval(() => {
+      setCurrentIndex((prevIndex) => 
+        prevIndex === images.length - 1 ? 0 : prevIndex + 1
+      );
+    }, autoFlipInterval);
+
+    return () => clearInterval(interval);
+  }, [autoFlip, autoFlipInterval, images.length]);
 
   if (!images || images.length === 0) {
     return null;

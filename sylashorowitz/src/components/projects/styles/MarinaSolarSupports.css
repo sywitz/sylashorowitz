@@ -1,3 +1,158 @@
-/* MarinaSolarSupports-specific styles */
-/* Add custom styles for this project as needed */
+/* MarinaSolarSupports-specific styles - Fully encapsulated to avoid affecting other projects */
 
+/* Overview image: maintain original aspect ratio */
+.marina-solar-supports .project-overview .overview-image {
+  max-width: 600px;
+  width: auto;
+}
+
+.marina-solar-supports .project-overview .overview-image img {
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+  object-position: center;
+}
+
+/* Enlarge Design Requirements image and adjust layout */
+.marina-solar-supports .project-sections .section[class*="text-with-side-images"] .text-with-side-images-pair {
+  justify-content: flex-start;
+}
+
+.marina-solar-supports .project-sections .section[class*="text-with-side-images"] .side-image-wrapper {
+  flex: 0 0 500%;
+  max-width: 500%;
+  margin-left: var(--spacing-6xl);
+}
+
+.marina-solar-supports .project-sections .section[class*="text-with-side-images"] .side-image-wrapper img {
+  border-radius: 0;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Make text larger for Design Requirements - fully encapsulated with maximum specificity */
+.marina-solar-supports.project-template .project-sections .section[class*="text-with-side-images"] .text-with-side-images-pair .text-with-side-images-content-box {
+  flex: 0 0 50%;
+  font-size: 1.2rem;
+}
+
+.marina-solar-supports.project-template .project-sections .section[class*="text-with-side-images"] .text-with-side-images-pair .text-with-side-images-content-box p {
+  font-size: 1.2rem;
+  line-height: var(--line-height-loose);
+}
+
+.marina-solar-supports.project-template .project-sections .section[class*="text-with-side-images"] .text-with-side-images-pair .text-with-side-images-content-box .numbered-list {
+  font-size: 1.2rem;
+  line-height: var(--line-height-loose);
+}
+
+.marina-solar-supports.project-template .project-sections .section[class*="text-with-side-images"] .text-with-side-images-pair .text-with-side-images-content-box .numbered-list li {
+  font-size: 1.2rem;
+}
+
+/* Section 1: Background image with semitransparent gray box on right half */
+.marina-section-1-container {
+  position: relative;
+  min-height: 500px;
+  width: 100%;
+  margin: var(--spacing-2xl) 0;
+  border-radius: var(--radius-md);
+  overflow: hidden;
+}
+
+.marina-section-1-background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  z-index: 0;
+}
+
+.marina-section-1-overlay {
+  position: relative;
+  z-index: 1;
+  height: 100%;
+  min-height: 500px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  padding: var(--spacing-4xl);
+}
+
+.marina-section-1-overlay > * {
+  width: 50%;
+  background: rgba(128, 128, 128, 0.7); /* Semitransparent gray */
+  padding: var(--spacing-3xl);
+  border-radius: var(--radius-md);
+  color: #f5e6d3; /* Light tan text */
+  font-size: var(--font-size-lg);
+  line-height: var(--line-height-loose);
+}
+
+.marina-section-1-overlay p {
+  color: #f5e6d3;
+  margin: 0;
+}
+
+/* Image Grid: 2 columns, 3 rows - uniform aspect ratio and size */
+.marina-image-grid-container {
+  margin: var(--spacing-4xl) 0;
+}
+
+.marina-image-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--spacing-3xl);
+  margin-top: var(--spacing-2xl);
+  align-items: start;
+}
+
+.marina-grid-item {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-lg);
+}
+
+.marina-grid-image {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  overflow: hidden;
+  border-radius: 0;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.marina-grid-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+.marina-grid-caption {
+  color: var(--color-secondary);
+  font-size: var(--font-size-base);
+  line-height: var(--line-height-normal);
+  text-align: left;
+}
+
+/* Responsive: stack on mobile */
+@media (max-width: 768px) {
+  .marina-section-1-overlay {
+    justify-content: center;
+    padding: var(--spacing-2xl);
+  }
+
+  .marina-section-1-overlay > * {
+    width: 100%;
+  }
+
+  .marina-image-grid {
+    grid-template-columns: 1fr;
+    gap: var(--spacing-2xl);
+  }
+}

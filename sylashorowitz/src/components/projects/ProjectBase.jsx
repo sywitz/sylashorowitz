@@ -4,7 +4,7 @@
  * Structure: Header (title/subtitle) -> Overview (description/achievements/skills) -> Sections (stages with media)
  */
 
-import React from 'react';
+import React, { useEffect } from 'react';
 import {
   ProjectNotFound,
   ProjectHeader,
@@ -16,6 +16,11 @@ import './styles/ProjectTemplate.css';
 import './styles/shared.css';
 
 function ProjectBase({ project, customStyles = null, showOverviewImage = false }) {
+  // Scroll to top when component mounts
+  useEffect(() => {
+    window.scrollTo({ top: 0, behavior: 'instant' });
+  }, []);
+
   if (!project) {
     return <ProjectNotFound />;
   }

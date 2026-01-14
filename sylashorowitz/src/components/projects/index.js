@@ -13,6 +13,8 @@ import RenaissanceCastle from './RenaissanceCastle';
 import LiberiaRecycledWasteBins from './LiberiaRecycledWasteBins';
 import MechanicalRabbit from './MechanicalRabbit';
 import SolarPanelDeploymentSystem from './SolarPanelDeploymentSystem';
+import GuatemalaCookstove from './GuatemalaCookstove';
+import ClimbingRobot from './ClimbingRobot';
 
 // Map of project IDs to their components
 export const projectComponents = {
@@ -24,6 +26,8 @@ export const projectComponents = {
   'liberia-recycled-waste-bins': LiberiaRecycledWasteBins,
   'mechanical-rabbit': MechanicalRabbit,
   'solar-panel-deployment-system': SolarPanelDeploymentSystem,
+  'guatemala-cookstove': GuatemalaCookstove,
+  'climbing-robot': ClimbingRobot,
 };
 
 export default projectComponents;

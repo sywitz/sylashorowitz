@@ -180,6 +180,10 @@ function Art() {
                   )}
                   <div className="art-piece-overlay">
                     <div className="art-piece-hover-effect"></div>
+                    <div className="art-piece-hover-content">
+                      <h3 className="art-piece-hover-title">{piece.title}</h3>
+                      <p className="art-piece-hover-description">{piece.description}</p>
+                    </div>
                   </div>
                 </div>
               </div>

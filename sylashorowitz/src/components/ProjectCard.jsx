@@ -48,16 +48,48 @@ function ProjectCard({
     );
   };
 
+  // Render image with appropriate link wrapper
+  const renderImage = () => {
+    if (!image) {
+      return (
+        <div className="project-image-placeholder" aria-hidden="true">
+          <span>{title}</span>
+        </div>
+      );
+    }
+
+    const imageElement = (
+      <img src={image} alt={title} className="project-image" loading="lazy" />
+    );
+
+    if (!link) {
+      return imageElement;
+    }
+
+    if (isExternalLink) {
+      return (
+        <a
+          href={link}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="project-image-link"
+        >
+          {imageElement}
+        </a>
+      );
+    }
+
+    return (
+      <Link to={link} className="project-image-link">
+        {imageElement}
+      </Link>
+    );
+  };
+
   return (
     <div className="project-card">
       <div className={`project-image-container ${image ? '' : 'no-image'}`}>
-        {image ? (
-          <img src={image} alt={title} className="project-image" loading="lazy" />
-        ) : (
-          <div className="project-image-placeholder" aria-hidden="true">
-            <span>{title}</span>
-          </div>
-        )}
+        {renderImage()}
         {featured && <div className="featured-badge">FEATURED</div>}
       </div>
       

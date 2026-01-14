@@ -1,9 +1,13 @@
+// Import images
+import overviewImage from '../../assets/engineering-data/solar-panel-deployment/prototype.JPG';
+
 export const solarPanelDeploymentSystem = {
   id: 'solar-panel-deployment-system',
   title: 'SOLAR PANEL DEPLOYMENT SYSTEM',
   subtitle: 'MIT Research, 2019',
   featured: false,
   heroImage: null,
+  overviewImage: overviewImage,
   description: `Developed a flexible solar panel deployment concept for e-rickshaws supporting street vendors in Bihar, India, enabling on-the-go power with lightweight, adaptable hardware.`,
   achievements: [
     'Designed lightweight panel mounting concept tailored to e-rickshaw geometry',
@@ -11,11 +15,16 @@ export const solarPanelDeploymentSystem = {
     'Collaborated with research mentors to scope pilot testing in Bihar'
   ],
   skills: [
-    'Product design',
-    'Human-centered research',
-    'Energy systems',
-    'Prototype fabrication',
-    'Field deployment planning'
+    'Product Design',
+    'Human-Centered Research',
+    'Energy Systems',
+    'Prototype Fabrication',
+    'Field Deployment Planning',
+    'Energy Analysis',
+    'Research',
+    'Hinge Mechanisms',
+    'Lightweight Design',
+    'Renewable Energy'
   ],
   sections: [
     {

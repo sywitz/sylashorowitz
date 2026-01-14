@@ -48,12 +48,15 @@ function Bio() {
     return highlightedText;
   }, [keywordPatterns]);
 
-  // Optimized typing animation - uses functional state updates to minimize re-renders
+  // Optimized typing animation - uses requestAnimationFrame for better performance
   useEffect(() => {
     if (currentSentenceIndex >= sentences.length) return;
 
     const currentSentence = sentences[currentSentenceIndex];
-    const timer = setTimeout(() => {
+    let animationFrameId;
+    let timeoutId;
+    
+    const animate = () => {
       if (currentCharIndex < currentSentence.length) {
         // Use functional updates to avoid dependency on displayedTexts
         setDisplayedTexts(prev => {
@@ -64,14 +67,27 @@ function Bio() {
         setCurrentCharIndex(prev => prev + 1);
       } else {
         // Move to next sentence after a brief pause
-        setTimeout(() => {
+        timeoutId = setTimeout(() => {
           setCurrentSentenceIndex(prev => prev + 1);
           setCurrentCharIndex(0);
         }, 300);
       }
-    }, 15);
+    };
 
-    return () => clearTimeout(timer);
+    // Use requestAnimationFrame on desktop, setTimeout on mobile for better battery life
+    const isMobile = window.innerWidth <= 768;
+    if (isMobile) {
+      timeoutId = setTimeout(animate, 30); // Slower on mobile
+    } else {
+      timeoutId = setTimeout(() => {
+        animationFrameId = requestAnimationFrame(animate);
+      }, 15);
+    }
+
+    return () => {
+      if (animationFrameId) cancelAnimationFrame(animationFrameId);
+      if (timeoutId) clearTimeout(timeoutId);
+    };
   }, [currentSentenceIndex, currentCharIndex, sentences]);
 
   // Memoize highlighted texts to avoid recomputing on every render
@@ -79,22 +95,27 @@ function Bio() {
     return displayedTexts.map(text => highlightKeywords(text));
   }, [displayedTexts, highlightKeywords]);
 
+  // Scroll to top when component mounts (when navigating to bio page)
+  useEffect(() => {
+    window.scrollTo({ top: 0, behavior: 'instant' });
+  }, []);
+
   return (
     <div id="bio" className="bio-landing">
       <section className="bio-hero">
         <div className="bio-hero-content">
-          {/* Collage Images - Behind Text - Load immediately (above fold) */}
+          {/* Collage Images - Behind Text - Only first image loads eagerly, others lazy load */}
           <div className="bio-collage-image bio-collage-image-1">
             <img src={bioImage1} alt="Sylas Horowitz" loading="eager" fetchpriority="high" />
           </div>
           <div className="bio-collage-image bio-collage-image-2">
-            <img src={bioImage2} alt="Engineering work" loading="eager" />
+            <img src={bioImage2} alt="Engineering work" loading="lazy" />
           </div>
           <div className="bio-collage-image bio-collage-image-3">
-            <img src={bioImage3} alt="Sylas Horowitz" loading="eager" />
+            <img src={bioImage3} alt="Sylas Horowitz" loading="lazy" />
           </div>
           <div className="bio-collage-image bio-collage-image-4">
-            <img src={bioImage4} alt="Sylas Horowitz" loading="eager" />
+            <img src={bioImage4} alt="Sylas Horowitz" loading="lazy" />
           </div>
 
           {/* Text Content - Centered */}

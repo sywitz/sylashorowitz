@@ -11,12 +11,17 @@ export const mechanicalRabbit = {
     'Hand-built prototypes from cardboard, dowels, and carved basswood while integrating motorized actuation'
   ],
   skills: [
-    'Kinematic synthesis',
-    'Linkage design',
+    'Kinematic Synthesis',
+    'Linkage Design',
     'Mechatronics',
-    'Rapid prototyping',
-    'Hand fabrication',
-    'Creative exploration'
+    'Rapid Prototyping',
+    'Hand Fabrication',
+    'Creative Exploration',
+    'CAD',
+    'Prototyping',
+    'Motion Analysis',
+    'Mechanism Design',
+    'Electronics Integration'
   ],
   sections: [
     {

@@ -1,3 +1,585 @@
-/* ReVise-specific styles */
-/* Add custom styles for this project as needed */
+/* ReVise-specific styles - Fully encapsulated to avoid affecting other projects */
 
+/* White background sections - scoped to ReVise sections only */
+/* Use more specific selector to override default transparent backgrounds */
+.project-sections .section.revise-white-bg,
+.project-sections .section.revise-white-bg:nth-child(odd),
+.project-sections .section.revise-white-bg:nth-child(even) {
+  background: white;
+  background-color: white;
+  color: #000000;
+  padding: var(--spacing-5xl) var(--spacing-4xl);
+  border-radius: var(--radius-lg);
+  position: relative;
+  margin: 0 0 var(--spacing-4xl) 0;
+}
+
+/* Pink gravel background sections - scoped to ReVise sections only */
+/* Use more specific selector to override default transparent backgrounds */
+.project-sections .section.revise-sand-bg,
+.project-sections .section.revise-sand-bg:nth-child(odd),
+.project-sections .section.revise-sand-bg:nth-child(even) {
+  background-image: url('../../../assets/engineering-data/re-vise/simple-pink-gravel-plain-background.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-color: transparent;
+  color: #000000;
+  padding: var(--spacing-5xl) var(--spacing-4xl);
+  border-radius: var(--radius-lg);
+  position: relative;
+  margin: 0 0 var(--spacing-4xl) 0;
+}
+
+/* White background for text boxes on pink background */
+.project-sections .section.revise-sand-bg .revise-text-box {
+  background: white;
+  padding: var(--spacing-3xl);
+  margin: var(--spacing-xl) 0;
+  border-radius: var(--radius-md);
+}
+
+/* Section titles - larger with padding, no underlines */
+.project-sections .section.revise-white-bg h2,
+.project-sections .section.revise-sand-bg h2 {
+  font-size: 2.5rem;
+  font-weight: var(--font-weight-bold);
+  letter-spacing: -0.02em;
+  padding: var(--spacing-2xl) var(--spacing-3xl);
+  margin-bottom: var(--spacing-3xl);
+  border-bottom: none;
+}
+
+.project-sections .section.revise-white-bg h2 {
+  color: #000000;
+  text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.3), 0 0 8px rgba(0, 0, 0, 0.2);
+}
+
+.project-sections .section.revise-sand-bg h2 {
+  color: #ffffff;
+  text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.7), 0 0 12px rgba(0, 0, 0, 0.5);
+}
+
+/* Body text - consistent sizing across all sections, black text */
+.project-sections .section.revise-white-bg p,
+.project-sections .section.revise-sand-bg p,
+.project-sections .section.revise-white-bg .revise-section-1-content p,
+.project-sections .section.revise-sand-bg .revise-section-2-text p,
+.project-sections .section.revise-white-bg .revise-section-3-content p,
+.project-sections .section.revise-sand-bg .revise-section-4-content p,
+.project-sections .section.revise-sand-bg .revise-section-4-additional p,
+.project-sections .section.revise-white-bg .revise-section-5-content p,
+.project-sections .section.revise-white-bg .revise-section-5-additional-content p,
+.project-sections .section.revise-sand-bg .revise-section-6-content p {
+  font-size: 1.1rem;
+  line-height: 1.75;
+  color: #000000;
+}
+
+/* Override default section padding for ReVise sections */
+.project-sections .section.revise-white-bg,
+.project-sections .section.revise-sand-bg {
+  padding-left: var(--spacing-4xl);
+  padding-right: var(--spacing-4xl);
+}
+
+/* Section 1: User Design - tiled image LEFT of text, second image below text but to right */
+.revise-section-1-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--spacing-4xl);
+  align-items: start;
+  position: relative;
+  padding: var(--spacing-3xl);
+}
+
+.revise-section-1-bg-grid {
+  grid-column: 1;
+  width: 100%;
+  height: 100%;
+  background-size: 200px 200px;
+  background-repeat: repeat;
+  background-position: center;
+  min-height: 500px;
+  border-radius: var(--radius-md);
+}
+
+.revise-section-1-content {
+  grid-column: 2;
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-xl);
+}
+
+.revise-section-1-image {
+  width: 100%;
+  margin-top: var(--spacing-xl);
+}
+
+.revise-section-1-image img {
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  border-radius: 0;
+  box-shadow: none;
+}
+
+@media (max-width: 768px) {
+  .revise-section-1-container {
+    grid-template-columns: 1fr;
+    padding: var(--spacing-xl);
+  }
+  
+  .revise-section-1-bg-grid {
+    grid-column: 1;
+    min-height: 300px;
+  }
+  
+  .revise-section-1-content {
+    grid-column: 1;
+  }
+}
+
+/* Section 2: Prototype Iteration 1 - image to LEFT of "Our first..." text */
+.revise-section-2-container {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-4xl);
+  padding: var(--spacing-3xl);
+}
+
+/* Top row: content text (left) + video (right) */
+.revise-section-2-top {
+  display: grid;
+  grid-template-columns: 1fr 3fr;
+  gap: var(--spacing-4xl);
+  align-items: start;
+}
+
+.revise-section-2-content-text {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-xl);
+  background: white;
+  padding: var(--spacing-3xl);
+  border-radius: var(--radius-md);
+}
+
+.revise-section-2-video {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.revise-section-2-video .section-media {
+  width: 100%;
+  max-width: 100%;
+}
+
+.revise-section-2-video video {
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  border-radius: 0;
+  box-shadow: none;
+  display: block;
+}
+
+/* Bottom row: image (left) + additional content (right) */
+.revise-section-2-bottom {
+  display: grid;
+  grid-template-columns: 1.5fr 1fr;
+  gap: var(--spacing-4xl);
+  align-items: start;
+}
+
+.revise-section-2-image {
+  width: 100%;
+  align-self: start;
+}
+
+.revise-section-2-image img {
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  border-radius: 0;
+  box-shadow: none;
+}
+
+.revise-section-2-additional-text {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-xl);
+  background: white;
+  padding: var(--spacing-3xl);
+  border-radius: var(--radius-md);
+}
+
+@media (max-width: 768px) {
+  .revise-section-2-container {
+    padding: var(--spacing-xl);
+  }
+  
+  .revise-section-2-top {
+    grid-template-columns: 1fr;
+  }
+  
+  .revise-section-2-bottom {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Section 3: Pneumatic P&ID */
+.revise-section-3-container {
+  display: grid;
+  grid-template-columns: 1.5fr 1fr;
+  gap: var(--spacing-4xl);
+  align-items: start;
+  padding: var(--spacing-3xl);
+}
+
+.revise-section-3-image {
+  width: 100%;
+}
+
+.revise-section-3-image img {
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  border-radius: 0;
+  box-shadow: none;
+}
+
+.revise-section-3-content {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-md);
+}
+
+@media (max-width: 768px) {
+  .revise-section-3-container {
+    grid-template-columns: 1fr;
+    padding: var(--spacing-xl);
+  }
+}
+
+/* Section 4: Granular Jamming */
+.revise-section-4-container {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-4xl);
+  padding: var(--spacing-3xl);
+}
+
+.revise-section-4-top-image {
+  width: 100%;
+}
+
+.revise-section-4-top-image img {
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  border-radius: 0;
+  box-shadow: none;
+}
+
+.revise-section-4-content-wrapper {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--spacing-4xl);
+  align-items: start;
+}
+
+.revise-section-4-content {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-md);
+  background: white;
+  padding: var(--spacing-3xl);
+  border-radius: var(--radius-md);
+}
+
+.revise-section-4-side-image {
+  width: 100%;
+}
+
+.revise-section-4-side-image img {
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  border-radius: 0;
+  box-shadow: none;
+}
+
+.revise-section-4-additional {
+  margin-top: var(--spacing-xl);
+  background: white;
+  padding: var(--spacing-3xl);
+  border-radius: var(--radius-md);
+}
+
+.revise-section-4-side-images {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--spacing-xl);
+  margin-top: var(--spacing-xl);
+}
+
+.revise-section-4-side-image-item {
+  width: 100%;
+}
+
+.revise-section-4-side-image-item img {
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  border-radius: 0;
+  box-shadow: none;
+}
+
+@media (max-width: 768px) {
+  .revise-section-4-container {
+    padding: var(--spacing-xl);
+  }
+  
+  .revise-section-4-content-wrapper {
+    grid-template-columns: 1fr;
+  }
+  
+  .revise-section-4-side-images {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Section 5: Prototype Iteration 2 */
+.revise-section-5-container {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-4xl);
+  padding: var(--spacing-3xl);
+}
+
+.revise-section-5-main {
+  display: grid;
+  grid-template-columns: 1.5fr 1fr;
+  gap: var(--spacing-4xl);
+  align-items: start;
+}
+
+.revise-section-5-left-image {
+  grid-column: 1;
+  width: 100%;
+}
+
+.revise-section-5-left-image img {
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  border-radius: 0;
+  box-shadow: none;
+}
+
+.revise-section-5-content {
+  grid-column: 2;
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-xl);
+}
+
+.revise-section-5-bottom-image-wrapper {
+  width: 100%;
+  position: relative;
+}
+
+.revise-section-5-bottom-image {
+  width: 100%;
+  position: relative;
+}
+
+.revise-section-5-bottom-image img {
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  border-radius: 0;
+  box-shadow: none;
+}
+
+.revise-section-5-gif-overlay {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  width: 40%;
+  max-width: 300px;
+  z-index: 10;
+  border-radius: 0;
+  box-shadow: none;
+}
+
+.revise-section-5-gif-overlay img {
+  width: 100%;
+  height: auto;
+  border-radius: 0;
+}
+
+.revise-section-5-additional {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--spacing-4xl);
+  margin-top: var(--spacing-xl);
+  align-items: start;
+}
+
+.revise-section-5-additional-content {
+  grid-column: 1;
+}
+
+.revise-section-5-right-image {
+  grid-column: 2;
+  width: 100%;
+  height: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.revise-section-5-right-image img {
+  width: auto;
+  max-width: 37.5%;
+  height: auto;
+  border-radius: 0;
+  box-shadow: none;
+}
+
+@media (max-width: 768px) {
+  .revise-section-5-container {
+    padding: var(--spacing-xl);
+  }
+  
+  .revise-section-5-main {
+    grid-template-columns: 1fr;
+  }
+  
+  .revise-section-5-left-image {
+    grid-column: 1;
+  }
+  
+  .revise-section-5-content {
+    grid-column: 1;
+  }
+  
+  .revise-section-5-gif-overlay {
+    width: 50%;
+    max-width: 200px;
+  }
+  
+  .revise-section-5-additional {
+    grid-template-columns: 1fr;
+  }
+  
+  .revise-section-5-additional-content {
+    grid-column: 1;
+  }
+  
+  .revise-section-5-right-image {
+    grid-column: 1;
+  }
+  
+  .revise-section-5-right-image img {
+    max-width: 50%;
+  }
+}
+
+/* Section 6: Final Prototype */
+.revise-section-6-container {
+  display: grid;
+  grid-template-columns: 1fr 1.5fr;
+  gap: var(--spacing-4xl);
+  align-items: start;
+  padding: var(--spacing-3xl);
+}
+
+.revise-section-6-content {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-xl);
+  background: white;
+  padding: var(--spacing-3xl);
+  border-radius: var(--radius-md);
+  font-size: var(--font-size-lg);
+  line-height: var(--line-height-loose);
+  color: var(--color-secondary);
+}
+
+/* Ensure text size is applied with high specificity */
+.project-sections .section.revise-sand-bg .revise-section-6-content,
+.project-sections .section.revise-white-bg .revise-section-6-content {
+  font-size: var(--font-size-lg);
+}
+
+.project-sections .section.revise-sand-bg .revise-section-6-content p,
+.project-sections .section.revise-white-bg .revise-section-6-content p,
+.project-sections .section.revise-sand-bg .revise-section-6-content div p,
+.project-sections .section.revise-white-bg .revise-section-6-content div p {
+  font-size: var(--font-size-lg);
+  line-height: var(--line-height-loose);
+  color: var(--color-secondary);
+}
+
+.revise-section-6-right {
+  position: relative;
+  min-height: 500px;
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-3xl);
+}
+
+.revise-section-6-large-image {
+  position: relative;
+  width: 100%;
+  z-index: 2;
+}
+
+.revise-section-6-large-image img {
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  border-radius: 4px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+}
+
+.revise-section-6-small-image {
+  position: relative;
+  width: 50%;
+  align-self: flex-end;
+  z-index: 1;
+  margin-top: var(--spacing-2xl);
+}
+
+.revise-section-6-small-image img {
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  border-radius: 4px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25);
+}
+
+@media (max-width: 768px) {
+  .revise-section-6-container {
+    grid-template-columns: 1fr;
+    padding: var(--spacing-xl);
+  }
+}
+
+/* Link styling in sections */
+.project-sections .section.revise-white-bg a,
+.project-sections .section.revise-sand-bg a {
+  color: #ff69b4;
+  text-decoration: underline;
+  transition: color 0.2s ease;
+}
+
+.project-sections .section.revise-white-bg a:hover,
+.project-sections .section.revise-sand-bg a:hover {
+  color: #ff1493;
+}

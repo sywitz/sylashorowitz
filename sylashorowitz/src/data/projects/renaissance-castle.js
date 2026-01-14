@@ -11,12 +11,18 @@ export const renaissanceCastle = {
     'Directed design-build efforts, mentoring 15 volunteers through power tool training and on-site construction'
   ],
   skills: [
-    'Project leadership',
+    'Project Leadership',
     'Autodesk Fusion 360',
-    'Structural design',
-    'Construction management',
-    'Team coordination',
-    'Event design'
+    'Structural Design',
+    'Construction Management',
+    'Team Coordination',
+    'Event Design',
+    'Carpentry',
+    'Team Collaboration',
+    'Permitting',
+    'Engineering Drawings',
+    'Safety Compliance',
+    'Volunteer Management'
   ],
   sections: [
     {

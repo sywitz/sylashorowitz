@@ -1,3 +1,208 @@
 /* MechanicalRabbit-specific styles */
-/* Add custom styles for this project as needed */
 
+.mechanical-rabbit .mechanical-rabbit-section {
+  margin-bottom: var(--spacing-4xl);
+  background: white;
+  padding: var(--spacing-3xl) var(--spacing-xl);
+  border-radius: var(--radius-lg);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.mechanical-rabbit .mechanical-rabbit-section h2 {
+  font-size: var(--font-size-section-heading);
+  font-weight: var(--font-weight-bold);
+  color: var(--color-primary);
+  margin-bottom: var(--spacing-3xl);
+  border-bottom: 2px solid var(--color-border);
+  padding-bottom: var(--spacing-lg);
+}
+
+.mechanical-rabbit .mechanical-rabbit-section p {
+  font-size: var(--font-size-lg);
+  line-height: var(--line-height-relaxed);
+  color: var(--color-text);
+  margin-bottom: var(--spacing-xl);
+}
+
+/* Project Overview - Use default styling but customize content layout */
+.mechanical-rabbit-overview-content {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-4xl);
+  margin-bottom: var(--spacing-md);
+}
+
+.mechanical-rabbit-overview-text {
+  flex: 1;
+}
+
+.mechanical-rabbit-overview-text p {
+  color: var(--color-text-on-dark);
+  margin-bottom: 0;
+}
+
+.mechanical-rabbit-overview-image {
+  flex: 0 0 auto;
+  max-width: 500px;
+}
+
+.mechanical-rabbit-overview-image img {
+  width: 100%;
+  height: auto;
+  border-radius: 0;
+  box-shadow: none;
+}
+
+/* Section 1 - Text on left, image on right */
+.mechanical-rabbit-section-1-content {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--spacing-4xl);
+  align-items: center;
+}
+
+.mechanical-rabbit-section-1-text {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-xl);
+  justify-content: center;
+}
+
+.mechanical-rabbit-section-1-image {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.mechanical-rabbit-section-1-image img {
+  width: auto;
+  max-width: 100%;
+  height: auto;
+  max-height: 900px;
+  border-radius: 0;
+  box-shadow: none;
+  object-fit: contain;
+}
+
+/* Section 2 - Text on left, video on right */
+.mechanical-rabbit-section-2-content {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--spacing-4xl);
+  align-items: center;
+}
+
+.mechanical-rabbit-section-2-text {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-xl);
+  justify-content: center;
+}
+
+.mechanical-rabbit-section-2-video {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.mechanical-rabbit-video {
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  border-radius: 0;
+  box-shadow: none;
+  display: block;
+}
+
+/* Section 3 - Text on left, video on right */
+.mechanical-rabbit-section-3-content {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--spacing-4xl);
+  align-items: center;
+}
+
+.mechanical-rabbit-section-3-text {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-xl);
+  justify-content: center;
+}
+
+.mechanical-rabbit-section-3-video {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Section 4 - Image with overlay text, full width */
+.mechanical-rabbit-section-4-content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.mechanical-rabbit-section-4-image-wrapper {
+  position: relative;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.mechanical-rabbit-section-4-image-wrapper img {
+  width: 100%;
+  height: auto;
+  border-radius: 0;
+  box-shadow: none;
+  display: block;
+}
+
+.mechanical-rabbit-overlay-text {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgba(128, 128, 128, 0.8);
+  color: white;
+  padding: var(--spacing-xl);
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.mechanical-rabbit-overlay-text p {
+  color: white;
+  margin: 0;
+  font-size: var(--font-size-base);
+  line-height: var(--line-height-relaxed);
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+  .mechanical-rabbit-overview-content {
+    flex-direction: column;
+    gap: var(--spacing-2xl);
+  }
+
+  .mechanical-rabbit-overview-image {
+    max-width: 100%;
+  }
+
+  .mechanical-rabbit-section-1-content,
+  .mechanical-rabbit-section-2-content,
+  .mechanical-rabbit-section-3-content {
+    grid-template-columns: 1fr;
+    gap: var(--spacing-2xl);
+  }
+
+  .mechanical-rabbit-section-1-image img {
+    height: auto;
+    object-fit: contain;
+  }
+
+  .mechanical-rabbit-overlay-text {
+    position: relative;
+    background: rgba(128, 128, 128, 0.8);
+    margin-top: var(--spacing-md);
+  }
+}

@@ -1,0 +1,80 @@
+/* ClimbingRobot-specific styles */
+
+.climbing-robot .climbing-overview {
+  margin-bottom: var(--spacing-5xl);
+}
+
+.climbing-overview-content {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-4xl);
+  margin-bottom: var(--spacing-md);
+}
+
+.climbing-overview-text {
+  flex: 1;
+}
+
+.climbing-overview-text p {
+  color: var(--color-text-on-dark);
+  margin-bottom: 0;
+}
+
+.climbing-overview-image {
+  flex: 0 0 auto;
+  max-width: 500px;
+}
+
+.climbing-overview-image img {
+  width: 100%;
+  height: auto;
+  border-radius: 0;
+  box-shadow: none;
+}
+
+/* PDF Section */
+.climbing-pdf-section {
+  margin-bottom: var(--spacing-5xl);
+  background: white;
+  padding: var(--spacing-4xl);
+  border-radius: 0;
+}
+
+.climbing-pdf-section h2 {
+  font-size: var(--font-size-section-heading);
+  font-weight: var(--font-weight-bold);
+  color: var(--color-primary);
+  margin-bottom: var(--spacing-3xl);
+  border-bottom: 2px solid var(--color-border);
+  padding-bottom: var(--spacing-lg);
+}
+
+.climbing-pdf-embed {
+  width: 100%;
+  height: 1000px;
+  margin-top: var(--spacing-2xl);
+}
+
+.climbing-pdf-iframe {
+  width: 100%;
+  height: 100%;
+  border: none;
+  border-radius: 0;
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+  .climbing-overview-content {
+    flex-direction: column;
+    gap: var(--spacing-2xl);
+  }
+
+  .climbing-overview-image {
+    max-width: 100%;
+  }
+
+  .climbing-pdf-embed {
+    height: 700px;
+  }
+}
+

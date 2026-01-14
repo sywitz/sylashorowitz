@@ -1,3 +1,165 @@
 /* LiberiaRecycledWasteBins-specific styles */
-/* Add custom styles for this project as needed */
 
+.liberia-waste-bins .liberia-overview {
+  margin-bottom: var(--spacing-5xl);
+}
+
+.liberia-overview-content {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-4xl);
+  margin-bottom: var(--spacing-md);
+}
+
+.liberia-overview-text {
+  flex: 1;
+}
+
+.liberia-overview-text p {
+  color: var(--color-text-on-dark);
+  margin-bottom: var(--spacing-xl);
+}
+
+.liberia-overview-text p:last-child {
+  margin-bottom: 0;
+}
+
+.liberia-overview-image {
+  flex: 0 0 auto;
+  max-width: 500px;
+}
+
+.liberia-overview-image img {
+  width: 100%;
+  height: auto;
+  border-radius: 0;
+  box-shadow: none;
+}
+
+/* ERI Link styling */
+.eri-link {
+  color: var(--color-accent);
+  text-decoration: underline;
+  transition: color var(--transition-base);
+}
+
+.eri-link:hover {
+  color: var(--color-text-on-dark);
+}
+
+/* Image Overlays with Buttons */
+.liberia-image-buttons-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--spacing-4xl);
+  margin-bottom: var(--spacing-5xl);
+}
+
+.liberia-image-button-wrapper {
+  width: 100%;
+}
+
+.liberia-image-overlay {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 4 / 3; /* Fixed aspect ratio for consistent cropping */
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.liberia-image-overlay img {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+  object-position: center;
+}
+
+.liberia-overlay-background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(128, 128, 128, 0.3); /* Less opaque gray overlay */
+  z-index: 1;
+}
+
+.liberia-overlay-button {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 2;
+  color: var(--color-text-on-dark);
+  text-decoration: none; /* No underline */
+  font-weight: var(--font-weight-semibold);
+  font-size: var(--font-size-lg);
+  padding: var(--spacing-md) var(--spacing-2xl);
+  border-radius: var(--radius-2xl);
+  background: var(--color-primary);
+  border: 1px solid var(--color-primary);
+  box-shadow: none;
+  transition: all var(--transition-base);
+  display: inline-block;
+}
+
+.liberia-overlay-button:hover {
+  background: var(--color-primary-dark);
+  border-color: var(--color-primary-dark);
+  transform: translate(-50%, -50%) translateY(var(--transform-offset-sm));
+  color: var(--color-text-on-dark);
+}
+
+/* PDF Section */
+.liberia-pdf-section {
+  margin-bottom: var(--spacing-5xl);
+  background: white;
+  padding: var(--spacing-4xl);
+  border-radius: 0;
+}
+
+.liberia-pdf-section h2 {
+  font-size: var(--font-size-section-heading);
+  font-weight: var(--font-weight-bold);
+  color: var(--color-primary);
+  margin-bottom: var(--spacing-3xl);
+  border-bottom: 2px solid var(--color-border);
+  padding-bottom: var(--spacing-lg);
+}
+
+.liberia-pdf-embed {
+  width: 100%;
+  height: 800px;
+  margin-top: var(--spacing-2xl);
+}
+
+.liberia-pdf-iframe {
+  width: 100%;
+  height: 100%;
+  border: none;
+  border-radius: 0;
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+  .liberia-overview-content {
+    flex-direction: column;
+    gap: var(--spacing-2xl);
+  }
+
+  .liberia-overview-image {
+    max-width: 100%;
+  }
+
+  .liberia-image-buttons-container {
+    grid-template-columns: 1fr;
+    gap: var(--spacing-2xl);
+  }
+
+  .liberia-pdf-embed {
+    height: 600px;
+  }
+}

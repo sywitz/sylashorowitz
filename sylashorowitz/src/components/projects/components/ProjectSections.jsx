@@ -132,7 +132,9 @@ function ProjectSections({ sections }) {
                         ) : (
                           /* Default rendering for other sections */
                           section.sideImages.map((img, imgIndex) => {
-                            const imgSrc = typeof img === 'string' ? img : (img.default || img);
+                            // Handle image objects with caption or plain image paths
+                            const imageObj = typeof img === 'object' && img.image ? img : { image: img, caption: null };
+                            const imgSrc = typeof imageObj.image === 'string' ? imageObj.image : (imageObj.image.default || imageObj.image);
                             const isVideo = typeof imgSrc === 'string' 
                               ? (imgSrc.endsWith('.mp4') || imgSrc.endsWith('.webm') || imgSrc.endsWith('.mov') || imgSrc.endsWith('.avi'))
                               : false;
@@ -144,7 +146,10 @@ function ProjectSections({ sections }) {
                                     <source src={imgSrc} type="video/mp4" />
                                   </video>
                                 ) : (
-                                  <img src={imgSrc} alt={`${section.title} - Image ${imgIndex + 1}`} />
+                                  <img src={imgSrc} alt={imageObj.caption || `${section.title} - Image ${imgIndex + 1}`} />
+                                )}
+                                {imageObj.caption && (
+                                  <div className="image-caption" dangerouslySetInnerHTML={{ __html: imageObj.caption }} />
                                 )}
                               </div>
                             );
@@ -304,6 +309,172 @@ function ProjectSections({ sections }) {
                 <code>{section.code}</code>
               </pre>
             </div>
+          ) : section.layout === 'revise-section-1' ? (
+            <div className="revise-section-1-container">
+              {section.backgroundImage && (
+                <div className="revise-section-1-bg-grid" style={{ backgroundImage: `url(${typeof section.backgroundImage === 'string' ? section.backgroundImage : section.backgroundImage.default || section.backgroundImage})` }}></div>
+              )}
+              <div className="revise-section-1-content">
+                {renderContent(section.content)}
+                {section.image && (
+                  <div className="revise-section-1-image">
+                    <img src={typeof section.image === 'string' ? section.image : section.image.default || section.image} alt="" loading="lazy" />
+                  </div>
+                )}
+              </div>
+            </div>
+          ) : section.layout === 'revise-section-2' ? (
+            <div className="revise-section-2-container">
+              <div className="revise-section-2-top">
+                <div className="revise-section-2-content-text">
+                  {renderContent(section.content)}
+                </div>
+                <div className="revise-section-2-video">
+                  {section.video && (
+                    <div className="section-media">
+                      <video autoPlay loop muted playsInline>
+                        <source src={typeof section.video === 'string' ? section.video : section.video.default || section.video} type="video/mp4" />
+                        Your browser does not support the video tag.
+                      </video>
+                    </div>
+                  )}
+                </div>
+              </div>
+              <div className="revise-section-2-bottom">
+                <div className="revise-section-2-image">
+                  {section.image && (
+                    <img src={typeof section.image === 'string' ? section.image : section.image.default || section.image} alt="" loading="lazy" />
+                  )}
+                </div>
+                <div className="revise-section-2-additional-text">
+                  {section.additionalContent && renderContent(section.additionalContent)}
+                </div>
+              </div>
+            </div>
+          ) : section.layout === 'revise-section-3' ? (
+            <div className="revise-section-3-container">
+              <div className="revise-section-3-image">
+                {section.image && <img src={typeof section.image === 'string' ? section.image : section.image.default || section.image} alt="" loading="lazy" />}
+              </div>
+              <div className="revise-section-3-content">
+                {renderContent(section.content)}
+              </div>
+            </div>
+          ) : section.layout === 'revise-section-4' ? (
+            <div className="revise-section-4-container">
+              {section.topImage && (
+                <div className="revise-section-4-top-image">
+                  <img src={typeof section.topImage === 'string' ? section.topImage : section.topImage.default || section.topImage} alt="" loading="lazy" />
+                </div>
+              )}
+              <div className="revise-section-4-content-wrapper">
+                <div className="revise-section-4-content">
+                  {renderContent(section.content)}
+                </div>
+                {section.sideImage && (
+                  <div className="revise-section-4-side-image">
+                    <img src={typeof section.sideImage === 'string' ? section.sideImage : section.sideImage.default || section.sideImage} alt="" loading="lazy" />
+                  </div>
+                )}
+              </div>
+              {section.additionalContent && (
+                <div className="revise-section-4-additional">
+                  {renderContent(section.additionalContent)}
+                </div>
+              )}
+              {section.sideImages && section.sideImages.length > 0 && (
+                <div className="revise-section-4-side-images">
+                  {section.sideImages.map((img, idx) => (
+                    <div key={idx} className="revise-section-4-side-image-item">
+                      <img src={typeof img === 'string' ? img : img.default || img} alt="" loading="lazy" />
+                    </div>
+                  ))}
+                </div>
+              )}
+            </div>
+          ) : section.layout === 'revise-section-5' ? (
+            <div className="revise-section-5-container">
+              <div className="revise-section-5-main">
+                {section.leftImage && (
+                  <div className="revise-section-5-left-image">
+                    <img src={typeof section.leftImage === 'string' ? section.leftImage : section.leftImage.default || section.leftImage} alt="" loading="lazy" />
+                  </div>
+                )}
+                <div className="revise-section-5-content">
+                  {renderContent(section.content)}
+                </div>
+              </div>
+              {section.bottomImage && (
+                <div className="revise-section-5-bottom-image-wrapper">
+                  <div className="revise-section-5-bottom-image">
+                    <img src={typeof section.bottomImage === 'string' ? section.bottomImage : section.bottomImage.default || section.bottomImage} alt="" loading="lazy" />
+                    {section.gifOverlay && (
+                      <div className="revise-section-5-gif-overlay">
+                        <img src={typeof section.gifOverlay === 'string' ? section.gifOverlay : section.gifOverlay.default || section.gifOverlay} alt="" />
+                      </div>
+                    )}
+                  </div>
+                </div>
+              )}
+              {section.additionalContent && (
+                <div className="revise-section-5-additional">
+                  <div className="revise-section-5-additional-content">
+                    {renderContent(section.additionalContent)}
+                  </div>
+                  {section.rightImage && (
+                    <div className="revise-section-5-right-image">
+                      <img src={typeof section.rightImage === 'string' ? section.rightImage : section.rightImage.default || section.rightImage} alt="" loading="lazy" />
+                    </div>
+                  )}
+                </div>
+              )}
+            </div>
+          ) : section.layout === 'revise-section-6' ? (
+            <div className="revise-section-6-container">
+              <div className="revise-section-6-content">
+                {renderContent(section.content)}
+              </div>
+              <div className="revise-section-6-right">
+                {section.largeRightImage && (
+                  <div className="revise-section-6-large-image">
+                    <img src={typeof section.largeRightImage === 'string' ? section.largeRightImage : section.largeRightImage.default || section.largeRightImage} alt="" loading="lazy" />
+                  </div>
+                )}
+                {section.smallImage && (
+                  <div className="revise-section-6-small-image">
+                    <img src={typeof section.smallImage === 'string' ? section.smallImage : section.smallImage.default || section.smallImage} alt="" loading="lazy" />
+                  </div>
+                )}
+              </div>
+            </div>
+          ) : section.layout === 'marina-section-1' && section.backgroundImage ? (
+            <div className="marina-section-1-container">
+              <div 
+                className="marina-section-1-background" 
+                style={{ backgroundImage: `url(${typeof section.backgroundImage === 'string' ? section.backgroundImage : section.backgroundImage.default || section.backgroundImage})` }}
+              ></div>
+              <div className="marina-section-1-overlay">
+                {renderContent(section.content)}
+              </div>
+            </div>
+          ) : section.layout === 'marina-image-grid' && section.imageGallery ? (
+            <div className="marina-image-grid-container">
+              <div className="marina-image-grid">
+                {section.imageGallery.map((item, galleryIndex) => (
+                  <div key={galleryIndex} className="marina-grid-item">
+                    <div className="marina-grid-image">
+                      <img src={item.image} alt={item.caption || ''} loading="lazy" />
+                    </div>
+                    {item.caption && (
+                      <div 
+                        className="marina-grid-caption" 
+                        dangerouslySetInnerHTML={{ __html: item.caption }}
+                      />
+                    )}
+                  </div>
+                ))}
+              </div>
+            </div>
           ) : (
             <>
               {renderContent(section.content)}
@@ -345,7 +516,8 @@ function ProjectSections({ sections }) {
           )}
           
           {/* Image gallery: three images in a row with captions */}
-          {section.imageGallery && section.imageGallery.length > 0 && (
+          {/* Skip if already handled by custom layout (e.g., marina-image-grid) */}
+          {section.imageGallery && section.imageGallery.length > 0 && section.layout !== 'marina-image-grid' && (
             <div className="image-gallery">
               {section.imageGallery.map((item, galleryIndex) => (
                 <div key={galleryIndex} className="gallery-item">

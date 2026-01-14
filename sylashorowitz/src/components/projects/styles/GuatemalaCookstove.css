@@ -1,0 +1,80 @@
+/* GuatemalaCookstove-specific styles */
+
+.guatemala-cookstove .guatemala-overview {
+  margin-bottom: var(--spacing-5xl);
+}
+
+.guatemala-overview-content {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-4xl);
+  margin-bottom: var(--spacing-md);
+}
+
+.guatemala-overview-text {
+  flex: 1;
+}
+
+.guatemala-overview-text p {
+  color: var(--color-text-on-dark);
+  margin-bottom: 0;
+}
+
+.guatemala-overview-image {
+  flex: 0 0 auto;
+  max-width: 500px;
+}
+
+.guatemala-overview-image img {
+  width: 100%;
+  height: auto;
+  border-radius: 0;
+  box-shadow: none;
+}
+
+/* PDF Section */
+.guatemala-pdf-section {
+  margin-bottom: var(--spacing-5xl);
+  background: white;
+  padding: var(--spacing-4xl);
+  border-radius: 0;
+}
+
+.guatemala-pdf-section h2 {
+  font-size: var(--font-size-section-heading);
+  font-weight: var(--font-weight-bold);
+  color: var(--color-primary);
+  margin-bottom: var(--spacing-3xl);
+  border-bottom: 2px solid var(--color-border);
+  padding-bottom: var(--spacing-lg);
+}
+
+.guatemala-pdf-embed {
+  width: 100%;
+  height: 1000px;
+  margin-top: var(--spacing-2xl);
+}
+
+.guatemala-pdf-iframe {
+  width: 100%;
+  height: 100%;
+  border: none;
+  border-radius: 0;
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+  .guatemala-overview-content {
+    flex-direction: column;
+    gap: var(--spacing-2xl);
+  }
+
+  .guatemala-overview-image {
+    max-width: 100%;
+  }
+
+  .guatemala-pdf-embed {
+    height: 700px;
+  }
+}
+

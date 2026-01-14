@@ -6,7 +6,7 @@
   src: url('../assets/fonts/Sketch Book.ttf') format('truetype');
   font-weight: normal;
   font-style: normal;
-  font-display: block; /* Block rendering until font loads to prevent FOIT */
+  font-display: swap; /* Swap to system font immediately, then swap to custom font when loaded */
 }
 
 .bio-landing {
@@ -50,7 +50,6 @@
   z-index: 1;
   opacity: 0;
   animation: fadeInImage 0.8s ease-out forwards;
-  will-change: opacity, transform; /* Optimize for animation */
 }
 
 .bio-collage-image img {
@@ -70,6 +69,22 @@
   to {
     opacity: 1;
     transform: translateY(0);
+  }
+}
+
+/* Optimize animations on mobile for better performance */
+@media (max-width: 768px) {
+  .bio-collage-image {
+    /* Reduce animation duration on mobile */
+    animation-duration: 0.4s;
+  }
+
+  /* Respect user's motion preferences */
+  @media (prefers-reduced-motion: reduce) {
+    .bio-collage-image {
+      animation: none;
+      opacity: 1;
+    }
   }
 }
 

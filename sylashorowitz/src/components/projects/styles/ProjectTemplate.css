@@ -57,8 +57,8 @@
   display: block;
   padding: var(--spacing-sm) var(--spacing-xl);
   border-radius: var(--radius-2xl);
-  background: rgba(46, 96, 74, 0.12);
-  border: 1px solid var(--color-border-light);
+  background: rgba(54, 42, 42, 0.1);
+  border: 1px solid var(--color-primary);
   box-shadow: none;
   transition: all var(--transition-base);
   align-self: flex-start;
@@ -70,6 +70,7 @@
 .back-link:hover {
   color: var(--color-text-on-dark);
   background: var(--color-primary);
+  border-color: var(--color-primary);
   transform: translateY(var(--transform-offset-sm));
 }
 
@@ -152,7 +153,7 @@
 
 .overview-content {
   display: flex;
-  align-items: flex-start;
+  align-items: stretch;
   gap: var(--spacing-3xl);
   flex-wrap: wrap;
   margin-bottom: var(--spacing-md);
@@ -160,39 +161,41 @@
 
 .overview-text {
   flex: 1;
-  align-self: flex-start;
-  height: fit-content;
-}
-
-.overview-text {
-  flex: 1;
+  align-self: stretch;
+  display: flex;
+  flex-direction: column;
 }
 
 .overview-image {
   flex: 0 0 auto;
-  max-width: 1000px;
-  width: 1000px;
-  height: 500px;
+  max-width: 300px;
+  width: 300px;
+  min-height: 400px;
+  height: auto;
+  align-self: stretch;
   overflow: hidden;
-  border-radius: 4px;
+  border-radius: 0;
   position: relative;
+  display: flex;
+  align-items: stretch;
 }
 
 .overview-image img {
-  width: 150%;
+  width: auto;
+  min-width: 100%;
   height: 100%;
+  min-height: 400px;
   object-fit: cover;
-  object-position: center;
+  object-position: 40% center; /* Shift to show strip left of center */
   box-shadow: none;
-  position: absolute;
-  left: 50%;
-  transform: translateX(-50%);
+  display: block;
 }
 
 .project-overview p {
   font-size: var(--font-size-lg);
   line-height: var(--line-height-loose);
   margin-bottom: var(--spacing-3xl);
+  color: #ffffff;
 }
 
 /* Link styling - use accent color throughout project pages */
@@ -216,6 +219,7 @@
 /* Reduce margin for paragraphs inside overview-text (when image is present) */
 .overview-text p {
   margin-bottom: 0;
+  color: #ffffff;
 }
 
 .achievements {
@@ -248,23 +252,39 @@
 }
 
 .skills-used h3 {
-  color: var(--color-accent);
+  color: #ffffff;
   font-size: var(--font-size-2xl);
   margin-bottom: var(--spacing-lg);
+  font-weight: var(--font-weight-semibold);
+  text-transform: uppercase;
+  letter-spacing: var(--letter-spacing-tight);
 }
 
 .skills-list {
   display: flex;
   flex-wrap: wrap;
-  gap: var(--spacing-md);
+  gap: var(--spacing-xs);
+  row-gap: var(--spacing-xs);
 }
 
 /* Skill tags now use utility class from utilities.css */
 /* Override padding for project template if needed */
 .project-overview .skill-tag {
-  padding: var(--spacing-sm) var(--spacing-xl);
-  border-radius: var(--radius-xl);
-  font-size: var(--font-size-sm);
+  background: #f5f5dc;
+  color: var(--color-primary);
+  padding: var(--spacing-xs) var(--spacing-sm);
+  border-radius: var(--radius-md);
+  font-size: 0.68rem;
+  font-weight: var(--font-weight-medium);
+  border: var(--border-width-thin) solid rgba(245, 245, 220, 0.3);
+  transition: all var(--transition-base);
+  display: inline-block;
+}
+
+.project-overview .skill-tag:hover {
+  background: #ffffff;
+  color: var(--color-primary);
+  transform: translateY(var(--transform-offset-sm));
 }
 
 /* Project Sections (stages/steps) */
@@ -272,25 +292,47 @@
   padding: 0 0 var(--spacing-xl) 0;
 }
 
+/* Standard section styling - white background with rounded corners and drop shadow */
+/* This is the default pattern used by most project sections */
+/* Custom projects can override this, but should maintain consistency for similar content */
 .section {
   margin-bottom: var(--spacing-4xl);
   padding: var(--spacing-3xl) var(--spacing-xl);
   border-radius: var(--radius-lg);
 }
 
-/* Alternating background colors for sections */
-.section:nth-child(odd):not(.section-transition):not(.section-background-video) {
-  background: transparent;
+/* Default white background for sections (can be overridden by custom classes) */
+/* Exclude title-only sections from getting full white background */
+.section:not(.section-transition):not(.section-background-video):not(.revise-white-bg):not(.revise-sand-bg):not(:has(h2:only-child)) {
+  background: white;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 }
 
-.section:nth-child(even):not(.section-transition):not(.section-background-video) {
-  background: transparent;
+/* Alternating background colors for sections - now white by default */
+/* Exclude title-only sections */
+.section:nth-child(odd):not(.section-transition):not(.section-background-video):not(.revise-white-bg):not(.revise-sand-bg):not(:has(h2:only-child)) {
+  background: white;
 }
 
-/* Sections with only a title (no content) - no background */
+.section:nth-child(even):not(.section-transition):not(.section-background-video):not(.revise-white-bg):not(.revise-sand-bg):not(:has(h2:only-child)) {
+  background: white;
+}
+
+/* Title-only sections (subsection dividers) - transparent section, small white bubble around text */
 .section:has(h2:only-child) {
   background: transparent !important;
   padding: var(--spacing-xl) var(--spacing-xl);
+  box-shadow: none;
+}
+
+.section:has(h2:only-child) h2 {
+  background: white;
+  padding: var(--spacing-md) var(--spacing-xl);
+  border-radius: var(--radius-md);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  border-bottom: none;
+  margin-bottom: 0;
+  display: inline-block;
 }
 
 .section-background-video {
@@ -301,10 +343,11 @@
   color: var(--color-primary);
   font-size: var(--font-size-section-heading);
   margin-bottom: var(--spacing-xl);
-  border-bottom: var(--border-width-thick) solid var(--color-accent);
-  padding-bottom: var(--spacing-md);
+  border-bottom: none;
+  padding-bottom: 0;
   display: inline-block;
   background: transparent;
+  text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.3), 0 0 8px rgba(0, 0, 0, 0.2);
 }
 
 .section p {
@@ -513,6 +556,12 @@
   font-size: var(--font-size-sm);
   font-style: italic;
   text-align: center;
+  width: 100%;
+}
+
+.side-image-wrapper .image-caption {
+  margin-top: var(--spacing-sm);
+  font-size: var(--font-size-xs);
 }
 
 /* Text with Side Images (shared layout) */
@@ -558,6 +607,7 @@
   height: auto;
   flex-shrink: 0;
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
 }

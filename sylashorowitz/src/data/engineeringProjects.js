@@ -24,7 +24,7 @@ export const engineeringProjects = [
     institution: 'Technical University of Denmark',
     year: '2023',
     description: 'Thermoplastic pultrusion machine for testing the manufacturing of more sustainable and recyclable materials for wind turbine blade spar caps. Designed novel die, puller, and thermoplastic fiber commingling mechanisms.',
-    skills: ['Mechatronics', 'Machine design', 'CAD/CAM', 'SolidWorks', 'DFM', 'COMSOL Thermal FEA', 'Prototyping'],
+    skills: ['SolidWorks', 'COMSOL', '3D Printing', 'Mechanical Design', 'Manufacturing', 'Research', 'Prototyping', 'CAD', 'Mechatronics', 'Machine Design', 'CAD/CAM', 'DFM', 'Thermal FEA', 'Fiber Composites', 'Additive Manufacturing', 'Material Science'],
     image: pultrusionThumbnail,
     link: '/projects/pultrusion-machine',
     featured: false
@@ -35,7 +35,7 @@ export const engineeringProjects = [
     institution: 'MIT Research',
     year: '2020-2022',
     description: 'Motorized tether management system for an underwater ROV that will be deployed in the Arctic to map greenhouse gas emissions from permafrost.',
-    skills: ['SolidWorks', 'Arduino', 'Mechatronics', 'Systems integration', 'Research'],
+    skills: ['SolidWorks', 'Arduino', 'Mechatronics', 'Systems Integration', 'Research', 'CAD', 'Prototyping', 'Field Testing', 'Electronics', 'Motor Control', 'MATLAB', 'Belt Drive Design', 'Waterproofing', 'Marine Engineering', 'Scientific Instrumentation', 'Published Research'],
     image: arcticRovThumbnail,
     link: '/projects/arctic-rov',
     featured: true
@@ -46,9 +46,9 @@ export const engineeringProjects = [
     institution: 'Thesis',
     year: '2021-2022',
     description: 'Co-designed, prototyped, and tested a concrete "plancha" style cookstove with the community in Santa Catarina, Guatemala.',
-    skills: ['User-centered design', 'Co-creation', 'International development', 'Prototyping', 'Concrete', 'Burn testing'],
+    skills: ['User-Centered Design', 'Co-Creation', 'International Development', 'Prototyping', 'Concrete', 'Burn Testing', 'Community Engagement', 'Thesis Research', 'Thermal Analysis', 'Sustainable Design'],
     image: guatemalaCookstoveThumbnail,
-    link: 'https://a2bae79c-b1be-42fc-a60c-1835db62a790.filesusr.com/ugd/1e4865_3621cba3ab754f02a4f699e63ee61ea4.pdf',
+    link: '/projects/guatemala-cookstove',
     featured: false
   },
   {
@@ -57,7 +57,7 @@ export const engineeringProjects = [
     institution: 'Capstone',
     year: '2021',
     description: 'Integrated vise product that uses granular jamming to tightly grasp irregularly-shaped objects without damaging them. Built with a team of 20 students in MIT\'s 2.009 Product Design course.',
-    skills: ['P&ID', 'Product design process', 'CAD', 'Prototyping'],
+    skills: ['Pneumatic Design', 'Granular Jamming', 'CAD', 'Sheet Metal Fabrication', 'User-Centered Design', 'Prototyping', 'Systems Integration', 'UI/UX Research', 'P&ID', 'Product Design Process', 'Team Leadership', 'Welding', 'Vacuum Systems', 'Material Selection'],
     image: reViseThumbnail,
     link: '/projects/re-vise',
     featured: false
@@ -68,7 +68,7 @@ export const engineeringProjects = [
     institution: 'Class Project',
     year: '2021',
     description: 'Produced 50 Teenage Mutant Ninja Turtle themed yo-yos for MIT Design & Manufacturing II (2.008) with a team of seven students, covering the full process from design to production.',
-    skills: ['CAD/CAM', 'DFM', 'Autodesk Fusion 360', 'CNC milling', 'Injection molding', 'Thermoforming'],
+    skills: ['CAD/CAM', 'DFM', 'Autodesk Fusion 360', 'CNC Milling', 'Injection Molding', 'Thermoforming', 'Manufacturing Process', 'Production Planning', 'Quality Control', 'Team Collaboration'],
     image: yoYoThumbnail,
     link: null,
     featured: false
@@ -79,7 +79,7 @@ export const engineeringProjects = [
     institution: 'E2SOL Internship',
     year: '2021',
     description: 'Optimized support structure design for the underside of floating marina solar panels so they can support loads with minimal bending.',
-    skills: ['SolidWorks', 'Load simulations', 'Design for manufacturing'],
+    skills: ['Structural Analysis', 'SolidWorks Simulation', 'Sheet Metal Design', 'Design for Manufacturing', 'Vendor Sourcing', 'Product Development', 'Load Simulations', 'FEA', 'Material Optimization', 'Cost Analysis', 'Corrugated Steel Design'],
     image: marinaSolarThumbnail,
     link: '/projects/marina-solar-supports',
     featured: false
@@ -90,7 +90,7 @@ export const engineeringProjects = [
     institution: 'E2SOL Internship',
     year: '2021',
     description: 'Solar cargo box with battery storage and inverter that can be placed on top of cars for vehicle-to-grid or on-the-go charging.',
-    skills: ['Prototyping', 'Energy systems', 'Product design'],
+    skills: ['Prototyping', 'Energy Systems', 'Product Design', 'Battery Systems', 'Inverter Design', 'Solar Integration', 'Vehicle Integration', 'Electrical Engineering'],
     image: vehicleToGridThumbnail,
     link: null,
     featured: false
@@ -101,7 +101,7 @@ export const engineeringProjects = [
     institution: 'E2SOL Internship',
     year: '2021',
     description: 'Solar canopies designed for rapid mounting on standard highway median barriers, supported with case studies for Rhode Island and Massachusetts DOT.',
-    skills: ['SolidWorks', 'Urban planning', 'Public policy'],
+    skills: ['SolidWorks', 'Urban Planning', 'Public Policy', 'Infrastructure Design', 'Case Study Analysis', 'DOT Standards', 'Structural Engineering', 'Renewable Energy'],
     image: highwaySolarThumbnail,
     link: null,
     featured: false
@@ -112,7 +112,7 @@ export const engineeringProjects = [
     institution: 'Student Group',
     year: '2020-2021',
     description: 'Led a team of fifteen students in the design, permitting, and construction of a two-story wooden castle.',
-    skills: ['Autodesk Fusion 360', 'Structural design', 'Carpentry', 'Team collaboration'],
+    skills: ['Project Leadership', 'Autodesk Fusion 360', 'Structural Design', 'Construction Management', 'Team Coordination', 'Event Design', 'Carpentry', 'Team Collaboration', 'Permitting', 'Engineering Drawings', 'Safety Compliance', 'Volunteer Management'],
     image: renaissanceCastleThumbnail,
     link: '/projects/renaissance-castle',
     featured: false
@@ -123,7 +123,7 @@ export const engineeringProjects = [
     institution: 'Class Project',
     year: '2021',
     description: 'Waste bins made from heat-fused plastic water sachets to create value from waste in underserved Liberian communities.',
-    skills: ['User-centered design', 'International development', 'SolidWorks', 'Education'],
+    skills: ['User-Centered Design', 'International Development', 'SolidWorks', 'Education', 'Community Partnerships', 'Design Documentation', 'Welding', 'Steel Frame Design', 'Wire Frame Design', 'Sustainability', 'Social Impact'],
     image: liberiaWasteBinsThumbnail,
     link: '/projects/liberia-recycled-waste-bins',
     featured: false
@@ -134,20 +134,20 @@ export const engineeringProjects = [
     institution: 'Independent Project',
     year: '2020',
     description: 'Self-started project mimicking the motion of a rabbit\'s hop using kinematic synthesis, blending mechanical design, electronics, and art.',
-    skills: ['CAD', 'Kinematic synthesis', 'Prototyping'],
+    skills: ['Kinematic Synthesis', 'Linkage Design', 'Mechatronics', 'Rapid Prototyping', 'Hand Fabrication', 'Creative Exploration', 'CAD', 'Prototyping', 'Motion Analysis', 'Mechanism Design', 'Electronics Integration'],
     image: mechanicalRabbitThumbnail,
     link: '/projects/mechanical-rabbit',
     featured: false
   },
   {
-    id: 'two007-robot',
-    title: '2.007 ROBOT',
+    id: 'climbing-robot',
+    title: 'CLIMBING ROBOT',
     institution: 'Class Project',
     year: '2020',
     description: 'Robot built for MIT\'s 2.007 robotics competition that splits into two parts to lift an object and pull itself up a structure.',
-    skills: ['SolidWorks', 'Mechatronics', 'Mechanical design', 'Metalworking'],
+    skills: ['SolidWorks', 'Mechatronics', 'Mechanical Design', 'Metalworking', 'Robotics', 'Competition Design', 'Actuator Design', 'Control Systems'],
     image: two007RobotThumbnail,
-    link: 'https://a2bae79c-b1be-42fc-a60c-1835db62a790.filesusr.com/ugd/e700f3_675d215538fe4f76b64f5eb868588c0e.pdf',
+    link: '/projects/climbing-robot',
     featured: false
   },
   {
@@ -156,7 +156,7 @@ export const engineeringProjects = [
     institution: 'MIT Research',
     year: '2019',
     description: 'Flexible, lightweight solar panel system designed for mounting on the roofs of e-rickshaws for street vendors in Bihar, India.',
-    skills: ['Product design', 'Energy analysis', 'Research'],
+    skills: ['Product Design', 'Human-Centered Research', 'Energy Systems', 'Prototype Fabrication', 'Field Deployment Planning', 'Energy Analysis', 'Research', 'Hinge Mechanisms', 'Lightweight Design', 'Renewable Energy'],
     image: solarPanelDeploymentThumbnail,
     link: '/projects/solar-panel-deployment-system',
     featured: false

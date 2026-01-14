@@ -20,7 +20,7 @@ export const pultrusionMachine = {
 
 This page, however, focuses on my work with assessing the manufacture of a spar cap--the structural beam on the interior of the blade. <strong class="highlight-text">How can we design a more circular turbine blade?</strong>`,
   achievements: [],
-  skills: ['SolidWorks', 'COMSOL', '3D Printing', 'Mechanical Design', 'Manufacturing', 'Research', 'Prototyping', 'CAD'],
+  skills: ['SolidWorks', 'COMSOL', '3D Printing', 'Mechanical Design', 'Manufacturing', 'Research', 'Prototyping', 'CAD', 'Mechatronics', 'Machine Design', 'CAD/CAM', 'DFM', 'Thermal FEA', 'Fiber Composites', 'Additive Manufacturing', 'Material Science'],
   sections: [
     {
       title: 'The Problem',

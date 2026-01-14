@@ -3,6 +3,16 @@
  * Common layout patterns that can be reused across projects
  */
 
+/* Standard Section Styling - White background with rounded corners and drop shadow */
+/* This is the default pattern used by most project sections */
+.standard-section {
+  background: white;
+  border-radius: var(--radius-lg);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  padding: var(--spacing-3xl) var(--spacing-xl);
+  margin-bottom: var(--spacing-4xl);
+}
+
 /* Overview with Image Layout */
 /* Use this class when you want an image next to the overview text */
 .project-overview .overview-content {

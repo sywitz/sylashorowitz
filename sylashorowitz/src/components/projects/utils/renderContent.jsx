@@ -12,8 +12,15 @@ export const renderContent = (content) => {
   const hasNumberedList = lines.some(line => numberedListPattern.test(line.trim()));
   
   if (!hasNumberedList) {
-    // If no numbered list, render as regular paragraph
-    return <p>{content}</p>;
+    // If no numbered list, check if content contains HTML
+    if (/<[a-z][\s\S]*>/i.test(content)) {
+      // Convert \n\n to <br><br> and render as HTML
+      const htmlContent = content.replace(/\n\n/g, '<br><br>').replace(/\n/g, '<br>');
+      return <div dangerouslySetInnerHTML={{ __html: htmlContent }} />;
+    }
+    // Convert \n\n to double line breaks
+    const formattedContent = content.replace(/\n\n/g, '\n\n');
+    return <div>{formattedContent.split('\n\n').map((para, idx) => <p key={idx}>{para}</p>)}</div>;
   }
 
   // Parse content into paragraphs and lists
