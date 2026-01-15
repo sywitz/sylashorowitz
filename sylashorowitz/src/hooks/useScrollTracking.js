@@ -22,9 +22,6 @@ export const useScrollTracking = (selector) => {
   const [activeIndex, setActiveIndex] = useState(0);
 
   useEffect(() => {
-    // Detect mobile device for performance optimization
-    const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) || window.innerWidth <= 768;
-    
     const updateActiveIndex = () => {
       const newIndex = findActiveElement(selector, SCROLL_TRACKING_CONFIG);
       setActiveIndex((prevIndex) => {
@@ -36,22 +33,12 @@ export const useScrollTracking = (selector) => {
     // Initial update after DOM is ready
     const initialTimeout = setTimeout(updateActiveIndex, SCROLL_TRACKING_CONFIG.INIT_DELAY);
 
-    // Throttled scroll handler using requestAnimationFrame with additional throttling on mobile
+    // Throttled scroll handler using requestAnimationFrame
     let ticking = false;
-    let lastUpdateTime = 0;
-    const MOBILE_THROTTLE_MS = 100; // Throttle to max once per 100ms on mobile
-    
     const handleScroll = () => {
       if (!ticking) {
-        const now = Date.now();
-        // On mobile, add additional throttling beyond requestAnimationFrame
-        if (isMobile && (now - lastUpdateTime) < MOBILE_THROTTLE_MS) {
-          return;
-        }
-        
         window.requestAnimationFrame(() => {
           updateActiveIndex();
-          lastUpdateTime = Date.now();
           ticking = false;
         });
         ticking = true;

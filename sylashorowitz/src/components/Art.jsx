@@ -5,7 +5,9 @@
  * Features hover effects, fullscreen modal viewing, and auto-playing media.
  */
 
-import React, { useState } from 'react';
+import React, { useEffect } from 'react';
+import { useModal } from '../hooks/useModal';
+import { ArtPiece, ArtModal, useArtColumns } from './art/index';
 import '../styles/Art.css';
 
 // Import all art pieces (art35 at top, art1 at bottom)
@@ -86,51 +88,11 @@ const artPieces = [
 ];
 
 function Art() {
-  const [selectedPiece, setSelectedPiece] = useState(null);
-  const [columns, setColumns] = useState([[], [], []]);
+  const { isOpen, selectedItem, open, close, handleBackdropClick } = useModal();
+  const columns = useArtColumns(artPieces);
 
-  // Distribute pieces evenly across 3 columns using round-robin
-  React.useEffect(() => {
-    const newColumns = [[], [], []];
-    artPieces.forEach((piece, index) => {
-      // Round-robin distribution: piece 0 -> col 0, piece 1 -> col 1, piece 2 -> col 2, piece 3 -> col 0, etc.
-      newColumns[index % 3].push(piece);
-    });
-    setColumns(newColumns);
-  }, []);
-
-  const openModal = (piece) => {
-    setSelectedPiece(piece);
-    document.body.style.overflow = 'hidden';
-  };
-
-  const closeModal = () => {
-    setSelectedPiece(null);
-    document.body.style.overflow = 'unset';
-  };
-
-  const handleBackdropClick = (e) => {
-    if (e.target === e.currentTarget) {
-      closeModal();
-    }
-  };
-
-  const handleKeyDown = (e) => {
-    if (e.key === 'Escape' && selectedPiece) {
-      closeModal();
-    }
-  };
-
-  React.useEffect(() => {
-    window.addEventListener('keydown', handleKeyDown);
-    return () => {
-      window.removeEventListener('keydown', handleKeyDown);
-      document.body.style.overflow = 'unset';
-    };
-  }, [selectedPiece]);
-
-  React.useEffect(() => {
-    // Add class to body for art page styling
+  // Add class to body for art page styling
+  useEffect(() => {
     document.body.classList.add('art-page');
     return () => {
       document.body.classList.remove('art-page');
@@ -148,92 +110,21 @@ function Art() {
         {columns.map((column, columnIndex) => (
           <div key={columnIndex} className="art-column">
             {column.map((piece) => (
-              <div
+              <ArtPiece
                 key={piece.id}
-                className="art-piece"
-                onClick={() => openModal(piece)}
-              >
-                <div className="art-piece-inner">
-                  {piece.type === 'video' ? (
-                    <video
-                      src={piece.src}
-                      autoPlay
-                      loop
-                      muted
-                      playsInline
-                      className="art-media"
-                    />
-                  ) : piece.type === 'gif' ? (
-                    <img
-                      src={piece.src}
-                      alt={`Art piece ${piece.id}`}
-                      className="art-media"
-                      loading="lazy"
-                    />
-                  ) : (
-                    <img
-                      src={piece.src}
-                      alt={`Art piece ${piece.id}`}
-                      className="art-media"
-                      loading="lazy"
-                    />
-                  )}
-                  <div className="art-piece-overlay">
-                    <div className="art-piece-hover-effect"></div>
-                    <div className="art-piece-hover-content">
-                      <h3 className="art-piece-hover-title">{piece.title}</h3>
-                      <p className="art-piece-hover-description">{piece.description}</p>
-                    </div>
-                  </div>
-                </div>
-              </div>
+                piece={piece}
+                onClick={open}
+              />
             ))}
           </div>
         ))}
       </div>
 
-      {selectedPiece && (
-        <div
-          className="art-modal"
-          onClick={handleBackdropClick}
-        >
-          <div className="art-modal-content">
-            <button
-              className="art-modal-close"
-              onClick={closeModal}
-              aria-label="Close"
-            >
-              ×
-            </button>
-            <div className="art-modal-media-container">
-              {selectedPiece.type === 'video' ? (
-                <video
-                  src={selectedPiece.src}
-                  autoPlay
-                  loop
-                  muted
-                  playsInline
-                  className="art-modal-media"
-                />
-              ) : (
-                <img
-                  src={selectedPiece.src}
-                  alt={selectedPiece.title || `Art piece ${selectedPiece.id}`}
-                  className="art-modal-media"
-                />
-              )}
-            </div>
-            <div className="art-modal-placard">
-              <h2 className="art-modal-title">
-                {selectedPiece.title || `Untitled ${selectedPiece.id}`}
-              </h2>
-              {selectedPiece.description && (
-                <p className="art-modal-description">{selectedPiece.description}</p>
-              )}
-            </div>
-          </div>
-        </div>
-      )}
+      <ArtModal
+        piece={selectedItem}
+        onClose={close}
+        onBackdropClick={handleBackdropClick}
+      />
     </div>
   );
 }

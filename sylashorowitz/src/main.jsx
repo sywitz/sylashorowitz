@@ -8,7 +8,8 @@ const preloadBackgroundImage = () => {
   // Create image element to force browser to load it
   const img = new Image();
   // Use public folder path (served directly, not processed by Vite)
-  img.src = '/assets/images/backgrounds/paper1.jpg';
+  // Using optimized version instead of 30MB original
+  img.src = '/assets/images/backgrounds/paper1-optim.jpg';
   
   // Mark as loaded once image is ready
   img.onload = () => {
