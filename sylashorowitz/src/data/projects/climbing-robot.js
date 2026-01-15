@@ -26,3 +26,4 @@ export const climbingRobot = {
 
 export default climbingRobot;
 
+

@@ -62,3 +62,4 @@ function GuatemalaCookstove() {
 
 export default GuatemalaCookstove;
 
+

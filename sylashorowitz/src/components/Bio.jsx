@@ -55,6 +55,10 @@ function Bio() {
     const currentSentence = sentences[currentSentenceIndex];
     let animationFrameId;
     let timeoutId;
+    let rafId;
+    
+    // Detect mobile device more accurately
+    const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) || window.innerWidth <= 768;
     
     const animate = () => {
       if (currentCharIndex < currentSentence.length) {
@@ -74,18 +78,30 @@ function Bio() {
       }
     };
 
-    // Use requestAnimationFrame on desktop, setTimeout on mobile for better battery life
-    const isMobile = window.innerWidth <= 768;
+    // On mobile, use much slower animation or skip animation entirely for better performance
     if (isMobile) {
-      timeoutId = setTimeout(animate, 30); // Slower on mobile
+      // Use a much slower interval on mobile to reduce CPU usage
+      // Or skip animation and show all text immediately for very small screens
+      if (window.innerWidth <= 480) {
+        // On very small screens, skip animation entirely for better performance
+        setDisplayedTexts(sentences);
+        setCurrentSentenceIndex(sentences.length);
+        return;
+      }
+      // On larger mobile devices, use slower animation
+      timeoutId = setTimeout(animate, 80); // Much slower on mobile (was 30ms)
     } else {
-      timeoutId = setTimeout(() => {
-        animationFrameId = requestAnimationFrame(animate);
-      }, 15);
+      // Desktop: use requestAnimationFrame for smooth animation
+      rafId = requestAnimationFrame(() => {
+        timeoutId = setTimeout(() => {
+          animationFrameId = requestAnimationFrame(animate);
+        }, 15);
+      });
     }
 
     return () => {
       if (animationFrameId) cancelAnimationFrame(animationFrameId);
+      if (rafId) cancelAnimationFrame(rafId);
       if (timeoutId) clearTimeout(timeoutId);
     };
   }, [currentSentenceIndex, currentCharIndex, sentences]);

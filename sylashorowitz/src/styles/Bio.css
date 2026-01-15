@@ -13,6 +13,8 @@
   width: 100%;
   max-width: var(--max-width-container);
   margin: 0 auto;
+  box-sizing: border-box;
+  overflow-x: hidden; /* Prevent horizontal overflow from positioned images */
 }
 
 /* Hero Section */
@@ -27,6 +29,9 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  box-sizing: border-box;
+  overflow-x: hidden; /* Prevent horizontal overflow */
+  position: relative;
 }
 
 .bio-hero-content {
@@ -35,6 +40,8 @@
   max-width: 1400px;
   margin: 0 auto;
   min-height: 700px;
+  box-sizing: border-box;
+  overflow-x: hidden; /* Prevent horizontal overflow from absolutely positioned images */
 }
 
 /* ============================================
@@ -77,6 +84,13 @@
   .bio-collage-image {
     /* Reduce animation duration on mobile */
     animation-duration: 0.4s;
+    /* Disable expensive transforms on mobile for better performance */
+    will-change: auto;
+  }
+
+  /* Disable hover transforms on mobile to reduce repaints */
+  .bio-collage-image img {
+    transform: none !important;
   }
 
   /* Respect user's motion preferences */
@@ -85,6 +99,21 @@
       animation: none;
       opacity: 1;
     }
+  }
+}
+
+/* Further optimizations for very small screens */
+@media (max-width: 480px) {
+  .bio-collage-image {
+    /* Disable animations entirely on very small screens */
+    animation: none;
+    opacity: 1;
+  }
+
+  /* Simplify transforms */
+  .bio-collage-image-1 img,
+  .bio-collage-image-2 img {
+    transform: none !important;
   }
 }
 
@@ -314,10 +343,17 @@
 }
 
 @media (max-width: 768px) {
+  .bio-landing {
+    width: calc(100% - var(--spacing-4xl) * 2);
+    padding: 0 var(--spacing-2xl);
+    margin: 0 auto;
+  }
+
   .bio-hero {
-    padding: var(--spacing-xl) var(--spacing-3xl) var(--spacing-4xl);
+    padding: var(--spacing-xl) var(--spacing-2xl) var(--spacing-4xl);
     margin-bottom: var(--spacing-2xl);
     min-height: auto;
+    width: 100%;
   }
 
   .bio-hero-content {
@@ -326,6 +362,8 @@
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: var(--spacing-lg);
+    width: 100%;
+    max-width: 100%;
   }
 
   .bio-hero-text {
@@ -380,15 +418,24 @@
 }
 
 @media (max-width: 480px) {
+  .bio-landing {
+    width: calc(100% - var(--spacing-3xl) * 2);
+    padding: 0 var(--spacing-xl);
+    margin: 0 auto;
+  }
+
   .bio-hero {
-    padding: var(--spacing-lg) var(--spacing-2xl) var(--spacing-3xl);
+    padding: var(--spacing-lg) var(--spacing-xl) var(--spacing-3xl);
     margin-bottom: var(--spacing-xl);
     min-height: auto;
+    width: 100%;
   }
 
   .bio-hero-content {
     min-height: auto;
     gap: var(--spacing-3xl);
+    width: 100%;
+    max-width: 100%;
   }
 
   .bio-hero-text {

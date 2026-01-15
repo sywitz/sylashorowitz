@@ -28,3 +28,4 @@ export const guatemalaCookstove = {
 
 export default guatemalaCookstove;
 
+
