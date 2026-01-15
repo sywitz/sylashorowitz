@@ -5,7 +5,8 @@
  * Composes smaller components to create the bio hero section with typing animation and image collage.
  */
 
-import React, { useEffect } from 'react';
+import React from 'react';
+import { useScrollToTop } from '../hooks/useScrollToTop';
 import BioHero from './bio/BioHero';
 import bioImage1 from '../assets/images/bio/IMG_20240822_140611.jpg';
 import bioImage2 from '../assets/images/bio/PXL_20220305_223541615.jpg';
@@ -35,9 +36,7 @@ function Bio() {
   ];
 
   // Scroll to top when component mounts (when navigating to bio page)
-  useEffect(() => {
-    window.scrollTo({ top: 0, behavior: 'instant' });
-  }, []);
+  useScrollToTop();
 
   return (
     <div id="bio" className="bio-landing">

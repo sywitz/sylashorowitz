@@ -7,13 +7,7 @@
 
 import React from 'react';
 import { Link } from 'react-router-dom';
-
-const NAV_ITEMS = [
-  { path: '/bio', label: 'Biography' },
-  { path: '/engineering', label: 'Engineering Portfolio' },
-  { path: '/art', label: 'Art Portfolio' },
-  { path: '/papers', label: 'Writing' }
-];
+import { NAV_ITEMS } from '../../config/navigation';
 
 function NavLinks({ isActive, onLinkClick, className = '', itemClassName = '' }) {
   return (

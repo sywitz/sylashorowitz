@@ -4,7 +4,8 @@
  * Structure: Header (title/subtitle) -> Overview (description/achievements/skills) -> Sections (stages with media)
  */
 
-import React, { useEffect } from 'react';
+import React from 'react';
+import { useScrollToTop } from '../../hooks/useScrollToTop';
 import {
   ProjectNotFound,
   ProjectHeader,
@@ -17,9 +18,7 @@ import './styles/shared.css';
 
 function ProjectBase({ project, customStyles = null, showOverviewImage = false }) {
   // Scroll to top when component mounts
-  useEffect(() => {
-    window.scrollTo({ top: 0, behavior: 'instant' });
-  }, []);
+  useScrollToTop();
 
   if (!project) {
     return <ProjectNotFound />;

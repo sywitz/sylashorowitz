@@ -2,7 +2,8 @@
  * LiberiaRecycledWasteBins - Project page for Liberia: Recycled Waste Bins
  */
 
-import React, { useEffect } from 'react';
+import React from 'react';
+import { useScrollToTop } from '../../hooks/useScrollToTop';
 import { projectData } from '../../data/projectData';
 import { ProjectHeader, ProjectNavigation } from './components';
 import './styles/LiberiaRecycledWasteBins.css';
@@ -19,11 +20,7 @@ import designPresentationPdf from '../../assets/engineering-data/liberia-recycle
 
 function LiberiaRecycledWasteBins() {
   const project = projectData['liberia-recycled-waste-bins'];
-
-  // Scroll to top when component mounts
-  useEffect(() => {
-    window.scrollTo({ top: 0, behavior: 'instant' });
-  }, []);
+  useScrollToTop();
 
   if (!project) {
     return <div>Project not found</div>;

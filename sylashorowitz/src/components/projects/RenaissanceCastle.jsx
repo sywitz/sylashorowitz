@@ -2,7 +2,8 @@
  * RenaissanceCastle - Project page for Wooden Renaissance Castle
  */
 
-import React, { useEffect } from 'react';
+import React from 'react';
+import { useScrollToTop } from '../../hooks/useScrollToTop';
 import { projectData } from '../../data/projectData';
 import { ProjectHeader, ProjectNavigation } from './components';
 import ImageCarousel from './components/ImageCarousel';
@@ -29,11 +30,7 @@ import structuralAnalysisPdf from '../../assets/engineering-data/renaissance-cas
 
 function RenaissanceCastle() {
   const project = projectData['renaissance-castle'];
-
-  // Scroll to top when component mounts
-  useEffect(() => {
-    window.scrollTo({ top: 0, behavior: 'instant' });
-  }, []);
+  useScrollToTop();
 
   if (!project) {
     return <div>Project not found</div>;

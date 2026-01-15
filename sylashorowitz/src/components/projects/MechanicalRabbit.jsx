@@ -2,7 +2,8 @@
  * MechanicalRabbit - Project page for Mechanical Rabbit
  */
 
-import React, { useEffect } from 'react';
+import React from 'react';
+import { useScrollToTop } from '../../hooks/useScrollToTop';
 import { projectData } from '../../data/projectData';
 import { ProjectHeader, ProjectNavigation } from './components';
 import './styles/MechanicalRabbit.css';
@@ -16,11 +17,7 @@ import section4Image from '../../assets/engineering-data/mechanical-rabbit/20210
 
 function MechanicalRabbit() {
   const project = projectData['mechanical-rabbit'];
-
-  // Scroll to top when component mounts
-  useEffect(() => {
-    window.scrollTo({ top: 0, behavior: 'instant' });
-  }, []);
+  useScrollToTop();
 
   if (!project) {
     return <div>Project not found</div>;

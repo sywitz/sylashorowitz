@@ -2,7 +2,8 @@
  * ClimbingRobot - Project page for Climbing Robot (2.007 Robot)
  */
 
-import React, { useEffect } from 'react';
+import React from 'react';
+import { useScrollToTop } from '../../hooks/useScrollToTop';
 import { projectData } from '../../data/projectData';
 import { ProjectHeader, ProjectNavigation } from './components';
 import './styles/ClimbingRobot.css';
@@ -15,11 +16,7 @@ import finalReportPdf from '../../assets/engineering-data/2007-robot/2.007 Final
 
 function ClimbingRobot() {
   const project = projectData['climbing-robot'];
-
-  // Scroll to top when component mounts
-  useEffect(() => {
-    window.scrollTo({ top: 0, behavior: 'instant' });
-  }, []);
+  useScrollToTop();
 
   if (!project) {
     return <div>Project not found</div>;

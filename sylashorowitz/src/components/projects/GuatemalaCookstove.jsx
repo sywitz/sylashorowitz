@@ -2,7 +2,8 @@
  * GuatemalaCookstove - Project page for Guatemala Cookstove
  */
 
-import React, { useEffect } from 'react';
+import React from 'react';
+import { useScrollToTop } from '../../hooks/useScrollToTop';
 import { projectData } from '../../data/projectData';
 import { ProjectHeader, ProjectNavigation } from './components';
 import './styles/GuatemalaCookstove.css';
@@ -15,11 +16,7 @@ import thesisPdf from '../../assets/engineering-data/guatemala-cookstove/horowit
 
 function GuatemalaCookstove() {
   const project = projectData['guatemala-cookstove'];
-
-  // Scroll to top when component mounts
-  useEffect(() => {
-    window.scrollTo({ top: 0, behavior: 'instant' });
-  }, []);
+  useScrollToTop();
 
   if (!project) {
     return <div>Project not found</div>;
