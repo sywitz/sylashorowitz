@@ -13,6 +13,10 @@ frontend:
     baseDirectory: sylashorowitz/dist
     files:
       - '**/*'
+  rewrites:
+    - source: '/*'
+      target: '/index.html'
+      status: 200
   cache:
     paths:
       - sylashorowitz/node_modules/**/*
