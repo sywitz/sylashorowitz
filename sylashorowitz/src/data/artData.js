@@ -20,7 +20,7 @@ import art25 from '../assets/art-data/art25.JPG';
 // import art24 from '../assets/art-data/art24.JPG';
 import art23 from '../assets/art-data/art23.mp4';
 import art22 from '../assets/art-data/art22.jpg';
-import art21 from '../assets/art-data/art21.jpg';
+// import art21 from '../assets/art-data/art21.jpg';
 import art20 from '../assets/art-data/art20.PNG';
 import art19 from '../assets/art-data/art19.PNG';
 import art18 from '../assets/art-data/art18.PNG';
@@ -58,7 +58,7 @@ export const artPieces = [
   // { id: 24, src: art24, type: 'image', title: 'Untitled 24', description: 'Digital art, 2024. Example description text for this piece.', medium: 'Digital Art' },
   { id: 23, src: art23, type: 'video', title: 'Untitled 23', description: 'Digital animation, 2024. Example description text for this piece.', medium: 'Digital Animation' },
   { id: 22, src: art22, type: 'image', title: 'Untitled 22', description: 'Digital art, 2024. Example description text for this piece.', medium: 'Digital Art' },
-  { id: 21, src: art21, type: 'image', title: 'Untitled 21', description: 'Digital art, 2024. Example description text for this piece.', medium: 'Digital Art' },
+  // { id: 21, src: art21, type: 'image', title: 'Untitled 21', description: 'Digital art, 2024. Example description text for this piece.', medium: 'Digital Art' },
   { id: 20, src: art20, type: 'image', title: 'Untitled 20', description: 'Digital art, 2024. Example description text for this piece.', medium: 'Digital Art' },
   { id: 19, src: art19, type: 'image', title: 'Untitled 19', description: 'Digital art, 2024. Example description text for this piece.', medium: 'Digital Art' },
   { id: 18, src: art18, type: 'image', title: 'Untitled 18', description: 'Digital art, 2024. Example description text for this piece.', medium: 'Digital Art' },

@@ -5,12 +5,12 @@
  * Auto-scrolls sidebar to keep the active item visible as user scrolls.
  */
 
-import React, { useRef } from 'react';
+import React, { useRef, forwardRef } from 'react';
 import { useSidebarScroll } from '../../hooks/useSidebarScroll';
 import { useRefMap } from '../../hooks/useRefMap';
 import TOCLink from './TOCLink';
 
-function PapersTOC({ papers, activeIndex, onPaperClick, introRef }) {
+const PapersTOC = forwardRef(({ papers, activeIndex, onPaperClick }, ref) => {
   // Manage refs for each TOC link
   const { refs: linkRefs, createRef: createLinkRef } = useRefMap();
   const tocContainerRef = useRef(null);
@@ -19,7 +19,7 @@ function PapersTOC({ papers, activeIndex, onPaperClick, introRef }) {
   useSidebarScroll({
     activeIndex,
     tocContainerRef,
-    introRef,
+    introRef: null, // No longer needed
     linkRefs
   });
 
@@ -40,7 +40,9 @@ function PapersTOC({ papers, activeIndex, onPaperClick, introRef }) {
       </ol>
     </nav>
   );
-}
+});
+
+PapersTOC.displayName = 'PapersTOC';
 
 export default PapersTOC;
 

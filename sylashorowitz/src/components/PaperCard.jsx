@@ -1,6 +1,7 @@
 /**
  * PaperCard - Individual paper card component
  * Displays paper title, subtitle, description with expand/collapse functionality
+ * Supports multiple links per paper
  */
 
 import React from 'react';
@@ -12,11 +13,17 @@ function PaperCard({
   title, 
   subtitle, 
   link, 
-  linkText = 'Read Paper', 
+  linkText = 'Read Paper',
+  links = [], // Array of { url, text } objects for multiple links
   description = [], 
   index 
 }) {
   const { displayText, shouldTruncate, isExpanded, toggle } = useExpandableText(description);
+
+  // Support both old single link format and new multiple links format
+  const allLinks = links.length > 0 
+    ? links 
+    : (link ? [{ url: link, text: linkText }] : []);
 
   return (
     <article 
@@ -46,17 +53,18 @@ function PaperCard({
           </button>
         )}
         
-        {link && (
+        {allLinks.map((linkItem, linkIndex) => (
           <a
+            key={linkIndex}
             className="btn-paper-link"
-            href={link}
+            href={linkItem.url}
             target="_blank"
             rel="noopener noreferrer"
           >
-            {linkText}
+            {linkItem.text}
             <ExternalLinkIcon />
           </a>
-        )}
+        ))}
       </div>
     </article>
   );

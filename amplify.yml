@@ -30,6 +30,10 @@ frontend:
           value: 'DENY'
         - key: 'X-XSS-Protection'
           value: '1; mode=block'
+    - pattern: '**/*.pdf'
+      headers:
+        - key: 'X-Frame-Options'
+          value: 'SAMEORIGIN'
     - pattern: '/**'
       headers:
         - key: 'Cache-Control'
