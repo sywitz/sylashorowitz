@@ -142,17 +142,64 @@
 
 /* Responsive: stack on mobile */
 @media (max-width: 768px) {
+  .marina-section-1-container {
+    min-height: 400px;
+  }
+
   .marina-section-1-overlay {
     justify-content: center;
-    padding: var(--spacing-2xl);
+    padding: var(--spacing-lg);
+    min-height: 400px;
   }
 
   .marina-section-1-overlay > * {
     width: 100%;
+    padding: var(--spacing-lg);
+    font-size: var(--font-size-base);
   }
 
   .marina-image-grid {
     grid-template-columns: 1fr;
-    gap: var(--spacing-2xl);
+    gap: var(--spacing-lg);
+  }
+
+  /* Text with side images - override for mobile */
+  .marina-solar-supports .project-sections .section[class*="text-with-side-images"] .text-with-side-images-pair {
+    flex-direction: column;
+  }
+
+  .marina-solar-supports .project-sections .section[class*="text-with-side-images"] .side-image-wrapper {
+    flex: 1 1 100%;
+    max-width: 100%;
+    margin-left: 0;
+    margin-top: var(--spacing-lg);
+  }
+
+  .marina-solar-supports.project-template .project-sections .section[class*="text-with-side-images"] .text-with-side-images-pair .text-with-side-images-content-box {
+    flex: 1 1 100%;
+    font-size: var(--font-size-base);
+  }
+
+  .marina-solar-supports.project-template .project-sections .section[class*="text-with-side-images"] .text-with-side-images-pair .text-with-side-images-content-box p {
+    font-size: var(--font-size-base);
+  }
+
+  .marina-solar-supports.project-template .project-sections .section[class*="text-with-side-images"] .text-with-side-images-pair .text-with-side-images-content-box .numbered-list {
+    font-size: var(--font-size-base);
+  }
+}
+
+@media (max-width: 480px) {
+  .marina-section-1-overlay {
+    padding: var(--spacing-md);
+  }
+
+  .marina-section-1-overlay > * {
+    padding: var(--spacing-md);
+    font-size: var(--font-size-sm);
+  }
+
+  .marina-grid-caption {
+    font-size: var(--font-size-sm);
   }
 }

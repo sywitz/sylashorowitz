@@ -47,6 +47,16 @@ function ArtModal({ piece, onClose, onBackdropClick }) {
           {piece.description && (
             <p className="art-modal-description">{piece.description}</p>
           )}
+          {piece.link && (
+            <a 
+              href={piece.link} 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="art-modal-link"
+            >
+              View Project →
+            </a>
+          )}
         </div>
       </div>
     </div>

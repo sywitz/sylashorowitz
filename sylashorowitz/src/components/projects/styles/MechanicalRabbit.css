@@ -200,9 +200,26 @@
     object-fit: contain;
   }
 
+  .mechanical-rabbit-section-4-content {
+    flex-direction: column;
+  }
+
+  .mechanical-rabbit-section-4-image-wrapper {
+    display: flex;
+    flex-direction: column;
+  }
+
   .mechanical-rabbit-overlay-text {
     position: relative;
     background: rgba(128, 128, 128, 0.8);
-    margin-top: var(--spacing-md);
+    order: -1;
+    width: 100%;
+    margin-bottom: var(--spacing-md);
+    margin-top: 0;
+  }
+
+  .mechanical-rabbit-section-4-image-wrapper img {
+    order: 0;
+    width: 100%;
   }
 }

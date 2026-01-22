@@ -259,29 +259,69 @@
   .engineering-portfolio {
     margin-top: var(--spacing-3xl);
     padding: 0 var(--spacing-3xl) var(--spacing-xl);
+    width: calc(100% - var(--spacing-3xl) * 2);
+    max-width: 100%;
+    box-sizing: border-box;
+    overflow-x: hidden;
   }
   
   .projects-grid {
-    padding: 0;
+    padding: 0 var(--spacing-md);
     gap: var(--spacing-2xl);
+    grid-template-columns: 1fr;
   }
   
   .portfolio-header h1 {
     font-size: var(--font-size-5xl);
   }
   
-  .projects-grid {
-    grid-template-columns: 1fr;
-    gap: var(--spacing-xl);
-  }
-  
   .engineering-portfolio .project-card {
     margin-bottom: 0;
+    max-width: 100%;
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  .engineering-portfolio .project-image-container {
+    max-width: 100%;
+    width: 100%;
+    box-sizing: border-box;
+    overflow: hidden;
+  }
+
+  .engineering-portfolio .project-image-link {
+    max-width: 100%;
+    width: 100%;
+    box-sizing: border-box;
+    display: block;
+    overflow: hidden;
+  }
+
+  /* Fix Arctic ROV image - remove transform on mobile to prevent cutoff */
+  .engineering-portfolio .project-image[alt="ARCTIC ROV"] {
+    transform: none;
+    object-position: center center;
+    max-width: 100%;
+    width: 100%;
+    height: 100%;
+    box-sizing: border-box;
+  }
+
+  .engineering-portfolio .project-card:hover .project-image[alt="ARCTIC ROV"] {
+    transform: none;
+  }
+
+  /* Ensure all project images are constrained on mobile */
+  .engineering-portfolio .project-image {
+    max-width: 100%;
+    box-sizing: border-box;
   }
   
   #engineering .project-card .project-content,
   .engineering-portfolio .project-card .project-content {
     padding: var(--spacing-xl);
+    max-width: 100%;
+    box-sizing: border-box;
   }
   
   .engineering-portfolio .project-meta {
@@ -293,26 +333,74 @@
   .engineering-portfolio {
     margin-top: var(--spacing-3xl);
     padding: 0 var(--spacing-2xl) var(--spacing-xl);
+    width: calc(100% - var(--spacing-2xl) * 2);
+    max-width: 100%;
+    box-sizing: border-box;
+    overflow-x: hidden;
   }
   
   .projects-grid {
     gap: var(--spacing-xl);
+    padding: 0 var(--spacing-sm);
   }
 
   .portfolio-header h1 {
     font-size: var(--font-size-4xl);
   }
+
+  .engineering-portfolio .project-card {
+    max-width: 100%;
+    width: 100%;
+    box-sizing: border-box;
+  }
   
   .engineering-portfolio .project-image-container {
     height: var(--height-project-image-mobile);
+    max-width: 100%;
+    width: 100%;
+    box-sizing: border-box;
+    overflow: hidden;
+  }
+
+  .engineering-portfolio .project-image-link {
+    max-width: 100%;
+    width: 100%;
+    box-sizing: border-box;
+    display: block;
+    overflow: hidden;
+  }
+
+  /* Ensure Arctic ROV image is fully visible on small screens */
+  .engineering-portfolio .project-image[alt="ARCTIC ROV"] {
+    transform: none;
+    object-position: center center;
+    width: 100%;
+    height: 100%;
+    max-width: 100%;
+    object-fit: cover;
+    box-sizing: border-box;
+  }
+
+  .engineering-portfolio .project-card:hover .project-image[alt="ARCTIC ROV"] {
+    transform: none;
+  }
+
+  /* Ensure all project images are constrained on small screens */
+  .engineering-portfolio .project-image {
+    max-width: 100%;
+    box-sizing: border-box;
   }
   
   #engineering .project-card .project-content,
   .engineering-portfolio .project-card .project-content {
     padding: var(--spacing-lg);
+    max-width: 100%;
+    box-sizing: border-box;
   }
   
   .engineering-portfolio .project-title {
     font-size: var(--font-size-xl);
+    word-wrap: break-word;
+    overflow-wrap: break-word;
   }
 }

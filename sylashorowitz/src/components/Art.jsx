@@ -26,7 +26,8 @@ function Art() {
         <p>An experimental concoction of painting, drawing, digital art, animation, murals, sculptures, prints, pastels, and more. Select a piece to learn more.</p>
       </div>
       
-      <div className="art-grid">
+      {/* Desktop: Column layout */}
+      <div className="art-grid art-grid-desktop">
         {columns.map((column, columnIndex) => (
           <div key={columnIndex} className="art-column">
             {column.map((piece) => (
@@ -38,6 +39,19 @@ function Art() {
             ))}
           </div>
         ))}
+      </div>
+
+      {/* Mobile: Ordered list */}
+      <div className="art-grid art-grid-mobile">
+        <div className="art-column">
+          {artPieces.map((piece) => (
+            <ArtPiece
+              key={piece.id}
+              piece={piece}
+              onClick={open}
+            />
+          ))}
+        </div>
       </div>
 
       <ArtModal
