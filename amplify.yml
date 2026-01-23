@@ -13,10 +13,6 @@ frontend:
     baseDirectory: sylashorowitz/dist
     files:
       - '**/*'
-  rewrites:
-    - source: '/*'
-      target: '/index.html'
-      status: 200
   cache:
     paths:
       - sylashorowitz/node_modules/**/*
@@ -38,7 +34,7 @@ frontend:
       headers:
         - key: 'Cache-Control'
           value: 'public, max-age=0, must-revalidate'
-    - pattern: '/static/**'
+    - pattern: '/assets/**'
       headers:
         - key: 'Cache-Control'
           value: 'public, max-age=31536000, immutable' 
