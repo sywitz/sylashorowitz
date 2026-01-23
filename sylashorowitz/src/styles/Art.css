@@ -1,4 +1,5 @@
 /* Art.css - Professional art portfolio styling with masonry layout */
+/* Updated: Mobile optimizations and column distribution fixes */
 
 /* Override page-content padding for art page - using specific selector to avoid !important */
 body.art-page .page-content {
