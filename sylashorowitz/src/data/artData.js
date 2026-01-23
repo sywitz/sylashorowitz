@@ -42,7 +42,7 @@ import art7 from '../assets/art-data/art7.jpg';
 import art6 from '../assets/art-data/art6.jpg';
 import art5 from '../assets/art-data/art5.jpg';
 import art4 from '../assets/art-data/art4.jpg';
-import fairies from '../assets/art-data/Fairies.jpg';
+import fairies from '../assets/art-data/Fairies.JPG';
 // import art3 from '../assets/art-data/art3.jpg';
 import art2 from '../assets/art-data/art2.png';
 import art1 from '../assets/art-data/art1.jpg';
