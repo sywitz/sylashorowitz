@@ -1,0 +1,966 @@
+/**
+ * AcousticLevitationRobot - Custom styling for acoustic levitation project only
+ * This file should be loaded AFTER ProjectTemplate.css to ensure proper override
+ */
+
+/* Three images side by side for model section - DESKTOP ONLY */
+@media (min-width: 769px) {
+  /* Three images grid */
+  .acoustic-levitation-project.project-template .side-by-side-images-grid:has(.side-by-side-image-item:nth-child(3):last-child) {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  /* Make side-by-side image pairs (2 images) larger to fit section width */
+  .acoustic-levitation-project.project-template .side-by-side-images-grid:has(.side-by-side-image-item:nth-child(2):last-child) {
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--spacing-xl);
+    width: 100%;
+    max-width: 100%;
+    margin-left: 0;
+    margin-right: 0;
+  }
+
+  /* Ensure all side-by-side image items use full width */
+  .acoustic-levitation-project.project-template .side-by-side-image-item {
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+  }
+
+  .acoustic-levitation-project.project-template .side-by-side-image-item img,
+  .acoustic-levitation-project.project-template .side-by-side-image-item video {
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+    box-sizing: border-box;
+  }
+}
+
+/* Mobile optimizations */
+@media (max-width: 768px) {
+  /* Match exact mobile code from ProjectTemplate.css */
+  /* Force strict width constraints for Android and mobile devices */
+  .acoustic-levitation-project.project-template {
+    padding: var(--spacing-xl) var(--spacing-lg);
+    width: 100vw;
+    max-width: 100vw;
+    overflow-x: hidden;
+    box-sizing: border-box;
+    margin: 0;
+    position: relative;
+  }
+
+  /* Project Overview - exact copy from ProjectTemplate.css */
+  .acoustic-levitation-project.project-template .project-overview {
+    padding: var(--spacing-lg) var(--spacing-md);
+    margin-bottom: var(--spacing-lg);
+  }
+
+  .acoustic-levitation-project.project-template .overview-content {
+    flex-direction: column;
+    gap: var(--spacing-lg);
+  }
+
+  .acoustic-levitation-project.project-template .overview-image {
+    max-width: 100%;
+    width: 100%;
+    min-height: 300px;
+  }
+
+  .acoustic-levitation-project.project-template .overview-text {
+    width: 100%;
+  }
+
+  .acoustic-levitation-project.project-template .project-overview p {
+    font-size: var(--font-size-base);
+    margin-bottom: var(--spacing-lg);
+  }
+
+  /* Sections - MORE padding on regular sections for readability */
+  /* Force strict width for Android - sections must fit within padded container */
+  .acoustic-levitation-project.project-template .section {
+    padding: var(--spacing-xl) var(--spacing-lg);
+    margin-bottom: var(--spacing-2xl);
+    max-width: calc(100vw - var(--spacing-lg) * 2);
+    width: 100%;
+    box-sizing: border-box;
+    overflow-x: hidden;
+  }
+
+  /* Override desktop padding that uses var(--spacing-5xl) var(--spacing-6xl) */
+  /* MORE padding on regular sections for mobile readability */
+  .acoustic-levitation-project.project-template .section:not(.section-transition):not(.section-background-video):not(.revise-white-bg):not(.revise-sand-bg):not(:has(h2:only-child)),
+  .acoustic-levitation-project.project-template .project-sections .section:not(:has(h2:only-child)) {
+    padding: var(--spacing-xl) var(--spacing-lg);
+    max-width: calc(100vw - var(--spacing-lg) * 2);
+    width: 100%;
+    box-sizing: border-box;
+    margin-left: 0;
+    margin-right: 0;
+    overflow-x: hidden;
+  }
+
+  /* MORE padding on video background sections - fix narrow text and cut-off titles */
+  .acoustic-levitation-project.project-template .section.section-background-video {
+    padding: var(--spacing-md);
+  }
+
+  .acoustic-levitation-project.project-template .section.section-background-video .background-video-content {
+    padding: var(--spacing-xl);
+    max-width: 85%;
+    min-width: 0;
+  }
+
+  .acoustic-levitation-project.project-template .section.section-background-video .background-video-content h2 {
+    padding: var(--spacing-md) var(--spacing-lg);
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    max-width: 100%;
+  }
+
+  /* Force all child elements to respect width */
+  .acoustic-levitation-project.project-template .section * {
+    max-width: 100%;
+    box-sizing: border-box;
+  }
+
+  /* Prevent any element from causing horizontal scroll */
+  .acoustic-levitation-project.project-template .project-sections {
+    max-width: calc(100vw - var(--spacing-lg) * 2);
+    width: 100%;
+    box-sizing: border-box;
+    overflow-x: hidden;
+  }
+
+  .acoustic-levitation-project.project-template .project-sections * {
+    max-width: 100%;
+    box-sizing: border-box;
+  }
+
+  /* Remove ALL padding from text content inside sections - let text extend fully */
+  /* Override desktop padding-left/right: var(--spacing-3xl) */
+  .acoustic-levitation-project.project-template .project-sections .section:not(:has(h2:only-child)) > div:not(.section-media):not(.section-images):not(.section-pdf):not(.section-image-item):not(.subsections):not(.text-with-side-images-container):first-of-type,
+  .acoustic-levitation-project.project-template .section:not(:has(h2:only-child)) > div:not(.section-media):not(.section-images):not(.section-pdf):not(.section-image-item):not(.subsections):not(.text-with-side-images-container):first-of-type {
+    padding-left: 0;
+    padding-right: 0;
+    padding-top: 0;
+    padding-bottom: 0;
+    box-sizing: border-box;
+    max-width: 100%;
+    width: 100%;
+  }
+
+  .acoustic-levitation-project.project-template .project-sections .section:not(:has(h2:only-child)) > div:not(.section-media):not(.section-images):not(.section-pdf):not(.section-image-item):not(.subsections):not(.text-with-side-images-container):first-of-type p,
+  .acoustic-levitation-project.project-template .section:not(:has(h2:only-child)) > div:not(.section-media):not(.section-images):not(.section-pdf):not(.section-image-item):not(.subsections):not(.text-with-side-images-container):first-of-type p {
+    padding-left: 0;
+    padding-right: 0;
+    font-size: var(--font-size-base);
+    max-width: 100%;
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  /* Make text slightly smaller on mobile */
+  .acoustic-levitation-project.project-template .section:not(:has(h2:only-child)) > div:not(.section-media):not(.section-images):not(.section-pdf):not(.section-image-item):not(.subsections):not(.text-with-side-images-container):first-of-type {
+    font-size: var(--font-size-base);
+  }
+
+  /* Make images larger and more visible on mobile - FULL WIDTH */
+  .acoustic-levitation-project.project-template .section-media {
+    margin-top: var(--spacing-lg);
+    margin-bottom: var(--spacing-lg);
+    max-width: 100%;
+    width: 100%;
+    box-sizing: border-box;
+    padding: 0;
+    margin-left: 0;
+    margin-right: 0;
+  }
+
+  .acoustic-levitation-project.project-template .section-media img,
+  .acoustic-levitation-project.project-template .section-media video {
+    max-width: 100%;
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  /* Stack side-by-side images vertically on mobile - FORCE override */
+  .acoustic-levitation-project.project-template .side-by-side-images-grid {
+    grid-template-columns: 1fr;
+    gap: var(--spacing-lg);
+    display: grid;
+  }
+
+  .acoustic-levitation-project.project-template .side-by-side-image-item {
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+    grid-column: 1;
+  }
+
+  .acoustic-levitation-project.project-template .side-by-side-image-item img,
+  .acoustic-levitation-project.project-template .side-by-side-image-item video {
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+    display: block;
+  }
+
+  /* Make section images larger on mobile - FULL WIDTH */
+  .acoustic-levitation-project.project-template .section-images {
+    gap: var(--spacing-lg);
+    width: 100%;
+    max-width: 100%;
+    padding: 0;
+    margin: 0;
+  }
+
+  .acoustic-levitation-project.project-template .section-image-item {
+    max-width: 100%;
+    width: 100%;
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+  }
+
+  /* Text with side images - FORCE full width stacking on mobile */
+  /* Override desktop flex: 0 0 50% and flex: 0 0 45% - MUST override all constraints */
+  .acoustic-levitation-project.project-template .text-with-side-images-container {
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+  }
+
+  .acoustic-levitation-project.project-template .text-with-side-images-pair {
+    flex-direction: column;
+    gap: var(--spacing-lg);
+    align-items: stretch;
+    width: 100%;
+    max-width: 100%;
+    display: flex;
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+  }
+
+  /* CRITICAL: Override desktop flex: 0 0 50% - force full width */
+  .acoustic-levitation-project.project-template .text-with-side-images-content-box {
+    flex: 1 1 100%;
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  .acoustic-levitation-project.project-template .text-with-side-images-content-box p {
+    font-size: var(--font-size-base);
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+    padding: 0;
+    margin-left: 0;
+    margin-right: 0;
+  }
+
+  .acoustic-levitation-project.project-template .text-with-side-images-content-box .numbered-list {
+    font-size: var(--font-size-base);
+    width: 100%;
+    max-width: 100%;
+  }
+
+  /* CRITICAL: Override desktop side-images-stacked flex: 0 0 45% - force full width */
+  .acoustic-levitation-project.project-template .side-images-stacked {
+    flex: 1 1 100%;
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+    box-sizing: border-box;
+    order: 2;
+    margin-top: var(--spacing-lg);
+    padding: 0;
+    margin-left: 0;
+    margin-right: 0;
+  }
+
+  .acoustic-levitation-project.project-template .side-image-wrapper {
+    flex: 1 1 100%;
+    max-width: 100%;
+    width: 100%;
+    min-width: 0;
+    margin-top: var(--spacing-md);
+    box-sizing: border-box;
+    padding: 0;
+  }
+
+  .acoustic-levitation-project.project-template .side-image-wrapper img,
+  .acoustic-levitation-project.project-template .side-image-wrapper video {
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+    height: auto;
+    box-sizing: border-box;
+    display: block;
+  }
+
+  /* LESS padding on formula/equation sections for mobile */
+  .acoustic-levitation-project.project-template .section:not(:has(h2:only-child)) > div:not(.section-media):not(.section-images):not(.section-pdf):not(.section-image-item):not(.subsections):not(.text-with-side-images-container):first-of-type p:has(.formula),
+  .acoustic-levitation-project.project-template .section:not(:has(h2:only-child)) > div:not(.section-media):not(.section-images):not(.section-pdf):not(.section-image-item):not(.subsections):not(.text-with-side-images-container):first-of-type p:has(.equation) {
+    padding: 0;
+    margin-bottom: var(--spacing-xs);
+    line-height: 1.3;
+  }
+
+  .acoustic-levitation-project.project-template .section:not(:has(h2:only-child)) .formula,
+  .acoustic-levitation-project.project-template .section:not(:has(h2:only-child)) .equation,
+  .acoustic-levitation-project.project-template .section:not(:has(h2:only-child)) span.formula {
+    padding: 0;
+    margin: var(--spacing-xs) 0;
+    display: inline-block;
+    width: 100%;
+  }
+
+  /* Reduce section padding for sections containing formulas */
+  .acoustic-levitation-project.project-template .section:not(:has(h2:only-child)):has(.formula),
+  .acoustic-levitation-project.project-template .section:not(:has(h2:only-child)):has(.equation) {
+    padding: var(--spacing-md) var(--spacing-sm);
+  }
+
+  /* Reduce subsection padding on mobile */
+  .acoustic-levitation-project.project-template .subsection {
+    padding: var(--spacing-lg) var(--spacing-md);
+    box-sizing: border-box;
+  }
+
+  /* Video-only section on mobile */
+  .acoustic-levitation-project.project-template .section.video-only-section .section-media {
+    max-width: 95%;
+    width: 95%;
+    box-sizing: border-box;
+  }
+
+}
+
+/* Center title-only section headings */
+.acoustic-levitation-project .section:has(h2:only-child) {
+  text-align: center;
+  position: relative;
+}
+
+/* Custom section title with simplified gradient animation - completely override template styles */
+.acoustic-levitation-project.project-template .section:has(h2:only-child) h2 {
+  /* Reset template styles */
+  text-shadow: none;
+  background: transparent;
+  background-color: transparent;
+  
+  /* Custom styling */
+  font-size: var(--font-size-4xl);
+  font-weight: var(--font-weight-bold);
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+  position: relative;
+  display: inline-block;
+  padding: var(--spacing-md) var(--spacing-xl);
+  
+  /* Visible text with animated color gradient (purple-focused) */
+  color: #8b5cf6;
+  animation: gradientColor 8s linear infinite;
+}
+
+/* Animate color through gradient spectrum - slow linear progression (purple-focused) */
+@keyframes gradientColor {
+  0% {
+    color: #8b5cf6;
+  }
+  25% {
+    color: #a855f7;
+  }
+  50% {
+    color: #c084fc;
+  }
+  75% {
+    color: #9333ea;
+  }
+  100% {
+    color: #8b5cf6;
+  }
+}
+
+/* Gradient flow animation for borders */
+@keyframes gradientFlow {
+  0% {
+    background-position: 0% 50%;
+  }
+  100% {
+    background-position: 200% 50%;
+  }
+}
+
+/* Dark mode futuristic sections - elegant square style */
+/* DESKTOP ONLY - wrap in media query so mobile can override */
+@media (min-width: 769px) {
+  .acoustic-levitation-project.project-template .section:not(.section-transition):not(.section-background-video):not(.revise-white-bg):not(.revise-sand-bg):not(:has(h2:only-child)),
+  .acoustic-levitation-project.project-template .project-sections .section:not(:has(h2:only-child)) {
+    background: #0f0f14;
+    border: 1px solid rgba(139, 92, 246, 0.25);
+    border-radius: 4px;
+    padding: var(--spacing-5xl) var(--spacing-6xl);
+    margin-bottom: var(--spacing-3xl);
+    box-shadow: 
+      0 4px 16px rgba(0, 0, 0, 0.5),
+      0 0 24px rgba(139, 92, 246, 0.08) inset,
+      0 1px 0 rgba(139, 92, 246, 0.1);
+    position: relative;
+    overflow: hidden;
+    transition: border-color var(--transition-base), box-shadow var(--transition-base);
+    font-family: var(--font-family-primary);
+    max-width: 100%;
+  }
+}
+
+/* Base styles for all screen sizes (background, border, etc.) */
+.acoustic-levitation-project.project-template .section:not(.section-transition):not(.section-background-video):not(.revise-white-bg):not(.revise-sand-bg):not(:has(h2:only-child)),
+.acoustic-levitation-project.project-template .project-sections .section:not(:has(h2:only-child)) {
+  background: #0f0f14;
+  border: 1px solid rgba(139, 92, 246, 0.25);
+  border-radius: 4px;
+  margin-bottom: var(--spacing-3xl);
+  box-shadow: 
+    0 4px 16px rgba(0, 0, 0, 0.5),
+    0 0 24px rgba(139, 92, 246, 0.08) inset,
+    0 1px 0 rgba(139, 92, 246, 0.1);
+  position: relative;
+  overflow: hidden;
+  transition: border-color var(--transition-base), box-shadow var(--transition-base);
+  font-family: var(--font-family-primary);
+  max-width: 100%;
+}
+
+.acoustic-levitation-project.project-template .section:not(:has(h2:only-child)):hover {
+  border-color: rgba(139, 92, 246, 0.4);
+  box-shadow: 
+    0 6px 20px rgba(0, 0, 0, 0.6),
+    0 0 32px rgba(139, 92, 246, 0.12) inset,
+    0 1px 0 rgba(139, 92, 246, 0.15);
+}
+
+/* Subtle gradient border accent (purple-focused) */
+.acoustic-levitation-project.project-template .section:not(:has(h2:only-child))::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(
+    90deg,
+    #8b5cf6 0%,
+    #a855f7 33%,
+    #c084fc 66%,
+    #9333ea 100%
+  );
+  background-size: 200% 100%;
+  animation: gradientFlow 8s linear infinite;
+  z-index: 1;
+}
+
+/* Section headings - light text on dark */
+.acoustic-levitation-project.project-template .section:not(:has(h2:only-child)) h2 {
+  color: #ffffff;
+  text-shadow: none;
+  margin-bottom: var(--spacing-2xl);
+  font-size: 2rem;
+  font-weight: var(--font-weight-semibold);
+  letter-spacing: 0.02em;
+  font-family: var(--font-family-primary);
+  line-height: 1.4;
+}
+
+/* Section content - renderContent returns a div wrapper */
+/* Target the content div (first div child without special classes) - MUST be very specific */
+.acoustic-levitation-project.project-template .project-sections .section:not(:has(h2:only-child)) > div:not(.section-media):not(.section-images):not(.section-pdf):not(.section-image-item):first-of-type {
+  color: #ffffff;
+  line-height: 1.5;
+  letter-spacing: 0.;
+  word-spacing: 0;
+  margin-bottom: var(--spacing-2xl);
+  font-size: 1.2rem;
+  font-weight: 300;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
+  text-align: justify;
+  padding-left: var(--spacing-3xl);
+  padding-right: var(--spacing-3xl);
+}
+
+/* Section paragraphs - for content that renders as p tags inside the div */
+.acoustic-levitation-project.project-template .project-sections .section:not(:has(h2:only-child)) > div:not(.section-media):not(.section-images):not(.section-pdf):not(.section-image-item):first-of-type p {
+  color: #ffffff;
+  line-height: 1.85;
+  letter-spacing: 0.02em;
+  word-spacing: 0;
+  margin-bottom: var(--spacing-2xl);
+  font-size: 1.2rem;
+  font-weight: 300;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
+  text-align: justify;
+  padding-left: 0;
+  padding-right: 0;
+}
+
+/* Reduce spacing for paragraphs that contain formulas */
+.acoustic-levitation-project.project-template .project-sections .section:not(:has(h2:only-child)) > div:not(.section-media):not(.section-images):not(.section-pdf):not(.section-image-item):first-of-type p:has(.formula) {
+  margin-bottom: var(--spacing-md);
+  line-height: 1.6;
+}
+
+/* Section lists - light text */
+.acoustic-levitation-project.project-template .section:not(:has(h2:only-child)) .numbered-list,
+.acoustic-levitation-project.project-template .section:not(:has(h2:only-child)) ul,
+.acoustic-levitation-project.project-template .section:not(:has(h2:only-child)) ol {
+  color: #ffffff;
+  font-size: 2rem;
+  line-height: 1.8;
+  padding-left: var(--spacing-3xl);
+  padding-right: var(--spacing-xl);
+  margin-left: var(--spacing-xl);
+  margin-right: var(--spacing-xl);
+}
+
+.acoustic-levitation-project.project-template .section:not(:has(h2:only-child)) li {
+  color: #ffffff;
+  margin-bottom: var(--spacing-lg);
+  line-height: 1.8;
+  font-size: 2rem;
+}
+
+/* Ensure ALL text elements are white and inherit large font size (except links which are styled separately) */
+.acoustic-levitation-project.project-template .project-sections .section:not(:has(h2:only-child)) > div:first-of-type span,
+.acoustic-levitation-project.project-template .project-sections .section:not(:has(h2:only-child)) > div:first-of-type strong,
+.acoustic-levitation-project.project-template .project-sections .section:not(:has(h2:only-child)) > div:first-of-type em,
+.acoustic-levitation-project.project-template .project-sections .section:not(:has(h2:only-child)) > div:first-of-type b,
+.acoustic-levitation-project.project-template .project-sections .section:not(:has(h2:only-child)) > div:first-of-type i {
+  color: #ffffff;
+  font-size: inherit;
+}
+
+/* Also target spans and other inline elements in sections */
+.acoustic-levitation-project.project-template .section:not(:has(h2:only-child)) span:not(.formula),
+.acoustic-levitation-project.project-template .section:not(:has(h2:only-child)) div:not(.section-media):not(.code-block):not(.formula):not(.equation):not(.section-images):not(.section-pdf):not(:first-of-type),
+.acoustic-levitation-project.project-template .section:not(:has(h2:only-child)) strong,
+.acoustic-levitation-project.project-template .section:not(:has(h2:only-child)) em,
+.acoustic-levitation-project.project-template .section:not(:has(h2:only-child)) b,
+.acoustic-levitation-project.project-template .section:not(:has(h2:only-child)) i {
+  color: #ffffff;
+  font-size: inherit;
+}
+
+/* Research paper-style emphasis */
+.acoustic-levitation-project.project-template .section:not(:has(h2:only-child)) strong {
+  font-weight: var(--font-weight-semibold);
+  color: #f5f3ff;
+}
+
+.acoustic-levitation-project.project-template .section:not(:has(h2:only-child)) em {
+  font-style: italic;
+  color: #e9d5ff;
+}
+
+/* Section links - purple accent colors */
+.acoustic-levitation-project.project-template .section:not(:has(h2:only-child)) a {
+  color: #a855f7;
+  transition: color var(--transition-base);
+  text-decoration: underline;
+  text-decoration-color: rgba(168, 85, 247, 0.4);
+  text-underline-offset: 2px;
+}
+
+.acoustic-levitation-project.project-template .section:not(:has(h2:only-child)) a:hover {
+  color: #c084fc;
+  text-decoration-color: rgba(192, 132, 252, 0.6);
+}
+
+/* Section media - improved styling */
+.acoustic-levitation-project.project-template .section:not(:has(h2:only-child)) .section-media {
+  margin-top: var(--spacing-xl);
+  margin-bottom: var(--spacing-xl);
+}
+
+.acoustic-levitation-project.project-template .section:not(:has(h2:only-child)) .section-media img,
+.acoustic-levitation-project.project-template .section:not(:has(h2:only-child)) .section-media video {
+  border-radius: var(--radius-sm);
+  box-shadow: 
+    0 8px 24px rgba(0, 0, 0, 0.6),
+    0 0 0 1px rgba(139, 92, 246, 0.2);
+  transition: box-shadow var(--transition-base);
+}
+
+/* Shrink gaussian image */
+.acoustic-levitation-project.project-template .section.gaussian-image-section .section-media img {
+  max-width: 50%;
+  width: auto;
+}
+
+/* Square-cropped video (centered) */
+.acoustic-levitation-project.project-template .section .side-video {
+  object-fit: cover;
+  object-position: center;
+  aspect-ratio: 1;
+  width: 100%;
+  height: auto;
+  max-height: 400px;
+}
+
+/* Background video with overlaid text - MORE padding for readability */
+.acoustic-levitation-project.project-template .section.section-background-video .background-video-content {
+  position: relative;
+  z-index: 1;
+  padding: var(--spacing-xl);
+  text-align: left;
+  max-width: 85%;
+  min-height: 500px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  background: rgba(15, 15, 20, 0.7);
+  backdrop-filter: blur(4px);
+  border-radius: 4px;
+  margin: var(--spacing-lg);
+}
+
+.acoustic-levitation-project.project-template .section.section-background-video .background-video-content h2 {
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  max-width: 100%;
+  padding: var(--spacing-md) var(--spacing-lg);
+}
+
+.acoustic-levitation-project.project-template .section.section-background-video .background-video-content > div {
+  color: #ffffff;
+  line-height: 1.6;
+  font-size: 1.1rem;
+}
+
+.acoustic-levitation-project.project-template .section:not(:has(h2:only-child)) .section-media img:hover,
+.acoustic-levitation-project.project-template .section:not(:has(h2:only-child)) .section-media video:hover {
+  box-shadow: 
+    0 12px 32px rgba(0, 0, 0, 0.7),
+    0 0 0 1px rgba(139, 92, 246, 0.3),
+    0 0 20px rgba(139, 92, 246, 0.1);
+}
+
+/* Subsection headings */
+.acoustic-levitation-project.project-template .section:not(:has(h2:only-child)) h3 {
+  color: #ffffff;
+  font-size: 1.6rem;
+  font-weight: var(--font-weight-semibold);
+  margin-top: var(--spacing-2xl);
+  margin-bottom: var(--spacing-xl);
+  padding-left: var(--spacing-xl);
+  padding-right: var(--spacing-xl);
+  letter-spacing: 0.02em;
+}
+
+/* Paper-style subsection blocks */
+.acoustic-levitation-project.project-template .section:not(:has(h2:only-child)) .subsection {
+  background: rgba(15, 15, 20, 0.6);
+  border: 1px solid rgba(139, 92, 246, 0.2);
+  border-radius: 4px;
+  padding: var(--spacing-xl) var(--spacing-2xl);
+  margin-bottom: var(--spacing-xl);
+  box-shadow: 
+    0 2px 8px rgba(0, 0, 0, 0.3),
+    0 0 16px rgba(139, 92, 246, 0.05) inset;
+  transition: border-color var(--transition-base), box-shadow var(--transition-base);
+}
+
+.acoustic-levitation-project.project-template .section:not(:has(h2:only-child)) .subsection:hover {
+  border-color: rgba(139, 92, 246, 0.3);
+  box-shadow: 
+    0 4px 12px rgba(0, 0, 0, 0.4),
+    0 0 20px rgba(139, 92, 246, 0.08) inset;
+}
+
+.acoustic-levitation-project.project-template .section:not(:has(h2:only-child)) .subsection h3 {
+  margin-top: 0;
+  margin-bottom: var(--spacing-lg);
+  padding-left: 0;
+  padding-right: 0;
+  color: #c084fc;
+  font-size: 1.4rem;
+}
+
+.acoustic-levitation-project.project-template .section:not(:has(h2:only-child)) .subsection > div {
+  color: #ffffff;
+  line-height: 1.6;
+  font-size: 1.1rem;
+}
+
+/* Research paper-style formula/equation styling */
+.acoustic-levitation-project.project-template .section:not(:has(h2:only-child)) p:has(code),
+.acoustic-levitation-project.project-template .section:not(:has(h2:only-child)) .formula,
+.acoustic-levitation-project.project-template .section:not(:has(h2:only-child)) .equation {
+  text-align: center;
+  font-style: italic;
+  font-family: var(--font-family-mono);
+  font-size: 0.95rem;
+  padding: var(--spacing-sm) var(--spacing-lg);
+  margin: var(--spacing-xs) var(--spacing-lg);
+  background: rgba(139, 92, 246, 0.08);
+  border-left: 3px solid rgba(139, 92, 246, 0.4);
+  border-radius: 2px;
+  display: block;
+  line-height: 1.3;
+}
+
+/* Reduce spacing for paragraphs that come after formulas */
+.acoustic-levitation-project.project-template .section:not(:has(h2:only-child)) .formula + p,
+.acoustic-levitation-project.project-template .section:not(:has(h2:only-child)) .equation + p {
+  margin-top: var(--spacing-xs);
+}
+
+/* LESS padding on sections containing formulas/equations - DESKTOP */
+@media (min-width: 769px) {
+  .acoustic-levitation-project.project-template .section:not(:has(h2:only-child)):has(.formula),
+  .acoustic-levitation-project.project-template .section:not(:has(h2:only-child)):has(.equation) {
+    padding: var(--spacing-3xl) var(--spacing-4xl);
+  }
+}
+
+/* Inline code/formulas */
+.acoustic-levitation-project.project-template .section:not(:has(h2:only-child)) code,
+.acoustic-levitation-project.project-template .section:not(:has(h2:only-child)) p code,
+.acoustic-levitation-project.project-template .section:not(:has(h2:only-child)) li code {
+  font-family: var(--font-family-mono);
+  font-size: 0.95em;
+  background: rgba(139, 92, 246, 0.15);
+  padding: 2px 6px;
+  border-radius: 3px;
+  color: #e9d5ff;
+  font-style: italic;
+}
+
+/* Block-level formulas/equations */
+.acoustic-levitation-project.project-template .section:not(:has(h2:only-child)) pre,
+.acoustic-levitation-project.project-template .section:not(:has(h2:only-child)) pre code {
+  font-family: var(--font-family-mono);
+  font-size: 1rem;
+  text-align: center;
+  font-style: italic;
+  background: rgba(139, 92, 246, 0.1);
+  border: 1px solid rgba(139, 92, 246, 0.3);
+  border-left: 3px solid rgba(139, 92, 246, 0.5);
+  padding: var(--spacing-xl) var(--spacing-2xl);
+  margin: var(--spacing-2xl) var(--spacing-lg);
+  border-radius: 4px;
+  display: block;
+  color: #ffffff;
+  overflow-x: auto;
+}
+
+/* Code blocks in sections - research paper style */
+.acoustic-levitation-project.project-template .section:not(:has(h2:only-child)) .code-block {
+  background: #1a1a1f;
+  border: 1px solid rgba(139, 92, 246, 0.3);
+  border-left: 3px solid rgba(139, 92, 246, 0.5);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+  padding: var(--spacing-xl) var(--spacing-2xl);
+  margin: var(--spacing-2xl) var(--spacing-lg);
+  border-radius: 4px;
+  font-family: var(--font-family-mono);
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+
+/* Ensure text content has proper padding */
+.acoustic-levitation-project.project-template .section:not(:has(h2:only-child)) > p:first-of-type {
+  padding-top: var(--spacing-xl);
+}
+
+/* Background video section with title overlay */
+.acoustic-levitation-project.project-template .section.section-background-video {
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+  padding: 0 !important;
+  margin-bottom: var(--spacing-3xl) !important;
+  position: relative;
+}
+
+.acoustic-levitation-project.project-template .section.section-background-video .background-video-section {
+  position: relative;
+  min-height: 500px;
+  overflow: hidden;
+  border-radius: 4px;
+  margin: 0;
+}
+
+.acoustic-levitation-project.project-template .section.section-background-video .background-video {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  min-width: 100%;
+  min-height: 100%;
+  width: auto;
+  height: auto;
+  z-index: 0;
+  object-fit: cover;
+  object-position: center;
+  filter: brightness(0.4);
+}
+
+/* Duplicate background-video-content - MORE padding for readability */
+.acoustic-levitation-project.project-template .section.section-background-video .background-video-content {
+  position: relative;
+  z-index: 1;
+  padding: var(--spacing-xl);
+  text-align: left;
+  max-width: 85%;
+  min-height: 500px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  background: transparent;
+  backdrop-filter: none;
+  border-radius: 0;
+  margin: 0;
+  min-width: 0;
+}
+
+.acoustic-levitation-project.project-template .section.section-background-video .background-video-content h2 {
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  max-width: 100%;
+  padding: var(--spacing-md) var(--spacing-lg);
+}
+
+.acoustic-levitation-project.project-template .section.section-background-video .background-video-content h2 {
+  color: #ffffff;
+  text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.8), 0 0 16px rgba(0, 0, 0, 0.6);
+  font-size: var(--font-size-4xl);
+  font-weight: var(--font-weight-bold);
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  text-align: center;
+  margin: 0;
+  padding: var(--spacing-md) var(--spacing-xl);
+  pointer-events: none;
+  width: 100%;
+}
+
+.acoustic-levitation-project.project-template .section.section-background-video .background-video-content > div {
+  color: #ffffff;
+  line-height: 1.6;
+  font-size: 1.1rem;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8), 0 0 8px rgba(0, 0, 0, 0.6);
+}
+
+.acoustic-levitation-project.project-template .section.section-background-video .background-video-content > div p {
+  color: #ffffff;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8), 0 0 8px rgba(0, 0, 0, 0.6);
+}
+
+/* Make side images and videos much larger - DESKTOP ONLY */
+@media (min-width: 769px) {
+  .acoustic-levitation-project.project-template .text-with-side-images-pair {
+    align-items: stretch;
+  }
+
+  .acoustic-levitation-project.project-template .text-with-side-images-content-box {
+    flex: 0 0 50%;
+    max-width: 50%;
+  }
+
+  .acoustic-levitation-project.project-template .side-images-stacked {
+    flex: 0 0 45%;
+    max-width: 45%;
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-lg);
+  }
+
+  .acoustic-levitation-project.project-template .side-image-wrapper {
+    flex: 1 1 auto;
+    max-width: 100%;
+    width: 100%;
+  }
+
+  .acoustic-levitation-project.project-template .side-image-wrapper img {
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+  }
+
+  .acoustic-levitation-project.project-template .side-video {
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+    min-height: 300px;
+  }
+}
+
+/* Side-by-side video styling */
+.acoustic-levitation-project.project-template .side-by-side-video {
+  width: 100%;
+  height: auto;
+  border-radius: 4px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  object-fit: cover;
+  object-position: center;
+  aspect-ratio: 1;
+  min-height: 300px;
+}
+
+/* Video-only section - square, regular section size, transparent */
+.acoustic-levitation-project.project-template .section.video-only-section {
+  background: transparent;
+  border: none;
+  box-shadow: none;
+  padding: var(--spacing-md) 0;
+  margin-bottom: var(--spacing-xl);
+}
+
+/* Future work and next steps highlights - clean highlighter pen style */
+.acoustic-levitation-project.project-template .future-work-highlight {
+  background-color: rgba(200, 255, 100, 0.5);
+  padding: 2px 4px;
+  display: inline;
+  box-shadow: none;
+  border: none;
+  border-radius: 2px;
+  position: relative;
+}
+
+/* Ensure text inside highlights maintains readability */
+.acoustic-levitation-project.project-template .future-work-highlight,
+.acoustic-levitation-project.project-template .future-work-highlight * {
+  color: inherit;
+}
+
+.acoustic-levitation-project.project-template .section.video-only-section::before {
+  display: none;
+}
+
+.acoustic-levitation-project.project-template .section.video-only-section .section-media {
+  max-width: 75%;
+  width: 75%;
+  margin: 0 auto;
+}
+
+.acoustic-levitation-project.project-template .section.video-only-section .section-media video {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 1;
+  object-fit: cover;
+  object-position: center;
+  border-radius: 4px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+

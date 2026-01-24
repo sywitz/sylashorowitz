@@ -9,6 +9,7 @@ import mechanicalRabbit from './mechanical-rabbit';
 import solarPanelDeploymentSystem from './solar-panel-deployment-system';
 import guatemalaCookstove from './guatemala-cookstove';
 import climbingRobot from './climbing-robot';
+import acousticLevitationRobot from './acoustic-levitation-robot';
 
 // Export as a single object with project IDs as keys
 export const projectData = {
@@ -21,7 +22,8 @@ export const projectData = {
   'mechanical-rabbit': mechanicalRabbit,
   'solar-panel-deployment-system': solarPanelDeploymentSystem,
   'guatemala-cookstove': guatemalaCookstove,
-  'climbing-robot': climbingRobot
+  'climbing-robot': climbingRobot,
+  'acoustic-levitation-robot': acousticLevitationRobot
 };
 
 export default projectData;

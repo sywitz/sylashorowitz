@@ -65,7 +65,22 @@ function ProjectSections({ sections }) {
     <div className="project-sections">
       {sections.map((section, index) => (
         <div key={index} className={`section ${section.layout ? `section-${section.layout}` : ''} ${section.layout === 'background-video' ? 'section-background-video' : ''} ${section.customClass || ''}`}>
-          {section.title && <h2>{section.title}</h2>}
+          {section.title && section.layout !== 'background-video' && <h2>{section.title}</h2>}
+          
+          {/* Render subsections first if they exist and layout content also exists */}
+          {section.subsections && section.subsections.length > 0 && section.layout && (
+            <div className="subsections">
+              {section.subsections.map((subsection, subIndex) => (
+                <div key={subIndex} className="subsection">
+                  {subsection.title && <h3>{subsection.title}</h3>}
+                  {subsection.content && renderContent(subsection.content)}
+                  {subsection.image && renderMedia(subsection.image)}
+                  {subsection.video && renderMedia(subsection.video)}
+                  {subsection.gif && renderMedia(subsection.gif)}
+                </div>
+              ))}
+            </div>
+          )}
           
           {/* Diagonal overlay layout: image with text overlay */}
           {section.layout === 'diagonal-overlay' && section.image ? (
@@ -181,7 +196,20 @@ function ProjectSections({ sections }) {
               <div className="side-by-side-images-grid">
                 {section.sideBySideImages.map((item, index) => (
                   <div key={index} className="side-by-side-image-item">
-                    <img src={item.image} alt={item.caption || ''} loading="lazy" />
+                    {item.video ? (
+                      <video
+                        autoPlay={item.autoPlay !== false}
+                        loop={item.loop !== false}
+                        muted={item.muted !== false}
+                        controls={item.controls !== false}
+                        playsInline
+                        className="side-by-side-video"
+                      >
+                        <source src={item.video} type="video/mp4" />
+                      </video>
+                    ) : (
+                      <img src={item.image} alt={item.caption || ''} loading="lazy" />
+                    )}
                     {item.caption && (
                       <div className="side-by-side-caption" dangerouslySetInnerHTML={{ __html: item.caption }} />
                     )}
@@ -213,10 +241,44 @@ function ProjectSections({ sections }) {
                     {section.sideImages && section.sideImages.length > 0 && (
                       <div className="side-images-stacked">
                         {section.sideImages.map((img, imgIndex) => {
+                          // Handle video objects with properties
+                          if (typeof img === 'object' && img.type === 'video') {
+                            const videoSrc = img.src || img.default || img;
+                            return (
+                              <div key={imgIndex} className="side-image-wrapper">
+                                <video 
+                                  className="side-video"
+                                  autoPlay={img.loop === true || img.autoPlay === true}
+                                  loop={img.loop === true}
+                                  muted={img.muted !== false}
+                                  controls={img.controls !== false}
+                                  playsInline
+                                >
+                                  <source src={videoSrc} type="video/mp4" />
+                                </video>
+                                {img.caption && (
+                                  <div className="image-caption" dangerouslySetInnerHTML={{ __html: img.caption }} />
+                                )}
+                              </div>
+                            );
+                          }
+                          
+                          // Handle image objects with caption
+                          if (typeof img === 'object' && img.src) {
+                            return (
+                              <div key={imgIndex} className="side-image-wrapper">
+                                <img src={img.src} alt={img.caption || `${section.title} - Image ${imgIndex + 1}`} loading="lazy" />
+                                {img.caption && (
+                                  <div className="image-caption" dangerouslySetInnerHTML={{ __html: img.caption }} />
+                                )}
+                              </div>
+                            );
+                          }
+                          
                           // Handle video files - check if it's an imported video module or string path
                           const imgSrc = typeof img === 'string' ? img : (img.default || img);
                           const isVideo = typeof imgSrc === 'string' 
-                            ? (imgSrc.endsWith('.mp4') || imgSrc.endsWith('.webm') || imgSrc.endsWith('.mov') || imgSrc.endsWith('.avi'))
+                            ? (imgSrc.endsWith('.mp4') || imgSrc.endsWith('.webm') || imgSrc.endsWith('.mov') || imgSrc.endsWith('.avi') || imgSrc.endsWith('.TS'))
                             : false;
                           
                           return (
@@ -278,7 +340,14 @@ function ProjectSections({ sections }) {
                 <source src={section.backgroundVideo} type="video/mp4" />
               </video>
               <div className="background-video-content">
-                {renderContent(section.content)}
+                {section.title && (!section.content || section.content.trim() === '') ? (
+                  <h2>{section.title}</h2>
+                ) : (
+                  <>
+                    {section.title && <h2>{section.title}</h2>}
+                    {renderContent(section.content)}
+                  </>
+                )}
               </div>
             </div>
           ) : section.layout === 'large-image' && section.image ? (
@@ -535,8 +604,8 @@ function ProjectSections({ sections }) {
             </div>
           )}
           
-          {/* Support subsections */}
-          {section.subsections && section.subsections.length > 0 && (
+          {/* Support subsections - only render if not already rendered above (when layout exists) */}
+          {section.subsections && section.subsections.length > 0 && !section.layout && (
             <div className="subsections">
               {section.subsections.map((subsection, subIndex) => (
                 <div key={subIndex} className="subsection">

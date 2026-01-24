@@ -1,4 +1,5 @@
 /* Arctic ROV Custom Styles - Scoped to .arctic-rov-project */
+/* IMPORTANT: This file must load AFTER ProjectTemplate.css to override base styles */
 
 /* Project Overview - Image positioned to the right */
 .arctic-rov-project.project-template .project-overview {

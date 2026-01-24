@@ -324,20 +324,22 @@
   background: white;
 }
 
-/* Title-only sections (subsection dividers) - transparent section, small white bubble around text */
+/* Title-only sections (subsection dividers) - transparent section, transparent text */
 .section:has(h2:only-child) {
   background: transparent !important;
-  padding: var(--spacing-xl) var(--spacing-xl);
-  box-shadow: none;
+  padding: var(--spacing-xl) var(--spacing-xl) var(--spacing-md) !important;
+  box-shadow: none !important;
+  margin-bottom: var(--spacing-xl) !important;
 }
 
 .section:has(h2:only-child) h2 {
-  background: white;
-  padding: var(--spacing-md) var(--spacing-xl);
-  border-radius: var(--radius-md);
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-  border-bottom: none;
-  margin-bottom: 0;
+  background: transparent !important;
+  background-color: transparent !important;
+  padding: var(--spacing-md) var(--spacing-xl) !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+  border-bottom: none !important;
+  margin-bottom: 0 !important;
   display: inline-block;
 }
 

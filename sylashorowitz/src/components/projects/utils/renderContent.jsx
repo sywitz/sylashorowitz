@@ -6,6 +6,11 @@
 import React from 'react';
 
 export const renderContent = (content) => {
+  // Return null for empty or whitespace-only content
+  if (!content || typeof content !== 'string' || content.trim() === '') {
+    return null;
+  }
+  
   // Check if content contains numbered list items (pattern: "1. ", "2. ", etc.)
   const numberedListPattern = /^\d+\.\s/m;
   const lines = content.split('\n');

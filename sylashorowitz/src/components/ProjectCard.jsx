@@ -16,6 +16,7 @@ function ProjectCard({
   description,
   skills = [],
   image,
+  secondaryImage,
   link,
   featured
 }) {
@@ -86,10 +87,43 @@ function ProjectCard({
     );
   };
 
+  // Render secondary image if provided
+  const renderSecondaryImage = () => {
+    if (!secondaryImage) return null;
+
+    const imageElement = (
+      <img src={secondaryImage} alt={`${title} overview`} className="project-image project-image-secondary" loading="lazy" />
+    );
+
+    if (!link) {
+      return imageElement;
+    }
+
+    if (isExternalLink) {
+      return (
+        <a
+          href={link}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="project-image-link"
+        >
+          {imageElement}
+        </a>
+      );
+    }
+
+    return (
+      <Link to={link} className="project-image-link">
+        {imageElement}
+      </Link>
+    );
+  };
+
   return (
     <div className="project-card">
-      <div className={`project-image-container ${image ? '' : 'no-image'}`}>
+      <div className={`project-image-container ${image ? '' : 'no-image'} ${secondaryImage ? 'has-secondary-image' : ''}`}>
         {renderImage()}
+        {renderSecondaryImage()}
         {featured && <div className="featured-badge">FEATURED</div>}
       </div>
       

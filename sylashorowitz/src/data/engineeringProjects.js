@@ -16,8 +16,22 @@ import solarPanelDeploymentThumbnail from '../assets/engineering-data/solar-pane
 import liberiaWasteBinsThumbnail from '../assets/engineering-data/liberia-recycled-waste-bins/steel_frame_bin_render_edited.jpg';
 import vehicleToGridThumbnail from '../assets/engineering-data/vehicle-to-grid/20210723_161913_edited.jpg';
 import highwaySolarThumbnail from '../assets/engineering-data/highway-solar-canopy/Solar Highway 4_edited.jpg';
+import acousticLevitationThumbnail from '../assets/engineering-data/holosonic/F70JMFTKQSKAC41.jpg';
+import acousticLevitationOverview from '../assets/engineering-data/holosonic/20240906_144027.jpg';
 
 export const engineeringProjects = [
+  {
+    id: 'acoustic-levitation-robot',
+    title: 'ACOUSTIC LEVITATION ROBOT',
+    institution: 'Personal project',
+    year: '2025',
+    description: 'Designing a 3D acoustic levitation system for additive manufacturing and microelectronics assembly. Built a 512-transducer testing platform and developed Python simulations using iterative angular spectrum methods to control acoustic pressure fields.',
+    skills: ['Python', 'FPGA', 'CUDA', 'Acoustic Field Simulation', 'Iterative Angular Spectrum Method', 'PCB Design', 'Quartus II', 'Laser Cutting', 'Reflow Soldering', 'Acoustophoresis'],
+    image: acousticLevitationThumbnail,
+    secondaryImage: acousticLevitationOverview,
+    link: '/projects/acoustic-levitation-robot',
+    featured: false
+  },
   {
     id: 'pultrusion-machine',
     title: 'PULTRUSION MACHINE',

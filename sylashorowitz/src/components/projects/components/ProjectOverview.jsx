@@ -5,7 +5,7 @@
 
 import React from 'react';
 
-function ProjectOverview({ project, showImage = false }) {
+function ProjectOverview({ project, showImage = false, imagePosition = 'right' }) {
   // Render description with HTML support
   const renderDescription = () => {
     return <p dangerouslySetInnerHTML={{ __html: project.description }} />;
@@ -15,13 +15,26 @@ function ProjectOverview({ project, showImage = false }) {
     <div className="project-overview">
       <h2>Project Overview</h2>
       {showImage && project.overviewImage ? (
-        <div className="overview-content">
-          <div className="overview-text">
-            {renderDescription()}
-          </div>
-          <div className="overview-image">
-            <img src={project.overviewImage} alt={project.title} />
-          </div>
+        <div className={`overview-content ${imagePosition === 'left' ? 'overview-image-left' : ''}`}>
+          {imagePosition === 'left' ? (
+            <>
+              <div className="overview-image">
+                <img src={project.overviewImage} alt={project.title} />
+              </div>
+              <div className="overview-text">
+                {renderDescription()}
+              </div>
+            </>
+          ) : (
+            <>
+              <div className="overview-text">
+                {renderDescription()}
+              </div>
+              <div className="overview-image">
+                <img src={project.overviewImage} alt={project.title} />
+              </div>
+            </>
+          )}
         </div>
       ) : (
         renderDescription()
