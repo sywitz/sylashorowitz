@@ -39,7 +39,7 @@ export const arcticRov = {
   id: 'arctic-rov',
   title: 'ARCTIC ROV',
   subtitle: 'MIT Research, 2020-2022',
-  featured: true,
+  featured: false,
   heroImage: null,
   overviewImage: overviewImage,
   description: `I designed a motorized tether management system for an underwater ROV that was deployed in the Arctic by WHOI scientists to map greenhouse gas (GHG) emissions from permafrost. This project was completed under the MIT Department of Mechanical Engineering and Woods Hole Oceanographic Institution (WHOI). The system was tested at over 5 field sites. I was the sole undergraduate student selected to present at the OCEANS 2022 MTS/IEEE-OES Student Poster Competition. The paper is published <a href="https://ieeexplore.ieee.org/document/9977310" target="_blank" rel="noopener noreferrer">here</a>.`,

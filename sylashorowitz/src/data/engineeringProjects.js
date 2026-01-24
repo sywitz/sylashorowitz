@@ -52,7 +52,7 @@ export const engineeringProjects = [
     skills: ['SolidWorks', 'Arduino', 'Mechatronics', 'Systems Integration', 'Research', 'CAD', 'Prototyping', 'Field Testing', 'Electronics', 'Motor Control', 'MATLAB', 'Belt Drive Design', 'Waterproofing', 'Marine Engineering', 'Scientific Instrumentation', 'Published Research'],
     image: arcticRovThumbnail,
     link: '/projects/arctic-rov',
-    featured: true
+    featured: false
   },
   {
     id: 'guatemala-cookstove',
