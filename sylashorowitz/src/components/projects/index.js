@@ -16,6 +16,8 @@ import SolarPanelDeploymentSystem from './SolarPanelDeploymentSystem';
 import GuatemalaCookstove from './GuatemalaCookstove';
 import ClimbingRobot from './ClimbingRobot';
 import AcousticLevitationRobot from './AcousticLevitationRobot';
+import TidalPump from './TidalPump';
+import Fabrication from './Fabrication';
 
 // Map of project IDs to their components
 export const projectComponents = {
@@ -30,6 +32,8 @@ export const projectComponents = {
   'guatemala-cookstove': GuatemalaCookstove,
   'climbing-robot': ClimbingRobot,
   'acoustic-levitation-robot': AcousticLevitationRobot,
+  'tidal-pump': TidalPump,
+  'fabrication': Fabrication,
 };
 
 export default projectComponents;

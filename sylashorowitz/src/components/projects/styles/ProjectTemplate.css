@@ -21,23 +21,27 @@
 
 /* Header Section */
 .project-header {
-  padding: 0;
+  padding: 0 0 var(--spacing-xl) 0;
   margin-bottom: var(--spacing-4xl);
   text-align: left;
   width: 100%;
   display: block;
+  box-sizing: border-box;
+  overflow: visible;
 }
 
 .project-header .header-content {
   padding: 0;
-  display: flex !important;
-  flex-direction: column !important;
-  align-items: flex-start !important;
-  justify-content: flex-start !important;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
   width: 100%;
   max-width: 100%;
   gap: 0;
-  flex-wrap: nowrap !important;
+  flex-wrap: nowrap;
+  overflow: visible;
+  box-sizing: border-box;
 }
 
 .header-top-row {
@@ -49,25 +53,22 @@
 }
 
 .back-link {
-  /* Uses button utility pattern */
   color: var(--color-primary);
   text-decoration: none;
   font-weight: var(--font-weight-semibold);
-  margin-bottom: 0;
+  margin-bottom: var(--spacing-md);
   margin-top: 0;
   margin-left: 0;
   margin-right: auto;
-  display: block;
+  display: inline-block;
   padding: var(--spacing-sm) var(--spacing-xl);
   border-radius: var(--radius-2xl);
   background: rgba(54, 42, 42, 0.1);
   border: 1px solid var(--color-primary);
   box-shadow: none;
   transition: all var(--transition-base);
-  align-self: flex-start;
   width: auto;
-  float: none;
-  clear: both;
+  box-sizing: border-box;
 }
 
 .back-link:hover {
@@ -613,6 +614,91 @@
   font-size: var(--font-size-xs);
 }
 
+/* Fabrication Desk Grid Layout */
+.fabrication-desk-container {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-xl);
+  margin-top: var(--spacing-xl);
+}
+
+.fabrication-desk-bottom-images {
+  display: flex;
+  flex-direction: row;
+  gap: var(--spacing-lg);
+  align-items: flex-start;
+  justify-content: center;
+}
+
+.fabrication-desk-final {
+  flex: 0 0 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.fabrication-desk-side-image {
+  flex: 0 0 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.fabrication-desk-side-image img {
+  width: 100%;
+  height: auto;
+  border-radius: 4px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.fabrication-desk-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--spacing-lg);
+  margin: var(--spacing-xl) 0;
+}
+
+.fabrication-desk-grid-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.fabrication-desk-grid-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  overflow: hidden;
+  aspect-ratio: 1;
+}
+
+.fabrication-desk-grid-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 4px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.fabrication-desk-final {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: var(--spacing-xl);
+  max-width: 50%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.fabrication-desk-final img {
+  width: 100%;
+  height: auto;
+  border-radius: 4px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  object-fit: cover;
+  aspect-ratio: 1;
+}
+
 /* Text with Side Images (shared layout) */
 .text-with-side-images-container {
   display: flex;
@@ -705,10 +791,14 @@
 /* Subsections */
 .subsections {
   margin-top: var(--spacing-2xl);
-  padding-left: var(--spacing-xl);
+  padding-left: 0;
 }
 
 .subsection {
+  margin-bottom: var(--spacing-xl);
+}
+
+.subsection:not(:last-child) {
   margin-bottom: var(--spacing-2xl);
 }
 
@@ -778,14 +868,33 @@
 
 /* Side by side images layout */
 .side-by-side-images-container {
-  margin: var(--spacing-xl) 0;
+  margin: var(--spacing-lg) 0;
 }
 
 .side-by-side-images-grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: var(--spacing-xl);
-  margin-top: var(--spacing-xl);
+  gap: var(--spacing-md);
+  margin-top: var(--spacing-md);
+}
+
+/* Ladder shelf - closer images but smaller */
+.side-by-side-images-container.ladder-shelf-close .side-by-side-images-grid {
+  gap: 8px;
+  margin-top: var(--spacing-lg);
+  max-width: 60%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Support 3 images in a row - check if there are 3 image items */
+.side-by-side-images-grid:has(.side-by-side-image-item:nth-child(3)) {
+  grid-template-columns: repeat(3, 1fr);
+}
+
+/* Also support when there are exactly 3 children total (no arrow) */
+.side-by-side-images-grid:has(.side-by-side-image-item:nth-child(3):last-child) {
+  grid-template-columns: repeat(3, 1fr);
 }
 
 .side-by-side-image-item {
@@ -794,11 +903,104 @@
   gap: var(--spacing-md);
 }
 
-.side-by-side-image-item img {
+.side-by-side-image-item img,
+.side-by-side-image-item video {
   width: 100%;
   height: auto;
   border-radius: 4px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  object-fit: contain;
+}
+
+.side-by-side-arrow-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 var(--spacing-sm);
+}
+
+.side-by-side-arrow {
+  font-size: 1.25rem;
+  color: var(--color-secondary);
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 1;
+}
+
+/* Smaller images for fabrication project */
+.fabrication-small-image .side-by-side-images-grid {
+  max-width: 60%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.fabrication-small-image .side-by-side-image-item {
+  max-width: 100%;
+}
+
+.fabrication-small-image .side-by-side-image-item img,
+.fabrication-small-image .side-by-side-image-item video {
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+}
+
+/* Smaller single images for fabrication project */
+.fabrication-small-single-image .section-images {
+  max-width: 40%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.fabrication-small-single-image .section-image-item {
+  max-width: 100%;
+}
+
+/* Steelyard small row */
+.steelyard-small-row .side-by-side-images-grid {
+  max-width: 60%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Steelyard videos layout */
+.steelyard-videos-container {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-lg);
+  margin-top: var(--spacing-md);
+}
+
+.steelyard-videos-first-row {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+.steelyard-videos-first-row .side-by-side-image-item {
+  max-width: 50%;
+  width: 50%;
+}
+
+.steelyard-videos-container .side-by-side-images-grid {
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--spacing-lg);
+  margin-top: 0;
+}
+
+/* Make the video in second row smaller (first item) */
+.steelyard-videos-container .side-by-side-images-grid .side-by-side-image-item:first-child {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.steelyard-videos-container .side-by-side-images-grid .side-by-side-image-item:first-child video {
+  max-width: 60%;
+  width: 60%;
+  height: auto;
 }
 
 .side-by-side-caption {
@@ -1127,5 +1329,20 @@
 
   .large-image-text-overlay p {
     font-size: var(--font-size-sm);
+  }
+
+  /* Fabrication desk grid - mobile */
+  .fabrication-desk-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--spacing-md);
+  }
+
+  .fabrication-desk-final {
+    max-width: 100%;
+  }
+
+  /* Side by side images - stack on mobile */
+  .side-by-side-images-grid {
+    grid-template-columns: 1fr;
   }
 }

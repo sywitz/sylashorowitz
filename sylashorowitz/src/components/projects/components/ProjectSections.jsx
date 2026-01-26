@@ -15,14 +15,15 @@ function ProjectSections({ sections }) {
     if (typeof media === 'object' && media.type) {
       if (media.type === 'video') {
         const isBackground = media.background || false;
+        const hasControls = media.controls !== false && !isBackground;
         return (
           <div className={isBackground ? "section-background-video" : "section-media"}>
             <video 
-              autoPlay 
-              loop 
-              muted 
+              autoPlay={media.autoPlay !== false}
+              loop={media.loop !== false}
+              muted={media.muted !== false}
               playsInline
-              {...(isBackground ? {} : { controls: true })}
+              {...(hasControls ? { controls: true } : {})}
             >
               <source src={media.src || media.url} type={media.mimeType || 'video/mp4'} />
               Your browser does not support the video tag.
@@ -191,29 +192,36 @@ function ProjectSections({ sections }) {
               )}
             </>
           ) : section.layout === 'side-by-side-images' && section.sideBySideImages ? (
-            <div className="side-by-side-images-container">
+            <div className={`side-by-side-images-container ${section.customClass || ''}`}>
               {renderContent(section.content)}
               <div className="side-by-side-images-grid">
                 {section.sideBySideImages.map((item, index) => (
-                  <div key={index} className="side-by-side-image-item">
-                    {item.video ? (
-                      <video
-                        autoPlay={item.autoPlay !== false}
-                        loop={item.loop !== false}
-                        muted={item.muted !== false}
-                        controls={item.controls !== false}
-                        playsInline
-                        className="side-by-side-video"
-                      >
-                        <source src={item.video} type="video/mp4" />
-                      </video>
-                    ) : (
-                      <img src={item.image} alt={item.caption || ''} loading="lazy" />
+                  <React.Fragment key={index}>
+                    <div className="side-by-side-image-item">
+                      {item.video ? (
+                        <video
+                          autoPlay={item.autoPlay !== false}
+                          loop={item.loop !== false}
+                          muted={item.muted !== false}
+                          controls={item.controls !== false}
+                          playsInline
+                          className="side-by-side-video"
+                        >
+                          <source src={item.video} type="video/mp4" />
+                        </video>
+                      ) : (
+                        <img src={item.image} alt={item.caption || ''} loading="lazy" />
+                      )}
+                      {item.caption && (
+                        <div className="side-by-side-caption" dangerouslySetInnerHTML={{ __html: item.caption }} />
+                      )}
+                    </div>
+                    {index === 0 && section.sideBySideImages.length === 2 && section.showArrow !== false && (
+                      <div className="side-by-side-arrow-wrapper">
+                        <div className="side-by-side-arrow">→</div>
+                      </div>
                     )}
-                    {item.caption && (
-                      <div className="side-by-side-caption" dangerouslySetInnerHTML={{ __html: item.caption }} />
-                    )}
-                  </div>
+                  </React.Fragment>
                 ))}
               </div>
             </div>
@@ -371,6 +379,38 @@ function ProjectSections({ sections }) {
               {renderContent(section.content)}
               <ImageCarousel images={section.carouselImages} />
             </>
+          ) : section.layout === 'fabrication-desk-grid' && section.deskGridImages ? (
+            <div className="fabrication-desk-container">
+              {renderContent(section.content)}
+              <div className="fabrication-desk-grid">
+                {section.deskGridImages.map((item, index) => (
+                  <div key={index} className="fabrication-desk-grid-item">
+                    <img src={item.image} alt={item.caption || ''} loading="lazy" />
+                    {item.caption && (
+                      <div className="image-caption" dangerouslySetInnerHTML={{ __html: item.caption }} />
+                    )}
+                  </div>
+                ))}
+              </div>
+              <div className="fabrication-desk-bottom-images">
+                {section.deskFinalImage && (
+                  <div className="fabrication-desk-final">
+                    <img src={section.deskFinalImage.image} alt={section.deskFinalImage.caption || ''} loading="lazy" />
+                    {section.deskFinalImage.caption && (
+                      <div className="image-caption" dangerouslySetInnerHTML={{ __html: section.deskFinalImage.caption }} />
+                    )}
+                  </div>
+                )}
+                {section.deskSideImage && (
+                  <div className="fabrication-desk-side-image">
+                    <img src={section.deskSideImage.image} alt={section.deskSideImage.caption || ''} loading="lazy" />
+                    {section.deskSideImage.caption && (
+                      <div className="image-caption" dangerouslySetInnerHTML={{ __html: section.deskSideImage.caption }} />
+                    )}
+                  </div>
+                )}
+              </div>
+            </div>
           ) : section.layout === 'code-block' && section.code ? (
             <div className="code-block-section">
               {renderContent(section.content)}
@@ -544,6 +584,27 @@ function ProjectSections({ sections }) {
                 ))}
               </div>
             </div>
+          ) : section.layout === 'tidal-renderings-grid' && section.imageGallery ? (
+            <>
+              {renderContent(section.content)}
+              <div className="tidal-renderings-grid-container">
+                <div className="tidal-renderings-grid">
+                  {section.imageGallery.map((item, galleryIndex) => (
+                    <div key={galleryIndex} className="tidal-renderings-item">
+                      <div className="tidal-renderings-image">
+                        <img src={item.image} alt={item.caption || ''} loading="lazy" />
+                      </div>
+                      {item.caption && (
+                        <div 
+                          className="tidal-renderings-caption" 
+                          dangerouslySetInnerHTML={{ __html: item.caption }}
+                        />
+                      )}
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </>
           ) : (
             <>
               {renderContent(section.content)}
@@ -585,8 +646,8 @@ function ProjectSections({ sections }) {
           )}
           
           {/* Image gallery: three images in a row with captions */}
-          {/* Skip if already handled by custom layout (e.g., marina-image-grid) */}
-          {section.imageGallery && section.imageGallery.length > 0 && section.layout !== 'marina-image-grid' && (
+          {/* Skip if already handled by custom layout (e.g., marina-image-grid, tidal-renderings-grid) */}
+          {section.imageGallery && section.imageGallery.length > 0 && section.layout !== 'marina-image-grid' && section.layout !== 'tidal-renderings-grid' && (
             <div className="image-gallery">
               {section.imageGallery.map((item, galleryIndex) => (
                 <div key={galleryIndex} className="gallery-item">
@@ -608,12 +669,93 @@ function ProjectSections({ sections }) {
           {section.subsections && section.subsections.length > 0 && !section.layout && (
             <div className="subsections">
               {section.subsections.map((subsection, subIndex) => (
-                <div key={subIndex} className="subsection">
+                <div key={subIndex} className={`subsection ${subsection.customClass || ''}`}>
                   {subsection.title && <h3>{subsection.title}</h3>}
                   {subsection.content && renderContent(subsection.content)}
-                  {subsection.image && renderMedia(subsection.image)}
-                  {subsection.video && renderMedia(subsection.video)}
-                  {subsection.gif && renderMedia(subsection.gif)}
+                  {/* Support layouts in subsections */}
+                  {subsection.layout === 'steelyard-videos' && subsection.firstVideo ? (
+                    <div className="steelyard-videos-container">
+                      <div className="steelyard-videos-first-row">
+                        <div className="side-by-side-image-item">
+                          <video
+                            autoPlay={subsection.firstVideo.autoPlay !== false}
+                            loop={subsection.firstVideo.loop !== false}
+                            muted={subsection.firstVideo.muted !== false}
+                            controls={subsection.firstVideo.controls !== false}
+                            playsInline
+                            className="side-by-side-video"
+                          >
+                            <source src={subsection.firstVideo.video} type="video/mp4" />
+                          </video>
+                          {subsection.firstVideo.caption && (
+                            <div className="side-by-side-caption" dangerouslySetInnerHTML={{ __html: subsection.firstVideo.caption }} />
+                          )}
+                        </div>
+                      </div>
+                      {subsection.secondRow && subsection.secondRow.length > 0 && (
+                        <div className="side-by-side-images-grid">
+                          {subsection.secondRow.map((item, index) => (
+                            <div key={index} className="side-by-side-image-item">
+                              {item.video ? (
+                                <video
+                                  autoPlay={item.autoPlay !== false}
+                                  loop={item.loop !== false}
+                                  muted={item.muted !== false}
+                                  controls={item.controls !== false}
+                                  playsInline
+                                  className="side-by-side-video"
+                                >
+                                  <source src={item.video} type="video/mp4" />
+                                </video>
+                              ) : (
+                                <img src={item.image} alt={item.caption || ''} loading="lazy" />
+                              )}
+                              {item.caption && (
+                                <div className="side-by-side-caption" dangerouslySetInnerHTML={{ __html: item.caption }} />
+                              )}
+                            </div>
+                          ))}
+                        </div>
+                      )}
+                    </div>
+                  ) : subsection.layout === 'side-by-side-images' && subsection.sideBySideImages ? (
+                    <div className={`side-by-side-images-container ${subsection.customClass || ''}`}>
+                      <div className="side-by-side-images-grid">
+                        {subsection.sideBySideImages.map((item, index) => (
+                          <React.Fragment key={index}>
+                            <div className="side-by-side-image-item">
+                              {item.video ? (
+                                <video
+                                  autoPlay={item.autoPlay !== false}
+                                  loop={item.loop !== false}
+                                  muted={item.muted !== false}
+                                  controls={item.controls !== false}
+                                  playsInline
+                                  className="side-by-side-video"
+                                >
+                                  <source src={item.video} type="video/mp4" />
+                                </video>
+                              ) : (
+                                <img src={item.image} alt={item.caption || ''} loading="lazy" />
+                              )}
+                              {item.caption && (
+                                <div className="side-by-side-caption" dangerouslySetInnerHTML={{ __html: item.caption }} />
+                              )}
+                            </div>
+                            {index === 0 && subsection.sideBySideImages.length === 2 && subsection.showArrow !== false && (
+                              <div className="side-by-side-arrow">→</div>
+                            )}
+                          </React.Fragment>
+                        ))}
+                      </div>
+                    </div>
+                  ) : (
+                    <>
+                      {subsection.image && renderMedia(subsection.image)}
+                      {subsection.video && renderMedia(subsection.video)}
+                      {subsection.gif && renderMedia(subsection.gif)}
+                    </>
+                  )}
                 </div>
               ))}
             </div>

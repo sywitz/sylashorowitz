@@ -18,6 +18,9 @@ import vehicleToGridThumbnail from '../assets/engineering-data/vehicle-to-grid/2
 import highwaySolarThumbnail from '../assets/engineering-data/highway-solar-canopy/Solar Highway 4_edited.jpg';
 import acousticLevitationThumbnail from '../assets/engineering-data/holosonic/F70JMFTKQSKAC41.jpg';
 import acousticLevitationOverview from '../assets/engineering-data/holosonic/20240906_144027.jpg';
+import tidalPumpThumbnail from '../assets/engineering-data/tidal-pump/Concept Rendering (6).png';
+import tidalPumpOverview from '../assets/engineering-data/tidal-pump/Concept Rendering (4).png';
+import fabricationThumbnail from '../assets/engineering-data/fabrication/IMG_20251224_202427_587.jpg';
 
 export const engineeringProjects = [
   {
@@ -30,6 +33,28 @@ export const engineeringProjects = [
     image: acousticLevitationThumbnail,
     secondaryImage: acousticLevitationOverview,
     link: '/projects/acoustic-levitation-robot',
+    featured: false
+  },
+  {
+    id: 'tidal-pump',
+    title: 'TIDAL ENERGY PUMP',
+    institution: 'MIT Climate and Energy Prize',
+    year: '2024',
+    description: 'Designed and prototyped a gravitational tidal pump system for beachside irrigation and saltwater greenhouses. Developed parameterized Python models for system optimization, built a functional scale model prototype, and created comprehensive SolidWorks renderings with LCOE analysis.',
+    skills: ['Python', 'SolidWorks', 'Rendering', 'Mechanical Design', 'Hydraulic Systems', 'Prototyping', 'CAD', 'Parameterized Modeling', 'LCOE Analysis', 'Tidal Energy', 'Renewable Energy', 'System Design', 'Fluid Mechanics'],
+    image: tidalPumpThumbnail,
+    link: '/projects/tidal-pump',
+    featured: false
+  },
+  {
+    id: 'fabrication',
+    title: 'FABRICATION: WOODWORKING, WELDING, AND MORE',
+    institution: 'Personal projects',
+    year: '2023-2025',
+    description: 'I designed and built my own desk completely from old scrapwood and pipes, TIG welded and riveted giant bug sculptures to set on fire, made Sokka\'s boomerang from Avatar the Last Airbender, and more!',
+    skills: ['Woodworking', 'TIG Welding', 'Riveting', 'Biscuit Joining', 'Furniture Design', 'Metalworking', 'Sewing', 'Fabrication', 'Hand Tools', 'Power Tools', 'Staining', 'Finishing'],
+    image: fabricationThumbnail,
+    link: '/projects/fabrication',
     featured: false
   },
   {
