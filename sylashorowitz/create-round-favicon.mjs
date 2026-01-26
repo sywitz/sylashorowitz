@@ -2,7 +2,7 @@ import sharp from 'sharp';
 import { join } from 'path';
 
 const projectRoot = join(process.cwd());
-const inputPath = join(projectRoot, 'src', 'assets', 'images', 'favicon', 'Profile_pic.png');
+const inputPath = join(projectRoot, 'public', 'Profile_pic.png');
 const outputPath = join(projectRoot, 'public', 'favicon.png');
 
 console.log('Input path:', inputPath);

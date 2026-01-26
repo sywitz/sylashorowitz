@@ -16,7 +16,8 @@ import NavLinks from './header/NavLinks';
 import SocialLinks from './header/SocialLinks';
 import HeaderSkyline from './header/HeaderSkyline';
 import MobileMenu from './header/MobileMenu';
-import faviconImage from '../assets/images/favicon/Profile_pic.png';
+// Profile picture is now in public folder, accessed via public path
+const faviconImage = '/Profile_pic.png';
 
 function Header() {
   const location = useLocation();
