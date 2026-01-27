@@ -22,6 +22,7 @@ import tidalPumpThumbnail from '../assets/engineering-data/tidal-pump/Concept Re
 import tidalPumpOverview from '../assets/engineering-data/tidal-pump/Concept Rendering (4).png';
 import fabricationThumbnail from '../assets/engineering-data/fabrication/IMG_20251224_202427_587.jpg';
 import littoralPowerSystemsThumbnail from '../assets/engineering-data/lps/PXL_20240201_212729411.jpg';
+import emvolonThumbnail from '../assets/engineering-data/emvolon/index-em-CIO3cuLj.png';
 
 export const engineeringProjects = [
   {
@@ -34,6 +35,18 @@ export const engineeringProjects = [
     image: acousticLevitationThumbnail,
     secondaryImage: acousticLevitationOverview,
     link: '/projects/acoustic-levitation-robot',
+    featured: false
+  },
+  {
+    id: 'emvolon',
+    title: 'EMVOLON, INC.',
+    institution: 'R&D Engineer',
+    year: '2024-2026',
+    description: 'Designed, built, and tested first-of-a-kind syngas reactor and engine system for carbon-negative fuel production. Work included process design, CAD/GD&T/P&IDs/FEA/SOPs, high-pressure mechanical design (>70 bar, >200°C), controls, and hazardous gas handling. Led prototyping, PLC/DAQ, procurement, and system modelling.',
+    skills: ['SolidWorks', 'Process Systems', 'P&IDs', 'Systems Integration', 'High-Pressure Hardware', 'Hazardous Gases', 'PLC Controls', 'DAQ & Instrumentation', 'Rapid Prototyping', 'Lab Testing', 'Plumbing'],
+    image: emvolonThumbnail,
+    link: 'https://emvolon.com/',
+    companyWebsite: 'https://emvolon.com/',
     featured: false
   },
   {
@@ -60,13 +73,14 @@ export const engineeringProjects = [
   },
   {
     id: 'littoral-power-systems',
-    title: 'LITTORAL POWER SYSTEMS',
-    institution: 'Mechanical Engineer / Project Manager',
+    title: 'LITTORAL POWER SYSTEMS, INC.',
+    institution: 'Mechanical Engineer/PM',
     year: '2023-2024',
-    description: 'Managed a $4M+ DOE-funded marine renewable energy R&D partnering with GE Vernova and NREL. Led systems integration for wave energy converter testing and performed design, structural, and dynamic analysis for hydrokinetic turbines. Supported project engineering and plant control design for hydropower retrofits.',
-    skills: ['Project Management', 'Systems Integration', 'Mechanical Engineering', 'Python', 'MATLAB', 'Simulink', 'CAD', 'FEA', 'Structural Analysis', 'Marine Engineering', 'Risk Management', 'FMEA', 'DAQ', 'Controls Engineering', 'Technical Writing'],
+    description: 'Managed $4M+ DOE-funded marine renewable energy R&D with GE Vernova and NREL. Led systems integration for wave energy converter testing, structural/dynamic analysis for hydrokinetic turbines, and plant control design for hydropower retrofits.',
+    skills: ['Project Management', 'Systems Integration', 'Field Testing', 'Python', 'MATLAB', 'Simulink', 'CAD', 'FEA', 'Structural Analysis', 'Commissioning', 'Risk Management', 'FMEA', 'DAQ', 'Controls Engineering', 'Technical Writing'],
     image: littoralPowerSystemsThumbnail,
     link: '/projects/littoral-power-systems',
+    companyWebsite: 'https://littoralpower.com/',
     featured: false
   },
   {
@@ -140,7 +154,7 @@ export const engineeringProjects = [
     title: 'VEHICLE TO GRID CARGO BOX',
     institution: 'E2SOL Internship',
     year: '2021',
-    description: 'Solar cargo box with battery storage and inverter that can be placed on top of cars for vehicle-to-grid or on-the-go charging.',
+    description: 'Designed, built, and tested this solar cargo box with battery storage and inverter that can be placed on top of cars for vehicle-to-grid or on-the-go charging.',
     skills: ['Prototyping', 'Energy Systems', 'Product Design', 'Battery Systems', 'Inverter Design', 'Solar Integration', 'Vehicle Integration', 'Electrical Engineering'],
     image: vehicleToGridThumbnail,
     link: null,
@@ -151,7 +165,7 @@ export const engineeringProjects = [
     title: 'HIGHWAY SOLAR CANOPY',
     institution: 'E2SOL Internship',
     year: '2021',
-    description: 'Solar canopies designed for rapid mounting on standard highway median barriers, supported with case studies for Rhode Island and Massachusetts DOT.',
+    description: 'Solar canopies designed for rapid mounting on standard highway median barriers, supported with case studies for Rhode Island and Massachusetts DOT. I created this rendering.',
     skills: ['SolidWorks', 'Urban Planning', 'Public Policy', 'Infrastructure Design', 'Case Study Analysis', 'DOT Standards', 'Structural Engineering', 'Renewable Energy'],
     image: highwaySolarThumbnail,
     link: null,
@@ -206,8 +220,8 @@ export const engineeringProjects = [
     title: 'SOLAR PANEL DEPLOYMENT SYSTEM',
     institution: 'MIT Research',
     year: '2019',
-    description: 'Flexible, lightweight solar panel system designed for mounting on the roofs of e-rickshaws for street vendors in Bihar, India.',
-    skills: ['Product Design', 'Human-Centered Research', 'Energy Systems', 'Prototype Fabrication', 'Field Deployment Planning', 'Energy Analysis', 'Research', 'Hinge Mechanisms', 'Lightweight Design', 'Renewable Energy'],
+    description: 'Designed and prototyped a flexible, lightweight solar panel system for mounting on the roofs of e-rickshaws for street vendors in Bihar, India. Modelled solar capacity in HOMER Energy software.',
+    skills: ['Product Design', 'Human-Centered Research', 'HOMER Energy', 'Prototype Fabrication', 'Field Deployment Planning', 'Energy Analysis', 'Research', 'Hinge Mechanisms', 'Lightweight Design', 'Renewable Energy'],
     image: solarPanelDeploymentThumbnail,
     link: '/projects/solar-panel-deployment-system',
     featured: false

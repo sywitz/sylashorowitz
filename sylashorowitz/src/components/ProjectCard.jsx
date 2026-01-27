@@ -18,6 +18,7 @@ function ProjectCard({
   image,
   secondaryImage,
   link,
+  companyWebsite,
   featured
 }) {
   // Determine if link is external (starts with http:// or https://)
@@ -120,8 +121,8 @@ function ProjectCard({
   };
 
   return (
-    <div className="project-card">
-      <div className={`project-image-container ${image ? '' : 'no-image'} ${secondaryImage ? 'has-secondary-image' : ''}`}>
+    <div className={`project-card ${link ? 'project-card-clickable' : 'project-card-non-clickable'} ${id === 'emvolon' ? 'project-card-emvolon' : ''}`}>
+      <div className={`project-image-container ${image ? '' : 'no-image'} ${secondaryImage ? 'has-secondary-image' : ''} ${id === 'emvolon' ? 'emvolon-image-container' : ''}`}>
         {renderImage()}
         {renderSecondaryImage()}
         {featured && <div className="featured-badge">FEATURED</div>}
@@ -131,7 +132,23 @@ function ProjectCard({
         <div className="project-header">
           {renderTitle()}
           <div className="project-meta">
-            <span className="institution">{institution}, {year}</span>
+            <span className="institution">
+              {institution}, {year}
+              {companyWebsite && (
+                <>
+                  {' '}
+                  <a
+                    href={companyWebsite}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="company-website-link"
+                    onClick={(e) => e.stopPropagation()}
+                  >
+                    ↗
+                  </a>
+                </>
+              )}
+            </span>
           </div>
         </div>
         
