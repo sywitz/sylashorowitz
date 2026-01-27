@@ -92,6 +92,10 @@ export const littoralPowerSystems = {
       subsections: [
         {
           content: `In parallel, I supported path-to-deployment planning, coordinating with PacWave, University of Oregon, and research vessel contractors on permitting, marine sensor integration, and deployment. I worked with vendors, metal fabricators, and our partner naval architects on DFM for an open-ocean prototype, and led structured, team risk reviews and FMEA covering mechanical, electrical, and deployment-stage failure modes. I presented our progress to industry partners at the PacWave workshop at the <a href="https://pacificoceanenergy.org/orec-2024/" target="_blank" rel="noopener noreferrer">2024 Ocean Renewable Energy Conference</a>.`
+        },
+        {
+          image: tankTestingImage1,
+          content: '<div class="image-caption">Tank testing image sourced from Littoral Power Systems\' LinkedIn</div>'
         }
       ]
     },
