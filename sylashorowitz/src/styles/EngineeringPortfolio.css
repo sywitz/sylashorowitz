@@ -144,6 +144,15 @@
   transform: scale(1.35) translateX(8%);
 }
 
+/* Littoral Power Systems specific image styling - show top portion */
+.engineering-portfolio .project-image[alt="LITTORAL POWER SYSTEMS"] {
+  object-position: center 20%;
+}
+
+.engineering-portfolio .project-card:hover .project-image[alt="LITTORAL POWER SYSTEMS"] {
+  object-position: center 20%;
+}
+
 /* Acoustic Levitation Robot specific image styling - two images side by side */
 .engineering-portfolio .project-image-container.has-secondary-image {
   display: flex;
@@ -441,6 +450,11 @@
 
   .engineering-portfolio .project-card:hover .project-image[alt="ARCTIC ROV"] {
     transform: none;
+  }
+
+  /* Littoral Power Systems image - show top on mobile */
+  .engineering-portfolio .project-image[alt="LITTORAL POWER SYSTEMS"] {
+    object-position: center 20%;
   }
 
   /* Ensure all project images are constrained on mobile */

@@ -18,6 +18,7 @@ import ClimbingRobot from './ClimbingRobot';
 import AcousticLevitationRobot from './AcousticLevitationRobot';
 import TidalPump from './TidalPump';
 import Fabrication from './Fabrication';
+import LittoralPowerSystems from './LittoralPowerSystems';
 
 // Map of project IDs to their components
 export const projectComponents = {
@@ -34,6 +35,7 @@ export const projectComponents = {
   'acoustic-levitation-robot': AcousticLevitationRobot,
   'tidal-pump': TidalPump,
   'fabrication': Fabrication,
+  'littoral-power-systems': LittoralPowerSystems,
 };
 
 export default projectComponents;

@@ -769,6 +769,16 @@
   transform: none;
 }
 
+/* Larger side image for Data Science section */
+.section.data-science-section .side-image-wrapper {
+  flex: 0 0 40%;
+  max-width: 40%;
+}
+
+.section.data-science-section .text-with-side-images-content-box {
+  flex: 0 0 55%;
+}
+
 /* Transition Section */
 .section-transition {
   background: transparent !important;

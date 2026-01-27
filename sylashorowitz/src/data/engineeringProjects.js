@@ -21,6 +21,7 @@ import acousticLevitationOverview from '../assets/engineering-data/holosonic/202
 import tidalPumpThumbnail from '../assets/engineering-data/tidal-pump/Concept Rendering (6).png';
 import tidalPumpOverview from '../assets/engineering-data/tidal-pump/Concept Rendering (4).png';
 import fabricationThumbnail from '../assets/engineering-data/fabrication/IMG_20251224_202427_587.jpg';
+import littoralPowerSystemsThumbnail from '../assets/engineering-data/lps/PXL_20240201_212729411.jpg';
 
 export const engineeringProjects = [
   {
@@ -55,6 +56,17 @@ export const engineeringProjects = [
     skills: ['Woodworking', 'TIG Welding', 'Riveting', 'Biscuit Joining', 'Furniture Design', 'Metalworking', 'Sewing', 'Fabrication', 'Hand Tools', 'Power Tools', 'Staining', 'Finishing'],
     image: fabricationThumbnail,
     link: '/projects/fabrication',
+    featured: false
+  },
+  {
+    id: 'littoral-power-systems',
+    title: 'LITTORAL POWER SYSTEMS',
+    institution: 'Mechanical Engineer / Project Manager',
+    year: '2023-2024',
+    description: 'Managed a $4M+ DOE-funded marine renewable energy R&D partnering with GE Vernova and NREL. Led systems integration for wave energy converter testing and performed design, structural, and dynamic analysis for hydrokinetic turbines. Supported project engineering and plant control design for hydropower retrofits.',
+    skills: ['Project Management', 'Systems Integration', 'Mechanical Engineering', 'Python', 'MATLAB', 'Simulink', 'CAD', 'FEA', 'Structural Analysis', 'Marine Engineering', 'Risk Management', 'FMEA', 'DAQ', 'Controls Engineering', 'Technical Writing'],
+    image: littoralPowerSystemsThumbnail,
+    link: '/projects/littoral-power-systems',
     featured: false
   },
   {

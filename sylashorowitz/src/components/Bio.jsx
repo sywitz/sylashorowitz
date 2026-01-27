@@ -11,7 +11,7 @@ import BioHero from './bio/BioHero';
 import bioImage1 from '../assets/images/bio/IMG_20240822_140611.jpg';
 import bioImage2 from '../assets/images/bio/PXL_20220305_223541615.jpg';
 import bioImage3 from '../assets/images/bio/PXL_20231102_173228564.jpg';
-import bioImage4 from '../assets/images/bio/PXL_20240201_212729411.jpg';
+import bioImage4 from '../assets/engineering-data/lps/PXL_20240201_212729411.jpg';
 import '../styles/Bio.css';
 
 function Bio() {

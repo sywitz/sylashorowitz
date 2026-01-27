@@ -1,5 +1,6 @@
 // Import all individual project files
 import pultrusionMachine from './pultrusion-machine';
+import littoralPowerSystems from './littoral-power-systems';
 import arcticRov from './arctic-rov';
 import reVise from './re-vise';
 import marinaSolarSupports from './marina-solar-supports';
@@ -16,6 +17,7 @@ import fabrication from './fabrication';
 // Export as a single object with project IDs as keys
 export const projectData = {
   'pultrusion-machine': pultrusionMachine,
+  'littoral-power-systems': littoralPowerSystems,
   'arctic-rov': arcticRov,
   're-vise': reVise,
   'marina-solar-supports': marinaSolarSupports,

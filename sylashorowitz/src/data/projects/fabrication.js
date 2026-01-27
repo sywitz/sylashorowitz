@@ -55,7 +55,7 @@ export const fabrication = {
   sections: [
     {
       title: 'Ladder shelf (2025)',
-      content: `I built this wooden ladder shelf of my dreams, in order to have a dream ladder shelf and to bond with my 89-year-old, crafty grandpa!<br><br>I don't have a ton of progress pics, but it's pretty straightforward. Here's everything clamped together, prestain:`,
+      content: `I built this wooden ladder shelf of my dreams, in order to have a dream ladder shelf and to bond with my 89-year-old, crafty grandpa!<br><br>I don't have a ton of progress pics, but it's pretty straightforward.`,
       layout: 'side-by-side-images',
       customClass: 'ladder-shelf-close',
       showArrow: false,
@@ -72,7 +72,7 @@ export const fabrication = {
     },
     {
       title: 'Building my own desk entirely from scrapwood (2023)',
-      content: `My roommate in Providence worked at Home Depot and a ton of plywood scrap rotting in the backyard. I carted them all over to the Brown Design Workshop at Brown University and planed each piece to the same dimensions, removing debris and decay.<br><br>For the tabletop, I biscuit joined each piece and wood glued them together. I sanded it down smoothly and applied wood conditioner. Look at that nice grain!<br><br>Then I applied some nice dark stain.<br><br>For the base, I purchase some 1" black steel pipe. Here's what we got:<br><br>And the final product… a perfectly sized, large L-shaped desk, customized to my desires!`,
+      content: `My roommate in Providence worked at Home Depot and a ton of plywood scrap rotting in the backyard. I carted them all over to the Brown Design Workshop at Brown University and planed each piece to the same dimensions, removing debris and decay.<br><br>For the tabletop, I biscuit joined each piece and wood glued them together. I sanded it down smoothly and applied wood conditioner.<br><br>Then I applied some nice dark stain.<br><br>For the base, I purchase some 1" black steel pipe.<br><br>And the final product… a perfectly sized, large L-shaped desk, customized to my desires!`,
       layout: 'fabrication-desk-grid',
       deskGridImages: [
         {
@@ -157,7 +157,7 @@ export const fabrication = {
           ]
         },
         {
-          content: `Some videos from the burning, no sound, looping, no play button:`,
+          content: `Some videos from the burning:`,
           layout: 'steelyard-videos',
           firstVideo: {
             video: bugBurning1,

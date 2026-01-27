@@ -1,0 +1,361 @@
+/* Littoral Power Systems - Marine Wave Energy Theme */
+
+/* Marine-themed color scheme - deep ocean blues and teals */
+.littoral-power-systems-project.project-template {
+  --marine-primary: #0c4a6e; /* Deep ocean blue */
+  --marine-secondary: #075985; /* Darker ocean blue */
+  --marine-deep: #082f49; /* Deepest blue */
+  --marine-teal: #14b8a6; /* Bright teal accent */
+  --marine-cyan: #06b6d4; /* Cyan highlight */
+  --marine-light: #e0f7fa; /* Light cyan */
+  --marine-surface: #f0f9ff; /* Surface blue */
+  --wave-gradient: linear-gradient(135deg, #0c4a6e 0%, #075985 25%, #14b8a6 50%, #06b6d4 75%, #0c4a6e 100%);
+  --wave-gradient-subtle: linear-gradient(135deg, #e0f7fa 0%, #f0f9ff 50%, #e0f7fa 100%);
+  --ocean-gradient: linear-gradient(to bottom, #0c4a6e 0%, #075985 50%, #082f49 100%);
+}
+
+/* Project Overview - Ocean-inspired gradient background */
+.littoral-power-systems-project.project-template .project-overview {
+  background: var(--ocean-gradient);
+  color: var(--color-text-on-dark);
+  padding: var(--spacing-xl) var(--spacing-section-padding) var(--spacing-section-padding) var(--spacing-section-padding);
+  margin-right: 0;
+  border-radius: var(--radius-lg);
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 8px 32px rgba(12, 74, 110, 0.3);
+}
+
+/* Animated wave pattern overlay */
+.littoral-power-systems-project.project-template .project-overview::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: 
+    repeating-linear-gradient(
+      0deg,
+      transparent,
+      transparent 20px,
+      rgba(20, 184, 166, 0.05) 20px,
+      rgba(20, 184, 166, 0.05) 22px
+    ),
+    repeating-linear-gradient(
+      90deg,
+      transparent,
+      transparent 30px,
+      rgba(6, 182, 212, 0.03) 30px,
+      rgba(6, 182, 212, 0.03) 32px
+    );
+  pointer-events: none;
+  animation: waveFlow 20s linear infinite;
+}
+
+@keyframes waveFlow {
+  0% {
+    background-position: 0 0, 0 0;
+  }
+  100% {
+    background-position: 0 100px, 100px 0;
+  }
+}
+
+/* Overview content layout */
+.littoral-power-systems-project.project-template .project-overview .overview-content {
+  align-items: flex-start;
+  gap: var(--spacing-3xl);
+  flex-wrap: nowrap;
+  position: relative;
+  z-index: 1;
+}
+
+.littoral-power-systems-project.project-template .project-overview .overview-content .overview-text {
+  flex: 1 1 auto;
+  min-width: 0;
+}
+
+.littoral-power-systems-project.project-template .project-overview h2 {
+  color: var(--marine-teal);
+  text-shadow: 0 2px 8px rgba(20, 184, 166, 0.3);
+}
+
+.littoral-power-systems-project.project-template .project-overview p,
+.littoral-power-systems-project.project-template .project-overview .overview-text {
+  color: #ffffff;
+}
+
+/* Overview image - clean, no borders */
+.littoral-power-systems-project.project-template .project-overview .overview-content .overview-image {
+  flex: 0 0 auto;
+  max-width: 400px;
+}
+
+.littoral-power-systems-project.project-template .project-overview .overview-content .overview-image img {
+  width: 100%;
+  height: auto;
+  border-radius: var(--radius-md);
+}
+
+/* Achievements with marine accent */
+.littoral-power-systems-project.project-template .project-overview .achievements h3 {
+  color: var(--marine-teal);
+  text-shadow: 0 2px 4px rgba(20, 184, 166, 0.3);
+}
+
+.littoral-power-systems-project.project-template .project-overview .achievements li::before {
+  content: '🌊';
+  color: var(--marine-cyan);
+  font-size: 1.2em;
+}
+
+/* Skills tags with marine theme */
+.littoral-power-systems-project.project-template .project-overview .skills-used h3 {
+  color: var(--marine-teal);
+  text-shadow: 0 2px 4px rgba(20, 184, 166, 0.3);
+}
+
+.littoral-power-systems-project.project-template .project-overview .skill-tag {
+  background: rgba(20, 184, 166, 0.15);
+  color: var(--marine-light);
+  border: 1px solid rgba(20, 184, 166, 0.4);
+  padding: var(--spacing-xs) var(--spacing-sm);
+  border-radius: var(--radius-md);
+  font-size: 0.68rem;
+  font-weight: var(--font-weight-medium);
+  transition: all var(--transition-base);
+  backdrop-filter: blur(4px);
+}
+
+.littoral-power-systems-project.project-template .project-overview .skill-tag:hover {
+  background: rgba(20, 184, 166, 0.3);
+  border-color: var(--marine-teal);
+  transform: translateY(var(--transform-offset-sm));
+}
+
+/* Section headers with wave effect */
+.littoral-power-systems-project.project-template .section h2 {
+  color: var(--marine-primary);
+  position: relative;
+  padding-bottom: var(--spacing-md);
+  margin-bottom: var(--spacing-xl);
+  font-weight: var(--font-weight-bold);
+  text-shadow: 0 2px 4px rgba(12, 74, 110, 0.1);
+}
+
+.littoral-power-systems-project.project-template .section h2::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 80px;
+  height: 4px;
+  background: var(--wave-gradient);
+  border-radius: 2px;
+  animation: waveExpand 2s ease-in-out infinite;
+}
+
+@keyframes waveExpand {
+  0%, 100% {
+    width: 80px;
+    opacity: 1;
+  }
+  50% {
+    width: 120px;
+    opacity: 0.8;
+  }
+}
+
+/* Sections with marine-inspired backgrounds - clean, minimal borders */
+.littoral-power-systems-project.project-template .section:not(.section-transition):not(.section-background-video):not(:has(h2:only-child)) {
+  background: linear-gradient(to bottom, #ffffff 0%, var(--marine-surface) 100%);
+  border-left: 4px solid var(--marine-teal);
+  box-shadow: 0 2px 8px rgba(12, 74, 110, 0.08);
+}
+
+/* Alternating section styles */
+.littoral-power-systems-project.project-template .section:nth-child(even):not(.section-transition):not(.section-background-video):not(:has(h2:only-child)) {
+  background: linear-gradient(to bottom, var(--marine-surface) 0%, #ffffff 100%);
+  border-left-color: var(--marine-cyan);
+}
+
+/* FIX FONT SIZES - Universal approach: target ALL paragraphs in sections */
+.littoral-power-systems-project.project-template .section p {
+  font-size: var(--font-size-lg);
+  line-height: var(--line-height-loose);
+  color: var(--color-secondary);
+  margin-bottom: var(--spacing-md);
+}
+
+.littoral-power-systems-project.project-template .section p:last-child {
+  margin-bottom: var(--spacing-lg);
+}
+
+/* Also target paragraphs inside divs */
+.littoral-power-systems-project.project-template .section div p {
+  font-size: var(--font-size-lg);
+  line-height: var(--line-height-loose);
+  color: var(--color-secondary);
+  margin-bottom: var(--spacing-md);
+}
+
+.littoral-power-systems-project.project-template .section div p:last-child {
+  margin-bottom: var(--spacing-lg);
+}
+
+/* Content box paragraphs */
+.littoral-power-systems-project.project-template .text-with-side-images-content-box p,
+.littoral-power-systems-project.project-template .text-with-side-images-content-box div p {
+  font-size: var(--font-size-lg);
+  line-height: var(--line-height-loose);
+  color: var(--color-secondary);
+  margin-bottom: var(--spacing-md);
+}
+
+/* Subsection paragraphs */
+.littoral-power-systems-project.project-template .subsection p,
+.littoral-power-systems-project.project-template .subsection div p {
+  font-size: var(--font-size-lg);
+  line-height: var(--line-height-loose);
+  color: var(--color-secondary);
+  margin-bottom: var(--spacing-md);
+}
+
+/* Make contentBoxes text full width - clean, no borders */
+.littoral-power-systems-project.project-template .text-with-side-images-pair {
+  flex-direction: column;
+  align-items: stretch;
+}
+
+.littoral-power-systems-project.project-template .text-with-side-images-content-box {
+  width: 100%;
+  flex: 1 1 100%;
+  max-width: 100%;
+  padding: var(--spacing-2xl);
+}
+
+/* Section media images - clean, no borders or outlines */
+.littoral-power-systems-project.project-template .section-media {
+  width: 100%;
+  max-width: 60%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.littoral-power-systems-project.project-template .section-media img {
+  width: 100%;
+  max-width: 100%;
+  object-fit: contain;
+  margin: 0 auto;
+  display: block;
+}
+
+/* Side image wrapper - clean, no borders */
+.littoral-power-systems-project.project-template .side-image-wrapper {
+  max-width: 40% !important;
+  width: 40% !important;
+  flex: 0 0 40% !important;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.littoral-power-systems-project.project-template .side-image-wrapper img {
+  max-width: 100%;
+  width: 100%;
+  object-fit: contain;
+  display: block;
+}
+
+/* Image gallery - clean grid, no borders */
+.littoral-power-systems-project.project-template .side-by-side-images-grid {
+  grid-template-columns: repeat(3, 1fr) !important;
+  gap: var(--spacing-md);
+  display: grid;
+}
+
+.littoral-power-systems-project.project-template .side-by-side-image-item {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-md);
+  aspect-ratio: 1;
+  overflow: hidden;
+}
+
+.littoral-power-systems-project.project-template .side-by-side-image-item img,
+.littoral-power-systems-project.project-template .side-by-side-image-item video {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  background-color: rgba(240, 249, 255, 0.3);
+}
+
+/* Links with marine accent */
+.littoral-power-systems-project.project-template a {
+  color: var(--marine-teal);
+  text-decoration: underline;
+  transition: color var(--transition-base);
+}
+
+.littoral-power-systems-project.project-template a:hover {
+  color: var(--marine-cyan);
+}
+
+/* Back link with marine theme */
+.littoral-power-systems-project.project-template .back-link {
+  background: rgba(20, 184, 166, 0.1);
+  border: 1px solid rgba(20, 184, 166, 0.3);
+  color: var(--marine-primary);
+  transition: all var(--transition-base);
+}
+
+.littoral-power-systems-project.project-template .back-link:hover {
+  background: var(--marine-teal);
+  color: white;
+  border-color: var(--marine-teal);
+}
+
+/* Subsection styling - no box, just text */
+.littoral-power-systems-project.project-template .subsection {
+  background: transparent;
+  padding: 0;
+  border: none;
+  margin-top: var(--spacing-lg);
+}
+
+.littoral-power-systems-project.project-template .subsection h3 {
+  color: var(--marine-primary);
+  margin-bottom: var(--spacing-md);
+}
+
+/* Responsive: stack on mobile */
+@media (max-width: 768px) {
+  .littoral-power-systems-project.project-template .project-overview .overview-content {
+    flex-direction: column;
+    gap: var(--spacing-xl);
+  }
+
+  .littoral-power-systems-project.project-template .project-overview .overview-content .overview-image {
+    max-width: 100%;
+  }
+
+  .littoral-power-systems-project.project-template .section-media {
+    max-width: 90%;
+  }
+
+  .littoral-power-systems-project.project-template .side-image-wrapper {
+    max-width: 80% !important;
+    width: 80% !important;
+    flex: 0 0 80% !important;
+  }
+
+  .littoral-power-systems-project.project-template .side-by-side-images-grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .littoral-power-systems-project.project-template .side-by-side-images-grid {
+    grid-template-columns: 1fr !important;
+  }
+}
