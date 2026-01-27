@@ -5,6 +5,7 @@
 
 import pultrusionThumbnail from '../assets/engineering-data/pultrusion-machine/Screenshot 2023-11-27 220417_edited.jpg';
 import arcticRovThumbnail from '../assets/engineering-data/arctic-rov/Untitled Project 3.jpg';
+import arcticRovSecondary from '../assets/engineering-data/arctic-rov/image(2).png';
 import guatemalaCookstoveThumbnail from '../assets/engineering-data/guatemala-cookstove/IMG_1117 (1)_edited.jpg';
 import reViseThumbnail from '../assets/engineering-data/re-vise/final_photo_white_edited_edited cropped.jpg';
 import yoYoThumbnail from '../assets/engineering-data/yo-yo-manufacturing/received_586638632542024_edited_edited_edited_edited_edited_edited_edited_edited.jpg';
@@ -99,9 +100,10 @@ export const engineeringProjects = [
     title: 'ARCTIC ROV',
     institution: 'MIT Research',
     year: '2020-2022',
-    description: 'Motorized tether management system for an underwater ROV that will be deployed in the Arctic to map greenhouse gas emissions from permafrost.',
+    description: 'Motorized tether management system for an underwater ROV that was deployed in the Arctic to map greenhouse gas emissions from permafrost.',
     skills: ['SolidWorks', 'Arduino', 'Mechatronics', 'Systems Integration', 'Research', 'CAD', 'Prototyping', 'Field Testing', 'Electronics', 'Motor Control', 'MATLAB', 'Belt Drive Design', 'Waterproofing', 'Marine Engineering', 'Scientific Instrumentation', 'Published Research'],
     image: arcticRovThumbnail,
+    secondaryImage: arcticRovSecondary,
     link: '/projects/arctic-rov',
     featured: false
   },

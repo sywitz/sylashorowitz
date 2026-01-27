@@ -159,14 +159,21 @@
   transform: scale(1);
 }
 
-/* Arctic ROV specific image styling - zoom in and shift right */
-.engineering-portfolio .project-image[alt="ARCTIC ROV"] {
+/* Arctic ROV specific image styling - zoom in and shift right (only when no secondary image) */
+.engineering-portfolio .project-image-container:not(.has-secondary-image) .project-image[alt="ARCTIC ROV"] {
   transform: scale(1.3) translateX(8%);
   object-position: 60% center;
 }
 
-.engineering-portfolio .project-card:hover .project-image[alt="ARCTIC ROV"] {
+.engineering-portfolio .project-card:hover .project-image-container:not(.has-secondary-image) .project-image[alt="ARCTIC ROV"] {
   transform: scale(1.35) translateX(8%);
+}
+
+/* Arctic ROV split screen - reset transforms for split layout */
+.engineering-portfolio .project-image-container.has-secondary-image .project-image[alt="ARCTIC ROV"],
+.engineering-portfolio .project-image-container.has-secondary-image .project-image-secondary[alt="ARCTIC ROV overview"] {
+  transform: none;
+  object-position: center center;
 }
 
 /* Littoral Power Systems specific image styling - show top portion */
