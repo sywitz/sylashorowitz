@@ -6,6 +6,7 @@
  */
 
 import React, { useRef } from 'react';
+import { Link } from 'react-router-dom';
 import { papers, PAPERS_INTRO_TEXT } from '../data/papersData';
 import { useScrollTracking } from '../hooks/useScrollTracking';
 import { scrollToPaper } from '../utils/scrollUtils';
@@ -31,7 +32,24 @@ function Papers() {
     <section id="papers">
       <div className="papers-header">
         <h1>WRITING</h1>
-        <p>{PAPERS_INTRO_TEXT}</p>
+        <p>
+          {PAPERS_INTRO_TEXT}{' '}
+          <Link 
+            to="/ideas"
+            className="ideas-link"
+            style={{ 
+              color: 'var(--color-accent)', 
+              textDecoration: 'none',
+              borderBottom: '1px solid transparent',
+              transition: 'border-color var(--transition-base)',
+              cursor: 'pointer'
+            }}
+            onMouseEnter={(e) => e.target.style.borderBottomColor = 'var(--color-accent)'}
+            onMouseLeave={(e) => e.target.style.borderBottomColor = 'transparent'}
+          >
+            (informal ideas)
+          </Link>
+        </p>
       </div>
       
       <div className="papers-container">

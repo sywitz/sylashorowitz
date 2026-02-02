@@ -13,6 +13,8 @@ import Bio from './components/Bio';
 import EngineeringPortfolio from './components/EngineeringPortfolio';
 import Art from './components/Art';
 import Papers from './components/Papers';
+import Ideas from './components/Ideas';
+import CoDrawer from './components/ideas/CoDrawer';
 import ProjectTemplate from './components/projects/ProjectTemplate';
 import { projectComponents } from './components/projects';
 import './styles/App.css';
@@ -51,6 +53,10 @@ function App() {
             <Route path="/art" element={<Art />} />
             <Route path="/papers" element={<Papers />} />
             <Route path="/projects/:projectId" element={<ProjectRouter />} />
+            
+            {/* Hidden routes - not in navigation */}
+            <Route path="/ideas" element={<Ideas />} />
+            <Route path="/ideas/co-drawer" element={<CoDrawer />} />
             
             {/* Redirect unknown routes to home */}
             <Route path="*" element={<Navigate to="/" />} />
