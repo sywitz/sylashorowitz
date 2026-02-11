@@ -18,6 +18,7 @@ import img20240822_140611 from '../../assets/engineering-data/holosonic/IMG_2024
 import vid20240905_wa0010 from '../../assets/engineering-data/holosonic/VID-20240905-WA0010.mp4';
 import fv5z7epkqux6ujb from '../../assets/engineering-data/holosonic/FV5Z7EPKQUX6UJB.png';
 import vid20240910_wa0002 from '../../assets/engineering-data/holosonic/VID-20240910-WA0002.mp4';
+import recording20260211_002505 from '../../assets/engineering-data/holosonic/Recording 2026-02-11 002505.mp4';
 
 export const acousticLevitationRobot = {
   id: 'acoustic-levitation-robot',
@@ -249,13 +250,27 @@ export const acousticLevitationRobot = {
     {
       content: `After programming and troubleshooting the FPGA in Quartus II, we were able to achieve levitation! Interestingly, my phone microphone picks up the ultrasonic sound, which is inaudible and above human hearing, and it is audible in this video as noise.`,
       layout: 'background-video',
-      backgroundVideo: vid20240910_wa0002
+      backgroundVideo: recording20260211_002505
     },
     {
+      title: '2D Levitation',
       content: '',
       video: {
         type: 'video',
         src: vid20240910_wa0002,
+        loop: false,
+        muted: false,
+        controls: true,
+        autoPlay: false
+      },
+      customClass: 'video-only-section'
+    },
+    {
+      title: '3D Levitation',
+      content: '',
+      video: {
+        type: 'video',
+        src: recording20260211_002505,
         loop: false,
         muted: false,
         controls: true,

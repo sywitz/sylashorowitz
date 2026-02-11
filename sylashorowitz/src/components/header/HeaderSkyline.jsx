@@ -5,13 +5,13 @@
  */
 
 import React from 'react';
-import landscapeTestImage from '../../assets/images/backgrounds/landscape_test.png';
+import landscapeV1Image from '../../assets/images/backgrounds/landscape_v1.png';
 
 function HeaderSkyline() {
   return (
     <div 
       className="header-skyline"
-      style={{ backgroundImage: `url(${landscapeTestImage})` }}
+      style={{ backgroundImage: `url(${landscapeV1Image})` }}
     />
   );
 }
