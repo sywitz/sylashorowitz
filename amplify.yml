@@ -5,6 +5,7 @@ frontend:
       commands:
         - cd sylashorowitz
         - corepack enable
+        - corepack prepare pnpm@10.28.1 --activate
         - pnpm install --frozen-lockfile
     build:
       commands:
