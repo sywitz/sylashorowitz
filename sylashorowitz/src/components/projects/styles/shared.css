@@ -31,7 +31,8 @@
   max-width: 400px;
 }
 
-.project-overview .overview-image img {
+.project-overview .overview-image img,
+.project-overview .overview-image video {
   width: 100%;
   height: auto;
   border-radius: var(--radius-md);

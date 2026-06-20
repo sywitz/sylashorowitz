@@ -26,7 +26,13 @@ export const acousticLevitationRobot = {
   subtitle: 'Personal project, 2025',
   featured: false,
   heroImage: null,
-  overviewImage: overviewImage,
+  overviewVideo: {
+    src: recording20260211_002505,
+    loop: false,
+    muted: false,
+    controls: true,
+    autoPlay: false
+  },
   description: `I am designing a particle manipulation device that emits high-frequency sound with precise wave characteristics. This ultrasonic technology is known as acoustic levitation or acoustophoresis … sometimes "acoustic tweezers." A sound wave applies forces on small particles, such as individual cells, UV-curable gels, and small electronic components. These forces can move, levitate, and reorganize the particles in mid-air with precision and gentleness.<br><br>Alongside my partner, I have built and modified a 3D ultrasonic array testing platform from <a href="https://www.instructables.com/SonicSurface-Phased-array-for-Levitation-Mid-air-T/" target="_blank" rel="noopener noreferrer">UpnaLab's open-source project</a> to simulate a scaled-up version of our end product. I simulated the acoustic field control strategy in Python by generating phase maps based on the desired acoustic pressure field.`,
   achievements: [
     'Built and modified a 3D ultrasonic array testing platform from open-source design',

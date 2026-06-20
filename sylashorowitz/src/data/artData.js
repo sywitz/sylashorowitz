@@ -6,8 +6,9 @@
  */
 
 // Import all art pieces (art35 at top, art1 at bottom)
+import alifAndEdgar from '../assets/art-data/alif-and-edgar.png';
 import art35 from '../assets/art-data/art35.mp4';
-import art34 from '../assets/art-data/art34.mp4';
+// import art34 from '../assets/art-data/art34.mp4';
 import walden from '../assets/art-data/Walden.jpg';
 // import art33 from '../assets/art-data/art33.png';
 // import art32 from '../assets/art-data/art32.png';
@@ -27,6 +28,7 @@ import art22 from '../assets/art-data/art22.jpg';
 // import art21 from '../assets/art-data/art21.jpg';
 import art20 from '../assets/art-data/art20.PNG';
 import art19 from '../assets/art-data/art19.PNG';
+import sketchbookSpread from '../assets/art-data/sketchbook-spread.jpg';
 import art18 from '../assets/art-data/art18.PNG';
 import art17 from '../assets/art-data/art17.PNG';
 // import art16 from '../assets/art-data/art16.PNG';
@@ -49,8 +51,8 @@ import art1 from '../assets/art-data/art1.jpg';
 
 // Art pieces data - ordered from newest (top) to oldest (bottom)
 export const artPieces = [
+  { id: 40, src: alifAndEdgar, type: 'image', title: 'Alif and Edgar', description: 'Digital painting (Photoshop), 2026. A portrait to commemorate the passing of beloved cat, Edgar.' },
   { id: 39, src: art35, type: 'video', title: 'Jellyfish Lamp', description: 'Mechanical sculpture, 2025. A motor in the base drives the frame to bow like a jellyfish and tentacles to move.' },
-  { id: 38, src: art34, type: 'video', title: 'Mobile Hologram', description: 'Extended reality, 2025. This is a simple plexiglas object that can be placed on a phone to create a hologram.' },
   { id: 37, src: art23, type: 'video', title: 'Portrait of My Friend, Part 2', description: 'Acrylic and embedded LEDs, 2025.' },
   { id: 36, src: art22, type: 'image', title: 'Portrait of My Friend, Part 1', description: 'Acrylic, 2022.' },
   { id: 35, src: walden, type: 'image', title: 'Transcendental', description: 'Watercolor, 2025. A study of Walden Pond.' },
@@ -70,6 +72,7 @@ export const artPieces = [
   // { id: 21, src: art21, type: 'image', title: 'Untitled 21', description: 'Digital art, 2024. Example description text for this piece.' },
   { id: 26, src: art20, type: 'image', title: 'Water Protector', description: 'Digital painting, 2022. An Anishinaabe "water protector" protesting the Line 3 pipeline.' },
   { id: 25, src: art19, type: 'image', title: 'Nonexistent Friend: Cambridgeside Canal', description: 'Digital painting, 2022. Because birds aren\'t real.' },
+  { id: 41, src: sketchbookSpread, type: 'image', title: 'Sketchbook Spread', description: 'Mixed media sketchbook, 2022.' },
   { id: 24, src: art18, type: 'image', title: 'Be The Cowboy', description: 'Digital painting, 2021. A portrait of musical artist, Mitski.' },
   { id: 23, src: art17, type: 'image', title: 'Kahlo and Vargas', description: 'Digital painting, 2021. A color rendition of a black and white photo of two lovers from the 1940s.' },
   // { id: 16, src: art16, type: 'image', title: 'Untitled 16', description: 'Digital art, 2024. Example description text for this piece.' },

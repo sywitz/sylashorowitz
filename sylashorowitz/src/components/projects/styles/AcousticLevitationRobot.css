@@ -34,6 +34,34 @@
     height: auto;
     box-sizing: border-box;
   }
+
+  /* Project Overview - equal text/video columns */
+  .acoustic-levitation-project.project-template .project-overview .overview-content {
+    flex-wrap: nowrap;
+    align-items: stretch;
+  }
+
+  .acoustic-levitation-project.project-template .project-overview .overview-content .overview-text {
+    flex: 1 1 0;
+    min-width: 0;
+  }
+
+  .acoustic-levitation-project.project-template .project-overview .overview-content .overview-image {
+    flex: 1 1 0;
+    min-width: 0;
+    width: auto;
+    max-width: none;
+    min-height: unset;
+  }
+
+  .acoustic-levitation-project.project-template .project-overview .overview-content .overview-image video {
+    width: 100%;
+    height: auto;
+    min-width: unset;
+    min-height: unset;
+    object-fit: contain;
+    object-position: center;
+  }
 }
 
 /* Mobile optimizations */

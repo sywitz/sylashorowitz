@@ -6,20 +6,44 @@
 import React from 'react';
 
 function ProjectOverview({ project, showImage = false, imagePosition = 'right' }) {
+  const overviewMedia = project.overviewVideo || project.overviewImage;
+
   // Render description with HTML support
   const renderDescription = () => {
     return <p dangerouslySetInnerHTML={{ __html: project.description }} />;
   };
 
+  const renderOverviewMedia = () => {
+    if (project.overviewVideo) {
+      const video = typeof project.overviewVideo === 'string'
+        ? { src: project.overviewVideo }
+        : project.overviewVideo;
+
+      return (
+        <video
+          controls={video.controls !== false}
+          loop={video.loop ?? false}
+          muted={video.muted ?? false}
+          autoPlay={video.autoPlay ?? false}
+          playsInline
+        >
+          <source src={video.src} type="video/mp4" />
+        </video>
+      );
+    }
+
+    return <img src={project.overviewImage} alt={project.title} />;
+  };
+
   return (
     <div className="project-overview">
       <h2>Project Overview</h2>
-      {showImage && project.overviewImage ? (
+      {showImage && overviewMedia ? (
         <div className={`overview-content ${imagePosition === 'left' ? 'overview-image-left' : ''}`}>
           {imagePosition === 'left' ? (
             <>
               <div className="overview-image">
-                <img src={project.overviewImage} alt={project.title} />
+                {renderOverviewMedia()}
               </div>
               <div className="overview-text">
                 {renderDescription()}
@@ -31,7 +55,7 @@ function ProjectOverview({ project, showImage = false, imagePosition = 'right' }
                 {renderDescription()}
               </div>
               <div className="overview-image">
-                <img src={project.overviewImage} alt={project.title} />
+                {renderOverviewMedia()}
               </div>
             </>
           )}
